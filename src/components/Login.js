@@ -1,8 +1,18 @@
-import {Link} from "react-router-dom"
+import {useEffect} from "react"
+import {Link, useNavigate} from "react-router-dom"
 import { useState } from "react"
 import validateEmail from "../emailValidator"
-export default function Login() {
 
+import axios from "../axios"
+
+export default function Login() {
+const navigate = useNavigate()
+
+useEffect(() => {
+    if (localStorage.token) {
+        navigate("/")
+    }
+}, [])
 const [alert,setAlert] = useState({
     email: '',
     password: '',
@@ -10,13 +20,31 @@ const [alert,setAlert] = useState({
 })
 const [login, setLogin] = useState(
         {
-            name: '',
             email: '',
             password: '',
             remember_me: false,
         }
     )
+    const loginUser = async (email, password) => {
+        try {
+            const config = {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+            const response = await axios.post("/loginseller", {email, password}, config)
+            const token = response.data.data.access_token
+            localStorage.setItem("token", token)
+            navigate("/")
+        } catch (error) {
+            console.log(error.response)
+        }
+    }
 
+    const onSubmit = (e) => {
+        e.preventDefault()
+        loginUser(login.email, login.password)
+    }
     function handleSubmit(e){
         e.preventDefault()
         const emailValidator= validateEmail(login.email)
@@ -67,19 +95,14 @@ const [login, setLogin] = useState(
     }
 
     function handleChange(e){
-        const [name, email] = e.target
-        setLogin((name, email)=>{
-            // return {
-            //     ...prev
-            // }
-        })
-
+        // setEmail(e.target.value)
+       setLogin({...login, [e.target.name]: e.target.value})
         // LoginUser(login.email, login.password)
-        setLogin({
-            // ...prev,
-            email: '',
-            password: '',
-        })
+        // setLogin({
+        //     // ...prev,
+        //     email: '',
+        //     password: '',
+        // })
     }
     
     return (
@@ -108,17 +131,25 @@ const [login, setLogin] = useState(
                     <div class="col-lg-8 offset-lg-2">
                             <div class="basic-login">
                             <h3 class="text-center mb-60">Login From Here</h3>
-                            <form>
+                            <form method="POST" onSubmit={onSubmit}>
                                 <label for="name">Email Address <span>**</span></label>
                                 <input 
-                                id="name" 
-                                type="text" 
+                                id="email" 
+                                type="email" 
                                 placeholder="Email address..." 
                                 name="email"
+                                value={login.email}
                                 onChange={handleChange}
                                 />
                                 <label for="pass">Password <span>**</span></label>
-                                <input id="pass" type="password" placeholder="Enter password..." />
+                                <input 
+                                id="pass" 
+                                name="password" 
+                                type="password" 
+                                placeholder="Enter password..."
+                                value={login.password}
+                                onChange={handleChange}
+                                 />
                                 <div class="login-action mb-20 fix">
                                         <span class="log-rem f-left">
                                         <input id="remember" type="checkbox" />
@@ -130,7 +161,7 @@ const [login, setLogin] = useState(
                                 </div>
                                 <button 
                                 class="t-y-btn w-100"
-                                onSubmit={handleSubmit}
+                                type="submit"
                                 >Login Now</button>
                                 <div class="or-divide"><span>or</span></div>
                                 <a href="register.html" class="t-y-btn t-y-btn-grey w-100">Register Now</a>

@@ -1,5 +1,31 @@
+import {useState, useEffect} from "react"
 import {Link} from "react-router-dom"
+
+import axios from "../axios"
 export default function Navbar(){
+  const [user, setUser] = useState(null)
+
+  const getSellerProfile = async () => {
+    console.log(localStorage.token)
+    try {
+      const headers = {
+          "Authorization": `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json"
+        }
+      const resp = await axios.get("/getbuyerprofile", {headers: headers})
+      console.log(resp.data.data.first_name)
+      setUser(resp.data.data)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  useEffect(() => {
+    if (localStorage.token) {
+      getSellerProfile()
+    }
+    
+  }, [])
     return(
         <>
         <header className="yellow-header">
@@ -22,7 +48,10 @@ export default function Navbar(){
                           <a href="#">My Wishlist</a>
                         </li>
                         <li>
-                          <Link to="/login">Sign In</Link>
+                          {localStorage.token ? (
+                              <Link to="/login">{user && user.first_name}</Link>
+                          ) : (<Link to="/login">Sign In</Link>)}
+                          
                         </li>
                         <li>
                           <a href="#">Compare</a>

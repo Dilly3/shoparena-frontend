@@ -1,4 +1,44 @@
+import {useEffect, useState} from "react"
+
+import axios from "../axios"
+
 export default function Main(){
+    const [products, setProducts] = useState([])
+    const getAllProducts =  async () => {
+        try {
+            const resp = await axios.get("/products")
+            console.log(resp.data)
+            setProducts(resp.data.all_products)
+        } catch (error) {
+            console.log(error.response.data)
+        }
+    }
+    const getAllCategories =  async () => {
+        try {
+            const resp = await axios.get("/products")
+            console.log(resp.data)
+            setProducts(resp.data.all_products)
+        } catch (error) {
+            console.log(error.response.data)
+        }
+    }
+    const createProduct =  async (product) => {
+        try {
+            const config = {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+            const resp = await axios.post("/products", product, config)
+            console.log(resp.data)
+            setProducts(resp.data.all_products)
+        } catch (error) {
+            console.log(error.response.data)
+        }
+    }
+    useEffect(() => {
+        getAllProducts()
+    }, [])
     return(
         <>
            <main>
@@ -249,6 +289,13 @@ export default function Main(){
       </div>
       <div className="row">
         <div className="col-xl-12">
+            {products.map(product => (
+                <div className="">
+                    <h3>{product.amount}</h3>
+                    <h3>{product.id}</h3>
+                    <h3>{product.amount}</h3>
+                </div>
+            ))}
           <div className="tab-content" id="best-sell-tabContent">
             <div className="tab-pane fade show active" id="new" role="tabpanel" aria-labelledby="new-tab">
               <div className="product__slider owl-carousel">
