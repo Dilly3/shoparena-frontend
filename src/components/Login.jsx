@@ -1,6 +1,5 @@
-import {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {Link, useNavigate} from "react-router-dom"
-import { useState } from "react"
 import validateEmail from "../emailValidator"
 
 import axios from "../axios"
@@ -37,7 +36,7 @@ const [login, setLogin] = useState(
             localStorage.setItem("token", token)
             navigate("/")
         } catch (error) {
-            console.log(error.response)
+            console.log(error)
         }
     }
 
@@ -106,8 +105,7 @@ const [login, setLogin] = useState(
     }
     
     return (
-        <>
-             <main>
+        <main>
             <section class="breadcrumb__area box-plr-75">
                 <div class="container-fluid">
                     <div class="row">
@@ -172,6 +170,7 @@ const [login, setLogin] = useState(
                 </div>
             </section>
         </main>
-        </>
     )
 }
+
+
