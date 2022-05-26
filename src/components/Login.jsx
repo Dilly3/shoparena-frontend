@@ -162,7 +162,8 @@ const [login, setLogin] = useState(
                                 type="submit"
                                 >Login Now</button>
                                 <div class="or-divide"><span>or</span></div>
-                                <a href="register.html" class="t-y-btn t-y-btn-grey w-100">Register Now</a>
+                                
+                                <Link to="/register" class="t-y-btn t-y-btn-grey w-100">Register Now</Link>
                             </form>
                             </div>
                     </div>
