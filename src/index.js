@@ -4,7 +4,7 @@ import App from "./App";
 import Login from "./pages/Login"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RegisterComponent from "./components/Register";
-// import ResetPassword from "./pages/ResetPassword";
+import ResetPassword from "./pages/ResetPassword";
 import ContextUse from "./context/ContextUse"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

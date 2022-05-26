@@ -128,28 +128,28 @@ setInput({...input, [e.target.name]:e.target.value})
 
                     <select id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
                         <option value="all">Lower Price Limit</option>
-                        <option value="100">$100</option>
-                        <option value="200">$200</option>
-                        <option value="500">$500</option> 
-                        <option value="1000">$1000</option>
-                        <option value="2000">$2000</option>
-                        <option value="5000">$5000</option>
-                        <option value="10000">$10000</option>   
-                        <option value="20000">$20000</option>
-                        <option value="50000">$50000</option>   
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="500">500</option> 
+                        <option value="1000">1000</option>
+                        <option value="2000">2000</option>
+                        <option value="5000">5000</option>
+                        <option value="10000">10000</option>   
+                        <option value="20000">20000</option>
+                        <option value="50000">50000</option>   
                     </select>
 
                     <select id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
                         <option value="all">Upper Price Limit</option>
-                        <option value="50000">$50000</option>
-                        <option value="20000">$10000</option>
-                        <option value="10000">$10000</option> 
-                        <option value="5000">$5000</option>
-                        <option value="2000">$2000</option>
-                        <option value="1000">$1000</option>
-                        <option value="500">$500</option>   
-                        <option value="200">$200</option>
-                        <option value="100">$100</option>   
+                        <option value="50000">50000</option>
+                        <option value="20000">10000</option>
+                        <option value="10000">10000</option> 
+                        <option value="5000">5000</option>
+                        <option value="2000">2000</option>
+                        <option value="1000">1000</option>
+                        <option value="500">500</option>   
+                        <option value="200">200</option>
+                        <option value="100">100</option>   
                     </select>
                
                         <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
