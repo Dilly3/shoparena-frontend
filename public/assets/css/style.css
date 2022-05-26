@@ -1662,7 +1662,7 @@ p {
   left: 160px;
   height: 45%;
   width: 1px;
-  background: #e1e1e1;
+  /* background: #e1e1e1; */
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
@@ -1727,7 +1727,7 @@ p {
   }
 }
 .header__search-cat {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 20px;
   -webkit-transform: translateY(-50%);
@@ -2273,6 +2273,12 @@ p {
 .product__item-sidebar {
   padding: 15px 0;
   border-bottom: 1px solid #ebebeb;
+}
+.products__container{
+  display: contents;
+}
+.product__item-wrapper{
+    margin: 40px;
 }
 .product__sale {
   padding: 15px 10px;
