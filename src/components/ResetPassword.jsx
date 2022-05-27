@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import {Link, useNavigate} from "react-router-dom"
-import Navbar from './Navbar'
 import axios from '../axios'
 
 const ResetPassword = () => {
@@ -11,10 +10,10 @@ const ResetPassword = () => {
         navigate("/")
     }
 }, [localStorage.token])
-    const [alert,setAlert] = useState({
-        newPassword: '',
-        confirmNewPassword: '',
-    })
+   const [alert,setAlert] = useState({
+       newPassword: '',
+       confirmNewPassword: '',
+   })
     const [reset, setReset] = useState(
         {
             oldPassword: '',

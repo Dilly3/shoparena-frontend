@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {Link, useNavigate} from "react-router-dom"
 import validateEmail from "../emailValidator"
-
 import axios from "../axios"
 
 export default function Login() {
@@ -163,7 +162,7 @@ const [login, setLogin] = useState(
                                 >Login Now</button>
                                 <div class="or-divide"><span>or</span></div>
                                 
-                                <Link to="/register" class="t-y-btn t-y-btn-grey w-100">Register Now</Link>
+                                <Link to="/buyer/register" class="t-y-btn t-y-btn-grey w-100">Register Now</Link>
                             </form>
                             </div>
                     </div>
