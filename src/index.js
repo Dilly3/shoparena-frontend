@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import RegisterComponent from "./components/Register";
 import ResetPassword from "./pages/ResetPassword";
 import ContextUse from "./context/ContextUse"
-import SellerDashboard from "./pages/sellerdashboard/SellerDashboard";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +17,7 @@ root.render(
      <Route exact path="/" element={<App/>}></Route>
       <Route exact path="/login" element={<Login/>}></Route>
       <Route exact path="/register" element={<RegisterComponent/>}></Route>
-      <Route exact path="/sellerdashboard" element={<SellerDashboard/>}></Route>
+      <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
      </Routes>
   </Router>
   </ContextUse>
