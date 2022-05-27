@@ -30,7 +30,7 @@ const ResetPassword = () => {
                 }
             }
             console.log(localStorage.token);
-            const response = await axios.put("/seller/updatepassword", {
+            const response = await axios.put("/buyer/updatepassword", {
                 old_password: oldPassword,
                 new_password: newPassword,
                 confirm_new_password: confirmNewPassword

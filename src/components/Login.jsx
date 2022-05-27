@@ -31,7 +31,7 @@ const [login, setLogin] = useState(
                     "Content-Type": "application/json"
                 }
             }
-            const response = await axios.post("/loginseller", {email, password}, config)
+            const response = await axios.post("/loginbuyer", {email, password}, config)
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
             navigate("/")
@@ -162,7 +162,8 @@ const [login, setLogin] = useState(
                                 type="submit"
                                 >Login Now</button>
                                 <div class="or-divide"><span>or</span></div>
-                                <a href="register.html" class="t-y-btn t-y-btn-grey w-100">Register Now</a>
+                                
+                                <Link to="/register" class="t-y-btn t-y-btn-grey w-100">Register Now</Link>
                             </form>
                             </div>
                     </div>

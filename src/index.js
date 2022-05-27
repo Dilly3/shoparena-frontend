@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Login from "./pages/Login"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import RegisterComponent from "./components/Register";
-import ResetPassword from "./pages/ResetPassword";
 import ContextUse from "./context/ContextUse"
+import RegisterComponent from "./pages/Register";
+import ResetPassword from "./pages/ResetPassword"
+
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

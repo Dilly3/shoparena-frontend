@@ -1,8 +1,6 @@
+import React from 'react';
 import {useEffect, useState} from "react"
-
-import axios from "../axios"
 import instance from '../axios'
-import React from "react"
 
 import {useAppContext} from "../context/ContextUse"
 
@@ -13,22 +11,12 @@ export default function Main(){
   upperPrice,
   sort} = useAppContext()
 
-  // console.log(category)
+
     const [products, setProducts] = useState([])
-    // const [searchParams, setSearch] = useState(initialState)
+
 
     useEffect(()=>{
-      // instance.get('/products')
-      // .then(function(response){
-      //   console.log(response.data)
-      //   setProducts(response.data.all_Products)
-      // })
-      // .catch(function(error){
-      //   console.log(error)
-      // })
-      // .then(function(){
   
-      // })
       searchProduct()
     }, [category,
       lowerPrice,
