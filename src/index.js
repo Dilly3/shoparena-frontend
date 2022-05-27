@@ -17,7 +17,7 @@ root.render(
      <Routes>
      <Route exact path="/" element={<App/>}></Route>
       <Route exact path="/login" element={<Login/>}></Route>
-      <Route exact path="/register" element={<RegisterComponent/>}></Route>
+      <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
      </Routes>
   </Router>

@@ -14,7 +14,7 @@ const navigate = useNavigate()
 
 useEffect(() => {
     if (!localStorage.token) {
-        navigate("/register")
+        navigate("/buyer/register")
     }}, [localStorage.token])
 
     const [alert,setAlert] = useState({
