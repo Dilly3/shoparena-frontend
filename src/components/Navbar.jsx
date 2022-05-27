@@ -1,5 +1,5 @@
-import React from 'react';
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
+import React from "react"
 import {Link} from "react-router-dom"
 import instance from '../axios'
 import {useAppContext} from "../context/ContextUse"
@@ -65,6 +65,9 @@ setInput({...input, [e.target.name]:e.target.value})
                   <div className="col-xl-6 col-lg-6 col-md-7">
                     <div className="header__action d-flex justify-content-center justify-content-md-end">
                       <ul>
+                        <li>
+                        <Link to="/sellerdashboard">Seller</Link>
+                        </li>
                         {/* <li>
                           <a href="#">My Account</a>
                         </li> */}

@@ -31,7 +31,7 @@ const [login, setLogin] = useState(
                     "Content-Type": "application/json"
                 }
             }
-            const response = await axios.post("/loginseller", {email, password}, config)
+            const response = await axios.post("/loginbuyer", {email, password}, config)
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
             navigate("/")
