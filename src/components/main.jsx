@@ -1,8 +1,6 @@
+import React from 'react';
 import {useEffect, useState} from "react"
-
-import axios from "../axios"
 import instance from '../axios'
-
 import {useAppContext} from "../context/ContextUse"
 
 
