@@ -90,14 +90,14 @@ setInput({...input, [e.target.name]:e.target.value})
                 <div className="row align-items-center">
                   <div className="col-xl-4 col-lg-3">
                     <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center">
-                      {/* <div className="logo">
+                      <div className="logo">
                         <Link to="/">
                           <img
-                            src="assets/img/logo/logo-black-2.png"
+                            src="assets/img/logo/oja.png"
                             alt="logo"
                           />
                         </Link>
-                      </div> */}
+                      </div>
                       <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
                         <div className="header__hotline-icon">
                           <i className="fal fa-headset" />
@@ -122,10 +122,10 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="computing">Computing</option>
                         <option value="electronics">Electronics</option> 
                         <option value="fashion">Fashion</option>
-                        <option value="foodDrinks">Food/Drinks</option>
-                        <option value="healthBeauty">Health/Beauty</option>
-                        <option value="phoneTablets">Phone/Tablets</option>   
-                        <option value="sportingGoods">Sporting goods</option>
+                        <option value="food drinks">Food/Drinks</option>
+                        <option value="health & beauty">Health/Beauty</option>
+                        <option value="phones & tablets">Phone/Tablets</option>   
+                        <option value="sporting goods">Sporting goods</option>
                         <option value="others">Others</option>   
                     </select>
 
