@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react'
+import {Link, useNavigate} from "react-router-dom";
+import validateEmail from "../emailValidator"
+import axios from "../axios"
 
 
 
@@ -8,7 +11,7 @@ export default function SellerRegisterComponent() {
     
     useEffect(() => {
         if (!localStorage.token) {
-            navigate("/buyer/register")
+            navigate("/seller/register")
         }}, [localStorage.token])
     
         const [alert,setAlert] = useState({
