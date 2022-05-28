@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar"
-import SellerRegisterComponent from "../components/SellerRegister"
+import RegisterComponent from "../components/Register"
 import Footer from "../components/Footer"
 
 
@@ -8,7 +8,7 @@ export default function Register() {
     return(
         <>
          <Navbar/>
-        <SellerRegisterComponent/>
+        <RegisterComponent/>
         <Footer/>
         </>
     )
