@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContextUse from "./context/ContextUse"
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
-import SellerRegisterComponent from "./pages/SellerLogin"
+import SellerRegisterComponent from "./pages/SellerRegister"
 
 
 
