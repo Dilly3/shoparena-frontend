@@ -203,7 +203,7 @@ const handleSubmit =(e)=> {
                                     <label for="last_name">Last name <span>**</span></label>
                                     <input id="last_name" 
                                     type="text" 
-                                    placeholder="Enter Lastname" 
+                                    placeholder="Enter Last name" 
                                     name="last_name"
                                     value={signup.last_name}
                                     onChange={handleChange}/>
