@@ -64,7 +64,7 @@ export default function SellerRegisterComponent() {
                     // setSuccess("")
                     console.log(success, "success")
                     
-                    navigate("/login")
+                    navigate("/seller/login")
                 }, 5000)
                 
             } catch (error) {
@@ -259,4 +259,5 @@ export default function SellerRegisterComponent() {
             </main>
     
             </>
-        )}
+        )
+    }

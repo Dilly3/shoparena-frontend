@@ -67,7 +67,7 @@ useEffect(() => {
                 // setSuccess("")
                 console.log(success, "success")
                 
-                navigate("/login")
+                navigate("/buyer/login")
             }, 5000)
             
         } catch (error) {
