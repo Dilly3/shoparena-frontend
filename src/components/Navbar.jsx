@@ -117,8 +117,8 @@ setInput({...input, [e.target.name]:e.target.value})
 
                       <div>
                       <select id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="all">All Categories </option>
-                        <option value="babyProducts">Baby Products</option>
+                        <option value="">All Categories</option>
+                        <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
                         <option value="electronics">Electronics</option> 
                         <option value="fashion">Fashion</option>
@@ -130,7 +130,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="all">Lower Price Limit</option>
+                        <option value="0">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
                         <option value="500">500</option> 
@@ -143,7 +143,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="all">Upper Price Limit</option>
+                        <option value="0">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
                         <option value="10000">10000</option> 
