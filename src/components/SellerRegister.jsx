@@ -168,7 +168,7 @@ export default function SellerRegisterComponent() {
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                           <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                                          <li class="breadcrumb-item active" aria-current="page">Buyer Sign up</li>
+                                          <li class="breadcrumb-item active" aria-current="page">Seller Sign up</li>
                                         </ol>
                                       </nav>
                                 </div>
@@ -181,7 +181,7 @@ export default function SellerRegisterComponent() {
                         <div class="row">
                             <div class="col-lg-8 offset-lg-2">
                                 <div class="basic-login">
-                                    <h3 class="text-center mb-60"> Buyer Signup</h3>
+                                    <h3 class="text-center mb-60"> Seller Signup</h3>
     
                 {success && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#008000", color: "#ffffff"}}>{success}</div>}
                  {error && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#f44336", color: "#ffffff"}} >{error}</div>}
