@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import Login from "./pages/Login"
+import SellerLogin from "./pages/SellerLogin"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContextUse from "./context/ContextUse"
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
+import SellerRegisterComponent from "./pages/ResetPassword"
 
 
 
