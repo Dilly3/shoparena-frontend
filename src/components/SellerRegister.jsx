@@ -183,8 +183,8 @@ export default function SellerRegisterComponent() {
                                 <div class="basic-login">
                                     <h3 class="text-center mb-60"> Seller Signup</h3>
     
-                {success && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#008000", color: "#ffffff"}}>{success}</div>}
-                 {error && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#f44336", color: "#ffffff"}} >{error}</div>}
+                {success && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#008000", color: "#ffffff", position: "sticky"}}>{success}</div>}
+                 {error && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#f44336", color: "#ffffff", position: "sticky"}} >{error}</div>}
                                     
                                     <form method="POST" onSubmit={handleSubmit}>
     
