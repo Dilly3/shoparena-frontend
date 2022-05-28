@@ -113,8 +113,8 @@ const [login, setLogin] = useState(
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                       <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                                      <li class="breadcrumb-item active" aria-current="page"><Link to="/login">Lnmnjnmjnogin</Link></li>
-                                      <Link to="/login">sdfgsdfgdg</Link>
+                                      <li class="breadcrumb-item active" aria-current="page"><Link to="/buyer/login">Buyer Sign in</Link></li>
+                                      
                                     </ol>
                                   </nav>
                             </div>
@@ -127,7 +127,7 @@ const [login, setLogin] = useState(
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                             <div class="basic-login">
-                            <h3 class="text-center mb-60">Login From Here</h3>
+                            <h3 class="text-center mb-60">Buyer Login</h3>
                             <form method="POST" onSubmit={onSubmit}>
                                 <label for="name">Email Address <span>**</span></label>
                                 <input 
