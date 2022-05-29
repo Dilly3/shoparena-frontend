@@ -23,7 +23,7 @@ root.render(
       <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
-      <Route exact path="/seller/dashboard" element={<ResetPassword/>}></Route>
+      <Route exact path="/seller/dashboard" element={<SellerDashboard/>}></Route>
      </Routes>
   </Router>
   </ContextUse>
