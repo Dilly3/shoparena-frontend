@@ -64,9 +64,7 @@ setInput({...input, [e.target.name]:e.target.value})
                   <div className="col-xl-6 col-lg-6 col-md-7">
                     <div className="header__action d-flex justify-content-center justify-content-md-end">
                       <ul>
-                        <li>
-                        <Link to="/sellerdashboard">Seller</Link>
-                        </li>
+                      
                         {/* <li>
                           <a href="#">My Account</a>
                         </li> */}
@@ -75,10 +73,17 @@ setInput({...input, [e.target.name]:e.target.value})
                         </li>
                         <li>
                           {localStorage.token ? (
-                              <Link to="/login">{user && user.first_name}</Link>
-                          ) : (<Link to="/login">Sign In</Link>)}
+                              <Link to="/buyer/login">{user && user.first_name}</Link>
+                          ) :  <Link to="/buyer/login">Buyer Sign in</Link>}
                           
                         </li>
+                        <li>
+                          {localStorage.token ? (
+                              <Link to="/seller/login">{user && user.first_name}</Link>
+                          ) :  <Link to="/seller/login">Seller Sign in</Link>}
+                          
+                        </li>
+
                       </ul>
                     </div>
                   </div>
@@ -297,7 +302,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
                         <select>
-                          <option>USD</option>
+                          <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">
