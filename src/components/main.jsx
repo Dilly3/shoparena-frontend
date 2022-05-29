@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect, useState} from "react"
 import instance from '../axios'
 import {useAppContext} from "../context/ContextUse"
+import axios from 'axios'; 
 
 
 
@@ -64,7 +65,17 @@ let data
       }  = product
       try {
 
-        const response = await instance.post("/addtocart", {ID, price, image, title, quantity: Number(input.quantity)})
+        // const token = localStorage.getItem("token")
+
+        // const response = await instance.post("/addtocart", {ID, price, image, title, quantity: Number(input.quantity)})
+
+
+        const response = await axios.post("https://oja-ecommerce.herokuapp.com/api/v1/addtocart", {ID, price, image, title, quantity: Number(input.quantity)}, {
+          headers: {
+            'Authorization': `Bearer ${token}` 
+          }})
+
+        
         if(response.status === 200){
           const obj = {
             quantity: Number(input.quantity),
