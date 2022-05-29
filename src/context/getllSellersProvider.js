@@ -6,6 +6,11 @@ import {
   GET_SELLERS_ERROR,
 } from "../actions";
 const url = "oja-ecommerce.herokuapp.com/api/v1/sellers";
+const initialState = {
+  sellers_loading: false,
+  sellers_error: false,
+  sellers: [],
+};
 
 function SellerContext({ children }) {
   const SellerContext = React.createContext();
