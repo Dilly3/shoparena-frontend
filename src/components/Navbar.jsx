@@ -9,11 +9,15 @@ const initialState = {
   category:"",
   lowerPrice:"",
   upperPrice:"",
-  sort:""
+  sort:"",
   }
 
+  
+
 export default function Navbar(){
-  const { handleSearch} = useAppContext()
+  const { handleSearch, cart, cartAmount} = useAppContext()
+
+  console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
   const [input, setInput] = useState(initialState)
 
@@ -27,9 +31,11 @@ setInput({...input, [e.target.name]:e.target.value})
 // console.log(e)
   }
 
+  const token = localStorage.getItem("token")
+
   
   const getSellerProfile = async () => {
-    console.log(localStorage.token)
+    // console.log(localStorage.token)
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
@@ -160,13 +166,13 @@ setInput({...input, [e.target.name]:e.target.value})
                     </div>
                         </form>
                       </div>
-                      <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+                      {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
                         <a href="javascript:void(0);" className="cart__toggle">
-                          <span className="cart__total-item">01</span>
+                          <span className="cart__total-item">{cart}</span>
                         </a>
                         <span className="cart__content">
                           <span className="cart__my">My Cart:</span>
-                          <span className="cart__total-price">$ 255.00</span>
+                          <span className="cart__total-price">${cartAmount}</span>
                         </span>
 
 
@@ -235,7 +241,7 @@ setInput({...input, [e.target.name]:e.target.value})
                             </li>
                           </ul>
                         </div> */}
-                      </div>
+                      </div>}
                     </div>
                   </div>
                 </div>

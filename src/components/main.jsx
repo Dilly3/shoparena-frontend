@@ -1,16 +1,21 @@
 import React from 'react';
 import {useEffect, useState} from "react"
 import instance from '../axios'
-
 import {useAppContext} from "../context/ContextUse"
 
+
+
+const initialState = {
+  quantity: 1
+}
 
 export default function Main(){
   const { category,
   lowerPrice,
   upperPrice,
-  sort} = useAppContext()
+  sort, addToCart} = useAppContext()
 
+const [input, setInput ] = useState(initialState)
 
     const [products, setProducts] = useState([])
 
@@ -23,11 +28,15 @@ export default function Main(){
       upperPrice,
       sort])
 
+const token = localStorage.getItem("token")
 
-console.log(category,
-  lowerPrice,
-  upperPrice,
-  sort)
+const handleChange = (e)=>{
+  // e.preventDefault()
+  // const number = parseInt(e.target.value)
+  setInput({...input, [e.target.name]:e.target.value})
+}
+
+let data
     async function searchProduct(){
       try {
         let url = `/searchproducts?lower-price=${lowerPrice}&upper-price=${upperPrice}&name=${sort}`
@@ -38,12 +47,40 @@ console.log(category,
       console.log(response.data)
       setProducts(response.data)
       } catch (error) {
-        console.log(error.response)
+        console.log(error.response.data)
+        if(error.response.status === 500){
+          return data = <div> error.response.data </div>
+        }
 
       }
+    }
 
+    const addToCartFunc = async (product)=>{
+      const {
+        ID,
+        price,
+        image,
+        title,
+      }  = product
+      try {
+
+        const response = await instance.post("/addtocart", {ID, price, image, title, quantity: Number(input.quantity)})
+        if(response.status === 200){
+          const obj = {
+            quantity: Number(input.quantity),
+            price
+          }
+          addToCart(obj)
+          setInput({quantity:1})
+        }
+      } catch (error) {
+        console.log(error)
+      }
   
     }
+
+
+
     return(
          <div>
   <main>
@@ -133,7 +170,7 @@ console.log(category,
 
 {/* render the function starts here */}
                   {
-                  (products.length > 0) ? products.map(
+                  (products.length > 0 ) ? products.map(
                   product => {
                   return(
                   <> 
@@ -167,15 +204,16 @@ console.log(category,
                           </div>
                           <span className="new">${product.price}</span>
                         </div>
-                        <div className="product__add-btn">
-                          <button type="button">Add to Cart</button>
-                        </div>
+                        {token && <div className="product__add-btn">
+                          <button type="button" onClick = {()=>addToCartFunc(product)}>Add to Cart</button>
+                        </div>}
+                      
                       </div>
                     </div>
                   </>
                   )
                   }
-                  ): <p> Loading</p>
+                  ): <p> Loading...</p>
                   }
  {/* Render the function stops here */}
 
@@ -329,10 +367,10 @@ console.log(category,
                       <form action="#">
                         <div className="pro-quan-area d-lg-flex align-items-center">
                           <div className="product-quantity mr-20 mb-25">
-                            <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1} /></div>
+                         {token &&  <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1}  name = "quantity" value = {input.quantity} onChange = {handleChange}/></div>}  
                           </div>
                           <div className="pro-cart-btn mb-25">
-                            <button className="t-y-btn" type="submit">Add to cart</button>
+                          {token &&  <button className="t-y-btn" type="submit" onClick = {()=> addToCartFunc(product)}>Add to cart</button>} 
                           </div>
                         </div>
                       </form>
