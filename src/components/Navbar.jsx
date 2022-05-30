@@ -124,10 +124,10 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__info-right">
                       <div className="header__search f-left d-none d-sm-block">
 
-                        <form onSubmit={handleSubmit} >
+                        <form className="search" onSubmit={handleSubmit} >
 
                       <div>
-                      <select id="category" placeholder="Categories" onChange = {handleChange} name = "category">
+                      <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
                         <option value="">All Categories</option>
                         <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
@@ -140,7 +140,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="others">Others</option>   
                     </select>
 
-                    <select id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
+                    <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
                         <option value="0">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
@@ -153,7 +153,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="50000">50000</option>   
                     </select>
 
-                    <select id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
+                    <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
                         <option value="0">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
@@ -167,7 +167,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
                
                         <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
-                        <button type="submit">Search</button>
+                        <button className="cat-btn" type="submit">Search</button>
                     </div>
                         </form>
                       </div>
