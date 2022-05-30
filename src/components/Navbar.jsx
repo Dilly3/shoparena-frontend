@@ -28,14 +28,13 @@ export default function Navbar(){
   }
   const handleChange = (e)=>{
 setInput({...input, [e.target.name]:e.target.value})
-// console.log(e)
+
   }
 
   const token = localStorage.getItem("token")
 
   
   const getSellerProfile = async () => {
-    // console.log(localStorage.token)
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
