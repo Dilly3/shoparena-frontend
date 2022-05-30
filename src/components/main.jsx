@@ -1,19 +1,25 @@
 import React from 'react';
 import {useEffect, useState} from "react"
 import instance from '../axios'
-
 import {useAppContext} from "../context/ContextUse"
+import axios from 'axios'; 
 
+
+
+const initialState = {
+  quantity: 1
+}
 
 export default function Main(){
   const { category,
   lowerPrice,
   upperPrice,
-  sort} = useAppContext()
+  sort, addToCart} = useAppContext()
 
+const [input, setInput ] = useState(initialState)
 
     const [products, setProducts] = useState([])
-
+    const [modalProduct, setModalProduct] = useState([{}])
 
     useEffect(()=>{
   
@@ -23,11 +29,15 @@ export default function Main(){
       upperPrice,
       sort])
 
+const token = localStorage.getItem("token")
 
-console.log(category,
-  lowerPrice,
-  upperPrice,
-  sort)
+const handleChange = (e)=>{
+  // e.preventDefault()
+  // const number = parseInt(e.target.value)
+  setInput({...input, [e.target.name]:e.target.value})
+}
+
+let data
     async function searchProduct(){
       try {
         let url = `/searchproducts?lower-price=${lowerPrice}&upper-price=${upperPrice}&name=${sort}`
@@ -38,18 +48,55 @@ console.log(category,
       console.log(response.data)
       setProducts(response.data)
       } catch (error) {
-        console.log(error.response)
+        console.log(error.response.data)
+        if(error.response.status === 500){
+          return data = <div> error.response.data </div>
+        }
 
       }
-
-  
     }
+
+    const addToCartFunc = async (product)=>{
+      const {
+        ID,
+        price,
+        image,
+        title,
+      }  = product
+      try {
+
+
+        const response = await axios.post("https://oja-ecommerce.herokuapp.com/api/v1/addtocart", {ID, price, image, title, quantity: Number(input.quantity)}, {
+          headers: {
+            'Authorization': `Bearer ${token}` 
+          }})
+
+        
+        if(response.status === 200){
+          const obj = {
+            quantity: Number(input.quantity),
+            price
+          }
+          addToCart(obj)
+          setInput({quantity:1})
+        }
+      } catch (error) {
+        console.log(error)
+      }
+  
+    
+    }
+const handleModal = (product)=>{
+  setModalProduct([product])
+}
+
+
     return(
          <div>
   <main>
     
     {/* features area start */}
-    <section className="features__area grey-bg-2 pt-40 pb-20 pl-10 pr-10">
+    <section id= "top" className="features__area grey-bg-2 pt-40 pb-20 pl-10 pr-10">
       <div className="container">
         <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
           <div className="col">
@@ -133,7 +180,7 @@ console.log(category,
 
 {/* render the function starts here */}
                   {
-                  (products.length > 0) ? products.map(
+                  (products.length > 0 ) ? products.map(
                   product => {
                   return(
                   <> 
@@ -147,16 +194,15 @@ console.log(category,
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
-                              <li><a href="#" title="Add to Wishlist"><i className="fal fa-heart" /></a></li>
-                              <li><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i className="fal fa-search" /></a></li>
+                              <li   onClick = {()=>handleModal(product)}><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i className="fal fa-search" /></a></li>
                             </ul>
                           </div>
                         </div>
                         <div className="product__content text-center">
                           <h6 className="product-name">
-                            <a className="product-item-link" href="product-details.html">{product.title}</a>
+                            {product.title}
                           </h6>
-                          <div className="rating">
+                          {/* <div className="rating">
                             <ul>
                               <li><a href="#"><i className="far fa-star" /></a></li>
                               <li><a href="#"><i className="far fa-star" /></a></li>
@@ -164,18 +210,19 @@ console.log(category,
                               <li><a href="#"><i className="far fa-star" /></a></li>
                               <li><a href="#"><i className="far fa-star" /></a></li>
                             </ul>
-                          </div>
+                          </div> */}
                           <span className="new">${product.price}</span>
                         </div>
-                        <div className="product__add-btn">
-                          <button type="button">Add to Cart</button>
-                        </div>
+                        {token && <div className="product__add-btn">
+                          <button type="button" onClick = {()=>addToCartFunc(product)}>Add to Cart</button>
+                        </div>}
+                      
                       </div>
                     </div>
                   </>
                   )
                   }
-                  ): <p> Loading</p>
+                  ): <p> Loading...</p>
                   }
  {/* Render the function stops here */}
 
@@ -222,17 +269,18 @@ console.log(category,
         <div className="row gx-0">
           <div className="col-xl-12">
             <div id="scroll" className="back-to-top-btn text-center">
-              <a href="javascript:void(0);">back to top</a>
+              <a href="#top">back to top</a>
             </div>
           </div>
         </div>
       </div>
     </section>
     {/* back to top btn area end */}
-    {/* shop modal start */}
 
-    {
-                  (products.length > 0) ? products.map(
+{/* shop modal start */}
+
+{
+                  (products.length > 0) ? modalProduct.map(
                   product => {
                   return(
                   <> 
@@ -293,8 +341,11 @@ console.log(category,
                     </ul>
                   </div>
                 </div>
+
+                
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="product__modal-content">
+                    {console.log(product.title)}
                     <h4>{product.title}</h4>
                     <div className="product__modal-des mb-40">
                       <p><b>Product Details:</b> {product.description} </p>
@@ -303,44 +354,20 @@ console.log(category,
                       <span>Availability :</span>
                       <span>{product.quantity} In Stock</span>
                     </div>
-                    {/* <div className="product__stock sku mb-30">
-                      <span>SKU:</span>
-                      <span>Samsung C49J89: £875, Debenhams Plus</span>
-                    </div> */}
-                    <div className="product__review d-sm-flex">
-                      <div className="rating rating__shop mb-15 mr-35">
-                        <ul>
-                          <li><a href="#"><i className="fal fa-star" /></a></li>
-                          <li><a href="#"><i className="fal fa-star" /></a></li>
-                          <li><a href="#"><i className="fal fa-star" /></a></li>
-                          <li><a href="#"><i className="fal fa-star" /></a></li>
-                          <li><a href="#"><i className="fal fa-star" /></a></li>
-                        </ul>
-                      </div>
-                      <div className="product__add-review mb-15">
-                        <span><a href="#">1 Review</a></span>
-                        <span><a href="#">Add Review</a></span>
-                      </div>
-                    </div>
                     <div className="product__price">
                       <span>${product.price}</span>
                     </div>
                     <div className="product__modal-form mb-30">
-                      <form action="#">
+                      {/* <form action="#">
                         <div className="pro-quan-area d-lg-flex align-items-center">
                           <div className="product-quantity mr-20 mb-25">
-                            <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1} /></div>
+                         {token &&  <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1}  name = "quantity" value = {input.quantity} onChange = {handleChange}/></div>}  
                           </div>
                           <div className="pro-cart-btn mb-25">
-                            <button className="t-y-btn" type="submit">Add to cart</button>
+                          {token &&  <button className="t-y-btn" type="submit" onClick = {()=> addToCartFunc(product)}>Add to cart</button>} 
                           </div>
                         </div>
-                      </form>
-                    </div>
-                    <div className="product__modal-links">
-                      <ul>
-                        <li><a href="#" title="Add to Wishlist"><i className="fal fa-heart" /></a></li>
-                      </ul>
+                      </form> */}
                     </div>
                   </div>
                 </div>
@@ -350,7 +377,6 @@ console.log(category,
         </div>
       </div>
     </div>
-
     </>
                   )
                   }
