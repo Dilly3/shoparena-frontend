@@ -5,6 +5,12 @@ import {DATA_FROM_SEARCH,
 GET_SELLERS_BEGIN,
   GET_SELLERS_SUCCESS,
   GET_SELLERS_ERROR,} from "./actions"
+  import {
+    GET_PRODUCTID_BEGIN,
+    GET_PRODUCTID_SUCCESS,
+    GET_PRODUCTID_ERROR,
+  } from "./actions";
+
 
 
 export  const reducer = (state, action)=>{
@@ -39,3 +45,25 @@ const sellers_reducer = (state, action) => {
 };
 
 export default sellers_reducer;
+
+export const ProductIdreducer = (state, action) => {
+  if (action.type === GET_PRODUCTID_BEGIN) {
+    return { ...state, productid_loading: true };
+  }
+  if (action.type === GET_PRODUCTID_SUCCESS) {
+    const featured_productid = action.payload.filter(
+      (product) => product.featured === true
+    );
+    return {
+      ...state,
+      productid_loading: false,
+      productsid: action.payload,
+      featured_productid,
+    };
+  }
+  if (action.type === GET_PRODUCTID_ERROR) {
+    return { ...state, productid_loading: false, productid_error: true };
+  }
+
+  throw new Error(`No Matching "${action.type}" - action type`);
+};
