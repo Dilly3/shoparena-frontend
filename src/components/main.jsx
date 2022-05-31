@@ -32,6 +32,8 @@ const [input, setInput ] = useState(initialState)
 const token = localStorage.getItem("token")
 
 const handleChange = (e)=>{
+  // e.preventDefault()
+  // const number = parseInt(e.target.value)
   setInput({...input, [e.target.name]:e.target.value})
 }
 
