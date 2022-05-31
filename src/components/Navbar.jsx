@@ -9,11 +9,15 @@ const initialState = {
   category:"",
   lowerPrice:"",
   upperPrice:"",
-  sort:""
+  sort:"",
   }
 
+  
+
 export default function Navbar(){
-  const { handleSearch} = useAppContext()
+  const { handleSearch, cart, cartAmount} = useAppContext()
+
+  console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
   const [input, setInput] = useState(initialState)
 
@@ -27,9 +31,11 @@ setInput({...input, [e.target.name]:e.target.value})
 // console.log(e)
   }
 
+  const token = localStorage.getItem("token")
+
   
   const getSellerProfile = async () => {
-    console.log(localStorage.token)
+    // console.log(localStorage.token)
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
@@ -64,21 +70,26 @@ setInput({...input, [e.target.name]:e.target.value})
                   <div className="col-xl-6 col-lg-6 col-md-7">
                     <div className="header__action d-flex justify-content-center justify-content-md-end">
                       <ul>
-                        <li>
-                        <Link to="/sellerdashboard">Seller</Link>
-                        </li>
+                      
                         {/* <li>
                           <a href="#">My Account</a>
                         </li> */}
-                        <li>
+                        {/* <li>
                           <a href="#">My Wishlist</a>
+                        </li> */}
+                        <li>
+                          {localStorage.token ? (
+                              <Link to="/buyer/login">{user && user.first_name}</Link>
+                          ) :  <Link to="/buyer/login">Buyer Sign in</Link>}
+                          
                         </li>
                         <li>
                           {localStorage.token ? (
-                              <Link to="/login">{user && user.first_name}</Link>
-                          ) : (<Link to="/login">Sign In</Link>)}
+                              <Link to="/seller/login">{user && user.first_name}</Link>
+                          ) :  <Link to="/seller/login">Seller Sign in</Link>}
                           
                         </li>
+
                       </ul>
                     </div>
                   </div>
@@ -113,10 +124,10 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__info-right">
                       <div className="header__search f-left d-none d-sm-block">
 
-                        <form onSubmit={handleSubmit} >
+                        <form className="search" onSubmit={handleSubmit} >
 
                       <div>
-                      <select id="category" placeholder="Categories" onChange = {handleChange} name = "category">
+                      <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
                         <option value="">All Categories</option>
                         <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
@@ -129,7 +140,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="others">Others</option>   
                     </select>
 
-                    <select id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
+                    <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
                         <option value="0">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
@@ -142,7 +153,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="50000">50000</option>   
                     </select>
 
-                    <select id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
+                    <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
                         <option value="0">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
@@ -156,86 +167,19 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
                
                         <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
-                        <button type="submit">Search</button>
+                        <button className="cat-btn" type="submit">Search</button>
                     </div>
                         </form>
                       </div>
-                      <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+                      {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
                         <a href="javascript:void(0);" className="cart__toggle">
-                          <span className="cart__total-item">01</span>
+                          <span className="cart__total-item">{cart}</span>
                         </a>
                         <span className="cart__content">
                           <span className="cart__my">My Cart:</span>
-                          <span className="cart__total-price">$ 255.00</span>
+                          <span className="cart__total-price">${cartAmount}</span>
                         </span>
-
-
-                        {/* <div className="cart__mini">
-                          <div className="cart__close">
-                            <button type="button" className="cart__close-btn">
-                              <i className="fal fa-times" />
-                            </button>
-                          </div>
-                          <ul>
-                            <li>
-                              <div className="cart__title">
-                                <h4>My Cart</h4>
-                                <span>(1 Item in Cart)</span>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="cart__item d-flex justify-content-between align-items-center">
-                                <div className="cart__inner d-flex">
-                                  <div className="cart__thumb">
-                                    <a href="product-details.html">
-                                      <img
-                                        src="assets/img/shop/product/cart/cart-mini-1.jpg"
-                                        alt
-                                      />
-                                    </a>
-                                  </div>
-                                  <div className="cart__details">
-                                    <h6>
-                                      <a href="product-details.html">
-                                        {" "}
-                                        Samsung C49J89: £875, Debenhams Plus{" "}
-                                      </a>
-                                    </h6>
-                                    <div className="cart__price">
-                                      <span>$255.00</span>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div className="cart__del">
-                                  <a href="#">
-                                    <i className="fal fa-trash-alt" />
-                                  </a>
-                                </div>
-                              </div>
-                            </li>
-                            <li>
-                              <div className="cart__sub d-flex justify-content-between align-items-center">
-                                <h6>Car Subtotal</h6>
-                                <span className="cart__sub-total">$255.00</span>
-                              </div>
-                            </li>
-                            <li>
-                              <a
-                                href="checkout.html"
-                                className="t-y-btn w-100 mb-10"
-                              >
-                                Proceed to checkout
-                              </a>
-                              <a
-                                href="cart.html"
-                                className="t-y-btn t-y-btn-border w-100 mb-10"
-                              >
-                                view add edit cart
-                              </a>
-                            </li>
-                          </ul>
-                        </div> */}
-                      </div>
+                      </div>}
                     </div>
                   </div>
                 </div>
@@ -264,11 +208,10 @@ setInput({...input, [e.target.name]:e.target.value})
                             <li>
                               <a href="contact.html">contact</a>
                             </li>
-                            <li>
+                            {/* <li>
                               <a href="about.html">
                                 pages <i className="far fa-angle-down" />
                               </a>
-
                               <ul className="submenu">
                                 <li>
                                   <a href="login.html">Login</a>
@@ -286,7 +229,7 @@ setInput({...input, [e.target.name]:e.target.value})
                                   <a href="checkout.html">Checkout</a>
                                 </li>
                               </ul>
-                            </li>
+                            </li> */}
                           </ul>
                         </nav>
                       </div>
