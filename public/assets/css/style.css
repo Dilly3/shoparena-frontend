@@ -5702,10 +5702,10 @@ html {
 }
 
 :root {
-    --primary-color: #ffc107;
-    --primary-rgb: 255, 193, 7;
-    --orange-rgb: 184, 15, 10;
-    --purple-color:184, 15, 10;
+    --primary-color: #1fb5ac;
+    --primary-rgb: 31, 181, 172;
+    --orange-rgb: 250, 133, 100;
+    --purple-color: #9972b5;
     --purple-rgb: 153, 114, 181;
 }
 
