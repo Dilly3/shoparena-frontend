@@ -46,7 +46,7 @@ const sellers_reducer = (state, action) => {
 
 export default sellers_reducer;
 
-export const reducer = (state, action) => {
+export const ProductIdreducer = (state, action) => {
   if (action.type === GET_PRODUCTID_BEGIN) {
     return { ...state, productid_loading: true };
   }
