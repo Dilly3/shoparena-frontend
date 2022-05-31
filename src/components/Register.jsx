@@ -67,7 +67,7 @@ useEffect(() => {
                 // setSuccess("")
                 console.log(success, "success")
                 
-                navigate("/login")
+                navigate("/buyer/login")
             }, 5000)
             
         } catch (error) {
@@ -171,7 +171,7 @@ const handleSubmit =(e)=> {
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                       <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                                      <li class="breadcrumb-item active" aria-current="page">Register</li>
+                                      <li class="breadcrumb-item active" aria-current="page">Buyer Sign up</li>
                                     </ol>
                                   </nav>
                             </div>
@@ -184,7 +184,7 @@ const handleSubmit =(e)=> {
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
                             <div class="basic-login">
-                                <h3 class="text-center mb-60">Signup</h3>
+                                <h3 class="text-center mb-60"> Buyer Signup</h3>
 
             {success && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#008000", color: "#ffffff"}}>{success}</div>}
              {error && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#f44336", color: "#ffffff"}} >{error}</div>}
@@ -203,7 +203,7 @@ const handleSubmit =(e)=> {
                                     <label for="last_name">Last name <span>**</span></label>
                                     <input id="last_name" 
                                     type="text" 
-                                    placeholder="Enter Lastname" 
+                                    placeholder="Enter Last name" 
                                     name="last_name"
                                     value={signup.last_name}
                                     onChange={handleChange}/>
@@ -251,7 +251,7 @@ const handleSubmit =(e)=> {
                                     <div class="mt-10"></div>
                                     <button type="submit" class="t-y-btn w-100">Register Now</button>
                                     <div class="or-divide"><span>or</span></div>
-                                    <Link to="/login" class="t-y-btn t-y-btn-grey w-100">login Now</Link>
+                                    <Link to="/buyer/login" class="t-y-btn t-y-btn-grey w-100">login Now</Link>
                                 </form>
                             </div>
                         </div>
