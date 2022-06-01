@@ -19,6 +19,7 @@ export default function Navbar(){
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
+  const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
    const navigate = useNavigate()
  
    const LogOut = async () => {
@@ -29,9 +30,10 @@ export default function Navbar(){
           "Content-Type": "application/json",
           "access_token" : `${localStorage.token}`
         }
-      const resp = await axios.post("/buyer/logout",{}, {headers:{"access_token": localStorage.getItem('access_token') }})
+      const resp = await axios.post("/buyer/logout",{}, {headers:{"access_token": localStore }})
       console.log(resp)
-      localStorage.clear()
+      setLocalStore("")
+       localStorage.clear()
       navigate("/")
       
       
