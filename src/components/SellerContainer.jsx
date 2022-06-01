@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useNavigate } from 'react'
+import { Link } from 'react-router-dom'
 import axios from '../axios'
 
 export default function SellerContainer() {
@@ -94,10 +95,10 @@ export default function SellerContainer() {
       {/* USER INFO - END */}
       <ul className="wraplist">	
         <li className="open"> 
-          <a href="index-ecommerce.html">
+          <Link to="seller/dashboard">
             <i className="fa fa-dashboard" />
             <span className="title">Dashboard</span>
-          </a>
+          </Link>
         </li>
         <li className> 
           <a href="javascript:;">
@@ -123,11 +124,11 @@ export default function SellerContainer() {
        
           
         <li className> 
-          <a href="javascript:;">
+          <Link to="/seller/dashboard/orders">
             <i className="fa fa-shopping-cart" />
             <span className="title">Orders</span>
             <span className="arrow " />
-          </a>
+          </Link>
           <ul className="sub-menu">
             <li>
               <a className href="eco-orders.html">All Orders</a>
