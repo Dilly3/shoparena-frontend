@@ -8,6 +8,12 @@ import ContextUse from "./context/ContextUse"
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
 import SellerRegisterComponent from "./pages/SellerRegister"
+import Sellerforgotpassword from "./components/Sellerforgotpassword"
+import Sellerupdatepassword from "./components/Sellerupdatepassword"
+import Buyerforgotpassword from "./components/Buyerforgotpassword"
+import Buyerupdatepassword from "./components/Buyerupdatepassword";
+
+
 
 
 
@@ -24,6 +30,13 @@ root.render(
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
       <Route exact path="/seller/dashboard" element={<ResetPassword/>}></Route>
+      <Route exact path="/seller/forgot" element={<Sellerforgotpassword/>}></Route>
+      <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword/>}></Route>
+      <Route exact path="/buyer/forgot" element={<Buyerforgotpassword/>}></Route>
+      <Route exact path="/buyer/reset/:token" element={<Buyerupdatepassword/>}></Route>
+
+
+
      </Routes>
   </Router>
   </ContextUse>
