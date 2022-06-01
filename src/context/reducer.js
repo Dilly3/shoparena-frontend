@@ -1,8 +1,7 @@
-import { DATA_FROM_SEARCH, ADD_TO_CART } from "./actions";
 import {
   GET_SELLERS_BEGIN,
   GET_SELLERS_SUCCESS,
-  GET_SELLERS_ERROR,} from "./actions"
+  GET_SELLERS_ERROR, DATA_FROM_SEARCH, ADD_TO_CART,GET_USER } from "./actions"
 
   import {
     GET_PRODUCTID_BEGIN,
@@ -19,15 +18,11 @@ export const reducer = (state, action) => {
         ...state,
         ...action.payload,
       };
-//     case ADD_TO_CART:
-
-// //  addToLocalStorage(state, action)
-//       return {
-//         ...state,
-//         cart: state.cart + 1,
-        // cartAmount: action.payload.cart.reduce((acc, item)=> acc + item.Price,0),
-        // quantity: action.payload.cart
-    //   };
+      // case GET_USER:
+      //   return {
+      //     ...state,
+      //     user:action.payload,
+      //   }
     default:
       return state;
   }
