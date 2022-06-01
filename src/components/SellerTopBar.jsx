@@ -1,9 +1,39 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function SellerTopBar() {
 
   const [findSeller, setSeller] = useState('')
+  const [user, setUser] = useState(null)
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1); 
+  }
+  const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
+   const navigate = useNavigate()
+ 
+   const LogOut = async () => {
+    // console.log(localStorage.token)
+    try {
+      const headers = {
+          "Authorization": `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+          "access_token" : `${localStorage.token}`
+        }
+      const resp = await axios.post("/seller/logout",{}, {headers:{"access_token": localStore }})
+      console.log(resp)
+      setLocalStore("")
+       localStorage.clear()
+       
+      navigate("/")
+      
+      
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
 
     {/*find Seller*/}
     const findTheSeller = async () =>{
@@ -17,6 +47,7 @@ export default function SellerTopBar() {
           const resp = await axios.get("/getsellerprofile", config)
           console.log(resp.data.data)
           setSeller(resp.data.data)
+          setUser(resp.data.data)
         }catch(error) {
           console.log(error.response)
         }
@@ -32,9 +63,45 @@ export default function SellerTopBar() {
   return (
     <>
 {/* START TOPBAR */}
+
+ 
 <div className="page-topbar ">
-  <div className="logo-area" style={{fontSize:'40px', marginTop:'10px', fontWeight:'700px', color:'ffc107'}}>Oja
-  </div>
+{/* <div className="container">
+                <div className="row align-items-center">
+                  <div className="col-xl-6 col-lg-6 col-md-5 d-none d-md-block">
+                    <div className="header__welcome">
+                      <span>Welcome to OJA</span>
+                    </div>
+                  </div>
+                  <div className="col-xl-6 col-lg-6 col-md-7">
+                    <div className="header__action d-flex justify-content-center justify-content-md-end">
+                      <ul>
+                      
+                      <li>
+                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
+                              <button onClick={LogOut}> <span>Logout</span></button>
+                          
+                        </li>
+                     
+                       
+                           
+       
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+              
+  {/* <div className="logo-area" style={{fontSize:'40px', marginTop:'10px', fontWeight:'700px', color:'ffc107'}}>Oja
+  </div> */}
+  	<header class="header">
+		<h1 class="logo"><a href="#">Welcome to Oja</a></h1>
+      <ul class="main-nav">
+          <li><span>Hello,{user && capitalizeFirstLetter(user.first_name)}</span></li>
+          <button onClick={LogOut}> <span>Logout</span></button>
+      </ul>
+	</header> 
   <div className="quick-area">
     <div className="float-left">
       <ul className="info-menu left-links list-inline list-unstyled">
