@@ -95,9 +95,9 @@ export default function SellerContainer() {
       {/* USER INFO - END */}
       <ul className="wraplist">	
         <li className="open"> 
-          <Link to="/seller/dashboard">
+          
             <i className="fa fa-dashboard" />
-            <span className="title">Dashboard</span>
+            <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
         <li className> 
