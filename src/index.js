@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Login from "./pages/Login"
-import SellerLogin from "./pages/SellerLogin"
+import Login from "./pages/Login";
+import SellerLogin from "./pages/SellerLogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ContextUse from "./context/ContextUse"
+import ContextUse from "./context/ContextUse";
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
 import SellerRegisterComponent from "./pages/SellerRegister"
@@ -12,9 +12,8 @@ import Sellerforgotpassword from "./components/Sellerforgotpassword"
 import Sellerupdatepassword from "./components/Sellerupdatepassword"
 import Buyerforgotpassword from "./components/Buyerforgotpassword"
 import Buyerupdatepassword from "./components/Buyerupdatepassword";
-
-
 import SellerDashboard from "./pages/SellerDashboard";
+import ViewCart from "./pages/ViewCart";
 
 
 
@@ -25,6 +24,7 @@ root.render(
    <Router>
      <Routes>
      <Route exact path="/" element={<App/>}></Route>
+     <Route exact path="/viewcart" element={<ViewCart/>}></Route>
       <Route exact path="/buyer/login" element={<Login/>}></Route>
       <Route exact path="/seller/login" element={<SellerLogin/>}></Route>
       <Route exact path="/buyer/logout" element={<App/>}></Route>

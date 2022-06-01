@@ -129,7 +129,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <div className="logo">
                         <Link to="/">
                           <img
-                            src="assets/img/logo/oja.png"
+                            src="../assets/img/logo/oja.png"
                             alt="logo"
                           />
                         </Link>
@@ -197,6 +197,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         </form>
                       </div>
                       {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+                        <Link to ="/viewcart">
                         <a href="javascript:void(0);" className="cart__toggle">
                           <span className="cart__total-item">{cart}</span>
                         </a>
@@ -204,6 +205,7 @@ setInput({...input, [e.target.name]:e.target.value})
                           <span className="cart__my">My Cart:</span>
                           <span className="cart__total-price">${cartAmount}</span>
                         </span>
+                        </Link>
                       </div>}
                     </div>
                   </div>
