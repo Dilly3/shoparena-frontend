@@ -1,13 +1,13 @@
 import React from 'react'
 import SellerTopBar from '../components/SellerTopBar'
-import SellerOrders from '../components/SellerOrders'
+import SellerOrdersComponent from '../components/SellerOrders'
 
 
-export default function SellerOrder() {
+export default function SellerOrders() {
   return (
     <>
     <SellerTopBar/>
-    <SellerOrders/> 
+    <SellerOrdersComponent/> 
     </>
   )
 }

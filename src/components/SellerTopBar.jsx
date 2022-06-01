@@ -4,6 +4,13 @@ import {Link, useNavigate} from 'react-router-dom'
 
 export default function SellerTopBar() {
 
+  
+
+useEffect(() => {
+    if (!localStorage.token) {
+        navigate("/seller/login")
+    }}, [localStorage.token])
+
   const [findSeller, setSeller] = useState('')
   const [user, setUser] = useState(null)
 

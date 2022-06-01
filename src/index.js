@@ -9,7 +9,7 @@ import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
 import SellerRegisterComponent from "./pages/SellerRegister";
 import SellerDashboard from "./pages/SellerDashboard";
-import SellerOrders from "./pages/SellerOrders";
+import SellerOrdersComponent from "./pages/SellerOrders";
 
 
 
@@ -27,7 +27,7 @@ root.render(
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
       <Route exact path="/seller/dashboard" element={<SellerDashboard/>}></Route>
-      <Route exact path="/seller/dashboard/orders" element={<SellerOrders/>}></Route>
+      <Route exact path="/seller/dashboard/orders" element={<SellerOrdersComponent/>}></Route>
      </Routes>
   </Router>
   </ContextUse>
