@@ -32,12 +32,11 @@ const [input, setInput ] = useState(initialState)
 const token = localStorage.getItem("token")
 
 const handleChange = (e)=>{
-  // e.preventDefault()
-  // const number = parseInt(e.target.value)
+ 
   setInput({...input, [e.target.name]:e.target.value})
 }
 
-let data
+  let data
     async function searchProduct(){
       try {
         let url = `/searchproducts?lower-price=${lowerPrice}&upper-price=${upperPrice}&name=${sort}`
@@ -45,7 +44,7 @@ let data
   url = url + `&category=${category}`
         }
       const response = await instance.get(url)
-      console.log(response.data)
+      // console.log(response.data)
       setProducts(response.data)
       } catch (error) {
         console.log(error.response.data)
@@ -77,7 +76,7 @@ let data
             quantity: Number(input.quantity),
             price
           }
-          addToCart(obj)
+          addToCart()
           setInput({quantity:1})
         }
       } catch (error) {
@@ -190,7 +189,7 @@ const handleModal = (product)=>{
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
                             <img src="assets/img/shop/product/product-8.jpg" alt="product" />
-                            <img className="second-img" src="assets/img/shop/product/product-8.jpg" alt="product" />
+                            <img className="second-img" src={product.Images} alt="product" />
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
@@ -345,7 +344,6 @@ const handleModal = (product)=>{
                 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="product__modal-content">
-                    {console.log(product.title)}
                     <h4>{product.title}</h4>
                     <div className="product__modal-des mb-40">
                       <p><b>Product Details:</b> {product.description} </p>
@@ -358,16 +356,6 @@ const handleModal = (product)=>{
                       <span>${product.price}</span>
                     </div>
                     <div className="product__modal-form mb-30">
-                      {/* <form action="#">
-                        <div className="pro-quan-area d-lg-flex align-items-center">
-                          <div className="product-quantity mr-20 mb-25">
-                         {token &&  <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1}  name = "quantity" value = {input.quantity} onChange = {handleChange}/></div>}  
-                          </div>
-                          <div className="pro-cart-btn mb-25">
-                          {token &&  <button className="t-y-btn" type="submit" onClick = {()=> addToCartFunc(product)}>Add to cart</button>} 
-                          </div>
-                        </div>
-                      </form> */}
                     </div>
                   </div>
                 </div>

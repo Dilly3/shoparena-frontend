@@ -1,34 +1,11 @@
 import React from 'react';
 import {Link} from "react-router-dom"
-import {useEffect, useState} from "react"
-import axios from 'axios'; 
-
+import { useAppContext } from '../context/ContextUse';
 
 
 export default function ViewCart(){
-
-    const [products, setProducts] = useState([])
-    
-    const ViewCart = async () => {
-        try {
-          const headers = {
-              "Authorization": `Bearer ${localStorage.token}`,
-              "Content-Type": "application/json"
-            }
-          const resp = await axios.get("https://oja-ecommerce.herokuapp.com/api/v1/viewcart", {headers: headers})
-          console.log(resp.data.length)
-          setProducts(resp.data)
-        } catch (error) {
-          console.log(error.response)
-        }
-      }
-    
-      useEffect(() => {
-        if (localStorage.token) {
-          ViewCart()
-        }
-        
-      }, [])
+  const {quantity} = useAppContext()
+  console.log(quantity)
 
     return(
          <div>
@@ -51,7 +28,7 @@ export default function ViewCart(){
 
 {/* render the function starts here */}
 {
-                  (products.length > 0 ) ? products.map(
+                  (quantity.length > 0 ) ? quantity.map(
                   product => {
                   return(
                   <> 
@@ -61,7 +38,7 @@ export default function ViewCart(){
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
                             <img src="assets/img/shop/product/product-8.jpg" alt="product" />
-                            <img className="second-img" src="assets/img/shop/product/product-8.jpg" alt="product" />
+                            <img className="second-img" src={product.Images} alt="product" />
                           </a>
                         </div>
                         <div className="product__content text-center">
@@ -80,7 +57,7 @@ export default function ViewCart(){
                     </>
                   )
                   }
-                  ): <p> Loading...</p>
+                  ): <p>No Product In Cart</p>
                   }
  {/* Render the function stops here */}
 

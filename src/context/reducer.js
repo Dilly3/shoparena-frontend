@@ -19,24 +19,25 @@ export const reducer = (state, action) => {
         ...state,
         ...action.payload,
       };
-    case ADD_TO_CART:
+//     case ADD_TO_CART:
 
- addToLocalStorage(state, action)
-      return {
-        ...state,
-        cart: (Number(state.cart) + Number(action.payload.quantity)),
-        cartAmount: (Number(state.cartAmount) + (Number(action.payload.price )* Number(action.payload.quantity))),
-      };
+// //  addToLocalStorage(state, action)
+//       return {
+//         ...state,
+//         cart: state.cart + 1,
+        // cartAmount: action.payload.cart.reduce((acc, item)=> acc + item.Price,0),
+        // quantity: action.payload.cart
+    //   };
     default:
       return state;
   }
 };
 
 
-    const addToLocalStorage = (state, action)=>{
-    localStorage.setItem("cart", (Number(state.cart) + Number(action.payload.quantity)))
-        localStorage.setItem("cartAmount",(Number(state.cartAmount) + (Number(action.payload.price )* Number(action.payload.quantity))))
-      }
+    // const addToLocalStorage = (state, action)=>{
+    // localStorage.setItem("cart", (Number(state.cart) + Number(action.payload.quantity)))
+    //     localStorage.setItem("cartAmount",(Number(state.cartAmount) + (Number(action.payload.price )* Number(action.payload.quantity))))
+    //   }
 
 
 
