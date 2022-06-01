@@ -16,7 +16,7 @@ console.log(window.location.pathname.split("/")[3])
     
 
         e.preventDefault();
-        const response = await fetch(`http://localhost:8080/api/v1/buyerresetpassword?reset_token=${window.location.pathname.split("/")[3]}`, {
+        const response = await fetch(`https://oja-ecommerce.herokuapp.com/api/v1/buyerresetpassword?reset_token=${window.location.pathname.split("/")[3]}`, {
             method: "PUT",
             body: JSON.stringify({
                 new_password: password,
