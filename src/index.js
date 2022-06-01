@@ -14,6 +14,7 @@ import Buyerforgotpassword from "./components/Buyerforgotpassword"
 import Buyerupdatepassword from "./components/Buyerupdatepassword";
 
 
+import SellerDashboard from "./pages/SellerDashboard";
 
 
 
@@ -26,6 +27,7 @@ root.render(
      <Route exact path="/" element={<App/>}></Route>
       <Route exact path="/buyer/login" element={<Login/>}></Route>
       <Route exact path="/seller/login" element={<SellerLogin/>}></Route>
+      <Route exact path="/buyer/logout" element={<App/>}></Route>
       <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
@@ -34,9 +36,7 @@ root.render(
       <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword/>}></Route>
       <Route exact path="/buyer/forgot" element={<Buyerforgotpassword/>}></Route>
       <Route exact path="/buyer/reset/:token" element={<Buyerupdatepassword/>}></Route>
-
-
-
+      <Route exact path="/seller/dashboard" element={<SellerDashboard/>}></Route>
      </Routes>
   </Router>
   </ContextUse>

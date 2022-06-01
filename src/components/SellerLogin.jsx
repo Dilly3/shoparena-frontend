@@ -35,7 +35,10 @@ const [login, setLogin] = useState(
             const response = await axios.post("/loginseller", {email, password}, config)
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
-            navigate("/")
+            localStorage.setItem("access_token",token)
+           
+            navigate("/seller/dashboard")
+            window.location.reload()
         } catch (error) {
             console.log(error)
         }
