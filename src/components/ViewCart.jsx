@@ -16,7 +16,7 @@ export default function ViewCart(){
               "Content-Type": "application/json"
             }
           const resp = await axios.get("https://oja-ecommerce.herokuapp.com/api/v1/viewcart", {headers: headers})
-        //   console.log(resp.data)
+          console.log(resp.data.length)
           setProducts(resp.data)
         } catch (error) {
           console.log(error.response)
