@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
 
@@ -15,6 +15,34 @@ const initialState = {
   
 
 export default function Navbar(){
+  
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1); 
+  }
+  const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
+   const navigate = useNavigate()
+ 
+   const LogOut = async () => {
+    // console.log(localStorage.token)
+    try {
+      const headers = {
+          "Authorization": `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+          "access_token" : `${localStorage.token}`
+        }
+      const resp = await axios.post("/buyer/logout",{}, {headers:{"access_token": localStore }})
+      console.log(resp)
+      setLocalStore("")
+       localStorage.clear()
+      navigate("/")
+      
+      
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+ 
+      
   const { handleSearch, cart, cartAmount} = useAppContext()
 
   console.log(cart, cartAmount)
@@ -71,24 +99,21 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__action d-flex justify-content-center justify-content-md-end">
                       <ul>
                       
-                        {/* <li>
-                          <a href="#">My Account</a>
-                        </li> */}
-                        {/* <li>
-                          <a href="#">My Wishlist</a>
-                        </li> */}
-                        <li>
+                      <li>
                           {localStorage.token ? (
-                              <Link to="/buyer/login">{user && user.first_name}</Link>
-                          ) :  <Link to="/buyer/login">Buyer Sign in</Link>}
+                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
+                          ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
                           
                         </li>
+                     
                         <li>
                           {localStorage.token ? (
-                              <Link to="/seller/login">{user && user.first_name}</Link>
+                              <button onClick={LogOut}> <span>Logout</span></button>
                           ) :  <Link to="/seller/login">Seller Sign in</Link>}
                           
                         </li>
+                           
+       
 
                       </ul>
                     </div>
