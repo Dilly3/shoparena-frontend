@@ -20,6 +20,7 @@ root.render(
      <Route exact path="/" element={<App/>}></Route>
       <Route exact path="/buyer/login" element={<Login/>}></Route>
       <Route exact path="/seller/login" element={<SellerLogin/>}></Route>
+      <Route exact path="/buyer/logout" element={<App/>}></Route>
       <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>

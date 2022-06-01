@@ -35,6 +35,8 @@ const [login, setLogin] = useState(
             const response = await axios.post("/loginseller", {email, password}, config)
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
+            localStorage.setItem("access_token",token)
+            window.location.reload()
             navigate("/")
         } catch (error) {
             console.log(error)
