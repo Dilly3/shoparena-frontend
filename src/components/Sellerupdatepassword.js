@@ -34,7 +34,7 @@ console.log(window.location.pathname.split("/")[3])
         }
         else{
             // setMessage("Password changed")
-            location("/")
+            location("/seller/dashboard")
         }
     }
 
