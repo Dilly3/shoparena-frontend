@@ -18,7 +18,7 @@ export default function SellerContainer() {
       setCheckSold(resp.data.data.Product_sold)
     } catch (error){
       setCheckSold(0)
-      console.log(error.response.data)
+      console.log(error)
     }
   }
 
@@ -38,7 +38,7 @@ export default function SellerContainer() {
       setRemainingProduct(resp.data.data.new_quantity)
     }catch (error){
       setRemainingProduct(0)
-      console.log(error.response)
+      console.log(error)
     }
   }
 

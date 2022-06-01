@@ -36,8 +36,9 @@ const [login, setLogin] = useState(
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
             localStorage.setItem("access_token",token)
+           
+            navigate("/seller/dashboard")
             window.location.reload()
-            navigate("/")
         } catch (error) {
             console.log(error)
         }
