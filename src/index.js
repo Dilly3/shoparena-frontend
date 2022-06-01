@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import Login from "./pages/Login"
-import SellerLogin from "./pages/SellerLogin"
+import Login from "./pages/Login";
+import SellerLogin from "./pages/SellerLogin";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContextUse from "./context/ContextUse"
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
-import SellerRegisterComponent from "./pages/SellerRegister"
+import SellerRegisterComponent from "./pages/SellerRegister";
 import SellerDashboard from "./pages/SellerDashboard";
+import SellerOrders from "./pages/SellerOrders";
 
 
 
@@ -26,6 +27,7 @@ root.render(
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
       <Route exact path="/seller/dashboard" element={<SellerDashboard/>}></Route>
+      <Route exact path="/seller/orders" element={<SellerOrders/>}></Route>
      </Routes>
   </Router>
   </ContextUse>
