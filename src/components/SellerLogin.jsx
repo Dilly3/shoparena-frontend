@@ -158,7 +158,7 @@ const [login, setLogin] = useState(
                                         <label for="remember">Remember me!</label>
                                         </span>
                                         <span class="forgot-login f-right">
-                                        <a href="#">Lost your password?</a>
+                                        <a href="/seller/forgot">Lost your password?</a>
                                         </span>
                                 </div>
                                 <button 
