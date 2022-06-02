@@ -28,12 +28,16 @@ const [login, setLogin] = useState(
             const config = {
                 headers: {
                     "Content-Type": "application/json"
+
                 }
             }
             const response = await axios.post("/loginbuyer", {email, password}, config)
             const token = response.data.data.access_token
             localStorage.setItem("token", token)
+            localStorage.setItem("access_token",token)
             navigate("/")
+            window.location.reload()
+            
         } catch (error) {
             console.log(error)
         }
@@ -153,7 +157,7 @@ const [login, setLogin] = useState(
                                         <label for="remember">Remember me!</label>
                                         </span>
                                         <span class="forgot-login f-right">
-                                        <a href="#">Lost your password?</a>
+                                        <a href="/buyer/forgot">Lost your password?</a>
                                         </span>
                                 </div>
                                 <button 

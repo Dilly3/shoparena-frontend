@@ -32,12 +32,11 @@ const [input, setInput ] = useState(initialState)
 const token = localStorage.getItem("token")
 
 const handleChange = (e)=>{
-  // e.preventDefault()
-  // const number = parseInt(e.target.value)
+ 
   setInput({...input, [e.target.name]:e.target.value})
 }
 
-let data
+  let data
     async function searchProduct(){
       try {
         let url = `/searchproducts?lower-price=${lowerPrice}&upper-price=${upperPrice}&name=${sort}`
@@ -45,7 +44,7 @@ let data
   url = url + `&category=${category}`
         }
       const response = await instance.get(url)
-      console.log(response.data)
+      // console.log(response.data)
       setProducts(response.data)
       } catch (error) {
         console.log(error.response.data)
@@ -77,7 +76,7 @@ let data
             quantity: Number(input.quantity),
             price
           }
-          addToCart(obj)
+          addToCart()
           setInput({quantity:1})
         }
       } catch (error) {
@@ -190,7 +189,7 @@ const handleModal = (product)=>{
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
                             <img src="assets/img/shop/product/product-8.jpg" alt="product" />
-                            <img className="second-img" src="assets/img/shop/product/product-8.jpg" alt="product" />
+                            <img className="second-img" src={product.Images} alt="product" />
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
@@ -236,40 +235,13 @@ const handleModal = (product)=>{
     </section>
     {/* Flash sell area end */}
     
-    {/* subscribe area start */}
-    <section className="subscribe__area pt-35 pb-30">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-xl-6 col-lg-6">
-            <div className="subscribe__content d-sm-flex align-items-center">
-              <div className="subscribe__icon mr-25">
-                <img src="assets/img/icon/icon_email.png" alt />
-              </div>
-              <div className="subscribe__text">
-                <h4>Sign up to Newsletter</h4>
-                <p>Get email updates about our latest shop...and receive <span>$30 Coupon For First Shopping</span></p>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-6 col-lg-6">
-            <div className="subscribe__form f-right">
-              <form action="#">
-                <input type="email" placeholder="Enter your email here..." />
-                <button className="t-y-btn t-y-btn-sub">subscribe</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    {/* subscribe area end */}
     {/* back to top btn area start */}
     <section className="back-btn-top">
       <div className="container-fluid p-0">
         <div className="row gx-0">
           <div className="col-xl-12">
             <div id="scroll" className="back-to-top-btn text-center">
-              <a href="#top">back to top</a>
+              <a href="#">back to top</a>
             </div>
           </div>
         </div>
@@ -345,7 +317,6 @@ const handleModal = (product)=>{
                 
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="product__modal-content">
-                    {console.log(product.title)}
                     <h4>{product.title}</h4>
                     <div className="product__modal-des mb-40">
                       <p><b>Product Details:</b> {product.description} </p>
@@ -358,16 +329,6 @@ const handleModal = (product)=>{
                       <span>${product.price}</span>
                     </div>
                     <div className="product__modal-form mb-30">
-                      {/* <form action="#">
-                        <div className="pro-quan-area d-lg-flex align-items-center">
-                          <div className="product-quantity mr-20 mb-25">
-                         {token &&  <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1}  name = "quantity" value = {input.quantity} onChange = {handleChange}/></div>}  
-                          </div>
-                          <div className="pro-cart-btn mb-25">
-                          {token &&  <button className="t-y-btn" type="submit" onClick = {()=> addToCartFunc(product)}>Add to cart</button>} 
-                          </div>
-                        </div>
-                      </form> */}
                     </div>
                   </div>
                 </div>

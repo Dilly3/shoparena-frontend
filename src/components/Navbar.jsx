@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react"
 import React from "react"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
 
 
 const initialState = {
-  category:"",
+  category:"All Categories",
   lowerPrice:"",
   upperPrice:"",
   sort:"",
@@ -15,6 +15,34 @@ const initialState = {
   
 
 export default function Navbar(){
+  
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1); 
+  }
+  const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
+   const navigate = useNavigate()
+ 
+   const LogOut = async () => {
+    // console.log(localStorage.token)
+    try {
+      const headers = {
+          "Authorization": `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json",
+          "access_token" : `${localStorage.token}`
+        }
+      const resp = await axios.post("/buyer/logout",{}, {headers:{"access_token": localStore }})
+      console.log(resp)
+      setLocalStore("")
+       localStorage.clear()
+      navigate("/")
+      
+      
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+ 
+      
   const { handleSearch, cart, cartAmount} = useAppContext()
 
   console.log(cart, cartAmount)
@@ -71,24 +99,21 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__action d-flex justify-content-center justify-content-md-end">
                       <ul>
                       
-                        {/* <li>
-                          <a href="#">My Account</a>
-                        </li> */}
-                        {/* <li>
-                          <a href="#">My Wishlist</a>
-                        </li> */}
-                        <li>
+                      <li>
                           {localStorage.token ? (
-                              <Link to="/buyer/login">{user && user.first_name}</Link>
-                          ) :  <Link to="/buyer/login">Buyer Sign in</Link>}
+                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
+                          ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
                           
                         </li>
+                     
                         <li>
                           {localStorage.token ? (
-                              <Link to="/seller/login">{user && user.first_name}</Link>
+                              <button onClick={LogOut}> <span>Logout</span></button>
                           ) :  <Link to="/seller/login">Seller Sign in</Link>}
                           
                         </li>
+                           
+       
 
                       </ul>
                     </div>
@@ -104,7 +129,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <div className="logo">
                         <Link to="/">
                           <img
-                            src="assets/img/logo/oja.png"
+                            src="../assets/img/logo/oja.png"
                             alt="logo"
                           />
                         </Link>
@@ -128,7 +153,7 @@ setInput({...input, [e.target.name]:e.target.value})
 
                       <div>
                       <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="">All Categories</option>
+                        <option value="All Categories">All Categories</option>
                         <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
                         <option value="electronics">Electronics</option> 
@@ -141,7 +166,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="0">Lower Price Limit</option>
+                        <option value="">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
                         <option value="500">500</option> 
@@ -154,7 +179,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="0">Upper Price Limit</option>
+                        <option value="">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
                         <option value="10000">10000</option> 
@@ -172,6 +197,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         </form>
                       </div>
                       {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+                        <Link to ="/viewcart">
                         <a href="javascript:void(0);" className="cart__toggle">
                           <span className="cart__total-item">{cart}</span>
                         </a>
@@ -179,6 +205,7 @@ setInput({...input, [e.target.name]:e.target.value})
                           <span className="cart__my">My Cart:</span>
                           <span className="cart__total-price">${cartAmount}</span>
                         </span>
+                        </Link>
                       </div>}
                     </div>
                   </div>
