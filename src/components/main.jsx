@@ -235,40 +235,13 @@ const handleModal = (product)=>{
     </section>
     {/* Flash sell area end */}
     
-    {/* subscribe area start */}
-    <section className="subscribe__area pt-35 pb-30">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-xl-6 col-lg-6">
-            <div className="subscribe__content d-sm-flex align-items-center">
-              <div className="subscribe__icon mr-25">
-                <img src="assets/img/icon/icon_email.png" alt />
-              </div>
-              <div className="subscribe__text">
-                <h4>Sign up to Newsletter</h4>
-                <p>Get email updates about our latest shop...and receive <span>$30 Coupon For First Shopping</span></p>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-6 col-lg-6">
-            <div className="subscribe__form f-right">
-              <form action="#">
-                <input type="email" placeholder="Enter your email here..." />
-                <button className="t-y-btn t-y-btn-sub">subscribe</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    {/* subscribe area end */}
     {/* back to top btn area start */}
     <section className="back-btn-top">
       <div className="container-fluid p-0">
         <div className="row gx-0">
           <div className="col-xl-12">
             <div id="scroll" className="back-to-top-btn text-center">
-              <a href="#top">back to top</a>
+              <a href="#">back to top</a>
             </div>
           </div>
         </div>
