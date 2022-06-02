@@ -17,6 +17,8 @@ import ViewCart from "./pages/ViewCart";
 import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
+import ProductsBySeller from "./components/ProductsBySeller"
+import Navbar from "./components/Navbar";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -24,6 +26,7 @@ root.render(
   <React.StrictMode>
    <ContextUse> 
    <Router>
+     <Navbar />
      <Routes>
      <Route exact path="/" element={<App/>}></Route>
      <Route exact path="/viewcart" element={<ViewCart/>}></Route>
@@ -41,6 +44,7 @@ root.render(
       <Route exact path="/buyer/profile" element={<Profile/>}></Route>
       <Route exact path="/seller/profile" element={<SellerProfile/>}></Route>
       <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile/>}></Route>
+      <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route>
      </Routes>
   </Router>
   </ContextUse>
