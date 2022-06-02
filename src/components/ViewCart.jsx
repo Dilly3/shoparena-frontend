@@ -10,6 +10,8 @@ export default function ViewCart(){
   const [sweetalert, setSweetalert] = React.useState(false);
   const [productID, setProductID] = React.useState(null);
   const [event, setEvent] = React.useState(null);
+  // const [allproducts, setAllProducts] = React.useState([])
+  // console.log(event)
 
   const {quantity} = useAppContext()
   console.log(quantity)
@@ -41,6 +43,7 @@ export default function ViewCart(){
       if (response.status === 200) {
         event.target.closest(".product__item-wrapper").parentElement.removeChild(event.target.closest(".product__item-wrapper"))
         setSweetalert(false);
+        // setAllProducts(quantity)
       }
     })
     .catch(error => {
@@ -49,6 +52,12 @@ export default function ViewCart(){
     
 
   }
+
+  // React.useEffect(()=>{
+  //   deleteProduct()
+  // }, [])
+
+
 
     return(
          <div>
