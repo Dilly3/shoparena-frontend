@@ -6,7 +6,7 @@ import axios from "../axios"
 
 
 const initialState = {
-  category:"",
+  category:"All Categories",
   lowerPrice:"",
   upperPrice:"",
   sort:"",
@@ -153,7 +153,7 @@ setInput({...input, [e.target.name]:e.target.value})
 
                       <div>
                       <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="">All Categories</option>
+                        <option value="All Categories">All Categories</option>
                         <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
                         <option value="electronics">Electronics</option> 
@@ -166,7 +166,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="0">Lower Price Limit</option>
+                        <option value="">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
                         <option value="500">500</option> 
@@ -179,7 +179,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="0">Upper Price Limit</option>
+                        <option value="">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
                         <option value="10000">10000</option> 

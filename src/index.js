@@ -33,7 +33,6 @@ root.render(
       <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
-      <Route exact path="/seller/dashboard" element={<ResetPassword/>}></Route>
       <Route exact path="/seller/forgot" element={<Sellerforgotpassword/>}></Route>
       <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword/>}></Route>
       <Route exact path="/buyer/forgot" element={<Buyerforgotpassword/>}></Route>
