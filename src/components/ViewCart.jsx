@@ -1,11 +1,54 @@
 import React from 'react';
 import {Link} from "react-router-dom"
 import { useAppContext } from '../context/ContextUse';
+import axios from 'axios';
+
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 
 export default function ViewCart(){
+  const [sweetalert, setSweetalert] = React.useState(false);
+  const [productID, setProductID] = React.useState(null);
+  const [event, setEvent] = React.useState(null);
+
   const {quantity} = useAppContext()
   console.log(quantity)
+  
+  const token = localStorage.getItem("token")
+
+  function configDelete(event, id) {
+    setProductID(id);
+    setEvent(event);
+
+    setSweetalert(true);
+  }
+  
+  function deleteProduct() {
+    
+    let elem = event.target;
+    let initText = elem.innerHTML
+    elem.innerHTML = "deleting...";
+    elem.disabled = true
+    axios.delete(`https://oja-ecommerce.herokuapp.com/api/v1/deletefromcart/${productID}`, {
+      headers: {
+        Authorization: `Bearer ${token}` 
+      }
+    })
+    .then(response => {
+      console.log(response);
+      elem.innerHTML = initText;
+      elem.disabled = false
+      if (response.status === 200) {
+        event.target.closest(".product__item-wrapper").parentElement.removeChild(event.target.closest(".product__item-wrapper"))
+        setSweetalert(false);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    
+
+  }
 
     return(
          <div>
@@ -49,6 +92,8 @@ export default function ViewCart(){
                           Quantity: {product.Quantity}
                           </h6>
                           <span className="new">Amount: ${product.Price}</span>
+
+                          <button className='btn btn-primary' onClick={(event) => configDelete(event, product.CartProductID)}>Delete</button>
                         </div>
                       
                       </div>
@@ -60,6 +105,20 @@ export default function ViewCart(){
                   ): <p>No Product In Cart</p>
                   }
  {/* Render the function stops here */}
+
+                          <SweetAlert
+                              custom
+                              showCancel
+                              confirmBtnText="Yes"
+                              cancelBtnText="No"
+                              confirmBtnBsStyle="primary"
+                              cancelBtnBsStyle="light"
+                              title="Are you sure?"
+                              onConfirm={()=>deleteProduct()}
+                              onCancel={()=>setSweetalert(false)}
+                              show={sweetalert}
+                              >
+                          </SweetAlert>
 
                   </div> 
                 </div>
