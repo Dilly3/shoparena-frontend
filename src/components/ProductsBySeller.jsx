@@ -7,8 +7,7 @@ const token = localStorage.getItem("token")
 const ProductsBySeller = () => {
     const [state, setState] = useState([])
         
-        // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQyNDU2MjcsInVzZXJfZW1haWwiOiJqa29zb2tvQGdtYWlsLmNvbSJ9.Gd2Doj6O6cKZFxB_lmZXC_BOgoelgKFGtynFcxC9aaA"
-
+       
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const productCall = async ()=>{
