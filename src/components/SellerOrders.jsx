@@ -24,7 +24,7 @@ export default function SellerOrdersComponent() {
           const resp = await axios.get("/sellerorders/", config)
           
           console.log(resp.data)
-          setOrders(resp.data)
+          setOrders(resp.data.Seller_Order)
           console.log(orders)
         } catch (error){
             setOrders('')
@@ -58,7 +58,7 @@ export default function SellerOrdersComponent() {
       {orders && orders.map((order,index) =>
         <tr key={index}>
         
-        <td>{order.FName} {order.LName}</td>
+        <td>{order.Fname} {order.Lname}</td>
           <td>{order.Category} </td>
           <td>{order.Product}</td>
           <td>{order.Price}</td>
