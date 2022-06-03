@@ -24,7 +24,7 @@ const ProductsBySeller = () => {
     }
 
     useEffect(()=>{
-        productCall()
+        productCall() 
     },[])
 
 
