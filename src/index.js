@@ -17,6 +17,8 @@ import ViewCart from "./pages/ViewCart";
 import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
+import ProductsBySeller from "./components/ProductsBySeller"
+import Navbar from "./components/Navbar";
 import ProductId from "./components/ProductId";
 import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
@@ -27,6 +29,30 @@ import SellerOrdersComponent from "./pages/SellerOrders";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+   <ContextUse> 
+   <Router>
+     <Navbar />
+     <Routes>
+     <Route exact path="/" element={<App/>}></Route>
+     <Route exact path="/viewcart" element={<ViewCart/>}></Route>
+      <Route exact path="/buyer/login" element={<Login/>}></Route>
+      <Route exact path="/seller/login" element={<SellerLogin/>}></Route>
+      <Route exact path="/buyer/logout" element={<App/>}></Route>
+      <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
+      <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
+      <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
+      <Route exact path="/seller/forgot" element={<Sellerforgotpassword/>}></Route>
+      <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword/>}></Route>
+      <Route exact path="/buyer/forgot" element={<Buyerforgotpassword/>}></Route>
+      <Route exact path="/buyer/reset/:token" element={<Buyerupdatepassword/>}></Route>
+      <Route exact path="/seller/dashboard" element={<SellerDashboard/>}></Route>
+      <Route exact path="/buyer/profile" element={<Profile/>}></Route>
+      <Route exact path="/seller/profile" element={<SellerProfile/>}></Route>
+      <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile/>}></Route>
+      <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route>
+     </Routes>
+  </Router>
+  </ContextUse>
     <ContextUse>
       <Router>
         <Routes>

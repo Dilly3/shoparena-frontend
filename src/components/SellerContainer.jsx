@@ -100,13 +100,13 @@ export default function SellerContainer() {
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
-        <li className> 
+        <Link to="/seller/productsbyseller"><li className> 
           <a href="javascript:;">
             <i className="fa fa-cubes" />
-            <span className="title">Products</span>
+            <span className="title" >Products</span>
             <span className="arrow " />
           </a>
-           </li>
+           </li></Link>
            <li className> 
           <a href="javascript:;">
             <i className="fa fa-cubes" />
