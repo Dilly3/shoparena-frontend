@@ -10,7 +10,7 @@ export default function SellerOrdersComponent() {
             navigate("/seller/login")
         }}, [localStorage.token])
 
-    const [orders, setOrders] = useState([])
+    const [orders, setOrders] = useState('')
 
     const getOrders = async () => {
         const config = {
@@ -22,12 +22,13 @@ export default function SellerOrdersComponent() {
    
         try {
           const resp = await axios.get("/sellerorders/", config)
-          console.log(orders)
-          console.log(resp.data.data)
+          
+          console.log(resp.data)
           setOrders(resp.data)
+          console.log(orders)
         } catch (error){
-            setOrders([])
-          console.log(error)
+            setOrders('')
+          console.log(error.resp)
         }
       }
 
