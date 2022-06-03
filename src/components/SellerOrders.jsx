@@ -5,9 +5,15 @@ export default function SellerOrdersComponent() {
     const [orders, setOrders] = useState([])
 
     const getOrders = async () => {
+        const config = {
+            header: { 
+            "Authorization": `Bearer ${localStorage.token}`,
+            "Content-Type": "application/json"
+            }
+          }
    
         try {
-          const resp = await axios.get("/sellerorders/")
+          const resp = await axios.get("/sellerorders/", config)
           console.log(orders)
           console.log(resp.data.data)
           setOrders(resp.data.data.Seller_Order)
