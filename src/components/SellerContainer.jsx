@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useNavigate } from 'react'
+import { Link } from 'react-router-dom'
 import axios from '../axios'
 
 export default function SellerContainer() {
@@ -94,10 +95,10 @@ export default function SellerContainer() {
       {/* USER INFO - END */}
       <ul className="wraplist">	
         <li className="open"> 
-          <a href="index-ecommerce.html">
+          
             <i className="fa fa-dashboard" />
-            <span className="title">Dashboard</span>
-          </a>
+            <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
+          </Link>
         </li>
         <li className> 
           <a href="javascript:;">
@@ -123,11 +124,11 @@ export default function SellerContainer() {
        
           
         <li className> 
-          <a href="javascript:;">
+          <Link to="/seller/dashboard/orders">
             <i className="fa fa-shopping-cart" />
             <span className="title">Orders</span>
             <span className="arrow " />
-          </a>
+          </Link>
           <ul className="sub-menu">
             <li>
               <a className href="eco-orders.html">All Orders</a>
@@ -181,7 +182,7 @@ export default function SellerContainer() {
       <div className="card-name">Total Quantity</div>
     </div>
     <div className="icon-box">
-      <i className="fas fa-briefcase-medical" />
+      <i className="fas fa-shopping-basket" />
     </div>
   </div>
   <div className="card">
@@ -190,7 +191,7 @@ export default function SellerContainer() {
       <div className="card-name">Quantity Sold</div>
     </div>
     <div className="icon-box">
-      <i className="fas fa-briefcase-medical" />
+      <i className="fas fa-shopping-cart" />
     </div>
   </div>
   <div className="card">
@@ -213,66 +214,12 @@ export default function SellerContainer() {
   </div>
 </div>
 
+
             {/* End .row */}    
             <div className="row">
 
            <div className="tables">
-  <div className="dashboard-table">
-    <div className="heading">
-      <h2>Order Overview</h2>
-      <a href="#" className="btn">View All</a>
-    </div>
-    <table className="table-head">
-      <thead>
-        <tr><td>Name</td>
-          <td>Product</td>
-          <td>Price</td>
-          <td>Action</td>
-        </tr></thead>
-      <tbody>
-        <tr>
-          <td>Oreva Ansel</td>
-          <td>Television</td>
-          <td>$4,000</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-        <tr>
-          <td>Oluchi Tiyan</td>
-          <td>Drapes</td>
-          <td>$2,000</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-        <tr>
-          <td>Chuks Okoro</td>
-          <td>Toothpick</td>
-          <td>$1</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-        <tr>
-          <td>Victor Ihemadu</td>
-          <td>Main.go</td>
-          <td>$20</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  
 </div>
             </div> 
           </div>
