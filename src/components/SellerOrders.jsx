@@ -43,8 +43,8 @@ export default function SellerOrdersComponent() {
         <div className="dashboard-table">
     <div className="heading">
       <h2>Order Overview</h2>
-      <a href="#" className="btn">View All</a>
-      <p className="btn"> Total Orders {orders.length}</p>
+      {/* <a href="#" className="btn">View All</a> */}
+      <p className="btn"> You have {orders.length} Orders</p>
       
     </div>
     <table className="table-head">
