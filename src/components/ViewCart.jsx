@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link} from "react-router-dom"
 import { useAppContext } from '../context/ContextUse';
 import axios from 'axios';
@@ -6,15 +6,18 @@ import axios from 'axios';
 import SweetAlert from 'react-bootstrap-sweetalert';
 
 
-export default function ViewCart(){
+export default function ViewCart(props){
+  const { handleSearch, cart, cartAmount, filterCart, setCart, quantity, setDeletedITem,deletedItem} = useAppContext()
+
+  console.log("props: ", cartAmount);
   const [sweetalert, setSweetalert] = React.useState(false);
   const [productID, setProductID] = React.useState(null);
   const [event, setEvent] = React.useState(null);
-  // const [allproducts, setAllProducts] = React.useState([])
-  // console.log(event)
 
-  const {quantity} = useAppContext()
-  console.log(quantity)
+  useEffect(()=>{
+    // console.log("setCart ........", cartData())
+  },[])
+  // console.log("setCart ........", cartData())
   
   const token = localStorage.getItem("token")
 
@@ -37,13 +40,15 @@ export default function ViewCart(){
       }
     })
     .then(response => {
-      console.log(response);
       elem.innerHTML = initText;
       elem.disabled = false
       if (response.status === 200) {
-        event.target.closest(".product__item-wrapper").parentElement.removeChild(event.target.closest(".product__item-wrapper"))
+        setDeletedITem(!deletedItem)
+
+    
         setSweetalert(false);
-        // setAllProducts(quantity)
+        
+       
       }
     })
     .catch(error => {
@@ -53,6 +58,7 @@ export default function ViewCart(){
 
   }
 
+  console.log(productID)
   // React.useEffect(()=>{
   //   deleteProduct()
   // }, [])
@@ -79,7 +85,7 @@ export default function ViewCart(){
                   <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container">
 
 {/* render the function starts here */}
-{
+                {
                   (quantity.length > 0 ) ? quantity.map(
                   product => {
                   return(

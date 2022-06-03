@@ -9,6 +9,10 @@ import axios from 'axios';
 const initialState = {
   quantity: 1
 }
+const alertInitialState = {
+  visible:false,
+  msg:"Successfully added to cart"
+}
 
 export default function Main(){
   const { category,
@@ -16,10 +20,12 @@ export default function Main(){
   upperPrice,
   sort, addToCart} = useAppContext()
 
+
 const [input, setInput ] = useState(initialState)
 
     const [products, setProducts] = useState([])
     const [modalProduct, setModalProduct] = useState([{}])
+    const [alert, setAlert] = useState(alertInitialState)
 
     useEffect(()=>{
   
@@ -72,6 +78,8 @@ const handleChange = (e)=>{
 
         
         if(response.status === 200){
+          setAlert({...alert, visible:true})
+          clearAlert()
           const obj = {
             quantity: Number(input.quantity),
             price
@@ -89,13 +97,20 @@ const handleModal = (product)=>{
   setModalProduct([product])
 }
 
+const clearAlert = ()=>{
+  setTimeout(()=>{
+    setAlert({...alert, visible: false})
+  }, 400)
+}
 
     return(
          <div>
   <main>
     
     {/* features area start */}
+    
     <section id= "top" className="features__area grey-bg-2 pt-40 pb-20 pl-10 pr-10">
+    {alert.visible &&  <div className='addtoCart-Alert'> {alert.msg}</div>}
       <div className="container">
         <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
           <div className="col">
@@ -178,6 +193,7 @@ const handleModal = (product)=>{
                   <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container">
 
 {/* render the function starts here */}
+
                   {
                   (products.length > 0 ) ? products.map(
                   product => {
@@ -215,14 +231,19 @@ const handleModal = (product)=>{
                         {token && <div className="product__add-btn">
                           <button type="button" onClick = {()=>addToCartFunc(product)}>Add to Cart</button>
                         </div>}
-                      
+                     
                       </div>
+
+                     
                     </div>
+                    
+                    
                   </>
                   )
                   }
                   ): <p> Loading...</p>
                   }
+          
  {/* Render the function stops here */}
 
                   </div> 

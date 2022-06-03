@@ -5642,3 +5642,27 @@ p.checkout-coupon input[type=text]:focus {
   padding: 0 10px;
 
 }
+
+.addtoCart-Alert{
+  text-align: center;
+  padding-top: 10px;
+  padding-left: 555px;
+  padding-right: 555px;
+  background-color: #fcb700;
+  color: #000;
+  font-size:x-large;
+  height: 50px;
+  position: fixed;
+  top: 5px;
+  z-index: 1;
+}
+
+.link{
+  height: 40px;
+  font-weight: 600;
+  color: #000;
+}
+.a-link{
+  font-weight: 400;
+  color: #000;
+}

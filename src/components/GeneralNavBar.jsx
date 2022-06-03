@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react"
 import React from "react"
 import {Link,useNavigate} from "react-router-dom"
-import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
-import { render } from "@testing-library/react"
-import ViewCart from "./ViewCart"
 
 
 const initialState = {
@@ -16,7 +13,7 @@ const initialState = {
 
   
 
-export default function Navbar(){
+export default function GeneralNavBar(){
   
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
@@ -25,7 +22,6 @@ export default function Navbar(){
    const navigate = useNavigate()
  
    const LogOut = async () => {
-    // console.log(localStorage.token)
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
@@ -45,27 +41,14 @@ export default function Navbar(){
   }
  
       
-  const { handleSearch, cart, cartAmount} = useAppContext()
-
-  // console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
-  const [input, setInput] = useState(initialState)
 
-
-  const handleSubmit = (e)=>{
-    e.preventDefault()
-    handleSearch(input)
-  }
-  const handleChange = (e)=>{
-setInput({...input, [e.target.name]:e.target.value})
-// console.log(e)
-  }
 
   const token = localStorage.getItem("token")
 
   
   const getSellerProfile = async () => {
-    // console.log(localStorage.token)
+   
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
@@ -147,74 +130,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       </div>
                     </div>
                   </div>
-                  <div className="col-xl-8 col-lg-9">
-                    <div className="header__info-right">
-                      <div className="header__search f-left d-none d-sm-block">
 
-                        <form className="search" onSubmit={handleSubmit} >
-
-                      <div>
-                      <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="All Categories">All Categories</option>
-                        <option value="baby products">Baby Products</option>
-                        <option value="computing">Computing</option>
-                        <option value="electronics">Electronics</option> 
-                        <option value="fashion">Fashion</option>
-                        <option value="food drinks">Food/Drinks</option>
-                        <option value="health & beauty">Health/Beauty</option>
-                        <option value="phones & tablets">Phone/Tablets</option>   
-                        <option value="sporting goods">Sporting goods</option>
-                        <option value="others">Others</option>   
-                    </select>
-
-                    <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="">Lower Price Limit</option>
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="500">500</option> 
-                        <option value="1000">1000</option>
-                        <option value="2000">2000</option>
-                        <option value="5000">5000</option>
-                        <option value="10000">10000</option>   
-                        <option value="20000">20000</option>
-                        <option value="50000">50000</option>   
-                    </select>
-
-                    <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="">Upper Price Limit</option>
-                        <option value="50000">50000</option>
-                        <option value="20000">10000</option>
-                        <option value="10000">10000</option> 
-                        <option value="5000">5000</option>
-                        <option value="2000">2000</option>
-                        <option value="1000">1000</option>
-                        <option value="500">500</option>   
-                        <option value="200">200</option>
-                        <option value="100">100</option>   
-                    </select>
-               
-                        <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
-                        <button className="cat-btn" type="submit">Search</button>
-                    </div>
-                        </form>
-                      </div>
-                      {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
-                        <Link to={{
-                          pathname: "/viewcart",
-                          state: {cart},
-                          render: () => <ViewCart name="true"/>
-                        }}>
-                          <a href="javascript:void(0);" className="cart__toggle">
-                            <span className="cart__total-item">{cart}</span>
-                          </a>
-                          <span className="cart__content">
-                            <span className="cart__my">My Cart:</span>
-                            <span className="cart__total-price">${cartAmount}</span>
-                          </span>
-                        </Link>
-                      </div>}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -223,24 +139,14 @@ setInput({...input, [e.target.name]:e.target.value})
                 <div className="row align-items-center">
                   <div className="col-xl-9 col-lg-9 col-md-12 col-sm-6 col-6">
                     <div className="header__bottom-left d-flex d-xl-block align-items-center">
-                      {/* <div className="side-menu d-xl-none mr-20">
-                        <button
-                          type="button"
-                          className="side-menu-btn side-menu-btn-2 offcanvas-toggle-btn"
-                        >
-                          <i className="fas fa-bars" />
-                        </button>
-                      </div> */}
-
                       <div className="main-menu main-menu-2 d-none d-md-block">
-                        <nav>
+                        <nav className="link">
                           <ul>
+                          <Link to="/">
                             <li>
-                              <a href="about.html">about us</a>
+                                <h4 className="a-link">HOME</h4>  
                             </li>
-                            <li>
-                              <a href="contact.html">contact</a>
-                            </li>
+                        </Link>
                             {/* <li>
                               <a href="about.html">
                                 pages <i className="far fa-angle-down" />
