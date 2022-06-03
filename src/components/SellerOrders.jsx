@@ -1,7 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
+import {useNavigate} from 'react-router-dom'
 
 export default function SellerOrdersComponent() {
+    const navigate = useNavigate()
+    
+    useEffect(() => {
+        if (!localStorage.token) {
+            navigate("/seller/login")
+        }}, [localStorage.token])
+
     const [orders, setOrders] = useState([])
 
     const getOrders = async () => {
@@ -25,8 +33,6 @@ export default function SellerOrdersComponent() {
 
       useEffect(()=>{
         getOrders()
-       
-      
     }, [])
 
 
