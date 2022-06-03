@@ -32,8 +32,6 @@ export default function SellerOrdersComponent() {
         }
       }
 
-  
-
     return(
 
         <section id="main-content" className=" ">
