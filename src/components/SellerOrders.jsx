@@ -55,8 +55,8 @@ export default function SellerOrdersComponent() {
         </tr>
         </thead>
       <tbody>
-      {orders && orders.map(order =>
-        <tr key={order.id}>
+      {orders && orders.map((order,index) =>
+        <tr key={index}>
         
         <td>{order.FName} {order.LName}</td>
           <td>{order.Category} </td>
