@@ -24,7 +24,7 @@ export default function SellerOrdersComponent() {
           const resp = await axios.get("/sellerorders/", config)
           console.log(orders)
           console.log(resp.data.data)
-          setOrders(resp.data.data.Seller_Order)
+          setOrders(resp.data)
         } catch (error){
             setOrders([])
           console.log(error)
