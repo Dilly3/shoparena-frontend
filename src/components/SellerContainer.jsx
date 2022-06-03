@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useNavigate } from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../axios'
-import {Link} from "react-router-dom"
 
 export default function SellerContainer() {
 
