@@ -10,7 +10,7 @@ export default function SellerOrdersComponent() {
             navigate("/seller/login")
         }}, [localStorage.token])
 
-    const [orders, setOrders] = useState('')
+    const [orders, setOrders] = useState([])
 
     const getOrders = async () => {
         const config = {
@@ -32,10 +32,7 @@ export default function SellerOrdersComponent() {
         }
       }
 
-      useEffect(()=>{
-        getOrders()
-    }, [])
-
+  
 
     return(
 
