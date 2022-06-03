@@ -59,7 +59,7 @@ export default function SellerOrdersComponent() {
         <tr key={index}>
         
         <td>{order.Fname} {order.Lname}</td>
-          <td>{order.Category} </td>
+          <td>{order.CategoryName} </td>
           <td>{order.Product}</td>
           <td>{order.Price}</td>
           <td>{order.Quantity}</td>
