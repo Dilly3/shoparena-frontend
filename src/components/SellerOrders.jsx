@@ -60,7 +60,7 @@ export default function SellerOrdersComponent() {
         
         <td>{order.Fname} {order.Lname}</td>
           <td>{order.CategoryName} </td>
-          <td>{order.Product}</td>
+          <td>{order.Title}</td>
           <td>{order.Price}</td>
           <td>{order.Quantity}</td>
         </tr>
