@@ -1,5 +1,6 @@
 import axios from "axios"
 import React, {useEffect, useState}from 'react'
+import { Link } from "react-router-dom"
 
 const token = localStorage.getItem("token")
 
@@ -11,6 +12,8 @@ const ProductsBySeller = () => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const productCall = async ()=>{
+
+        
 
         try{
             axios.get("/api/v1/seller/allproducts").then((resp) => {
@@ -31,17 +34,11 @@ const ProductsBySeller = () => {
     <div class="container">
       
       <div class="main">
-        <div class="top-bar">
-          <div class="search">
-            <input type="text" name="search" placeholder="search here" />
-            <label for="search"><i class="fas fa-search"></i></label>
-          </div>
-          <i class="fas fa-bell"></i>
-          <div class="user">
-            <img src="./images/cv__29__generated.jpg" alt="" />
-          </div>
-        </div>
-        
+        <p>
+            <Link to="/seller/dashboard">
+            Back to dashboard
+            </Link>
+        </p>
         <div class="tables">
             <div class="dashboard-table">
                 <div class="heading">
