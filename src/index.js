@@ -17,6 +17,7 @@ import ViewCart from "./pages/ViewCart";
 import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
+import UpdateSellerProfile from "./components/UpdateSellerProfile";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -42,6 +43,7 @@ root.render(
       <Route exact path="/buyer/profile" element={<Profile/>}></Route>
       <Route exact path="/seller/profile" element={<SellerProfile/>}></Route>
       <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile/>}></Route>
+      <Route exact path="/update/seller/profile" element={<UpdateSellerProfile/>}></Route>
      </Routes>
   </Router>
   </ContextUse>
