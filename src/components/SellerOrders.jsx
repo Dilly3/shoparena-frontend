@@ -23,6 +23,12 @@ export default function SellerOrdersComponent() {
         }
       }
 
+      useEffect(()=>{
+        getOrders()
+       
+      
+    }, [])
+
 
     return(
 
