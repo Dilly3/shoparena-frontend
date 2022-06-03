@@ -1,5 +1,5 @@
 import React,  {useState, useEffect} from'react'
-import axios from 'axios';
+import axios from '../axios';
 
 export default function Createproduct() {
 
@@ -7,6 +7,7 @@ export default function Createproduct() {
     title: "",
     description : "",
     images: [],
+    category_id: 0,
     price: 0,
     rating: 0,
     quantity: 0
@@ -17,11 +18,10 @@ export default function Createproduct() {
     try{
       const config = {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NTQyOTU2NTgsInVzZXJfZW1haWwiOiJjZWNlQHlhaG9vLmNvbSJ9.qkv6NVmFSWmZsimmnNPSZPjXiTZuXln07zeGw73QIjs}`,
-          "Content-Type": "application/json",
+          "Content-Type": "multipart/form-data",
         }
     }
-      const response = axios.post("http://localhost:8080/api/v1/createproduct", {values}, config);
+      const response = await axios.post("/createproduct", values, config);
       console.log(response)
     }
     catch(err){
@@ -30,7 +30,10 @@ export default function Createproduct() {
   } 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(values)
     submit()
+    setValues(initialState)
+   
 }
 const uploadImage = (e) => {
   setValues({...values, Images : [...e.target.files]})
@@ -67,6 +70,13 @@ const uploadImage = (e) => {
               <span className="desc" />
               <div className="controls">
                 <input type="file" name="images[]" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
+              </div>
+            </div>
+            <div className="form-group">
+              <label className="form-label" htmlFor="field-1">Category id</label>
+              <span className="desc" />
+              <div className="controls">
+                <input type="text" name = "category_id" value = {values.category_id} onChange={handleChange} className="form-control" id="field-1" />
               </div>
             </div>
             <div className="form-group">

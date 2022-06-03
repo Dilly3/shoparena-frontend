@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+
 import axios from "../axios";
 import {axios as Instance} from "axios"
 import DeletePro from "./deleteAllSellerProduct/DeleteAllSellerProducts";
+import { Link } from "react-router-dom";
 export default function SellerContainer() {
   const [checkSold, setCheckSold] = useState(0);
   const [remainingProduct, setRemainingProduct] = useState(0);
@@ -19,7 +21,6 @@ export default function SellerContainer() {
       setCheckSold(resp.data.data.Product_sold);
     } catch (error) {
       setCheckSold(0);
-      console.log(error.response.data);
     }
   };
 
@@ -149,11 +150,14 @@ export default function SellerContainer() {
                 </a>
               </li>
               <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-cubes" />
+              <Link to={"/seller/createproduct"}>
+              <i className="fa fa-cubes" />
+                  
                   <span className="title"> Add Products</span>
                   <span className="arrow " />
-                </a>
+              </Link>
+                  
+
               </li>
               <li className>
                 <a href="javascript:;">
