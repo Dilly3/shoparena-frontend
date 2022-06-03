@@ -18,11 +18,11 @@ export const reducer = (state, action) => {
         ...state,
         ...action.payload,
       };
-      // case GET_USER:
-      //   return {
-      //     ...state,
-      //     user:action.payload,
-      //   }
+    //   case FILTER_QUANTITY :
+    //     return {
+    //       ...state,
+    //       quantity: state.quantity.filter,
+    //     }
     default:
       return state;
   }
