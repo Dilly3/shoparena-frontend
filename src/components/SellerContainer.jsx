@@ -182,7 +182,7 @@ export default function SellerContainer() {
       <div className="card-name">Total Quantity</div>
     </div>
     <div className="icon-box">
-      <i className="fas fa-briefcase-medical" />
+      <i className="fas fa-shopping-basket" />
     </div>
   </div>
   <div className="card">
@@ -191,7 +191,7 @@ export default function SellerContainer() {
       <div className="card-name">Quantity Sold</div>
     </div>
     <div className="icon-box">
-      <i className="fas fa-briefcase-medical" />
+      <i className="fas fa-shopping-cart" />
     </div>
   </div>
   <div className="card">

@@ -7,10 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContextUse from "./context/ContextUse";
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword"
-
 import SellerOrdersComponent from "./pages/SellerOrders";
-
-
 import SellerRegisterComponent from "./pages/SellerRegister"
 import Sellerforgotpassword from "./components/Sellerforgotpassword"
 import Sellerupdatepassword from "./components/Sellerupdatepassword"
@@ -38,7 +35,7 @@ root.render(
       <Route exact path="/buyer/register" element={<RegisterComponent/>}></Route>
       <Route exact path="/seller/register" element={<SellerRegisterComponent/>}></Route>
       <Route exact path="/resetpassword" element={<ResetPassword/>}></Route>
-      <Route exact path="/seller/dashboard" element={<ResetPassword/>}></Route>
+    
       <Route exact path="/seller/forgot" element={<Sellerforgotpassword/>}></Route>
       <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword/>}></Route>
       <Route exact path="/buyer/forgot" element={<Buyerforgotpassword/>}></Route>

@@ -2,7 +2,20 @@ import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 
 export default function SellerOrdersComponent() {
+    const [orders, setOrders] = useState([])
 
+    const getOrders = async () => {
+   
+        try {
+          const resp = await axios.get("/sellerorders/")
+          console.log(orders)
+          console.log(resp.data.data)
+          setOrders(resp.data.data.Seller_Order)
+        } catch (error){
+            setOrders([])
+          console.log(error)
+        }
+      }
 
 
     return(
@@ -15,52 +28,24 @@ export default function SellerOrdersComponent() {
     </div>
     <table className="table-head">
       <thead>
-        <tr><td>Name</td>
+        <tr><td>Buyer Name</td>
+          <td>Product Category</td>
           <td>Product</td>
           <td>Price</td>
-          <td>Action</td>
-        </tr></thead>
+          <td>Quantity</td>
+        </tr>
+        </thead>
       <tbody>
-        <tr>
-          <td>Oreva Ansel</td>
-          <td>Television</td>
-          <td>$4,000</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
+      {orders && orders.map(order =>
+        <tr key={order.id}>
+        
+        <td>{order.FName} {order.LName}</td>
+          <td>{order.Category} </td>
+          <td>{order.Product}</td>
+          <td>{order.Price}</td>
+          <td>{order.Quantity}</td>
         </tr>
-        <tr>
-          <td>Oluchi Tiyan</td>
-          <td>Drapes</td>
-          <td>$2,000</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-        <tr>
-          <td>Chuks Okoro</td>
-          <td>Toothpick</td>
-          <td>$1</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
-        <tr>
-          <td>Victor Ihemadu</td>
-          <td>Main.go</td>
-          <td>$20</td>
-          <td>
-            <i className="far fa-eye" />
-            <i className="far fa-edit" />
-            <i className="far fa-trash-alt" />
-          </td>
-        </tr>
+      )}
       </tbody>
     </table>
   </div>
