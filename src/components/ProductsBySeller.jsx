@@ -16,7 +16,7 @@ const ProductsBySeller = () => {
         
 
         try{
-            axios.get("/api/v1/seller/allproducts").then((resp) => {
+            axios.get("/seller/allproducts").then((resp) => {
                 setState(resp.data.SellerProducts);
             })
         }catch(error){
