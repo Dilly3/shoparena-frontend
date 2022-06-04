@@ -24,7 +24,8 @@ import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
 import ProductsBySeller from "./pages/ProductsBySeller";
-
+import BuyerDashboard from "./pages/BuyerDashboard";
+import SellerShop from "./pages/SellerShop";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -55,6 +56,8 @@ root.render(
 
           <Route exact path="/" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
+          <Route exact path="/buyer/dashboard" element={<BuyerDashboard/>}></Route>
+          <Route exact path="/seller/shop/:id" element={<SellerShop/>}></Route>
         </Routes>
       </Router>
     </ContextUse>
