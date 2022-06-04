@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const token = localStorage.getItem("token")
 
-const ProductsBySeller = () => {
+export function ListofProductBySeller() {
     const [state, setState] = useState([])
 
         
@@ -37,10 +37,10 @@ const ProductsBySeller = () => {
             </Link>
         </p>
         <div class="tables">
-            <div class="dashboard-table">
+            <div class="dashboardtable">
                 <div class="heading">
                     <h2>Seller's Products</h2>
-                    <a href="#" class="btn">View All</a>
+                    <a href="#" class="btn">you have {state.length} products</a>
                 </div>
                 <table>
                     <thead>
@@ -50,7 +50,7 @@ const ProductsBySeller = () => {
                         <th>Category</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Action</th>
+                        {/* <th>Action</th> */}
                     </tr>
                     </thead>
                     <tbody>
@@ -62,13 +62,13 @@ const ProductsBySeller = () => {
                                 <td>{item.Category.name}</td>
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
-                                <td>
+                                {/* <td>
                                  <i                                 
                                 //  onClick={pass the function}
                                  class="far fa-eye"></i>
                                  <i class="far fa-edit"></i>
                                  <i class="far fa-trash-alt"></i>
-                             </td>
+                             </td> */}
                             </tr>
                         )
                     }) : "Nothing to show"}
@@ -82,6 +82,6 @@ const ProductsBySeller = () => {
   )
 }
 
-export default ProductsBySeller
+ 
 
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useNavigate } from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../axios'
 
-export default function SellerContainer() {
+export default function SellerProduct() {
 
   const [checkSold, setCheckSold] = useState(0)
   const [remainingProduct, setRemainingProduct] = useState(0)
@@ -68,6 +68,10 @@ export default function SellerContainer() {
   }, [])
  
 
+
+
+
+
   return (
     <>
 {/* START CONTAINER */}
@@ -100,12 +104,14 @@ export default function SellerContainer() {
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
-        <li className> 
-        <Link to="/seller/products">       
+        <li className=''>
+        <Link to="/seller/products"><li className> 
+          <a href="javascript:;">
             <i className="fa fa-cubes" />
             <span className="title" >Products</span>
             <span className="arrow " />
-        </Link>
+          </a>
+           </li></Link>
            </li>
            <li className> 
           <a href="javascript:;">
@@ -168,7 +174,7 @@ export default function SellerContainer() {
       <div className="col-xl-12 col-lg-12 col-md-12 col-12">
         <div className="page-title">
           <div className="float-left">
-            <h1 className="title">SELLER DASHBOARD</h1>                          </div>
+            <h1 className="title">SELLER PRODUCTS</h1>                          </div>
         </div>
       </div>
       <div className="clearfix" />
