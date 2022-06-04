@@ -199,25 +199,23 @@ useEffect(()=>{
         </div>        
         <div className="row">
             <div className='Seller-shop-container'>
+                {/*seller card start*/}
             <div className='left-side'>
+            <div className='boarder'>Hi
+            
+            </div>
                 <div className='avatar-seller'>
                     <img src={  shop.image } className='avatar-seller' alt/>
                 </div>
                <hr />
                <div className='seller-01'>
+                   
             <p className='shop-details name'><b>{ shop.first_name } { shop.last_name }</b></p>
             <p className='shop-details'><b>User Name</b> :{ shop.username }</p>
             <p className='shop-details'><b>Email </b>:{ shop.email }</p>
             <p className='shop-details'><b>Mobile</b> :{ shop.phone_number}</p></div>
-            </div>
-            <div className='right-side'>
-                
-            <div className='seller-profile'>
-            <h3 className='store-keeper'><b>{ shop.first_name } { shop.last_name }'s Store </b></h3>
-            <div className='sec-one'>
-            <p className='shop-details'><b>Full Name :{ shop.first_name } { shop.last_name }</b></p>
-            <p className='shop-details'><b>Email </b>:{ shop.email }</p>
             <p className='shop-details'><b> Address</b>: { shop.address}</p>
+
             <form className="rating star">
   <label>
     <input type="radio" name="stars" defaultValue={1} /> 
@@ -251,13 +249,21 @@ useEffect(()=>{
   </label>
 </form>
             </div>
+             {/*seller card end*/}
+            <div className='right-side'>
+                
+            <div className='seller-profile'>
+            <h3 className='store-keeper'><b>{ shop.first_name } { shop.last_name }'s Store </b></h3>
+            <div className='sec-one'>
+            <img src='/assets/images/cartoon dlv 2.webp' className='sec-one' alt />
+           
+            </div>
             </div>
 <hr/>
             <div className='seller-product'>
+
             {/*seller product card start*/}
-            
             <SellerProductCard/>
-            
             {/*seller product card end*/}
             </div>
 
