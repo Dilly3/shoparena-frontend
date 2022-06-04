@@ -201,21 +201,19 @@ useEffect(()=>{
             <div className='Seller-shop-container'>
                 {/*seller card start*/}
             <div className='left-side'>
-            <div className='boarder'>Hi
-            
-            </div>
-                <div className='avatar-seller'>
+            <div className='boarder'>
+            <div className='avatar-seller'>
                     <img src={  shop.image } className='avatar-seller' alt/>
                 </div>
-               <hr />
-               <div className='seller-01'>
-                   
+            </div>   
+            <div className='seller-01'>      
             <p className='shop-details name'><b>{ shop.first_name } { shop.last_name }</b></p>
-            <p className='shop-details'><b>User Name</b> :{ shop.username }</p>
-            <p className='shop-details'><b>Email </b>:{ shop.email }</p>
-            <p className='shop-details'><b>Mobile</b> :{ shop.phone_number}</p></div>
-            <p className='shop-details'><b> Address</b>: { shop.address}</p>
-
+            <div className='hold-details'>
+            <p className='shop-details'><i className="fas fa-envelope-open-text"></i> { shop.email }</p>
+            <p className='shop-details'><i class="fas fa-mobile-alt"></i> { shop.phone_number}</p>
+            <p className='shop-details'><i class="fas fa-map-marker" aria-hidden="true"></i> { shop.address}</p>
+            <p className='shop-details'><i className="fas fa-user-plus"></i> { shop.username }</p>
+            <p className='shop-details'><i className="fas fa-check"></i> Verified Seller On <span className='oja-label'>Oja</span></p>
             <form className="rating star">
   <label>
     <input type="radio" name="stars" defaultValue={1} /> 
@@ -248,6 +246,9 @@ useEffect(()=>{
     <span className="icon">★</span>
   </label>
 </form>
+            </div>
+            
+            </div>
             </div>
              {/*seller card end*/}
             <div className='right-side'>
@@ -322,111 +323,7 @@ useEffect(()=>{
     </section>
     {/* back to top btn area end */}
 
-{/* shop modal start */}
 
-{
-                  (products.length > 0) ? modalProduct.map(
-                  product => {
-                  return(
-                  <> 
-    <div className="modal fade" id="productModalId" tabIndex={-1} role="dialog" aria-hidden="true">
-      <div className="modal-dialog modal-dialog-centered product__modal" role="document">
-        <div className="modal-content">
-          <div className="product__modal-wrapper p-relative">
-            <div className="product__modal-close p-absolute">
-              <button data-bs-dismiss="modal"><i className="fal fa-times" /></button>
-            </div>
-            <div className="product__modal-inner">
-              <div className="row">
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div className="product__modal-box">
-                    <div className="tab-content" id="modalTabContent">
-                      <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
-                        <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-1.jpg" alt />
-                        </div>
-                      </div>
-                      <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
-                        <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-2.jpg" alt />
-                        </div>
-                      </div>
-                      <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
-                        <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-3.jpg" alt />
-                        </div>
-                      </div>
-                      <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
-                        <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-4.jpg" alt />
-                        </div>
-                      </div>
-                    </div>
-                    <ul className="nav nav-tabs" id="modalTab" role="tablist">
-                      <li className="nav-item" role="presentation">
-                        <button className="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-1.jpg" alt />
-                        </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
-                        <button className="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-2.jpg" alt />
-                        </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
-                        <button className="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-3.jpg" alt />
-                        </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
-                        <button className="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-4.jpg" alt />
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                
-                <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                  <div className="product__modal-content">
-                    {console.log(product.title)}
-                    <h4>{product.title}</h4>
-                    <div className="product__modal-des mb-40">
-                      <p><b>Product Details:</b> {product.description} </p>
-                    </div>
-                    <div className="product__stock">
-                      <span>Availability :</span>
-                      <span>{product.quantity} In Stock</span>
-                    </div>
-                    <div className="product__price">
-                      <span>${product.price}</span>
-                    </div>
-                    <div className="product__modal-form mb-30">
-                      {/* <form action="#">
-                        <div className="pro-quan-area d-lg-flex align-items-center">
-                          <div className="product-quantity mr-20 mb-25">
-                         {token &&  <div className="cart-plus-minus p-relative"><input type="text" defaultValue={1}  name = "quantity" value = {input.quantity} onChange = {handleChange}/></div>}  
-                          </div>
-                          <div className="pro-cart-btn mb-25">
-                          {token &&  <button className="t-y-btn" type="submit" onClick = {()=> addToCartFunc(product)}>Add to cart</button>} 
-                          </div>
-                        </div>
-                      </form> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    </>
-                  )
-                  }
-                  ): <p> Loading</p>
-                  }
   </main>
   </div>
   )
