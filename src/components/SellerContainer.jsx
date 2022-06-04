@@ -84,12 +84,14 @@ export default function SellerContainer() {
           </a>
         </div>
         <div className="profile-details col-lg-8 col-md-8 col-8">
+        <Link to="/seller/profile"></Link>
           <h3>
             <a href="ui-profile.html">{ findSeller.last_name } {findSeller.first_name}</a>
             {/* Available statuses: online, idle, busy, away and offline */}
             <span className="profile-status online" />
           </h3>
-          <p className="profile-title">Store Manager</p>
+          <p className="profile-title">Store Manager 
+          </p>
         </div>
       </div>
       {/* USER INFO - END */}

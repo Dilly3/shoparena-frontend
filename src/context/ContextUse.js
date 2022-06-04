@@ -4,9 +4,9 @@ import React, {
   useReducer,
   useEffect,
   useState,
-useMemo} from "react";
+useCallback} from "react";
 import { reducer } from "./reducer";
-import { DATA_FROM_SEARCH, GET_USER } from "./actions";
+import { DATA_FROM_SEARCH  } from "./actions";
 import axios from "axios";
 import instance from "../axios"
 
@@ -17,7 +17,8 @@ const initialState = {
   category: "All Categories",
   lowerPrice: "",
   upperPrice: "",
-  sort: ""
+  sort: "",
+  
 
 };
 
@@ -46,9 +47,10 @@ const ContextUse = ({ children }) => {
   const [cart, setCart] = useState({
     cart: 0,
     cartAmount: 0,
-    quantity: {},
-    alert: 1
+    quantity: [],
+    alert: 1,
   });
+  const [deletedItem, setDeletedITem] =useState(false);
   // console.log(state)
 
   const handleSearch = (data) => {
@@ -56,14 +58,8 @@ const ContextUse = ({ children }) => {
   };
 
   const addToCart = () => {
-  ViewCart()
+    ViewCart()
   };
-
-  useEffect(() => {
-      ViewCart();
-      getUser()
-      
-  }, []);
 
   const ViewCart = async () => {
     try {
@@ -76,7 +72,6 @@ const ContextUse = ({ children }) => {
         { headers: headers }
       );
       const cartQuantity = resp.data
-      // console.log(cartQuantity)
          setCart({
       cart: cartQuantity.length,
       cartAmount: cartQuantity.reduce((acc, product) => {
@@ -90,6 +85,20 @@ const ContextUse = ({ children }) => {
     }
   };
 
+  useEffect(() => {
+    ViewCart();
+    getUser()
+}, [deletedItem]);
+
+// useEffect(()=>{
+//   if(deletedItem){
+//     ViewCart();
+    
+//   }
+// }, [deletedItem])
+
+
+console.log(cart.quantity)
   const getUser = async ()=>{
     try {
      const response = await instance.get('/getbuyerprofile')
@@ -99,10 +108,19 @@ const ContextUse = ({ children }) => {
           }
   }
 
-  console.log(user)
+  const filterCart = async ()=>{
+    // const obj = cart.quantity.filter((item)=> item.CartProductID != id);
+    // console.log("obj", obj);
+    // console.log("id: ", id);
+    // console.log("quantity: ", quantity);
+    // cart.quantity = quantity;
+    // setCart({...cart, quantity: [...cart.quantity, ...obj]});
+    // console.log(cart);
+  // ViewCart()
+  }
   
   return (
-    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser }}>
+    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem}}>
       {children}
     </context.Provider>
   );
