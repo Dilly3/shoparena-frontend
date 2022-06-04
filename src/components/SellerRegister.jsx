@@ -4,7 +4,6 @@ import validateEmail from "../emailValidator"
 import axios from "../axios"
 
 
-
 export default function SellerRegisterComponent() {
 
     const navigate = useNavigate()
