@@ -14,7 +14,7 @@ import instance from "../axios"
 // const cartAmountFromLocal = localStorage.getItem("cartAmount");
 
 const initialState = {
-  category: "",
+  category: "All Categories",
   lowerPrice: "",
   upperPrice: "",
   sort: ""

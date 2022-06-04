@@ -13,8 +13,8 @@ export default function RegisterComponent() {
 const navigate = useNavigate()
 
 useEffect(() => {
-    if (!localStorage.token) {
-        navigate("/buyer/register")
+    if (localStorage.token) {
+        navigate("/")
     }}, [localStorage.token])
 
     const [alert,setAlert] = useState({

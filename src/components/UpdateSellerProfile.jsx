@@ -133,11 +133,11 @@ console.log(field)
                   name="profile_picture"
                   onChange={changeHandler}
                 />
-                <div className="mt-5 text-center">
+                {/* <div className="mt-5 text-center">
                  <button className="btn btn-primary " type="submit">
                     Save Profile Pic
                   </button>
-                  </div>
+                  </div> */}
               </form>
               <span className="font-weight-bold">
              {/* {field.first_name} {field.last_name} */}
