@@ -24,8 +24,6 @@ import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

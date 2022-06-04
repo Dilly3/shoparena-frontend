@@ -97,14 +97,9 @@ const [login, setLogin] = useState(
     }
 
     function handleChange(e){
-        // setEmail(e.target.value)
+    
        setLogin({...login, [e.target.name]: e.target.value})
-        // LoginUser(login.email, login.password)
-        // setLogin({
-        //     // ...prev,
-        //     email: '',
-        //     password: '',
-        // })
+      
     }
     
     return (
