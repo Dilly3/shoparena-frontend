@@ -45,7 +45,7 @@ export function ListofProductBySeller() {
                 <table>
                     <thead>
                     <tr>
-                        <th>#</th>
+                        <th>Number#</th>
                         <th>Product</th>
                         <th>Category</th>
                         <th>Price</th>
