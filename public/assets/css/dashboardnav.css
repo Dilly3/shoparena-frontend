@@ -69,6 +69,20 @@ ul {
       border-radius: 5px;
       margin-bottom: 20px;
   }
+
+  .toggle{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 12px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-style: italic;
+    color: rgba(222, 69, 69, 0.724);
+    box-shadow: 6px 6px 2px 1px rgba(223, 59, 59, 0.69);
+    background-color: transparent;
+    }
   
   
   /* ================================= 
