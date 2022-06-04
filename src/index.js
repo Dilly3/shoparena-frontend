@@ -17,13 +17,13 @@ import ViewCart from "./pages/ViewCart";
 import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
-import ProductsBySeller from "./components/ProductsBySeller"
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import ProductId from "./components/ProductId";
 import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
+import ProductsBySeller from "./pages/ProductsBySeller";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import SellerShop from "./pages/SellerShop";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -31,6 +31,7 @@ root.render(
   <React.StrictMode>
     <ContextUse>
       <Router>
+      {/* <Navbar /> */}
         <Routes>
           <Route exact path="/" element={<App />}></Route>
           <Route exact path="/viewcart" element={<ViewCart />}></Route>
@@ -51,7 +52,8 @@ root.render(
           <Route exact path="/seller/profile" element={<SellerProfile />} ></Route>
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
           <Route exact path="/productID/:id" element={<ProductId />}></Route>
-          <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route>
+          <Route exact path="/seller/products" element={<ProductsBySeller/>}></Route>
+
           <Route exact path="/" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route exact path="/buyer/dashboard" element={<BuyerDashboard/>}></Route>

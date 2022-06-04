@@ -4,16 +4,14 @@ import { Link } from "react-router-dom"
 
 const token = localStorage.getItem("token")
 
-const ProductsBySeller = () => {
+export function ListofProductBySeller() {
     const [state, setState] = useState([])
+
         
        
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const productCall = async ()=>{
-
-        
-
         try{
             axios.get("/seller/allproducts").then((resp) => {
                 setState(resp.data.SellerProducts);
@@ -23,7 +21,7 @@ const ProductsBySeller = () => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(()=> {
         productCall() 
     },[])
 
@@ -39,10 +37,10 @@ const ProductsBySeller = () => {
             </Link>
         </p>
         <div class="tables">
-            <div class="dashboard-table">
+            <div class="dashboardtable">
                 <div class="heading">
                     <h2>Seller's Products</h2>
-                    <a href="#" class="btn">View All</a>
+                    <a href="#" class="btn">you have {state.length} products</a>
                 </div>
                 <table>
                     <thead>
@@ -52,11 +50,11 @@ const ProductsBySeller = () => {
                         <th>Category</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Action</th>
+                        {/* <th>Action</th> */}
                     </tr>
                     </thead>
                     <tbody>
-                    {state.map((item, index)=>{
+                    {state > 0 ? state.map((item, index)=>{
                         return(                         
                             <tr key={index}>
                                 <td>{index + 1}</td>
@@ -64,16 +62,16 @@ const ProductsBySeller = () => {
                                 <td>{item.Category.name}</td>
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
-                                <td>
+                                {/* <td>
                                  <i                                 
                                 //  onClick={pass the function}
                                  class="far fa-eye"></i>
                                  <i class="far fa-edit"></i>
                                  <i class="far fa-trash-alt"></i>
-                             </td>
+                             </td> */}
                             </tr>
                         )
-                    })}
+                    }) : "Nothing to show"}
                     </tbody>
                 </table>
                
@@ -84,6 +82,6 @@ const ProductsBySeller = () => {
   )
 }
 
-export default ProductsBySeller
+ 
 
 

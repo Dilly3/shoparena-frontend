@@ -131,6 +131,7 @@ body {
 
 /* {begins} */
 .tables {
+    /* width: calc(100% - 300px); */
     width: 100%;
     display: grid;
     /* grid-template-columns: 2fr 1fr; */
@@ -146,12 +147,24 @@ body {
     overflow: hidden;
 }
 .dashboard-table {
+    width: 100%;
     min-height: 350px;
     background: #fff;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
+
+.dashboardtable {
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    min-height: 350px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
 .second-dashboard {
     min-height: 350px;
     background: #fff;
@@ -175,6 +188,7 @@ body {
 table {
     margin-top: 10px;
     width: 100%;
+    
     border-collapse: collapse;
 }
 thead td{
@@ -852,13 +866,16 @@ a:hover, a:focus {
 ------------------------------------------*/
 
 .page-sidebar {
-    height: auto;
+    height: 100%;
     width: 300px;
     position: fixed;
-    padding: 0px;
+    /* padding: 0px; */
     background-color: rgba(50, 50, 58, 1.0);
     margin-top: 60px;
-    overflow: hidden;
+    overflow-x: hidden;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
 
 
@@ -5174,7 +5191,7 @@ border-left: 3px solid transparent;
     /*top: -79px;*/
 }
 .page-sidebar.chat_shift .wraplist li:hover .title, .page-sidebar.collapseit .wraplist li:hover .title {
-    float: left;
+    /* float: left; */
     padding-left: 15px;
     width: 240px;
     background: var(--primary-color);
