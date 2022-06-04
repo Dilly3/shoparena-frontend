@@ -6,14 +6,12 @@ const token = localStorage.getItem("token")
 
 const ProductsBySeller = () => {
     const [state, setState] = useState([])
+
         
        
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+ axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
     const productCall = async ()=>{
-
-        
-
         try{
             axios.get("/seller/allproducts").then((resp) => {
                 setState(resp.data.SellerProducts);
@@ -23,7 +21,7 @@ const ProductsBySeller = () => {
         }
     }
 
-    useEffect(()=>{
+    useEffect(()=> {
         productCall() 
     },[])
 
@@ -56,7 +54,7 @@ const ProductsBySeller = () => {
                     </tr>
                     </thead>
                     <tbody>
-                    {state.map((item, index)=>{
+                    {state > 0 ? state.map((item, index)=>{
                         return(                         
                             <tr key={index}>
                                 <td>{index + 1}</td>
@@ -73,7 +71,7 @@ const ProductsBySeller = () => {
                              </td>
                             </tr>
                         )
-                    })}
+                    }) : "Nothing to show"}
                     </tbody>
                 </table>
                
