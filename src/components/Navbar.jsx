@@ -137,13 +137,8 @@ setInput({...input, [e.target.name]:e.target.value})
                         </Link>
                       </div>
                       <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
-                        <div className="header__hotline-icon">
-                          <i className="fal fa-headset" />
-                        </div>
-                        <div className="header__hotline-info">
-                          <span>Hotline Free:</span>
-                          <h6>+234-813-347-7843</h6>
-                        </div>
+
+                        
                       </div>
                     </div>
                   </div>
