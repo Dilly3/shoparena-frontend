@@ -24,6 +24,9 @@ import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
+import DeleteAllSellerProducts from "./components/DeleteAllSellerProducts/DeleteAllSellerProducts";
+import Createproducts from "./components/CreateProducts";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
@@ -51,6 +54,8 @@ root.render(
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
           <Route exact path="/productID/:id" element={<ProductId />}></Route>
           <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route>
+          <Route exact path = "/seller/delete-all-products" element = {<DeleteAllSellerProducts/>} ></Route>
+          <Route exact path = "/seller/createproducts" element = {<Createproducts/>} ></Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

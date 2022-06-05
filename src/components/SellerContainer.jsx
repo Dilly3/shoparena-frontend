@@ -100,20 +100,26 @@ export default function SellerContainer() {
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
-        <Link to="/seller/productsbyseller"><li className> 
+        <li className>
+        <Link to="/seller/productsbyseller"> 
           <a href="javascript:;">
             <i className="fa fa-cubes" />
             <span className="title" >Products</span>
             <span className="arrow " />
           </a>
-           </li></Link>
+          </Link>
+           </li>
+
            <li className> 
+           <Link to="/seller/createproducts">
           <a href="javascript:;">
             <i className="fa fa-cubes" />
             <span className="title"> Add Products</span>
             <span className="arrow " />
           </a>
+          </Link>
            </li>
+
            <li className> 
           <a href="javascript:;">
             <i className="fa fa-cubes" />
@@ -121,8 +127,7 @@ export default function SellerContainer() {
             <span className="arrow " />
           </a>
            </li>
-       
-          
+        
         <li className> 
           <Link to="/seller/dashboard/orders">
             <i className="fa fa-shopping-cart" />
@@ -143,7 +148,17 @@ export default function SellerContainer() {
             <span className="arrow " />
           </a>
         </li>
-       
+
+        <li className>
+        <Link to="/seller/delete-all-products">
+          <a href="javascript:;">
+            <i className="fa fa-cubes" />
+            <span className="title">Delete All My Products</span>
+            <span className="arrow " />
+          </a>
+          </Link>
+           </li>
+        
       </ul>
     </div>
     {/* MAIN MENU - END */}
