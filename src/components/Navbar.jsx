@@ -159,8 +159,9 @@ alt="logo"
 
 <div id="search-select">
 <form className="search" onSubmit={handleSubmit} >
-  <div class="form-group  onSubmit={handleSubmit}">
+  <div class="form-group " >
   <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
+  <option value="">Categories</option>
 <option value="All Categories">All Categories</option>
 <option value="baby products">Baby Products</option>
 <option value="computing">Computing</option>
@@ -174,7 +175,7 @@ alt="logo"
 </select>
   </div>
 
-  <div class="form-group  onSubmit={handleSubmit}">
+  <div class="form-group" >
   <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
 <option value="">Lower Price Limit</option>
 <option value="50">50</option>
@@ -190,7 +191,7 @@ alt="logo"
 </select>
   </div>
 
-  <div class="form-group  onSubmit={handleSubmit}">
+  <div class="form-group"  >
   <select className="cat" id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
 <option value="">Upper Price Limit</option>
 <option value="50000">50000</option>
