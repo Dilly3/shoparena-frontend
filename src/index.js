@@ -24,6 +24,7 @@ import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
 import ProductsBySeller from "./pages/ProductsBySeller";
+import UpdateSellerProfile from "./components/UpdateSellerProfile";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import SellerShop from "./pages/SellerShop";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -51,6 +52,7 @@ root.render(
           <Route exact path="/buyer/profile" element={<Profile />}></Route>
           <Route exact path="/seller/profile" element={<SellerProfile />} ></Route>
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
+          <Route exact path="/update/seller/profile" element={<UpdateSellerProfile />}></Route>
           <Route exact path="/productID/:id" element={<ProductId />}></Route>
           <Route exact path="/seller/products" element={<ProductsBySeller/>}></Route>
 

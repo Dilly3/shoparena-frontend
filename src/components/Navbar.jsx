@@ -3,12 +3,12 @@ import React from "react"
 import {Link,useNavigate} from "react-router-dom"
 import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
-import { render } from "@testing-library/react"
-import ViewCart from "./ViewCart"
+import ProfileModal from "./ProfileModal"
+import './nav-modal.css';
 
 
 const initialState = {
-  category:"All Categories",
+  category:"",
   lowerPrice:"",
   upperPrice:"",
   sort:"",
@@ -17,7 +17,9 @@ const initialState = {
   
 
 export default function Navbar(){
-  
+  const [openModal, setOpenModal] = useState(false)
+  const toggleOpen = () => setOpenModal(value => !value);
+
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
@@ -47,7 +49,7 @@ export default function Navbar(){
       
   const { handleSearch, cart, cartAmount} = useAppContext()
 
-  // console.log(cart, cartAmount)
+  console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
   const [input, setInput] = useState(initialState)
 
@@ -56,6 +58,7 @@ export default function Navbar(){
     e.preventDefault()
     handleSearch(input)
   }
+
   const handleChange = (e)=>{
 setInput({...input, [e.target.name]:e.target.value})
 // console.log(e)
@@ -64,27 +67,27 @@ setInput({...input, [e.target.name]:e.target.value})
   const token = localStorage.getItem("token")
 
   
-  const getSellerProfile = async () => {
-    // console.log(localStorage.token)
-    try {
-      const headers = {
-          "Authorization": `Bearer ${localStorage.token}`,
-          "Content-Type": "application/json"
-        }
-      const resp = await axios.get("/getbuyerprofile", {headers: headers})
-      console.log(resp.data.data.first_name)
-      setUser(resp.data.data)
-    } catch (error) {
-      console.log(error.response)
-    }
-  }
-
-  useEffect(() => {
-    if (localStorage.token) {
-      getSellerProfile()
-    }
+  // const getSellerProfile = async () => {
     
-  }, [])
+  //   try {
+  //     const headers = {
+  //         "Authorization": `Bearer ${localStorage.token}`,
+  //         "Content-Type": "application/json"
+  //       }
+  //     const resp = await axios.get("/getbuyerprofile", {headers: headers})
+  //     console.log(resp.data.data.first_name)
+  //     setUser(resp.data.data)
+  //   } catch (error) {
+  //     console.log(error.response)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   if (localStorage.token) {
+  //     getSellerProfile()
+  //   }
+    
+  // }, [])
     return(
         <>
         <header className="yellow-header">
@@ -103,7 +106,23 @@ setInput({...input, [e.target.name]:e.target.value})
                       
                       <li>
                           {localStorage.token ? (
-                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
+                              <>
+                              
+                              <h6 className='hov' onClick={toggleOpen}>
+                                Hello,{user && capitalizeFirstLetter(user.first_name)}
+                              </h6>
+                              {openModal && <ProfileModal closeModal={setOpenModal}/>}
+                              
+                              {/* <div>
+                              <select className="all" id="category" placeholder="Categories" onChange={handleChange} name="category">
+                                <option value="my account"><Link to="/buyer/profile"></Link>My Account</option>
+                                <option value="orders">Orders</option>
+                                <option value="inbox">Inbox</option>
+                                <option value="saved items">Saved Items</option>
+                                <option value="logout">Logout</option>
+                              </select>
+                            </div> */}
+                            </>
                           ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
                           
                         </li>
@@ -210,11 +229,7 @@ render: () => <ViewCart name="true"/>
 </div>
 
            </section>
-
-
-
-
-
+                      
             <div className="header__bottom">
               <div className="container">
                 <div className="row align-items-center">

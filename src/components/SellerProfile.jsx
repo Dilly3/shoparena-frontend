@@ -129,9 +129,9 @@ export default function SellerProfile({ handleClick }) {
                 <hr />
                 <div className="row">
                   <div className="col-sm-12">
-                    <Link to="/update/buyer/profile">
+                    <Link to="/update/seller/profile">
                       <button
-                        style={{ background: `#2076d2`, border: "none" }}
+                        style={{ background: `#fcb700`, border: "none" }}
                         className="btn btn-primary"
                         onClick={handleClick}
                         type="button"
