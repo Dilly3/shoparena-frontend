@@ -30,6 +30,7 @@ import UpdateSellerProfile from "./components/UpdateSellerProfile";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import SellerShop from "./pages/SellerShop";
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
