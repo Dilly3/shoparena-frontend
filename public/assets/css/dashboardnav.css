@@ -83,6 +83,41 @@ ul {
     box-shadow: 6px 6px 2px 1px rgba(223, 59, 59, 0.69);
     background-color: transparent;
     }
+     #header-mid{
+         padding: 1rem 1rem;
+         margin: auto;
+         align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    #header-mid #search-select .search{
+        display: flex;
+        flex-direction: row;
+    }
+    #header-mid input, #header-mid select{
+        height: 2rem;
+        background-color: transparent;
+        padding-left: 1rem;
+        border: none;
+        width: 14rem;
+        outline: none;
+        box-shadow:  inset 2px 2px 2px 2px rgba(37, 35, 35, 0.352);
+        color: rgba(128, 128, 128, 0.632);
+    }
+    #header-mid input:focus{
+        background-color: transparent;
+    }
+    #header-mid button{
+        box-shadow:  2px 2px 1px 1px rgba(22, 21, 21, 0.462);
+        height: 1.8rem;
+    }
+    #header-mid input{
+        background-color: transparent;
+    }
+    #header-mid input::placeholder{
+        color: rgba(128, 128, 128, 0.522);
+    }
   
   
   /* ================================= 
