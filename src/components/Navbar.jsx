@@ -5,6 +5,7 @@ import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
 import ProfileModal from "./ProfileModal"
 import './nav-modal.css';
+import ViewCart from "./ViewCart"
 
 
 const initialState = {
@@ -67,27 +68,28 @@ setInput({...input, [e.target.name]:e.target.value})
   const token = localStorage.getItem("token")
 
   
-  // const getSellerProfile = async () => {
+  const getSellerProfile = async () => {
     
-  //   try {
-  //     const headers = {
-  //         "Authorization": `Bearer ${localStorage.token}`,
-  //         "Content-Type": "application/json"
-  //       }
-  //     const resp = await axios.get("/getbuyerprofile", {headers: headers})
-  //     console.log(resp.data.data.first_name)
-  //     setUser(resp.data.data)
-  //   } catch (error) {
-  //     console.log(error.response)
-  //   }
-  // }
+    try {
+      const headers = {
+          "Authorization": `Bearer ${localStorage.token}`,
+          "Content-Type": "application/json"
+        }
+      const resp = await axios.get("/getbuyerprofile", {headers: headers})
+      console.log(resp.data.data.first_name)
+      
+      setUser(resp.data.data)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
 
-  // useEffect(() => {
-  //   if (localStorage.token) {
-  //     getSellerProfile()
-  //   }
+  useEffect(() => {
+    if (localStorage.token) {
+      getSellerProfile()
+    }
     
-  // }, [])
+  }, [])
     return(
         <>
         <header className="yellow-header">
@@ -106,11 +108,13 @@ setInput({...input, [e.target.name]:e.target.value})
                       
                       <li>
                           {localStorage.token ? (
+                          
                               <>
                               
                               <h6 className='hov' onClick={toggleOpen}>
                                 Hello,{user && capitalizeFirstLetter(user.first_name)}
                               </h6>
+                            
                               {openModal && <ProfileModal closeModal={setOpenModal}/>}
                               
                               {/* <div>
@@ -212,7 +216,7 @@ alt="logo"
 </form> 
 </div>
 
-<div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+{token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
 <Link to={{
 pathname: "/viewcart",
 state: {cart},
@@ -226,7 +230,7 @@ render: () => <ViewCart name="true"/>
 <span className="cart__total-price">${cartAmount}</span>
 </span>
 </Link>
-</div>
+</div>}
 
            </section>
                       
@@ -284,12 +288,12 @@ render: () => <ViewCart name="true"/>
                   <div className="col-xl-3 col-lg-3 col-sm-6 col-6 d-md-none d-lg-block">
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
-                        <select>
+                        <select id="ngn">
                           <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">
-                        <select>
+                        <select id="lang">
                           <option>English</option>
                         </select>
                       </div>
