@@ -71,7 +71,7 @@ ul {
   }
 
   .toggle{
-    width: 70%;
+    width: 17rem;
     margin: auto;
     margin-bottom: 3rem;
     text-align: center;
@@ -109,7 +109,11 @@ ul {
         background-color: transparent;
     }
     #header-mid button{
-        box-shadow:  2px 2px 1px 1px rgba(22, 21, 21, 0.462);
+        box-shadow:  1.2px 1.2px 1.1px 1.1px rgba(22, 21, 21, 0.462);
+        height: 1.8rem;
+    }
+    #header-mid button:hover{
+        box-shadow:  inset 1px 1px 1px 1px rgba(80, 77, 77, 0.462);
         height: 1.8rem;
     }
     #header-mid input{
@@ -117,6 +121,19 @@ ul {
     }
     #header-mid input::placeholder{
         color: rgba(128, 128, 128, 0.522);
+    }
+    #advert1,#advert2,#advert3,#advert4,#advert5,#advert0{
+        height: 8rem;
+    }
+    #ngn,#lang{
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+    #ngn:focus,#lang:focus{
+        background-color: transparent;
+        border: none;
+        outline: none;
     }
   
   
