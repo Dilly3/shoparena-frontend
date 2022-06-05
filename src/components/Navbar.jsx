@@ -123,96 +123,98 @@ setInput({...input, [e.target.name]:e.target.value})
                 </div>
               </div>
             </div>
-            <div className="header__info">
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-4 col-lg-3">
-                    <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center">
-                      <div className="logo">
-                        <Link to="/">
-                          <img
-                            src="../assets/img/logo/oja.png"
-                            alt="logo"
-                          />
-                        </Link>
-                      </div>
-                      <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
+           <section id="header-mid">
+             <div className="logo">
+             
+<Link to="/">
+<img
+src="../assets/img/logo/oja.png"
+alt="logo"
+/>
+</Link>
+</div>
 
-                        
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xl-8 col-lg-9">
-                    <div className="header__info-right">
-                      <div className="header__search f-left d-none d-sm-block">
+<div id="search-select">
+<form className="search" onSubmit={handleSubmit} >
+  <div class="form-group  onSubmit={handleSubmit}">
+  <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
+<option value="All Categories">All Categories</option>
+<option value="baby products">Baby Products</option>
+<option value="computing">Computing</option>
+<option value="electronics">Electronics</option>
+<option value="fashion">Fashion</option>
+<option value="food drinks">Food/Drinks</option>
+<option value="health & beauty">Health/Beauty</option>
+<option value="phones & tablets">Phone/Tablets</option>
+<option value="sporting goods">Sporting goods</option>
+<option value="others">Others</option>
+</select>
+  </div>
 
-                        <form className="search" onSubmit={handleSubmit} >
+  <div class="form-group  onSubmit={handleSubmit}">
+  <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
+<option value="">Lower Price Limit</option>
+<option value="50">50</option>
+<option value="100">100</option>
+<option value="200">200</option>
+<option value="500">500</option>
+<option value="1000">1000</option>
+<option value="2000">2000</option>
+<option value="5000">5000</option>
+<option value="10000">10000</option>
+<option value="20000">20000</option>
+<option value="50000">50000</option>
+</select>
+  </div>
 
-                      <div>
-                      <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="All Categories">All Categories</option>
-                        <option value="baby products">Baby Products</option>
-                        <option value="computing">Computing</option>
-                        <option value="electronics">Electronics</option> 
-                        <option value="fashion">Fashion</option>
-                        <option value="food drinks">Food/Drinks</option>
-                        <option value="health & beauty">Health/Beauty</option>
-                        <option value="phones & tablets">Phone/Tablets</option>   
-                        <option value="sporting goods">Sporting goods</option>
-                        <option value="others">Others</option>   
-                    </select>
+  <div class="form-group  onSubmit={handleSubmit}">
+  <select className="cat" id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
+<option value="">Upper Price Limit</option>
+<option value="50000">50000</option>
+<option value="20000">10000</option>
+<option value="10000">10000</option>
+<option value="5000">5000</option>
+<option value="2000">2000</option>
+<option value="1000">1000</option>
+<option value="500">500</option>
+<option value="200">200</option>
+<option value="100">100</option>
+<option value="50">50</option>
+</select>
 
-                    <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="">Lower Price Limit</option>
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="500">500</option> 
-                        <option value="1000">1000</option>
-                        <option value="2000">2000</option>
-                        <option value="5000">5000</option>
-                        <option value="10000">10000</option>   
-                        <option value="20000">20000</option>
-                        <option value="50000">50000</option>   
-                    </select>
+  </div>
+ 
+  <div>
+  <input type="text" id="name" placeholder="Search" onChange={handleChange} name = "sort"/>
+<button className="cat-btn" type="submit">Search</button>
+</div>
 
-                    <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="">Upper Price Limit</option>
-                        <option value="50000">50000</option>
-                        <option value="20000">10000</option>
-                        <option value="10000">10000</option> 
-                        <option value="5000">5000</option>
-                        <option value="2000">2000</option>
-                        <option value="1000">1000</option>
-                        <option value="500">500</option>   
-                        <option value="200">200</option>
-                        <option value="100">100</option>   
-                    </select>
-               
-                        <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
-                        <button className="cat-btn" type="submit">Search</button>
-                    </div>
-                        </form>
-                      </div>
-                      {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
-                        <Link to={{
-                          pathname: "/viewcart",
-                          state: {cart},
-                          render: () => <ViewCart name="true"/>
-                        }}>
-                          <a href="javascript:void(0);" className="cart__toggle">
-                            <span className="cart__total-item">{cart}</span>
-                          </a>
-                          <span className="cart__content">
-                            <span className="cart__my">My Cart:</span>
-                            <span className="cart__total-price">${cartAmount}</span>
-                          </span>
-                        </Link>
-                      </div>}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+</form> 
+</div>
+
+<div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
+<Link to={{
+pathname: "/viewcart",
+state: {cart},
+render: () => <ViewCart name="true"/>
+}}>
+<a href="javascript:void(0);" className="cart__toggle">
+<span className="cart__total-item">{cart}</span>
+</a>
+<span className="cart__content">
+<span className="cart__my">My Cart:</span>
+<span className="cart__total-price">${cartAmount}</span>
+</span>
+</Link>
+</div>
+
+           </section>
+
+
+
+
+
             <div className="header__bottom">
               <div className="container">
                 <div className="row align-items-center">
@@ -268,7 +270,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
                         <select>
-                          <option>USD</option>
+                          <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">
