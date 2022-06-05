@@ -3,12 +3,12 @@ import React from "react"
 import {Link,useNavigate} from "react-router-dom"
 import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
-import { render } from "@testing-library/react"
-import ViewCart from "./ViewCart"
+import ProfileModal from "./ProfileModal"
+import './nav-modal.css';
 
 
 const initialState = {
-  category:"All Categories",
+  category:"",
   lowerPrice:"",
   upperPrice:"",
   sort:"",
@@ -17,7 +17,9 @@ const initialState = {
   
 
 export default function Navbar(){
-  
+  const [openModal, setOpenModal] = useState(false)
+  const toggleOpen = () => setOpenModal(value => !value);
+
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
@@ -47,7 +49,7 @@ export default function Navbar(){
       
   const { handleSearch, cart, cartAmount} = useAppContext()
 
-  // console.log(cart, cartAmount)
+  console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
   const [input, setInput] = useState(initialState)
 
@@ -56,6 +58,7 @@ export default function Navbar(){
     e.preventDefault()
     handleSearch(input)
   }
+
   const handleChange = (e)=>{
 setInput({...input, [e.target.name]:e.target.value})
 // console.log(e)
@@ -64,27 +67,27 @@ setInput({...input, [e.target.name]:e.target.value})
   const token = localStorage.getItem("token")
 
   
-  const getSellerProfile = async () => {
-    // console.log(localStorage.token)
-    try {
-      const headers = {
-          "Authorization": `Bearer ${localStorage.token}`,
-          "Content-Type": "application/json"
-        }
-      const resp = await axios.get("/getbuyerprofile", {headers: headers})
-      console.log(resp.data.data.first_name)
-      setUser(resp.data.data)
-    } catch (error) {
-      console.log(error.response)
-    }
-  }
-
-  useEffect(() => {
-    if (localStorage.token) {
-      getSellerProfile()
-    }
+  // const getSellerProfile = async () => {
     
-  }, [])
+  //   try {
+  //     const headers = {
+  //         "Authorization": `Bearer ${localStorage.token}`,
+  //         "Content-Type": "application/json"
+  //       }
+  //     const resp = await axios.get("/getbuyerprofile", {headers: headers})
+  //     console.log(resp.data.data.first_name)
+  //     setUser(resp.data.data)
+  //   } catch (error) {
+  //     console.log(error.response)
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   if (localStorage.token) {
+  //     getSellerProfile()
+  //   }
+    
+  // }, [])
     return(
         <>
         <header className="yellow-header">
@@ -103,7 +106,23 @@ setInput({...input, [e.target.name]:e.target.value})
                       
                       <li>
                           {localStorage.token ? (
-                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
+                              <>
+                              
+                              <h6 className='hov' onClick={toggleOpen}>
+                                Hello,{user && capitalizeFirstLetter(user.first_name)}
+                              </h6>
+                              {openModal && <ProfileModal closeModal={setOpenModal}/>}
+                              
+                              {/* <div>
+                              <select className="all" id="category" placeholder="Categories" onChange={handleChange} name="category">
+                                <option value="my account"><Link to="/buyer/profile"></Link>My Account</option>
+                                <option value="orders">Orders</option>
+                                <option value="inbox">Inbox</option>
+                                <option value="saved items">Saved Items</option>
+                                <option value="logout">Logout</option>
+                              </select>
+                            </div> */}
+                            </>
                           ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
                           
                         </li>
@@ -131,7 +150,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <div className="logo">
                         <Link to="/">
                           <img
-                            src="../assets/img/logo/oja.png"
+                            src="/assets/img/logo/oja.png" 
                             alt="logo"
                           />
                         </Link>
@@ -155,7 +174,7 @@ setInput({...input, [e.target.name]:e.target.value})
 
                       <div>
                       <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="All Categories">All Categories</option>
+                        <option value="">All Categories</option>
                         <option value="baby products">Baby Products</option>
                         <option value="computing">Computing</option>
                         <option value="electronics">Electronics</option> 
@@ -168,7 +187,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="">Lower Price Limit</option>
+                        <option value="0">Lower Price Limit</option>
                         <option value="100">100</option>
                         <option value="200">200</option>
                         <option value="500">500</option> 
@@ -181,7 +200,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="">Upper Price Limit</option>
+                        <option value="0">Upper Price Limit</option>
                         <option value="50000">50000</option>
                         <option value="20000">10000</option>
                         <option value="10000">10000</option> 
@@ -199,18 +218,14 @@ setInput({...input, [e.target.name]:e.target.value})
                         </form>
                       </div>
                       {token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
-                        <Link to={{
-                          pathname: "/viewcart",
-                          state: {cart},
-                          render: () => <ViewCart name="true"/>
-                        }}>
-                          <a href="javascript:void(0);" className="cart__toggle">
-                            <span className="cart__total-item">{cart}</span>
-                          </a>
-                          <span className="cart__content">
-                            <span className="cart__my">My Cart:</span>
-                            <span className="cart__total-price">${cartAmount}</span>
-                          </span>
+                        <Link to ="/viewcart">
+                        <a href="javascript:void(0);" className="cart__toggle">
+                          <span className="cart__total-item">{cart}</span>
+                        </a>
+                        <span className="cart__content">
+                          <span className="cart__my">My Cart:</span>
+                          <span className="cart__total-price">${cartAmount}</span>
+                        </span>
                         </Link>
                       </div>}
                     </div>
