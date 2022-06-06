@@ -146,7 +146,6 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__info-right">
                       <div className="header__search f-left d-none d-sm-block">
                         <form className="search" onSubmit={handleSubmit}>
-                          <div>
                             <select
                               className="all"
                               id="category"
