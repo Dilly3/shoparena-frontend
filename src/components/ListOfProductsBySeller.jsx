@@ -21,6 +21,8 @@ export function ListofProductBySeller() {
         }
     }
 
+    console.log(state)
+
     useEffect(()=> {
         productCall() 
     },[])

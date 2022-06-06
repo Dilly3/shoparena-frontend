@@ -4,15 +4,22 @@ import {useNavigate} from 'react-router-dom'
 
 export function ShopProducts() {
     const navigate = useNavigate()
+    const [products, setSellerProducts] = useState([])
     
     useEffect(() => {
         if (!localStorage.token) {
             navigate("/seller/login")
+            
         }}, [localStorage.token])
 
-    const [products, setSellerProducts] = useState([])
+        useEffect(()=> {
+          getOrders() 
+      },[])
+
+    
 
     const getOrders = async () => {
+      
         const config = {
             header: { 
             "Authorization": `Bearer ${localStorage.token}`,
@@ -23,15 +30,16 @@ export function ShopProducts() {
         try {
           const resp = await axios.get("/seller/allproducts", config)
           
-          console.log(resp.data)
+          console.log(resp.data.SellerProducts)
           setSellerProducts(resp.data.SellerProducts)
-          console.log(products)
+          
         } catch (error){
             setSellerProducts('')
           console.log(error.resp)
         }
       }
 
+     console.log(products)
     return(
 
         <section id="main-content" className=" ">
@@ -58,8 +66,8 @@ export function ShopProducts() {
         
         {/* <td>{product.Fname} {product.Lname}</td> */}
         <td>{index + 1}</td>
-          <td>{product.Category.name} </td>
-          <td>{product.title}</td>
+          <td>{product.title} </td>
+          <td>{product.Category.name}</td>
           <td>{product.price}</td>
           <td>{product.quantity}</td>
         </tr>
