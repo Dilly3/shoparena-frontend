@@ -114,8 +114,6 @@ const handleSubmit =(e)=> {
     return (
         <>
         <main>
-<<<<<<< HEAD
-=======
             <section class="breadcrumb__area box-plr-75">
                 <div class="container-fluid">
                     <div class="row">
@@ -136,7 +134,6 @@ const handleSubmit =(e)=> {
                     </div>
                 </div>
             </section>
->>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
             <section class="login-area pb-100">
                 <div class="container">
                     <div class="row">
