@@ -89,10 +89,21 @@ export default function Footer() {
                   <div className="row align-items-center">
                     <div className="col-xl-6 col-lg-6">
                       <div className="footer__copyright-text">
+                       
+                        <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
                         <p>
                           Copyright © <a href="index.html">Decagon</a> All
-                          Rights Reserved. <a href="#">Goland Squad 10</a>
-                        </p>
+                          Rights Reserved. <a href="#">Golang Squad 10</a>
+                        </p> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; 
+                
+                        <div className="header__hotline-icon">
+                          <i className="fal fa-headset" />
+                        </div>
+                        <div className="header__hotline-info">
+                          <h6>+234-813-347-7843</h6>
+                        </div>
+
+                      </div>
                       </div>
                     </div>
                     <div className="col-xl-6 col-lg-6">

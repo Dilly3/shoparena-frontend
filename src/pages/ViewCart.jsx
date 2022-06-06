@@ -6,6 +6,7 @@ import GeneralNavBar from "../components/GeneralNavBar"
 export default function ViewCart() {
     return(
         <>
+        <GeneralNavBar />
         <ViewCartComponent/>
         <Footer/>
         </>

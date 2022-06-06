@@ -24,8 +24,8 @@ export default function Profile({ handleClick }) {
 
   console.log(user)
   const defaultImgUrl =
-    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-   //"https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+   "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
 
   if (user === null) {
     return <div>Loading...</div>;
@@ -131,7 +131,7 @@ export default function Profile({ handleClick }) {
                   <div className="col-sm-12">
                     <Link to="/update/buyer/profile">
                       <button
-                        style={{ background: `#2076d2`, border: "none" }}
+                        style={{ background: `#fcb700`, border: "none" }}
                         className="btn btn-primary"
                         onClick={handleClick}
                         type="button"
