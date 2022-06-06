@@ -109,6 +109,71 @@ export default function SellerLoginComponent() {
     return;
   }
 
+
+//     function handleChange(e){
+//         // setEmail(e.target.value)
+//        setLogin({...login, [e.target.name]: e.target.value})
+//         // LoginUser(login.email, login.password)
+//         // setLogin({
+//         //     // ...prev,
+//         //     email: '',
+//         //     password: '',
+//         // })
+//     }
+    
+//     return (
+//         <main>
+//             <section class="login-area pb-100">
+//                 <div class="container">
+//                 <div class="row">
+//                     <div class="col-lg-8 offset-lg-2">
+//                             <div class="basic-login">
+//                             <h3 class="text-center mb-60">Seller Login</h3>
+//                             <form method="POST" onSubmit={onSubmit}>
+//                                 <label for="name">Email Address <span>**</span></label>
+//                                 <input 
+//                                 id="email" 
+//                                 type="email" 
+//                                 placeholder="Email address..." 
+//                                 name="email"
+//                                 value={login.email}
+//                                 onChange={handleChange}
+//                                 />
+//                                 <label for="pass">Password <span>**</span></label>
+//                                 <input 
+//                                 id="pass" 
+//                                 name="password" 
+//                                 type="password" 
+//                                 placeholder="Enter password..."
+//                                 value={login.password}
+//                                 onChange={handleChange}
+//                                  />
+//                                 <div class="login-action mb-20 fix">
+//                                         <span class="log-rem f-left">
+//                                         <input id="remember" type="checkbox" />
+//                                         <label for="remember">Remember me!</label>
+//                                         </span>
+//                                         <span class="forgot-login f-right">
+//                                         <a href="/seller/forgot">Lost your password?</a>
+//                                         </span>
+//                                 </div>
+//                                 <button 
+//                                 class="t-y-btn w-100"
+//                                 type="submit"
+//                                 >Login Now</button>
+//                                 <div class="or-divide"><span>or</span></div>
+                                
+//                                 <Link to="/seller/register" class="t-y-btn t-y-btn-grey w-100">Register Now</Link>
+//                             </form>
+//                             </div>
+//                     </div>
+//                 </div>
+//                 </div>
+//             </section>
+//         </main>
+//     )
+// }
+
   function handleChange(e) {
     // setEmail(e.target.value)
     setLogin({ ...login, [e.target.name]: e.target.value });

@@ -2364,9 +2364,9 @@ p {
 }
 .product__content h6 {
   padding-top: 15px;
-  font-size: 14px;
-  font-weight: 400;
-  color: #0066c0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #000;
   line-height: 18px;
   margin-bottom: 2px;
 }
@@ -2374,14 +2374,14 @@ p {
   text-decoration: underline;
 }
 .product__content span {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   color: #222;
   padding: 0 7px;
   display: inline-block;
 }
 .product__content span.new {
-  color: #fcb700;
+  color: #000;
 }
 .product__content span.new-2 {
   color: #222;
@@ -5598,24 +5598,28 @@ p.checkout-coupon input[type=text]:focus {
 
 
 .search input {
-  width: 24%;
-  min-width: 128px;
-  height: 40px;
   padding: 0 10px;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  background: #f5f5f5;
+  color: black;
+  border-radius: 12px;
 }
+
+::placeholder{
+  color: grey;
+  opacity: 1
+}
+
 .search i {
   position: absolute;
   right: 15px;
   top: 10px;
   cursor: pointer;
+  color: grey;
+  border-radius: 12px;
 }
 
 .cat {
-  width: 20%;
+  color: grey;
+  width: 22%;
   min-width: 128px;
   height: 40px;
   padding: 0 0px;
@@ -5623,9 +5627,10 @@ p.checkout-coupon input[type=text]:focus {
   outline: none;
   border: none;
   background: #f5f5f5;
+  border-radius: 12px;
 }
 .all {
-  width: 20%;
+  width: 22%;
   min-width: 128px;
   height: 40px;
   padding: 0 10px;
@@ -5633,13 +5638,18 @@ p.checkout-coupon input[type=text]:focus {
   outline: none;
   border: none;
   background: #f5f5f5;
+  color: grey;
+  border-radius: 12px;
 }
 
 .cat-btn{
-
+  height: 40px;
   font-size: 17px;
-  /* color: white; */
-  padding: 0 10px;
+  color: white;
+  padding: 0px 10px;
+  font-weight: 500;
+  background-color: black;
+  border-radius: 12px;
 
 }
 
@@ -5667,6 +5677,18 @@ p.checkout-coupon input[type=text]:focus {
   color: #000;
 }
 
+.slogan{
+  font-weight: 600;
+  color: #000;
+}
+
+
+.checkout{
+  color: black;
+  /* font-weight: bold; */
+  font-size: x-large;
+  border: black;
+}
 
 /* SELLER SHOP CSS START */
 /* seller shop*/
@@ -5924,3 +5946,4 @@ bottom: 25px;
 .oja-label{
   color: orangered;
 }
+
