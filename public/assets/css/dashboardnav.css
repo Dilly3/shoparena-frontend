@@ -142,10 +142,10 @@ ul {
         background-color: white;
         border-radius: 50%;
         display: inline-block;
-        display: none;
+       display: none;
     }
     #name{
-        border-radius: 0.7rem;
+        border-radius: 0.8rem;
     }
   
   

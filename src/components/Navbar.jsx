@@ -132,7 +132,7 @@ setInput({...input, [e.target.name]:e.target.value})
                 <div className="row align-items-center">
                   <div className="col-xl-4 col-lg-3">
                     {/* <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center"> */}
-                    <div className="logo">
+                    <div className="logo" >
                       <Link to="/">
                         <img
                           src="../assets/img/logo/new_oja_logo.png"
@@ -142,56 +142,13 @@ setInput({...input, [e.target.name]:e.target.value})
                     </div>
                     {/* </div> */}
                   </div>
-                  <div className="col-xl-8 col-lg-9">
+                  <div className="col-xl-8 col-lg-9" >
                     <div className="header__info-right">
-                      <div className="header__search f-left d-none d-sm-block">
-                        <form className="search" onSubmit={handleSubmit}>
-                            <select
-                              className="all"
-                              id="category"
-                              placeholder="Categories"
-                              onChange={handleChange}
-                              name="category"
-                            >
-                              <option value="All Categories">
-                                All Categories
-                              </option>
-                              <option value="baby products">
-                                Baby Products
-                              </option>
-                              <option value="computing">Computing</option>
-                              <option value="electronics">Electronics</option>
-                              <option value="fashion">Fashion</option>
-                              <option value="food drinks">Food/Drinks</option>
-                              <option value="health & beauty">
-                                Health/Beauty
-                              </option>
-                              <option value="phones & tablets">
-                                Phone/Tablets
-                              </option>
-                              <option value="sporting goods">
-                                Sporting goods
-                              </option>
-                              <option value="others">Others</option>
-                            </select>
+                      <div className="header__search f-left d-none d-sm-block" >
+                        <form className="search" onSubmit={handleSubmit}   >
+                           
 
-                            <select
-                              className="cat"
-                              id="lower-price"
-                              placeholder="Lower Price Limit"
-                              onChange={handleChange}
-                              name="lowerPrice"
-                            >
-                              <option value="">Lowest Price</option>
-                              <option value="100">100 NGN</option>
-                              <option value="200">200 NGN</option>
-                              <option value="500">500 NGN</option>
-                              <option value="1000">1000 NGN</option>
-                              <option value="2000">2000 NGN</option>
-                              <option value="5000">5000 NGN</option>
-                              <option value="10000">10000 NGN</option>
-                              <option value="20000">20000 NGN</option>
-                            </select>
+                          
 
                       <div>
                       <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
