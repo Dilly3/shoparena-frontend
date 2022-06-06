@@ -5,8 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {useAppContext} from "../context/ContextUse"
 //import context from "react-bootstrap/esm/AccordionContext";
 
-export default  function UpdateBuyerProfile() {
-    //console.log("i am here")
+export default  function UpdateSellerProfile() {
   const { user, getUser } = useAppContext();
 //   const [field, setField] = useState(user);
   const [field, setField] = useState({
@@ -22,9 +21,9 @@ export default  function UpdateBuyerProfile() {
   
   const navigate = useNavigate();
 
-  const getBuyerInfo = async () => {
+  const getSellerInfo = async () => {
     try {
-      const resp = await axios("getbuyerprofile")
+      const resp = await axios("getsellerprofile")
       console.log(resp.data)
       setField(resp.data.data)
     } catch (error) {
@@ -58,10 +57,10 @@ export default  function UpdateBuyerProfile() {
     };
     console.log(selectedFile)
     axios
-      .put("/uploadbuyerpic", formData, config)
+      .put("/uploadsellerpic", formData, config)
       .then((result) => {
         getUser();
-        navigate("/buyer/profile");
+        navigate("/seller/profile");
         console.log("Success:", result);
       })
       .catch((error) => {
@@ -72,7 +71,7 @@ export default  function UpdateBuyerProfile() {
     //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
     "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
   useEffect(() => {
-    getBuyerInfo()
+    getSellerInfo()
     // Update the document title using the browser API
     if (user && user.image) {
       setImgUrl(defaultImgUrl)
@@ -90,11 +89,10 @@ export default  function UpdateBuyerProfile() {
       },
     };
     axios
-      .put("updatebuyerprofile", user, config)
+      .put("updatesellerprofile", user, config)
       .then(function (response) {
-        // console.log(field);
         // getUser();
-        navigate("/buyer/profile");
+        navigate("/seller/profile");
         // setField(user);
         console.log(response);
       })

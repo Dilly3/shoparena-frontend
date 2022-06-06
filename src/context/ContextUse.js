@@ -22,14 +22,23 @@ const initialState = {
 
 };
 
+// const userData = {
+// address: "Address",
+// email: "Email",
+// first_name: "First Name",
+// image:"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png",
+// last_name: "Last Name",
+// phone_number: "Phone Number"
+// }
+
 const userData = {
-address: "Address",
-email: "Email",
-first_name: "First Name",
-image:"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png",
-last_name: "Last Name",
-phone_number: "Phone Number"
-}
+  address: "",
+  email: "",
+  first_name: "",
+  image:"",
+  last_name: "",
+  phone_number: ""
+  }
 const context = createContext();
 
 const ContextUse = ({ children }) => {

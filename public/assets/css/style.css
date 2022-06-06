@@ -5690,3 +5690,260 @@ p.checkout-coupon input[type=text]:focus {
   border: black;
 }
 
+/* SELLER SHOP CSS START */
+/* seller shop*/
+.Seller-shop-container{
+  background-color: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-side{
+  width: 25%;
+  height: auto;
+}
+
+
+.right-side{
+  background-image:linear-gradient(to left, #ffc107, orange);
+  width: 75%;
+  height: auto;
+  padding-left: 5px;
+}
+
+.avatar-seller{
+  width: 200px;
+  height: 200px;
+  position: relative;
+  top: 20px;
+  border-radius: 50% 50%;
+  margin: auto;
+}
+
+.seller-profile{
+  width: 100%;
+  background-color: #fff;
+  height: 300px;
+}
+
+
+.sec-one {
+  width: 75%;
+  height: 85%;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.sec-two {
+  width: 250px;
+  height: 20px;
+  margin-bottom:40px;
+}
+
+
+.rating {
+  display: inline-block;
+  position: relative;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+}
+
+.rating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.rating label:last-child {
+  position: static;
+}
+
+.rating label:nth-child(1) {
+  z-index: 5;
+}
+
+.rating label:nth-child(2) {
+  z-index: 4;
+}
+
+.rating label:nth-child(3) {
+  z-index: 3;
+}
+
+.rating label:nth-child(4) {
+  z-index: 2;
+}
+
+.rating label:nth-child(5) {
+  z-index: 1;
+}
+
+.rating label input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.rating label .icon {
+  float: left;
+  color: transparent;
+}
+
+.rating label:last-child .icon {
+  color: #000;
+}
+
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+  color: #ffc107;
+}
+
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+  color: #000;
+  text-shadow: 0 0 5px #09f;
+}
+
+.seller-product{
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+}
+
+.shop-details{
+  font-size: 20px;
+  color: #000;
+  
+}
+
+.name{
+ font-size: 33px;
+ text-align: center;
+}
+
+.store-keeper{
+  text-align: center;
+  font-size: 50px;
+  font-family: Rubik, sans-serif;
+  color: #000;
+}
+
+p {
+  font-size: 16px;
+}
+
+.star{
+position: relative;
+bottom: 25px;
+}
+/* SELLER SHOP CSS ENDS */
+
+.container-2 {
+  width: 100%;
+  height: auto;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  gap: 100px 0px;
+  margin-top: 50px;
+}
+
+.div-one{
+  width: 300px ;
+  height: 400px;
+  background-color: #ffc107;
+  margin: auto;
+}
+
+.buy-btn{
+  cursor: pointer;
+}
+
+.card-2 {
+  width: 300px;
+  height: 440px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+
+}
+.card-2 > *:not(img) {
+  padding: 5px 10px;
+}
+
+.card-2 img {
+  width: 100%;
+  height: 180px;
+}
+
+.card-body {
+  padding: 5px;
+}
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.card-body-2 p {
+  color: #3d3d3d;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.view-btn-2 a {
+  padding: 5px 15px;
+  border: 1.5px solid #007bff;
+  border-radius: 3px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.btn-group-2 {
+  display: flex;
+}
+
+.btn-group-2 .btn-2 a {
+  padding: 5px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 3px;
+  margin-left: -2px;
+}
+.btn-group-2 a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.boarder{
+  background-image:linear-gradient(to right, #ffc107, orange);
+  width: 100%;
+  height: 150px;
+}
+
+.hold-details{
+  width: 70%;
+  height: 200px;
+  /* background-image:linear-gradient(to right, #ffc107, orange); */
+  margin: auto;
+  margin-top: 30px;
+}
+
+.seller-01{
+  background-color: #fff ;
+  width: 100%;
+  height: 500px;
+  margin-top: 110px;
+}
+
+.oja-label{
+  color: orangered;
+}
+

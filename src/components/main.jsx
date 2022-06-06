@@ -114,7 +114,7 @@ const clearAlert = ()=>{
       <div className="container">
         <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
           <div className="col">
-            <div className="features__item d-flex white-bg">
+            <div className="features__item d-flex white-bg" id='advert1'>
               <div className="features__icon mr-15">
                 <i className="fal fa-rocket-launch" />
               </div>
@@ -125,7 +125,7 @@ const clearAlert = ()=>{
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg">
+            <div className="features__item d-flex white-bg" id='advert2'>
               <div className="features__icon mr-15">
                 <i className="fal fa-sync" />
               </div>
@@ -136,7 +136,7 @@ const clearAlert = ()=>{
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg">
+            <div className="features__item d-flex white-bg" id='advert3'>
               <div className="features__icon mr-15">
                 <i className="fal fa-user-headset" />
               </div>
@@ -147,18 +147,28 @@ const clearAlert = ()=>{
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg">
+            <div className="features__item d-flex white-bg" id='advert4'>
               <div className="features__icon mr-15">
                 <i className="fal fa-thumbs-up" />
               </div>
+<<<<<<< HEAD
               <div className="features__content">
               <h6>Secure Payment</h6>
               <p>All Payment Method</p>
+=======
+              <div className="features__content advert" >
+                <h6>Secure Payment</h6>
+                <p>All Payment Method are accepted</p>
+>>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
               </div>
             </div>
           </div>
           <div className="col">
+<<<<<<< HEAD
             <div className="features__item d-flex white-bg">
+=======
+            <div className="features__item features__item-last d-flex white-bg" id='advert5'>
+>>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
               <div className="features__icon mr-15">
                 <i className="fal fa-badge-dollar" />
               </div>

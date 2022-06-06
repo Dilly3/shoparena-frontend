@@ -17,14 +17,7 @@ useEffect(() => {
         navigate("/")
     }}, [localStorage.token])
 
-    const [alert,setAlert] = useState({
-        first_name: '',
-        last_name: '',
-        email: '',
-        username: '',
-        password: '',
-        phone_number: '',
-    })
+
     const [success, setSuccess] = useState("")
     const [error, setError] = useState("")
     const [signup, setSignup] = useState(
@@ -63,95 +56,53 @@ useEffect(() => {
 
             
 
-            setTimeout(()=>{
-                // setSuccess("")
-                console.log(success, "success")
-                
+            setTimeout(()=>{ 
                 navigate("/buyer/login")
             }, 5000)
             
         } catch (error) {
             console.log(error.response.data.error)
             setError(error.response.data.error)
+            
+            setTimeout(()=>{
+                setError("")
+            }, 5000)
+            return
         }
     }
 
-    
-    // console.log(error, "error")
+  
 
 
 const handleSubmit =(e)=> {
     e.preventDefault()
 
-    signUpUser(signup.first_name,signup.last_name,signup.username,signup.email,signup.phone_number ,signup.password)
-    const emailValidator= validateEmail(signup.email)
-    if (emailValidator){
-        setAlert(
-            {
-                message: "Please enter a valid email",
-                color: 'red',
-                status: false,
-            },
-            5000
-        )
-    }
-    setTimeout(()=>{
-        setAlert({
-            message: '',
-            color: '',
-            status: '',
-            show: true,
-        }, 5000)
-    })
+    setError("");
 
     let newPassword = `${signup.password}`
-    const minNumOfChars = 6
-    const maxNumOfChars = 32
-    if (
-        newPassword.length < minNumOfChars || newPassword.length > maxNumOfChars ){
-        setAlert(
-            {
-                message: `password length must be greater 6`,
-                color: 'red',
-                status: '',
-                show: false,
-            },
-            5000
-        )
-    }
-    setTimeout(()=>{
-        setAlert({
-            message: '',
-            color: '',
-            status: '',
-            show: true,
-        })
-    }, 5000)
+    const minNumOfChars = 8
+    const maxNumOfChars = 20
 
     let newPhone_number = `${signup.phone_number}`
     const minNumOfCharsPhone_number = 11
     const maxNumOfCharsPhone_number = 13
-    if (newPhone_number.length < minNumOfCharsPhone_number || newPhone_number.length > maxNumOfCharsPhone_number){
-        setAlert(
-            {
-                message: `phone number should be 11 digits`,
-                color: 'red',
-                status: '',
-                show: false,
-            },
-            5000
-        )
-    }
-    setTimeout(()=>{
-        setAlert({
-            message: '',
-            color: '',
-            status: '',
-            show: true,
-        })
-    }, 5000)
 
-    return
+    const emailValidator= validateEmail(signup.email)
+
+    if (!emailValidator){
+        setError( "Please enter a valid email");
+        return;
+    }else if (
+        newPassword.length < minNumOfChars || newPassword.length > maxNumOfChars ){
+            setError( "Password should not be less than 8 charcters")
+            return;
+    }else if (newPhone_number.length < minNumOfCharsPhone_number || newPhone_number.length > maxNumOfCharsPhone_number){
+        setError( "Enter valid phone number")   
+        return;
+    }
+
+    signUpUser(signup.first_name,signup.last_name,signup.username,signup.email,signup.phone_number ,signup.password)
+    
 }
 
     function handleChange(e){
@@ -163,15 +114,35 @@ const handleSubmit =(e)=> {
     return (
         <>
         <main>
+<<<<<<< HEAD
+=======
+            <section class="breadcrumb__area box-plr-75">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xxl-12">
+                            <div class="breadcrumb__wrapper">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                      <li class="breadcrumb-item"><Link to="/">Home</Link></li>
+                                      <li class="breadcrumb-item active" aria-current="page">Buyer Sign up</li>
+                                    </ol>
+                                    <div style={{position:"fixed", left:"50%", transform: "translate(-50%,0)"}}>
+                 {success && <div style={{ padding: "10px", backgroundColor: "#008000", color: "#ffffff", zIndex: 100, textalign: "center"}}>{success}</div>}
+                 {error && <div style={{ padding: "10px", backgroundColor: "#f44336", color: "#ffffff", zIndex: 100, textalign: "center"}} >{error}</div>}
+                                        </div>
+                                  </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+>>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
             <section class="login-area pb-100">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2">
                             <div class="basic-login">
                                 <h3 class="text-center mb-60"> Buyer Signup</h3>
-
-            {success && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#008000", color: "#ffffff"}}>{success}</div>}
-             {error && <div style={{border: "1px solid black", padding: "20px", backgroundColor: "#f44336", color: "#ffffff"}} >{error}</div>}
                                 
                                 <form method="POST" onSubmit={handleSubmit}>
 
