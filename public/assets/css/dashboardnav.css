@@ -135,6 +135,18 @@ ul {
         border: none;
         outline: none;
     }
+    #circle{
+       
+        width: 0.4rem;
+        height: 0.4rem;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+       display: none;
+    }
+    #name{
+        border-radius: 0.8rem;
+    }
   
   
   /* ================================= 

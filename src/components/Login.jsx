@@ -124,6 +124,11 @@ export default function Login() {
                     <div class="col-lg-8 offset-lg-2">
                             <div class="basic-login">
                             <h3 class="text-center mb-60">Buyer Login</h3>
+                            {error && (
+                  <div class="alert toggle" role="alert">
+                    {error}
+                  </div>
+                )}
                             <form method="POST" onSubmit={onSubmit}>
                                 <label for="name">Email Address <span>**</span></label>
                                 <input 
