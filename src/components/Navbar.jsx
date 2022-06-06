@@ -127,25 +127,16 @@ setInput({...input, [e.target.name]:e.target.value})
               <div className="container">
                 <div className="row align-items-center">
                   <div className="col-xl-4 col-lg-3">
-                    <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center">
+                    {/* <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center"> */}
                       <div className="logo">
                         <Link to="/">
                           <img
-                            src="../assets/img/logo/oja.png"
+                            src="../assets/img/logo/new_oja_logo.png"
                             alt="logo"
                           />
                         </Link>
                       </div>
-                      <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
-                        <div className="header__hotline-icon">
-                          <i className="fal fa-headset" />
-                        </div>
-                        <div className="header__hotline-info">
-                          <span>Hotline Free:</span>
-                          <h6>+234-813-347-7843</h6>
-                        </div>
-                      </div>
-                    </div>
+                    {/* </div> */}
                   </div>
                   <div className="col-xl-8 col-lg-9">
                     <div className="header__info-right">
@@ -168,32 +159,31 @@ setInput({...input, [e.target.name]:e.target.value})
                     </select>
 
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-                        <option value="">Lower Price Limit</option>
-                        <option value="100">100</option>
-                        <option value="200">200</option>
-                        <option value="500">500</option> 
-                        <option value="1000">1000</option>
-                        <option value="2000">2000</option>
-                        <option value="5000">5000</option>
-                        <option value="10000">10000</option>   
-                        <option value="20000">20000</option>
-                        <option value="50000">50000</option>   
+                        <option value="">Lowest Price</option>
+                        <option value="100">100 NGN</option>
+                        <option value="200">200 NGN</option>
+                        <option value="500">500 NGN</option> 
+                        <option value="1000">1000 NGN</option>
+                        <option value="2000">2000 NGN</option>
+                        <option value="5000">5000 NGN</option>
+                        <option value="10000">10000 NGN</option>   
+                        <option value="20000">20000 NGN</option>
+                           
                     </select>
 
                     <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-                        <option value="">Upper Price Limit</option>
-                        <option value="50000">50000</option>
-                        <option value="20000">10000</option>
-                        <option value="10000">10000</option> 
-                        <option value="5000">5000</option>
-                        <option value="2000">2000</option>
-                        <option value="1000">1000</option>
-                        <option value="500">500</option>   
-                        <option value="200">200</option>
-                        <option value="100">100</option>   
+                        <option value="">Highest Price</option>
+                        <option value="20000">20000 NGN</option>
+                        <option value="10000">10000 NGN</option> 
+                        <option value="5000">5000 NGN</option>
+                        <option value="2000">2000 NGN</option>
+                        <option value="1000">1000 NGN</option>
+                        <option value="500">500 NGN</option>   
+                        <option value="200">200 NGN</option>
+                        <option value="100">100 NGN</option>
                     </select>
                
-                        <input type="text" id="name" placeholder="Search For Product..."  onChange={handleChange} name = "sort"/>
+                        <input className="cat" type="text" id="name" placeholder="Products..."  onChange={handleChange} name = "sort"/>
                         <button className="cat-btn" type="submit">Search</button>
                     </div>
                         </form>
@@ -204,12 +194,14 @@ setInput({...input, [e.target.name]:e.target.value})
                           state: {cart},
                           render: () => <ViewCart name="true"/>
                         }}>
+                        
                           <a href="javascript:void(0);" className="cart__toggle">
                             <span className="cart__total-item">{cart}</span>
+                            
                           </a>
                           <span className="cart__content">
-                            <span className="cart__my">My Cart:</span>
-                            <span className="cart__total-price">${cartAmount}</span>
+                            <span className="cart__my">My Cart: {cartAmount} NGN</span>
+    
                           </span>
                         </Link>
                       </div>}
@@ -273,7 +265,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
                         <select>
-                          <option>USD</option>
+                          <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">

@@ -109,28 +109,16 @@ export default function GeneralNavBar(){
             <div className="header__info">
               <div className="container">
                 <div className="row align-items-center">
-                  <div className="col-xl-4 col-lg-3">
-                    <div className="header__info-left d-flex justify-content-center justify-content-sm-between align-items-center">
-                      <div className="logo">
+                  
+            
+                      <span className="logo">
                         <Link to="/">
                           <img
                             src="../assets/img/logo/oja.png"
                             alt="logo"
-                          />
-                        </Link>
-                      </div>
-                      <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
-                        <div className="header__hotline-icon">
-                          <i className="fal fa-headset" />
-                        </div>
-                        <div className="header__hotline-info">
-                          <span>Hotline Free:</span>
-                          <h6>+234-813-347-7843</h6>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
+                          /> <h4 className="slogan">OJA! Your One Stop For Everything AFRICAN</h4>
+                        </Link> 
+                      </span>
                 </div>
               </div>
             </div>
@@ -179,7 +167,7 @@ export default function GeneralNavBar(){
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
                         <select>
-                          <option>USD</option>
+                          <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">

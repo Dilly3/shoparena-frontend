@@ -18,7 +18,6 @@ import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
 import ProductsBySeller from "./components/ProductsBySeller"
-import Navbar from "./components/Navbar";
 import ProductId from "./components/ProductId";
 import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
@@ -29,7 +28,6 @@ root.render(
   <React.StrictMode>
     <ContextUse>
       <Router>
-      <Navbar />
         <Routes>
           <Route exact path="/" element={<App />}></Route>
           <Route exact path="/viewcart" element={<ViewCart />}></Route>
