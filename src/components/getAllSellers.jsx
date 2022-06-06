@@ -32,28 +32,51 @@ const Seller = ({ id, Rating, Product, Order }) => {
 
   return (
     <>
-      {sellers ? (
-        sellers.map((seller) => {
-          console.log(seller);
-          return (
-            <>
-              <div key={id}>
-                {/* <Link to={`/sellers/${id}`}>
-                    <FaSearch />
-                  </Link> */}
-              </div>
-              <footer>
-                <h5>{seller.first_name}</h5>
-                {/* <h5>"Order"</h5>
-                  <h5>"Rating"</h5>
-                  <p>"formatPrice(price)"</p> */}
-              </footer>
-            </>
-          );
-        })
-      ) : (
-        <p>fetching sellers...</p>
-      )}
+      <div className="sellersNav"> NAV </div>
+      <div className="grid">
+        {sellers ? (
+          sellers.map((seller) => {
+            console.log(seller);
+            return (
+              <>
+                <div key={id}>
+                  <div className="sellerslayout">
+                    <section className="scontainer">
+                      {seller.image}
+                      <br />
+                      <h2>
+                        {seller.first_name} {seller.last_name}
+                      </h2>
+                      <br />
+                      {seller.email}
+                      <br />
+                      <br />
+                      {seller.username}
+                      <br />
+                      {seller.address}
+                      <br />
+                      {seller.phone_number}
+                      <br />
+                      <br />
+                      {seller.status}
+                      <br />
+                      {seller.token}
+                      <br />
+                      {seller.product}
+                      <br />
+                      {seller.orders}
+                      <br />
+                      {seller.rating}
+                    </section>
+                  </div>
+                </div>
+              </>
+            );
+          })
+        ) : (
+          <p>Fetching sellers...</p>
+        )}
+      </div>
     </>
   );
 };
