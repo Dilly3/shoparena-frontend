@@ -3,13 +3,12 @@ import React from "react"
 import {Link,useNavigate} from "react-router-dom"
 import {useAppContext} from "../context/ContextUse"
 import axios from "../axios"
-import ProfileModal from "./ProfileModal"
-import './nav-modal.css';
+import { render } from "@testing-library/react"
 import ViewCart from "./ViewCart"
 
 
 const initialState = {
-  category:"",
+  category:"All Categories",
   lowerPrice:"",
   upperPrice:"",
   sort:"",
@@ -18,9 +17,7 @@ const initialState = {
   
 
 export default function Navbar(){
-  const [openModal, setOpenModal] = useState(false)
-  const toggleOpen = () => setOpenModal(value => !value);
-
+  
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
@@ -50,7 +47,7 @@ export default function Navbar(){
       
   const { handleSearch, cart, cartAmount} = useAppContext()
 
-  console.log(cart, cartAmount)
+  // console.log(cart, cartAmount)
   const [user, setUser] = useState(null)
   const [input, setInput] = useState(initialState)
 
@@ -59,7 +56,6 @@ export default function Navbar(){
     e.preventDefault()
     handleSearch(input)
   }
-
   const handleChange = (e)=>{
 setInput({...input, [e.target.name]:e.target.value})
 // console.log(e)
@@ -69,7 +65,7 @@ setInput({...input, [e.target.name]:e.target.value})
 
   
   const getSellerProfile = async () => {
-    
+    // console.log(localStorage.token)
     try {
       const headers = {
           "Authorization": `Bearer ${localStorage.token}`,
@@ -77,7 +73,6 @@ setInput({...input, [e.target.name]:e.target.value})
         }
       const resp = await axios.get("/getbuyerprofile", {headers: headers})
       console.log(resp.data.data.first_name)
-      
       setUser(resp.data.data)
     } catch (error) {
       console.log(error.response)
@@ -108,25 +103,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       
                       <li>
                           {localStorage.token ? (
-                          
-                              <>
-                              
-                              <h6 className='hov' onClick={toggleOpen}>
-                                Hello,{user && capitalizeFirstLetter(user.first_name)}
-                              </h6>
-                            
-                              {openModal && <ProfileModal closeModal={setOpenModal}/>}
-                              
-                              {/* <div>
-                              <select className="all" id="category" placeholder="Categories" onChange={handleChange} name="category">
-                                <option value="my account"><Link to="/buyer/profile"></Link>My Account</option>
-                                <option value="orders">Orders</option>
-                                <option value="inbox">Inbox</option>
-                                <option value="saved items">Saved Items</option>
-                                <option value="logout">Logout</option>
-                              </select>
-                            </div> */}
-                            </>
+                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
                           ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
                           
                         </li>
@@ -146,7 +123,6 @@ setInput({...input, [e.target.name]:e.target.value})
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
             <div className="header__info">
               <div className="container">
                 <div className="row align-items-center">
@@ -165,54 +141,23 @@ setInput({...input, [e.target.name]:e.target.value})
                   <div className="col-xl-8 col-lg-9">
                     <div className="header__info-right">
                       <div className="header__search f-left d-none d-sm-block">
-=======
-           <section id="header-mid">
-             <div className="logo">
-             
-<Link to="/">
-<img
-src="../assets/img/logo/oja.png"
-alt="logo"
-/>
-</Link>
-</div>
->>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
 
-<div id="search-select">
-<form className="search" onSubmit={handleSubmit} >
-  <div class="form-group " >
-  <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-  <option value="">Categories</option>
-<option value="All Categories">All Categories</option>
-<option value="baby products">Baby Products</option>
-<option value="computing">Computing</option>
-<option value="electronics">Electronics</option>
-<option value="fashion">Fashion</option>
-<option value="food drinks">Food/Drinks</option>
-<option value="health & beauty">Health/Beauty</option>
-<option value="phones & tablets">Phone/Tablets</option>
-<option value="sporting goods">Sporting goods</option>
-<option value="others">Others</option>
-</select>
-  </div>
+                        <form className="search" onSubmit={handleSubmit} >
 
-  <div class="form-group" >
-  <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
-<option value="">Lower Price Limit</option>
-<option value="50">50</option>
-<option value="100">100</option>
-<option value="200">200</option>
-<option value="500">500</option>
-<option value="1000">1000</option>
-<option value="2000">2000</option>
-<option value="5000">5000</option>
-<option value="10000">10000</option>
-<option value="20000">20000</option>
-<option value="50000">50000</option>
-</select>
-  </div>
+                      <div>
+                      <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
+                        <option value="All Categories">All Categories</option>
+                        <option value="baby products">Baby Products</option>
+                        <option value="computing">Computing</option>
+                        <option value="electronics">Electronics</option> 
+                        <option value="fashion">Fashion</option>
+                        <option value="food drinks">Food/Drinks</option>
+                        <option value="health & beauty">Health/Beauty</option>
+                        <option value="phones & tablets">Phone/Tablets</option>   
+                        <option value="sporting goods">Sporting goods</option>
+                        <option value="others">Others</option>   
+                    </select>
 
-<<<<<<< HEAD
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
                         <option value="">Lowest Price</option>
                         <option value="100">100 NGN</option>
@@ -265,52 +210,6 @@ alt="logo"
                 </div>
               </div>
             </div>
-=======
-  <div class="form-group"  >
-  <select className="cat" id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
-<option value="">Upper Price Limit</option>
-<option value="50000">50000</option>
-<option value="20000">10000</option>
-<option value="10000">10000</option>
-<option value="5000">5000</option>
-<option value="2000">2000</option>
-<option value="1000">1000</option>
-<option value="500">500</option>
-<option value="200">200</option>
-<option value="100">100</option>
-<option value="50">50</option>
-</select>
-
-  </div>
- 
-  <div>
-  <input type="text" id="name" placeholder="Search" onChange={handleChange} name = "sort"/>
-<button className="cat-btn" type="submit">Search</button>
-</div>
-
-
-</form> 
-</div>
-
-{token && <div className="cart__mini-wrapper d-none d-md-flex f-right p-relative">
-<Link to={{
-pathname: "/viewcart",
-state: {cart},
-render: () => <ViewCart name="true"/>
-}}>
-<a href="javascript:void(0);" className="cart__toggle">
-<span className="cart__total-item">{cart}</span>
-</a>
-<span className="cart__content">
-<span className="cart__my">My Cart:</span>
-<span className="cart__total-price">${cartAmount}</span>
-</span>
-</Link>
-</div>}
-
-           </section>
-                      
->>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
             <div className="header__bottom">
               <div className="container">
                 <div className="row align-items-center">
@@ -365,16 +264,12 @@ render: () => <ViewCart name="true"/>
                   <div className="col-xl-3 col-lg-3 col-sm-6 col-6 d-md-none d-lg-block">
                     <div className="header__bottom-right d-flex justify-content-end">
                       <div className="header__currency">
-<<<<<<< HEAD
                         <select>
-=======
-                        <select id="ngn">
->>>>>>> 0976d0ed1ad2ce32e5cb245910718949059c2d27
                           <option>NGN</option>
                         </select>
                       </div>
                       <div className="header__lang d-md-none d-lg-block">
-                        <select id="lang">
+                        <select>
                           <option>English</option>
                         </select>
                       </div>
