@@ -13,7 +13,6 @@ export default function ProductsBySeller() {
     <SellerTopBar/>
     <SellerProduct/>
     <ShopProducts/>
-    {/* <ListofProductBySeller/> */}
     </>
   )
 }

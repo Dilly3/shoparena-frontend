@@ -98,19 +98,16 @@ export default function SellerProduct() {
       </div>
       {/* USER INFO - END */}
       <ul className="wraplist">	
-        <li className="open"> 
-          
+      <li className="open">
             <i className="fa fa-dashboard" />
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
         <li className=''>
         <Link to="/seller/products"><li className> 
-          <a href="javascript:;">
             <i className="fa fa-cubes" />
             <span className="title" >Products</span>
             <span className="arrow " />
-          </a>
            </li></Link>
            </li>
            <li className> 

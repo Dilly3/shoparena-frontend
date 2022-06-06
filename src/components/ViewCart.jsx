@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom"
 import { useAppContext } from '../context/ContextUse';
 import axios from 'axios';
 import instance from '../axios';
-import { PaystackConsumer } from 'react-paystack';
 import {useNavigate} from 'react-router-dom'
 
 
