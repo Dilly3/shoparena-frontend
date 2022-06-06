@@ -157,7 +157,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="sporting goods">Sporting goods</option>
                         <option value="others">Others</option>   
                     </select>
-
+                      <div id="circle"></div>
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
                         <option value="">Lowest Price</option>
                         <option value="100">100 NGN</option>
@@ -170,7 +170,7 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="20000">20000 NGN</option>
                            
                     </select>
-
+                    <div id="circle"></div>
                     <select className="cat"  id="upper-price" placeholder="Upper Price Limit" onChange = {handleChange} name = "upperPrice">
                         <option value="">Highest Price</option>
                         <option value="20000">20000 NGN</option>
@@ -182,9 +182,9 @@ setInput({...input, [e.target.name]:e.target.value})
                         <option value="200">200 NGN</option>
                         <option value="100">100 NGN</option>
                     </select>
-               
+                    <div id="circle"></div>
                         <input className="cat" type="text" id="name" placeholder="Products..."  onChange={handleChange} name = "sort"/>
-                        <button className="cat-btn" type="submit">Search</button>
+                        <button id="cat-btn" className="cat-btn" type="submit">Search</button>
                     </div>
                         </form>
                       </div>
