@@ -19,8 +19,27 @@ export default function Createproducts() {
           "Content-Type": "multipart/form-data",
         }
     }
-      const response = await axios.post("/createproduct", values, config);
-      console.log(response)
+
+    const {title, description, images, category_id, price, rating, quantity} = values;
+
+
+    const setFormData = new FormData();
+    setFormData.append('title', title)
+    setFormData.append('description', description)
+    setFormData.append('images', images)
+    setFormData.append('category_id', category_id)
+    setFormData.append('price', price)
+    setFormData.append('rating', rating)
+    setFormData.append('quantity', quantity)
+
+
+
+
+
+      // const response = await axios.post("/createproduct", setFormData, config);
+      // console.log(response)
+
+      // console.log(values)
 
       
     }
@@ -30,12 +49,33 @@ export default function Createproducts() {
   } 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(values)
+    // console.log(values)
     submit()
     setValues(initialState)
 }
 const uploadImage = (e) => {
-  setValues({...values, Images : [...e.target.files]})
+  let storeFileValue = []
+  // const getvalue = {}
+  let fileEvent = e.target.files;
+
+  for(let i = 0; i < fileEvent.length; i++){
+    // console.log(fileEvent[i].name)
+    storeFileValue.push(fileEvent[i].name)
+    // setValues({...values, images : [fileEvent[i].name]})
+  }
+
+  setValues({...values, images : storeFileValue})
+
+
+
+  // if(fileEvent.length < 2){
+  //   console.log(e.target.files[0].name)
+  // }else{
+  //   console.log(fileEvent.item)
+  //   // fileEvent.files.map((item) => console.log(item.name))
+  // }
+  // console.log("hello");
+  // setValues({...values, images : [...e.target.files]})
 }
   const handleChange = (e) => {
     setValues({...values, [e.target.name] : e.target.value})
@@ -110,7 +150,7 @@ const uploadImage = (e) => {
               <label className="form-label" htmlFor="field-1">Image</label>
               <span className="desc" />
               <div className="controls">
-                <input type="file" name="images[]" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
+                <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
               </div>
             </div>
 

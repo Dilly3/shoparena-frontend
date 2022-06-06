@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react';
-import {Link} from "react-router-dom"
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from '../context/ContextUse';
 import axios from 'axios';
+import instance from '../axios';
+import {useNavigate} from 'react-router-dom'
+
 
 import SweetAlert from 'react-bootstrap-sweetalert';
 
 
 export default function ViewCart(props){
+
+  const navigate = useNavigate();
   const { handleSearch, cart, cartAmount, filterCart, setCart, quantity, setDeletedITem,deletedItem} = useAppContext()
 
   console.log("props: ", cartAmount);
@@ -58,11 +62,24 @@ export default function ViewCart(props){
 
   }
 
-  console.log(productID)
-  // React.useEffect(()=>{
-  //   deleteProduct()
-  // }, [])
-
+  
+  function payment() {
+    
+   instance.post(`https://oja-ecommerce.herokuapp.com/api/v1/pay`, {amount: cartAmount}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    })
+    .then(response => {
+      console.log(response.data.data.authorization_url)
+      window.location.replace(response.data.data.authorization_url)
+      
+    })
+    .catch(error => {
+      console.log(error.response);
+    })
+    
+  }
 
 
     return(
@@ -77,11 +94,7 @@ export default function ViewCart(props){
             <div className="tab-content" id="flast-sell-tabContent">
               <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab">
                 <div className="row">
-                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                      <li class="breadcrumb-item"><Link to="/">Home</Link></li>
-                                    </ol>
-                                  </nav>
+                <button className='checkout' onClick={()=>payment()} >CheckOut</button>
                   <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container">
 
 {/* render the function starts here */}

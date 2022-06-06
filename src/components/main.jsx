@@ -50,7 +50,7 @@ const handleChange = (e)=>{
   url = url + `&category=${category}`
         }
       const response = await instance.get(url)
-      // console.log(response.data)
+      console.log(response.data)
       setProducts(response.data)
       } catch (error) {
         console.log(error.response.data)
@@ -100,7 +100,7 @@ const handleModal = (product)=>{
 const clearAlert = ()=>{
   setTimeout(()=>{
     setAlert({...alert, visible: false})
-  }, 400)
+  }, 900)
 }
 
     return(
@@ -114,7 +114,7 @@ const clearAlert = ()=>{
       <div className="container">
         <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
           <div className="col">
-            <div className="features__item d-flex white-bg" id='advert1'>
+            <div className="features__item d-flex white-bg">
               <div className="features__icon mr-15">
                 <i className="fal fa-rocket-launch" />
               </div>
@@ -125,18 +125,18 @@ const clearAlert = ()=>{
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg" id='advert2'>
+            <div className="features__item d-flex white-bg">
               <div className="features__icon mr-15">
                 <i className="fal fa-sync" />
               </div>
               <div className="features__content">
-                <h6>Money Guarantee</h6>
-                <p>30 Day Money Back Guarantee</p>
+              <h6>Money Guarantee</h6>
+              <p>Upto 30 Days</p>
               </div>
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg" id='advert3'>
+            <div className="features__item d-flex white-bg">
               <div className="features__icon mr-15">
                 <i className="fal fa-user-headset" />
               </div>
@@ -147,24 +147,24 @@ const clearAlert = ()=>{
             </div>
           </div>
           <div className="col">
-            <div className="features__item d-flex white-bg" id='advert4'>
+            <div className="features__item d-flex white-bg">
               <div className="features__icon mr-15">
                 <i className="fal fa-thumbs-up" />
               </div>
-              <div className="features__content advert" >
-                <h6>Secure Payment</h6>
-                <p>All Payment Method are accepted</p>
+              <div className="features__content">
+              <h6>Secure Payment</h6>
+              <p>All Payment Method</p>
               </div>
             </div>
           </div>
           <div className="col">
-            <div className="features__item features__item-last d-flex white-bg" id='advert5'>
+            <div className="features__item d-flex white-bg">
               <div className="features__icon mr-15">
                 <i className="fal fa-badge-dollar" />
               </div>
               <div className="features__content">
-                <h6>Member Discount</h6>
-                <p>Upto 40% Discount All Products</p>
+              <h6>Member Discount</h6>
+                <p>Upto 40% Discount</p>
               </div>
             </div>
           </div>
@@ -204,12 +204,12 @@ const clearAlert = ()=>{
                       <div className="product__item white-bg">
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
-                            <img src="assets/img/shop/product/product-8.jpg" alt="product" />
+                            <img src={product.Images} alt="product" />
                             <img className="second-img" src={product.Images} alt="product" />
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
-                              <li   onClick = {()=>handleModal(product)}><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i className="fal fa-search" /></a></li>
+                              <li   onClick = {()=>handleModal(product)}><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i className="fa fa-bars" /></a></li>
                             </ul>
                           </div>
                         </div>
@@ -226,7 +226,7 @@ const clearAlert = ()=>{
                               <li><a href="#"><i className="far fa-star" /></a></li>
                             </ul>
                           </div> */}
-                          <span className="new">${product.price}</span>
+                          <span className="new">{product.price} NGN</span>
                         </div>
                         {token && <div className="product__add-btn">
                           <button type="button" onClick = {()=>addToCartFunc(product)}>Add to Cart</button>
