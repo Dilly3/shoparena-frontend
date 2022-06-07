@@ -29,6 +29,7 @@ import Createproducts from "./components/CreateProducts";
 import UpdateSellerProfile from "./components/UpdateSellerProfile";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import SellerShop from "./pages/SellerShop";
+import SellerResetPassword from "./pages/SellerResetPassword";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -46,6 +47,7 @@ root.render(
           <Route exact path="/seller/register" element={<SellerRegisterComponent />}></Route>
           <Route exact path="/sellers" element={<Seller />}></Route>
           <Route exact path="/resetpassword" element={<ResetPassword />}></Route>
+           <Route exact path="/seller/resetpassword" element={<SellerResetPassword />}></Route>
           <Route exact path="/seller/forgot" element={<Sellerforgotpassword />}></Route>
           <Route exact path="/seller/reset/:token" element={<Sellerupdatepassword />}></Route>
           <Route exact path="/buyer/forgot" element={<Buyerforgotpassword />} ></Route>

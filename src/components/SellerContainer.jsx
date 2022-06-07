@@ -117,6 +117,13 @@ export default function SellerContainer() {
           </Link>
            </li>
            <li className> 
+          <Link to="/seller/resetpassword">
+            <i className="fa fa-cubes" />
+            <span className="title"> Reset Password</span>
+            <span className="arrow " />
+          </Link>
+           </li> 
+          <li className> 
           <a href="javascript:;">
             <i className="fa fa-cubes" />
             <span className="title"> Edit Products</span>
