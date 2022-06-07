@@ -1,14 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import SellerProduct from '../components/SellerProduct'
 import SellerTopBar from '../components/SellerTopBar'
+
 
 
 
 export default function ShopProducts() {
     const navigate = useNavigate()
     const [products, setSellerProducts] = useState([])
+    const [isDeleted , setIsDeleted] = useState(false)
     
     useEffect(() => {
         if (!localStorage.token) {
@@ -20,7 +22,31 @@ export default function ShopProducts() {
           getOrders() 
       },[])
 
-    
+  const HandleDel = (id)=>{
+    return async ()=> {
+      const config = {
+        header: { 
+        "Authorization": `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json"
+        }
+      }
+      try{
+        const resp = await axios.delete(`/deleteproduct/${id}`)
+        setIsDeleted(true)
+        console.log(resp)
+        getOrders()
+        
+      } catch(error){
+console.log(error)
+      }
+    }
+  }
+
+   if (isDeleted) {
+     setTimeout(()=>{
+       setIsDeleted(false)
+     },3000)
+   }
 
     const getOrders = async () => {
       
@@ -53,8 +79,14 @@ export default function ShopProducts() {
         <div className="dashboard-table">
     <div className="heading">
       <h2>Product Overview</h2>
+      {isDeleted && (
+                  <div class="alert toggle3" role="alert">
+                    {"delete successful"}
+                  </div>
+                )}
       {/* <a href="#" className="btn">View All</a> */}
-      <p className="btn"> You have {products.length} Orders</p>
+      <p className="btn"> You have {products.length} products left</p>
+      <p className="btn"> You have {products.length} Products</p>
       
     </div>
     <table className="table-head">
@@ -69,6 +101,7 @@ export default function ShopProducts() {
         </tr>
         </thead>
       <tbody>
+        
       {products && products.map((product,index) =>
         <tr key={index}>
         
@@ -83,7 +116,8 @@ export default function ShopProducts() {
             //  onClick={pass the function}
               class="far fa-eye"></i>
               <i class="far fa-edit"></i>
-              <i class="far fa-trash-alt"></i>
+              <button onClick= {HandleDel(product.ID)}><i class="far fa-trash-alt" key={index} onClick = {HandleDel(index)}></i></button>
+              
           </td>
         </tr>
       )}

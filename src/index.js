@@ -57,6 +57,7 @@ root.render(
           <Route exact path="/buyer/profile" element={<Profile />}></Route>
           <Route exact path="/seller/profile" element={<SellerProfile />} ></Route>
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
+          <Route exact path="/deleteproduct/:id" element={<ProductsBySeller />}></Route>
           <Route exact path="/update/seller/profile" element={<UpdateSellerProfile />}></Route>
           <Route exact path="/productID/:id" element={<ProductId />}></Route>
           {/* <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route> */}

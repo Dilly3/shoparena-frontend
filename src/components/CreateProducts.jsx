@@ -12,34 +12,53 @@ export default function Createproducts() {
     quantity: 0
   }
   const [values, setValues] = useState(initialState)
+
   const submit = async() => {
     try{
-      const config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        }
-    }
+    //   const config = {
+    //     // headers: {
+    //     //   "Content-Type": "multipart/form-data",
+    //     // }
+    // }
 
     const {title, description, images, category_id, price, rating, quantity} = values;
 
 
     const setFormData = new FormData();
-    setFormData.append('title', title)
-    setFormData.append('description', description)
-    setFormData.append('images', images)
-    setFormData.append('category_id', category_id)
-    setFormData.append('price', price)
-    setFormData.append('rating', rating)
-    setFormData.append('quantity', quantity)
+    // setFormData.append('title', title)
+    // setFormData.append('description', description)
+    // setFormData.append('images', images[0])
+    // setFormData.append('images', images[1])
+    // setFormData.append('category_id', category_id)
+    // setFormData.append('price', price)
+    // setFormData.append('rating', rating)
+    // setFormData.append('quantity', quantity)
 
+    for(let key in values) {
+      if(key === "images") {
+        for(let image of values[key]) {
+          setFormData.append("images", image)
+        }
+      } else {
+        setFormData.append(key, values[key])
+      }
+    }
+    for (const value of setFormData.values()) {
+      console.log(JSON.stringify(value));
+    }
 
+      // const response = await axios.post("/createproduct", setFormData);
+      const response = await axios({
+        method: 'post',
+        url: "/createproduct",
+        data: setFormData,
+        headers: {
+            'Content-Type': `multipart/form-data`,
+        },
+    });
+      console.log(response)
 
-
-
-      // const response = await axios.post("/createproduct", setFormData, config);
-      // console.log(response)
-
-      // console.log(values)
+      console.log(values)
 
       
     }
@@ -54,17 +73,23 @@ export default function Createproducts() {
     setValues(initialState)
 }
 const uploadImage = (e) => {
-  let storeFileValue = []
+  // let storeFileValue = []
   // const getvalue = {}
-  let fileEvent = e.target.files;
+  // let fileEvent = Array.from(e.target.files);
+  // console.log(fileEvent)
+  // console.log(fileEvent)
 
-  for(let i = 0; i < fileEvent.length; i++){
-    // console.log(fileEvent[i].name)
-    storeFileValue.push(fileEvent[i].name)
-    // setValues({...values, images : [fileEvent[i].name]})
-  }
-
-  setValues({...values, images : storeFileValue})
+  // for(let i = 0; i < fileEvent.length; i++){
+  //   // console.log(fileEvent[i].name)
+  //   storeFileValue.push(fileEvent[i])
+  //   // setValues({...values, images : [fileEvent[i].name]})
+  // }
+ 
+// console.log(storeFileValue)
+console.log(e.target.files)
+const {files} = e.target;
+console.log(files)
+  setValues({...values, images : [...files]})
 
 
 
@@ -80,6 +105,7 @@ const uploadImage = (e) => {
   const handleChange = (e) => {
     setValues({...values, [e.target.name] : e.target.value})
   }
+  console.log(values)
   return (
     <>
   <div className="col-xl-12 col-lg-12 col-12 col-md-12">

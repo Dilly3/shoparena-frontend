@@ -102,10 +102,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <ul>
                         <li>
                           {localStorage.token ? (
-                            <h6>
-                              Hello,
-                              {user && capitalizeFirstLetter(user.first_name)}
-                            </h6>
+                           <><h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6><Link to="/buyer/dashboard">Buyer Account</Link></>
                           ) : (
                             <Link to="/buyer/login">Buyer Sign In</Link>
                           )}
@@ -135,7 +132,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="logo" >
                       <Link to="/">
                         <img
-                          src="../assets/img/logo/new_oja_logo.png"
+                          src="/assets/img/logo/new_oja_logo.png"
                           alt="logo"
                         />
                       </Link>
