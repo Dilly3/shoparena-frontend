@@ -54,7 +54,7 @@ export default function ShopProducts() {
     <div className="heading">
       <h2>Product Overview</h2>
       {/* <a href="#" className="btn">View All</a> */}
-      <p className="btn"> You have {products.length} Orders</p>
+      <p className="btn"> You have {products.length} products left</p>
       
     </div>
     <table className="table-head">
