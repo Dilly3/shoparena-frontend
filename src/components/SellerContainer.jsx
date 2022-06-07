@@ -105,7 +105,7 @@ export default function SellerContainer() {
       </div>
       {/* USER INFO - END */}
       <ul className="wraplist">	
-        <li className="open"> 
+        <li className=""> 
           
             <i className="fa fa-grid" />
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
