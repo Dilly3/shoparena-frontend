@@ -135,7 +135,7 @@ setInput({...input, [e.target.name]:e.target.value})
                     <div className="logo" >
                       <Link to="/">
                         <img
-                          src="../assets/img/logo/new_oja_logo.png"
+                          src="/assets/img/logo/new_oja_logo.png"
                           alt="logo"
                         />
                       </Link>
