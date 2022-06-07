@@ -119,13 +119,8 @@ export default function SellerContainer() {
            </li>
            <li className> 
           <Link to="/seller/createproducts">
-<<<<<<< HEAD
-            <i className="fa fa-cubes" />
-            <span className="title">Add Products</span>
-=======
             <i className="fa fa-plus" />
             <span className="title"> Add Products</span>
->>>>>>> main
             <span className="arrow " />
           </Link>
            </li>
