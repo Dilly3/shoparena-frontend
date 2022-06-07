@@ -52,14 +52,19 @@ const handleChange = (e)=>{
       const response = await instance.get(url)
       console.log(response.data)
       setProducts(response.data)
-      } catch (error) {
-        console.log(error.response.data)
-        if(error.response.status === 500){
-          return data = <div> error.response.data </div>
-        }
-
+      // if (response.data.images.length > 0){
+      //   console.log(response.data.images)
+      // }
+    } catch (error) {
+      // console.log(error.response.data)
+      if(error.response.status === 500){
+        return data = <div> error.response.data </div>
+      }
+      
       }
     }
+    console.log(products)
+
 
     const addToCartFunc = async (product)=>{
       const {
@@ -204,8 +209,10 @@ const clearAlert = ()=>{
                       <div className="product__item white-bg">
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
-                            <img src={product.Images} alt="product" />
-                            <img className="second-img" src={product.Images} alt="product" />
+                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                            
+                            {/* {product.images.length > 0 ?<img className="second-img" src={product.images[1].url} alt="product" /> : null} */}
+                            
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
@@ -347,7 +354,7 @@ const clearAlert = ()=>{
                       <span>{product.quantity} In Stock</span>
                     </div>
                     <div className="product__price">
-                      <span>${product.price}</span>
+                      <span>{product.price} NGN</span>
                     </div>
                     <div className="product__modal-form mb-30">
                     </div>

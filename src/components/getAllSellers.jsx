@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import SocialShare from "./SocialShare/SocialShare";
 
 const token = localStorage.getItem("token");
 
 const Seller = ({ id, Rating, Product, Order }) => {
   const [sellers, updateSellers] = useState(null);
+  
 
   async function fetchSellers() {
     // const { ID, price, image, title } = product;
@@ -57,6 +59,36 @@ const Seller = ({ id, Rating, Product, Order }) => {
                       <br />
                       {seller.phone_number}
                       <br />
+                      {/*view and share seller shop link start*/}
+                      <Link to={`/seller/shop/${seller.ID}`}><p>View Shore</p></Link>
+                    
+                      <div> 
+                        <SocialShare social_id={seller.ID}/>
+                      </div>
+                      {/* <a href={`/seller/shop/${seller.ID}`} className="facebook-btn">
+                          <i className="fab fa-facebook"></i>
+                      </a>
+                      <a href={`/seller/shop/${seller.ID}`} className="twitter-btn">
+                          <i className="fab fa-twitter"></i>
+                      </a>
+                      <a href={`/seller/shop/${seller.ID}`} className="linkedin-btn ">
+                          <i className="fab fa-linkedin"></i>
+                      </a>
+                      <a href={`/seller/shop/${seller.ID}`} className="whatsapp-btn">
+                          <i className="fab fa-whatsapp"></i>
+                      </a>  */}
+                      
+                      
+                     
+
+
+                     
+
+                     
+                      {/*social share links end*/}
+                      
+
+                      {/*view and share seller shop link end*/}
                       <br />
                       {seller.status}
                       <br />
