@@ -76,7 +76,7 @@ export default  function UpdateSellerProfile() {
     if (user && user.image) {
       setImgUrl(defaultImgUrl)
     }else{
-      setImgUrl(defaultImgUrl)
+      setImgUrl(user.image)
     }
     
     // eslint-disable-next-line
