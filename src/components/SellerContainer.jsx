@@ -14,9 +14,8 @@ export default function SellerContainer() {
    
     try {
       const resp = await axios.get("/seller/total/product/sold")
-      console.log(checkSold)
-      console.log(resp.data.data)
-      setCheckSold(resp.data.data.Product_sold)
+      console.log(resp.data)
+      setCheckSold(resp.data.Message)
     } catch (error){
       setCheckSold(0)
       console.log(error)
@@ -34,9 +33,9 @@ export default function SellerContainer() {
     }
     try {
       const resp = await axios.get("/seller/remaining/product/count", config)
-      console.log(resp.data.data)
+      console.log(resp.data)
       console.log(remainingProduct)
-      setRemainingProduct(resp.data.data.new_quantity)
+      setRemainingProduct(resp.data)
     }catch (error){
       setRemainingProduct(0)
       console.log(error)
@@ -105,14 +104,14 @@ export default function SellerContainer() {
         <li className> 
         <Link to="/seller/products">       
             <i className="fa fa-cubes" />
-            <span className="title" >Products</span>
+            <span className="title">Products</span>
             <span className="arrow " />
         </Link>
            </li>
            <li className> 
           <Link to="/seller/createproducts">
             <i className="fa fa-cubes" />
-            <span className="title"> Add Products</span>
+            <span className="title">Add Products</span>
             <span className="arrow " />
           </Link>
            </li>
@@ -180,8 +179,8 @@ export default function SellerContainer() {
           <div className="cards">
   <div className="card">
     <div className="card-content">
-      <div className="number">{ remainingProduct.Total_Product }</div>
-      <div className="card-name">Total Quantity</div>
+      <div className="number">{ remainingProduct.new_quantity }</div>
+      <div className="card-name">Total Product Count</div>
     </div>
     <div className="icon-box">
       <i className="fas fa-shopping-basket" />
@@ -189,8 +188,7 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{ checkSold }</div>
-      <div className="card-name">Quantity Sold</div>
+      <div className="number">{ checkSold.Product_sold }</div><p>{ checkSold } yet</p>
     </div>
     <div className="icon-box">
       <i className="fas fa-shopping-cart" />
@@ -198,8 +196,8 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{ remainingProduct }</div>
-      <div className="card-name">Quantity Remaining</div>
+      <div className="number">{ remainingProduct.Total_Remaining }</div>
+      <div className="card-name">Remaining Product Count </div>
     </div>
     <div className="icon-box">
       <i className="fas fa-briefcase-medical" />
@@ -207,8 +205,8 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">N4500</div>
-      <div className="card-name">Income</div>
+      <div className="number">{remainingProduct.Total_Sold}</div>
+      <div className="card-name">Total Sold Count</div>
     </div>
     <div className="icon-box">
       <i className="fas fa-money-bill" />
