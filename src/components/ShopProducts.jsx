@@ -85,6 +85,7 @@ console.log(error)
                   </div>
                 )}
       {/* <a href="#" className="btn">View All</a> */}
+      <p className="btn"> You have {products.length} products left</p>
       <p className="btn"> You have {products.length} Products</p>
       
     </div>
