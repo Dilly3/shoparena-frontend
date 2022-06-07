@@ -17,7 +17,7 @@ import ViewCart from "./pages/ViewCart";
 import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
-// import ProductsBySeller from "./components/ProductsBySeller"
+import ProductsBySeller from "./components/ShopProducts"
 import ProductId from "./components/ProductId";
 import Seller from "./components/getAllSellers";
 import NotFound from "./pages/pageNotFound";
@@ -55,12 +55,13 @@ root.render(
           <Route exact path="/buyer/profile" element={<Profile />}></Route>
           <Route exact path="/seller/profile" element={<SellerProfile />} ></Route>
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
+          <Route exact path="/deleteproduct/:id" element={<ProductsBySeller />}></Route>
           <Route exact path="/update/seller/profile" element={<UpdateSellerProfile />}></Route>
           <Route exact path="/productID/:id" element={<ProductId />}></Route>
           {/* <Route exact path = "/seller/productsbyseller" element = {<ProductsBySeller/>} ></Route> */}
           <Route exact path = "/seller/delete-all-products" element = {<DeleteAllSellerProducts/>} ></Route>
           <Route exact path = "/seller/createproducts" element = {<Createproducts/>} ></Route>
-          {/* <Route exact path = "/seller/products" element={<ProductsBySeller/>}></Route> */}
+          <Route exact path = "/seller/products" element={<ProductsBySeller/>}></Route>
           <Route exact path="/" element={<Home />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route exact path="/buyer/dashboard" element={<BuyerDashboard/>}></Route>

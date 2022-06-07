@@ -1,18 +1,55 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
+import SellerProduct from '../components/SellerProduct'
+import SellerTopBar from '../components/SellerTopBar'
 
-export function ShopProducts() {
+
+
+
+export default function ShopProducts() {
     const navigate = useNavigate()
+    const [products, setSellerProducts] = useState([])
+    const [isDeleted , setIsDeleted] = useState(false)
     
     useEffect(() => {
         if (!localStorage.token) {
             navigate("/seller/login")
+            
         }}, [localStorage.token])
 
-    const [products, setSellerProducts] = useState([])
+        useEffect(()=> {
+          getOrders() 
+      },[])
+
+  const HandleDel = (id)=>{
+    return async ()=> {
+      const config = {
+        header: { 
+        "Authorization": `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json"
+        }
+      }
+      try{
+        const resp = await axios.delete(`/deleteproduct/${id}`)
+        setIsDeleted(true)
+        console.log(resp)
+        getOrders()
+        
+      } catch(error){
+console.log(error)
+      }
+    }
+  }
+
+   if (isDeleted) {
+     setTimeout(()=>{
+       setIsDeleted(false)
+     },3000)
+   }
 
     const getOrders = async () => {
+      
         const config = {
             header: { 
             "Authorization": `Bearer ${localStorage.token}`,
@@ -23,23 +60,32 @@ export function ShopProducts() {
         try {
           const resp = await axios.get("/seller/allproducts", config)
           
-          console.log(resp.data)
+          console.log(resp.data.SellerProducts)
           setSellerProducts(resp.data.SellerProducts)
-          console.log(products)
+          
         } catch (error){
             setSellerProducts('')
           console.log(error.resp)
         }
       }
 
+     console.log(products)
     return(
+<>
 
+<SellerProduct/>
+<SellerTopBar/>
         <section id="main-content" className=" ">
         <div className="dashboard-table">
     <div className="heading">
-      <h2>Order Overview</h2>
+      <h2>Product Overview</h2>
+      {isDeleted && (
+                  <div class="alert toggle3" role="alert">
+                    {"delete successful"}
+                  </div>
+                )}
       {/* <a href="#" className="btn">View All</a> */}
-      <p className="btn"> You have {products.length} Orders</p>
+      <p className="btn"> You have {products.length} Products</p>
       
     </div>
     <table className="table-head">
@@ -50,23 +96,34 @@ export function ShopProducts() {
             <td>Category</td>
             <td>Price</td>
             <td>Quantity</td>
+            <td>Actions</td>
         </tr>
         </thead>
       <tbody>
+        
       {products && products.map((product,index) =>
         <tr key={index}>
         
         {/* <td>{product.Fname} {product.Lname}</td> */}
         <td>{index + 1}</td>
-          <td>{product.Category.name} </td>
-          <td>{product.title}</td>
+          <td>{product.title} </td>
+          <td>{product.Category.name}</td>
           <td>{product.price}</td>
           <td>{product.quantity}</td>
+          <td>
+          <i                                 
+            //  onClick={pass the function}
+              class="far fa-eye"></i>
+              <i class="far fa-edit"></i>
+              <button onClick= {HandleDel(product.ID)}><i class="far fa-trash-alt" key={index} onClick = {HandleDel(index)}></i></button>
+              
+          </td>
         </tr>
       )}
       </tbody>
     </table>
   </div>
   </section>
+  </>
     )
 }
