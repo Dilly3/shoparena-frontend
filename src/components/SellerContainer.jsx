@@ -67,7 +67,9 @@ export default function SellerContainer() {
     // }
   }, [])
  
-
+  const defaultImgUrl =
+   // "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+   "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
   return (
     <>
 {/* START CONTAINER */}
@@ -80,7 +82,14 @@ export default function SellerContainer() {
       <div className="profile-info row">
         <div className="profile-image col-lg-4 col-md-4 col-4">
           <a href="ui-profile.html">
-            <img src={findSeller.image} className="img-fluid rounded-circle" />
+          <img
+                    width="150"
+                    height="150"
+                    src={findSeller.image ? findSeller.image : defaultImgUrl}
+                    alt={findSeller.first_name}
+                    className="rounded-circle"
+                  />
+            {/* <img src={findSeller.image} className="img-fluid rounded-circle" /> */}
           </a>
         </div>
         <div className="profile-details col-lg-8 col-md-8 col-8">
@@ -98,7 +107,7 @@ export default function SellerContainer() {
       <ul className="wraplist">	
         <li className="open"> 
           
-            <i className="fa fa-dashboard" />
+            <i className="fa fa-grid" />
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
           </Link>
         </li>
@@ -111,14 +120,14 @@ export default function SellerContainer() {
            </li>
            <li className> 
           <Link to="/seller/createproducts">
-            <i className="fa fa-cubes" />
+            <i className="fa fa-plus" />
             <span className="title"> Add Products</span>
             <span className="arrow " />
           </Link>
            </li>
            <li className> 
           <a href="javascript:;">
-            <i className="fa fa-cubes" />
+            <i className="fa fa-file" />
             <span className="title"> Edit Products</span>
             <span className="arrow " />
           </a>
@@ -144,6 +153,19 @@ export default function SellerContainer() {
             <span className="title">Product Categories</span>
             <span className="arrow " />
           </a>
+        </li>
+
+        <li className> 
+          <Link to="/seller/profile">
+            <i className="fa fa-user" />
+            <span className="title">Profile</span>
+            <span className="arrow " />
+          </Link>
+          {/* <ul className="sub-menu">
+            <li>
+              <a className href="eco-orders.html">All Orders</a>
+            </li>
+          </ul> */}
         </li>
        
       </ul>
