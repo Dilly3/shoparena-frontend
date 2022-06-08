@@ -6008,3 +6008,23 @@ bottom: 25px;
   height: 85px;
 }
 
+/* share link css start*/
+ 
+.share-btn-container{
+  background: #fff;
+  display: flex ;
+  flex-direction: row ;
+  width: 17rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+
+
+
+
+
+
+
+
+/* share link css ends */
+

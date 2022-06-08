@@ -29,6 +29,7 @@ useEffect(()=>{
 
   return (
     <>
+    
     <div className="container-bdb">
   <div className="sidebar-bdb">
     <ul>
@@ -40,10 +41,10 @@ useEffect(()=>{
       </li>
       <p className='buyer-name'>{ buyerDetails.first_name } { buyerDetails.last_name }</p>
       <li>
-        <a href="#">
+        <Link to="/buyer/dashboard">
           <i className="fas fa-th-large" />
           <div className="title-bdb">Dashboard</div>
-        </a>
+        </Link>
       </li>
       <li>
         <Link to="/buyer/profile">
@@ -52,10 +53,10 @@ useEffect(()=>{
         </Link>
       </li>
       <li>
-        <a href="#">
+        <Link to="/buyer/dashboard/orders">
           <i className="fas fa-archive" />
           <div className="title-bdb">Orders</div>
-        </a>
+        </Link>
       </li>
       <li>
         <a href="#">
@@ -117,102 +118,10 @@ useEffect(()=>{
         </div>
       </div>
     </div>
-    <div className="tables-bdb">
-      <div className="dashboard-table-bdb">
-        <div className="heading-bdb">
-          <h2>Order Overview</h2>
-          <a href="#" className="btn-bdb">View All</a>
-        </div>
-        <table className="table-head-bdb">
-          <thead>
-            <tr><td>Name</td>
-              <td>Product</td>
-              <td>Price</td>
-              <td>Action</td>
-            </tr></thead>
-          <tbody>
-            <tr>
-              <td>Oreva Ansel</td>
-              <td>Television</td>
-              <td>$4,000</td>
-              <td>
-                <i className="far fa-eye" />
-                <i className="far fa-edit" />
-                <i className="far fa-trash-alt" />
-              </td>
-            </tr>
-            <tr>
-              <td>Oluchi Tiyan</td>
-              <td>Drapes</td>
-              <td>$2,000</td>
-              <td>
-                <i className="far fa-eye" />
-                <i className="far fa-edit" />
-                <i className="far fa-trash-alt" />
-              </td>
-            </tr>
-            <tr>
-              <td>Chuks Okoro</td>
-              <td>Toothpick</td>
-              <td>$1</td>
-              <td>
-                <i className="far fa-eye" />
-                <i className="far fa-edit" />
-                <i className="far fa-trash-alt" />
-              </td>
-            </tr>
-            <tr>
-              <td>Victor Ihemadu</td>
-              <td>Main.go</td>
-              <td>$20</td>
-              <td>
-                <i className="far fa-eye" />
-                <i className="far fa-edit" />
-                <i className="far fa-trash-alt" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-     {/* <div class="second-dashboard">
-          <div class="heading">
-              <h2>Buyer records</h2>
-              <a href="#" class="btn">View All</a>
-          </div>
-          <table class="visiting">
-              <thead>
-                  <td>Photo</td>
-                  <td>Name</td>
-                  <td>Total Orders</td>
-                  <td>Details</td>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>
-                          <div class="img-box-small">
-                              <img src="./images/cv__29__generated.jpg" alt="">
-                          </div>
-                      </td>
-                      <td>Gbenga</td>
-                      <td>11</td>
-                      <td><i class="far fa-eye"></i></td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <div class="img-box-small">
-                              <img src="./images/cv__29__generated.jpg" alt="">
-                          </div>
-                      </td>
-                      <td>Cecelia</td>
-                      <td>24</td>
-                      <td><i class="far fa-eye"></i></td>
-                  </tr>
-              </tbody>
-          </table>
-      </div> */}
+ 
 </div>
 </div>
-</div>
+
     </>
   )
 }

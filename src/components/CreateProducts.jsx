@@ -1,6 +1,10 @@
 import React,  {useState, useEffect} from'react'
 import axios from '../axios';
 import { Link } from 'react-router-dom';
+import SellerTopBar from './SellerTopBar';
+import SellerContainer from './SellerContainer';
+import "./sellerProfile.css";
+
 export default function Createproducts() {
   const initialState = {
     title: "",
@@ -12,17 +16,20 @@ export default function Createproducts() {
     quantity: 0
   }
   const [values, setValues] = useState(initialState)
-
   const submit = async() => {
     try{
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
     const {title, description, images, category_id, price, rating, quantity} = values;
-
-
     const setFormData = new FormData();
+<<<<<<< HEAD
    
 
+=======
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
     for(let key in values) {
       if(key === "images") {
         for(let image of values[key]) {
@@ -35,7 +42,11 @@ export default function Createproducts() {
     for (const value of setFormData.values()) {
       console.log(JSON.stringify(value));
     }
+<<<<<<< HEAD
 
+=======
+      // const response = await axios.post("/createproduct", setFormData);
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
       const response = await axios({
         method: 'post',
         url: "/createproduct",
@@ -45,9 +56,13 @@ export default function Createproducts() {
         },
     });
       console.log(response)
+<<<<<<< HEAD
 
 
       
+=======
+      console.log(values)
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
     }
     catch(err){
         console.log(err)
@@ -60,13 +75,38 @@ export default function Createproducts() {
     setValues(initialState)
 }
 const uploadImage = (e) => {
+<<<<<<< HEAD
  
+=======
+  // let storeFileValue = []
+  // const getvalue = {}
+  // let fileEvent = Array.from(e.target.files);
+  // console.log(fileEvent)
+  // console.log(fileEvent)
+  // for(let i = 0; i < fileEvent.length; i++){
+  //   // console.log(fileEvent[i].name)
+  //   storeFileValue.push(fileEvent[i])
+  //   // setValues({...values, images : [fileEvent[i].name]})
+  // }
+// console.log(storeFileValue)
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
 console.log(e.target.files)
 const {files} = e.target;
 console.log(files)
   setValues({...values, images : [...files]})
+<<<<<<< HEAD
 
 
+=======
+  // if(fileEvent.length < 2){
+  //   console.log(e.target.files[0].name)
+  // }else{
+  //   console.log(fileEvent.item)
+  //   // fileEvent.files.map((item) => console.log(item.name))
+  // }
+  // console.log("hello");
+  // setValues({...values, images : [...e.target.files]})
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
 }
   const handleChange = (e) => {
     setValues({...values, [e.target.name] : e.target.value})
@@ -74,7 +114,9 @@ console.log(files)
   console.log(values)
   return (
     <>
-  <div className="col-xl-12 col-lg-12 col-12 col-md-12">
+       <SellerTopBar/>
+       <SellerContainer/>
+  <div className=" create col-xl-12 col-lg-12 col-12 col-md-12">
   <section className="box ">
     <header className="panel_header">
       <h2 className="title float-left">Basic Info</h2>
@@ -95,11 +137,14 @@ console.log(files)
                 <input type="text" name="title" value= {values.title}  onChange={handleChange} className="form-control" id="field-1" />
               </div>
             </div>
-            
             <div className="form-group">
               <label className="form-label" htmlFor="field-1">Category</label>
               <span className="desc" />
               <div className="controls">
+<<<<<<< HEAD
+=======
+               {/* <input type="text" name ="category_id" value = {values.category_id} onChange={handleChange} className="form-control" id="field-1" /> */}
+>>>>>>> c84629ba4705b7e999c6d828b811014aa7e78474
             <select name="category_id" id="category_id" onChange={handleChange} >
             <option value="Choose Categories">Choose Categories</option>
             <option value="1">Fashion</option>
@@ -112,7 +157,6 @@ console.log(files)
             <option value="8">Sporting Goods</option>
             <option value="9">Others</option>
             </select> 
-        
               </div>
             </div>
             <div className="form-group">
@@ -136,7 +180,6 @@ console.log(files)
                 <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
               </div>
             </div>
-
             <div className="form-group">
               <label className="form-label" htmlFor="field-6">Description</label>
               <span className="desc">e.g. "Enter any size of text description here"</span>
@@ -144,7 +187,6 @@ console.log(files)
                 <textarea  name="description" className="form-control autogrow" onChange={handleChange}  cols={5} id="field-6" value={values.description} />
               </div>
             </div>
-            
             <div className="col-xl-8 col-lg-8 col-md-9 col-12 padding-bottom-30">
               <div className="text-left">
                 <button type="submit" className="btn btn-primary" style={{ color:"black"}}>Add Product</button>
