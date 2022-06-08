@@ -1,40 +1,43 @@
-import Navbar from "./Navbar";
-import React from "react"
+import BuyerContainer from "./BuyerContainer";
+import React from "react";
 import { Link } from "react-router-dom";
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "../axios";
+import "./sellerProfile.css";
 
 export default function Profile({ handleClick }) {
   //  const { user } = useContext(AuthContext);
-   const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   const getBuyerInfo = async () => {
     try {
-      const resp = await axios("getbuyerprofile")
-      console.log(resp.data)
-      setUser(resp.data.data)
+      const resp = await axios("getbuyerprofile");
+      console.log(resp.data);
+      setUser(resp.data.data);
     } catch (error) {
-      console.log(error.data)
+      console.log(error.data);
     }
-  }
- 
-  useEffect(() => {
-    getBuyerInfo()
-  }, [])
+  };
 
-  console.log(user)
+  useEffect(() => {
+    getBuyerInfo();
+  }, []);
+
+  console.log(user);
   const defaultImgUrl =
     //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-   "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
 
   if (user === null) {
     return <div>Loading...</div>;
   } else {
     return (
       <>
-        <Navbar />
-        <div className=" row main-body"> 
-         
+        <div>
+          <BuyerContainer />
+        </div>
+
+        <div className="buyerProfile row main-body">
           <div className="mb-3"></div>
           <div className="col-md-4 mb-3">
             <div className="card">
@@ -110,7 +113,9 @@ export default function Profile({ handleClick }) {
                   <div className="col-sm-3">
                     <h6 className="mb-0">Phone</h6>
                   </div>
-                  <div className="col-sm-9 text-secondary">{user.phone_number}</div>
+                  <div className="col-sm-9 text-secondary">
+                    {user.phone_number}
+                  </div>
                 </div>
                 <hr />
                 <div className="row">
