@@ -1,14 +1,12 @@
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
+import BuyerContainer from "../components/BuyerContainer"
 import ForgotPassword from "../components/Buyerforgotpassword"
 import React from "react"
 
 export default function Login() {
     return(
         <>
-        <Navbar/>
+        <BuyerContainer/>
         <ForgotPassword />
-        <Footer/>
         </>
     )
 }

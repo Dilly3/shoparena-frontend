@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 
 
 export default function BuyerContainer() {
+
+const navigate = useNavigate()
+  useEffect(() => {
+    if (!localStorage.token) {
+        navigate("/buyer/login")
+    }}, [localStorage.token])
 
     const [buyerDetails, setBuyerDetails] = useState("")
 
@@ -73,7 +79,7 @@ useEffect(()=>{
       </li>
     </ul>
   </div>
-  {/* <div className="main-bdb">
+  <div className="main-bdb">
     <div className="top-bar-bdb">
       
       <i className="fas fa-bell" />
@@ -81,7 +87,7 @@ useEffect(()=>{
         <img src="./images/cv__29__generated.jpg" alt />
       </div>
     </div>
-    <div className="left-right cards-bdb">
+    {/* <div className="left-right cards-bdb">
       <div className="left card-bdb">
         <div className="card-content-bdb">
           <div className="number-bdb">67</div>
@@ -119,9 +125,14 @@ useEffect(()=>{
         </div>
       </div>
     </div> */}
+    <div className="cards-bdb">
+      
+      
+      
+    </div>
  
 </div>
-{/* </div> */}
+</div>
 
     </>
   )

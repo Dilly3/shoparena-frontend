@@ -142,18 +142,11 @@ export default function SellerProduct() {
                 </Link>
               </li>
               <li className>
-                <a href="javascript:;">
+              <Link to="/seller/createproducts">
                   <i className="fa fa-plus" />
                   <span className="title"> Add Products</span>
                   <span className="arrow " />
-                </a>
-              </li>
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-pencil-square-o" />
-                  <span className="title"> Edit Products</span>
-                  <span className="arrow " />
-                </a>
+              </Link>
               </li>
 
               <li className>
