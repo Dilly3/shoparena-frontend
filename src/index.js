@@ -29,8 +29,8 @@ import Createproducts from "./components/CreateProducts";
 import UpdateSellerProfile from "./components/UpdateSellerProfile";
 import BuyerDashboard from "./pages/BuyerDashboard";
 import SellerShop from "./pages/SellerShop";
+import SellerUpdateProduct from "./pages/SellerUpdateProduct";
 import BuyerOrdersComponent from "./pages/BuyerOrders";
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -67,6 +67,7 @@ root.render(
           <Route path="*" element={<NotFound />}></Route>
           <Route exact path="/buyer/dashboard" element={<BuyerDashboard/>}></Route>
           <Route exact path="/seller/shop/:id" element={<SellerShop/>}></Route>
+          <Route exact path="/seller/update/product/:id" element={<SellerUpdateProduct/>}></Route>
           <Route exact path="/buyer/dashboard/orders" element={<BuyerOrdersComponent/>}></Route>
           
         </Routes>
