@@ -108,8 +108,8 @@ export default function ViewCart(props){
                       <div className="product__item white-bg">
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
-                            <img src="assets/img/shop/product/product-8.jpg" alt="product" />
-                            <img className="second-img" src={product.Images} alt="product" />
+                            {/* <img src="assets/img/shop/product/product-8.jpg" alt="product" /> */}
+                            {product.Images.length > 0 ? <img src={product.Images[0].url} alt="product" /> : null}
                           </a>
                         </div>
                         <div className="product__content text-center">
@@ -119,7 +119,7 @@ export default function ViewCart(props){
                           <h6 className="product-name">
                           Quantity: {product.Quantity}
                           </h6>
-                          <span className="new">Amount: ${product.Price}</span>
+                          <span className="new">Amount:{product.Price} NGN</span>
 
                           <button className='btn btn-primary' onClick={(event) => configDelete(event, product.CartProductID)}>Delete</button>
                         </div>

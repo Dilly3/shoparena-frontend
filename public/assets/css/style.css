@@ -5659,8 +5659,8 @@ p.checkout-coupon input[type=text]:focus {
   padding-top: 10px;
   padding-left: 555px;
   padding-right: 555px;
-  background-color: #fcb700;
-  color: #000;
+  background-color: green;
+  color: white;
   font-size:x-large;
   height: 50px;
   position: fixed;
