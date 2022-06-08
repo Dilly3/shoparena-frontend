@@ -24,11 +24,11 @@ export default function Main(){
 const [input, setInput ] = useState(initialState)
 
     const [products, setProducts] = useState([])
-    const [modalProduct, setModalProduct] = useState([{}])
+    const [modalProduct, setModalProduct] = useState([])
     const [alert, setAlert] = useState(alertInitialState)
 
     useEffect(()=>{
-  
+    
       searchProduct()
     }, [category,
       lowerPrice,
@@ -52,14 +52,17 @@ const handleChange = (e)=>{
       const response = await instance.get(url)
       console.log(response.data)
       setProducts(response.data)
-      } catch (error) {
-        console.log(error.response.data)
-        if(error.response.status === 500){
-          return data = <div> error.response.data </div>
-        }
-
+     
+    } catch (error) {
+  
+      if(error.response.status === 500){
+        return data = <div> error.response.data </div>
+      }
+      
       }
     }
+    console.log(products)
+
 
     const addToCartFunc = async (product)=>{
       const {
@@ -95,7 +98,10 @@ const handleChange = (e)=>{
     }
 const handleModal = (product)=>{
   setModalProduct([product])
+  console.log(modalProduct)
 }
+
+
 
 const clearAlert = ()=>{
   setTimeout(()=>{
@@ -204,8 +210,10 @@ const clearAlert = ()=>{
                       <div className="product__item white-bg">
                         <div className="product__thumb p-relative">
                           <a href="product-details.html" className="w-img">
-                            <img src={product.Images} alt="product" />
-                            <img className="second-img" src={product.Images} alt="product" />
+                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                            
+                            {/* {product.images.length > 0 ?<img className="second-img" src={product.images[1].url} alt="product" /> : null} */}
+                            
                           </a>
                           <div className="product__action p-absolute">
                             <ul>
@@ -291,44 +299,45 @@ const clearAlert = ()=>{
                     <div className="tab-content" id="modalTabContent">
                       <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
                         <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-1.jpg" alt />
+                         
+                          {product.images.length > 0 ? <img src={product.images[1].url} alt="product" /> : null}
                         </div>
                       </div>
                       <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
                         <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-2.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
                         </div>
                       </div>
                       <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
                         <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-3.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[3].url} alt="product" /> : null}
                         </div>
                       </div>
                       <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
                         <div className="product__modal-img w-img">
-                          <img src="assets/img/shop/product/quick-view/quick-view-4.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[4].url} alt="product" /> : null}
                         </div>
                       </div>
                     </div>
-                    <ul className="nav nav-tabs" id="modalTab" role="tablist">
+                    <ul className="nav nav-tabs modnav" id="modalTab" role="tablist">
                       <li className="nav-item" role="presentation">
                         <button className="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-1.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[1].url} alt="product" /> : null}
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-2.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-3.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[3].url} alt="product" /> : null}
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
-                          <img src="assets/img/shop/product/quick-view/nav/quick-nav-4.jpg" alt />
+                        {product.images.length > 0 ? <img src={product.images[4].url} alt="product" /> : null}
                         </button>
                       </li>
                     </ul>
@@ -347,7 +356,7 @@ const clearAlert = ()=>{
                       <span>{product.quantity} In Stock</span>
                     </div>
                     <div className="product__price">
-                      <span>${product.price}</span>
+                      <span>{product.price} NGN</span>
                     </div>
                     <div className="product__modal-form mb-30">
                     </div>

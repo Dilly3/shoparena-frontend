@@ -102,10 +102,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <ul>
                         <li>
                           {localStorage.token ? (
-                            <h6>
-                              Hello,
-                              {user && capitalizeFirstLetter(user.first_name)}
-                            </h6>
+                           <><h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6><Link to="/buyer/dashboard">Buyer Account</Link></>
                           ) : (
                             <Link to="/buyer/login">Buyer Sign In</Link>
                           )}
@@ -152,16 +149,16 @@ setInput({...input, [e.target.name]:e.target.value})
 
                       <div>
                       <select className="all" id="category" placeholder="Categories" onChange = {handleChange} name = "category">
-                        <option value="All Categories">All Categories</option>
-                        <option value="baby products">Baby Products</option>
-                        <option value="computing">Computing</option>
-                        <option value="electronics">Electronics</option> 
-                        <option value="fashion">Fashion</option>
-                        <option value="food drinks">Food/Drinks</option>
-                        <option value="health & beauty">Health/Beauty</option>
-                        <option value="phones & tablets">Phone/Tablets</option>   
-                        <option value="sporting goods">Sporting goods</option>
-                        <option value="others">Others</option>   
+                        <option value="">All Categories</option>
+                        <option value="4">Baby Products</option>
+                        <option value="7">Computing</option>
+                        <option value="2">Electronics</option> 
+                        <option value="1">Fashion</option>
+                        <option value="6">Food/Drinks</option>
+                        <option value="3">Health/Beauty</option>
+                        <option value="5">Phone/Tablets</option>   
+                        <option value="8">Sporting goods</option>
+                        <option value="9">Others</option>   
                     </select>
                       <div id="circle"></div>
                     <select className="cat" id="lower-price" placeholder="Lower Price Limit" onChange = {handleChange} name = "lowerPrice">
