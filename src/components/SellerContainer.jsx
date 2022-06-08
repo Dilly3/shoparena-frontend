@@ -145,6 +145,7 @@ export default function SellerContainer() {
             <span className="title" >Products</span>
             {/* <i className="fa fa-cubes" />
             <span className="title">Products</span> */}
+            <i className="fa fa-cubes" />
             <span className="arrow " />
         </Link>
            </li>
@@ -169,8 +170,7 @@ export default function SellerContainer() {
             <span className="title"> Edit Products</span>
             <span className="arrow " />
           </a>
-           </li>
-       
+           </li>       
           
         <li className> 
           <Link to="/seller/dashboard/orders">
