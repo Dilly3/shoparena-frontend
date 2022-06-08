@@ -148,13 +148,6 @@ export default function SellerProduct() {
                   <span className="arrow " />
                 </a>
               </li>
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-pencil-square-o" />
-                  <span className="title"> Edit Products</span>
-                  <span className="arrow " />
-                </a>
-              </li>
 
               <li className>
                 <Link to="/seller/dashboard/orders">
