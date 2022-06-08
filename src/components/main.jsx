@@ -107,7 +107,7 @@ const handleModal = (product)=>{
 const clearAlert = ()=>{
   setTimeout(()=>{
     setAlert({...alert, visible: false})
-  }, 900)
+  }, 4000)
 }
 
     return(

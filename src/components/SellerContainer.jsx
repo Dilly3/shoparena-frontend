@@ -162,15 +162,7 @@ export default function SellerContainer() {
             <span className="title"> Reset Password</span>
             <span className="arrow " />
           </Link>
-           </li> 
-          <li className> 
-          <a href="javascript:;">
-            <i className="fa fa-pencil-square-o" />
-            {/* <i className="fa fa-file" /> */}
-            <span className="title"> Edit Products</span>
-            <span className="arrow " />
-          </a>
-           </li>       
+           </li>    
           
         <li className> 
           <Link to="/seller/dashboard/orders">
@@ -183,14 +175,6 @@ export default function SellerContainer() {
               <a className href="eco-orders.html">All Orders</a>
             </li>
           </ul>
-        </li>
-    
-        <li className> 
-          <a href="javascript:;">
-            <i className="fa fa-sitemap" />
-            <span className="title">Product Categories</span>
-            <span className="arrow " />
-          </a>
         </li>
 
         <li className> 
