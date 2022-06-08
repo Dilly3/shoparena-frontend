@@ -87,42 +87,9 @@ useEffect(()=>{
       </div>
     </div>
     <div className="cards-bdb">
-      <div className="card-bdb">
-        <div className="card-content-bdb">
-          <div className="number-bdb">67</div>
-          <div className="card-name-bdb">Lorem</div>
-        </div>
-        <div className="icon-box-bdb">
-          <i className="fas fa-briefcase-medical" />
-        </div>
-      </div>
-      <div className="card-bdb">
-        <div className="card-content-bdb">
-          <div className="number-bdb">105</div>
-          <div className="card-name-bdb">Ipsum</div>
-        </div>
-        <div className="icon-box-bdb">
-          <i className="fas fa-briefcase-medical" />
-        </div>
-      </div>
-      <div className="card-bdb">
-        <div className="card-content-bdb">
-          <div className="number-bdb">8</div>
-          <div className="card-name-bdb">Dolor</div>
-        </div>
-        <div className="icon-box-bdb">
-          <i className="fas fa-briefcase-medical" />
-        </div>
-      </div>
-      <div className="card-bdb">
-        <div className="card-content-bdb">
-          <div className="number-bdb">$4500</div>
-          <div className="card-name-bdb">income</div>
-        </div>
-        <div className="icon-box-bdb">
-          <i className="fas fa-dollar-sign" />
-        </div>
-      </div>
+      
+      
+      
     </div>
  
 </div>
