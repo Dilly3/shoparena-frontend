@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 
 
 export default function BuyerContainer() {
+
+const navigate = useNavigate()
+  useEffect(() => {
+    if (!localStorage.token) {
+        navigate("/buyer/login")
+    }}, [localStorage.token])
 
     const [buyerDetails, setBuyerDetails] = useState("")
 
@@ -41,7 +47,8 @@ useEffect(()=>{
       </li>
       <p className='buyer-name'>{ buyerDetails.first_name } { buyerDetails.last_name }</p>
       <li>
-        <Link to="/buyer/dashboard">
+        {/* <Link to="/buyer/dashboard"> */}
+        <Link to="/buyer/dashboard/orders">
           <i className="fas fa-th-large" />
           <div className="title-bdb">Dashboard</div>
         </Link>
@@ -80,23 +87,23 @@ useEffect(()=>{
         <img src="./images/cv__29__generated.jpg" alt />
       </div>
     </div>
-    <div className="cards-bdb">
-      <div className="card-bdb">
+    {/* <div className="left-right cards-bdb">
+      <div className="left card-bdb">
         <div className="card-content-bdb">
           <div className="number-bdb">67</div>
-          <div className="card-name-bdb">Lorem</div>
+          <div className="card-name-bdb">Total product bought</div>
         </div>
         <div className="icon-box-bdb">
           <i className="fas fa-briefcase-medical" />
         </div>
       </div>
-      <div className="card-bdb">
+      <div className="right card-bdb">
         <div className="card-content-bdb">
           <div className="number-bdb">105</div>
-          <div className="card-name-bdb">Ipsum</div>
+          <div className="card-name-bdb">Total amount spent</div>
         </div>
         <div className="icon-box-bdb">
-          <i className="fas fa-briefcase-medical" />
+          <i className="fas fa-naira-sign fa-fw" />
         </div>
       </div>
       <div className="card-bdb">
@@ -117,6 +124,11 @@ useEffect(()=>{
           <i className="fas fa-dollar-sign" />
         </div>
       </div>
+    </div> */}
+    <div className="cards-bdb">
+      
+      
+      
     </div>
  
 </div>
