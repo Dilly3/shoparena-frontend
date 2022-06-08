@@ -10,10 +10,7 @@ const ResetPassword = () => {
       navigate("/");
     }
   }, [localStorage.token]);
-  const [alert, setAlert] = useState({
-    newPassword: "",
-    confirmNewPassword: "",
-  });
+ 
   const [reset, setReset] = useState({
     oldPassword: "",
     newPassword: "",
@@ -40,10 +37,10 @@ const ResetPassword = () => {
       const data = await response;
       localStorage.removeItem("token");
       console.log(data);
-      // const token = response.data.data.access_token
-      // localStorage.setItem("token", token)
+      alert(response.data.message);
       navigate("/");
     } catch (error) {
+        alert(error.response.data.message);
       console.log(error.response);
     }
   };
@@ -52,53 +49,7 @@ const ResetPassword = () => {
     e.preventDefault();
     resetUser(reset.oldPassword, reset.newPassword, reset.confirmNewPassword);
   };
-  function handleSubmit(e) {
-    e.preventDefault();
 
-    let newPassword = `${reset.newPassword}`;
-    let confirmNewPassword = `${reset.confirmNewPassword}`;
-
-    const minNumOfChars = 6;
-    const maxNumOfChars = 32;
-    if (
-      newPassword.length < minNumOfChars ||
-      newPassword.length > maxNumOfChars
-    ) {
-      setAlert(
-        {
-          message: `Please the length of your password must be greater 6`,
-          color: "red",
-          status: "",
-          show: false,
-        },
-        5000
-      );
-    }
-
-    if (
-      confirmNewPassword.length < minNumOfChars ||
-      confirmNewPassword.length > maxNumOfChars
-    ) {
-      setAlert(
-        {
-          message: `Please the length of your password must be greater 6`,
-          color: "red",
-          status: "",
-          show: false,
-        },
-        5000
-      );
-    }
-    setTimeout(() => {
-      setAlert({
-        message: "",
-        color: "",
-        status: "",
-        show: true,
-      });
-    }, 5000);
-    return;
-  }
   function handleChange(e) {
     setReset({ ...reset, [e.target.name]: e.target.value });
   }
