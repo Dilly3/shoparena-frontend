@@ -297,28 +297,28 @@ const clearAlert = ()=>{
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="product__modal-box">
                     <div className="tab-content" id="modalTabContent">
-                     { product.images.length > 1 && <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
+                     { product.images.length > 0 && <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
                         <div className="product__modal-img w-img">
                          
-                          {product.images.length > 1 ? <img src={product.images[1].url} alt="product" /> : null}
+                          {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
                         </div>
                       </div>
                   }
-                     { product.images.length > 0 && <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
+                     { product.images.length > 1 && <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
                         <div className="product__modal-img w-img">
-                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                        {product.images.length > 1 ? <img src={product.images[1].url} alt="product" /> : null}
                         </div>
                       </div>
                   }
-                       { product.images.length > 3 && <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
+                       { product.images.length > 2 && <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
+                        <div className="product__modal-img w-img">
+                        {product.images.length > 2 ? <img src={product.images[2].url} alt="product" /> : null}
+                        </div>
+                      </div>
+                  }
+                     { product.images.length > 3 && <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
                         <div className="product__modal-img w-img">
                         {product.images.length > 3 ? <img src={product.images[3].url} alt="product" /> : null}
-                        </div>
-                      </div>
-                  }
-                     { product.images.length > 4 && <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
-                        <div className="product__modal-img w-img">
-                        {product.images.length > 4 ? <img src={product.images[4].url} alt="product" /> : null}
                         </div>
                       </div>
                   }
@@ -330,9 +330,9 @@ const clearAlert = ()=>{
                         </button>
                       </li>
                   }
-                      { product.images.length > 0 && <li className="nav-item" role="presentation">
+                      { product.images.length > 2 && <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
-                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                        {product.images.length > 2 ? <img src={product.images[2].url} alt="product" /> : null}
                         </button>
                       </li>
                   }
