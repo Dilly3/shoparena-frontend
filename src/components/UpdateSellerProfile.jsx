@@ -1,8 +1,10 @@
 import React, { useContext, useState,useEffect} from "react";
-import Navbar from "./Navbar";
+import SellerTopBar from "./SellerTopBar";
+import SellerContainer from "./SellerContainer";
 import axios from "../axios";
 import { useNavigate } from "react-router-dom";
-import {useAppContext} from "../context/ContextUse"
+import {useAppContext} from "../context/ContextUse";
+import "./sellerProfile.css";
 //import context from "react-bootstrap/esm/AccordionContext";
 
 export default  function UpdateSellerProfile() {
@@ -108,10 +110,11 @@ console.log(field)
   };
   
   return (
-    <div>
-      <Navbar />
-      <div className=" bg-white m-2">
-        <div className="row p-3">
+    <div className="">
+         <SellerTopBar/>
+         <SellerContainer/>
+      <div className="bg-white m-2">
+        <div className="profile row p-3">
           <div className="col-md-3 border-right mb-1">
             <div className="d-flex flex-column align-items-center text-center p-3 py-5">
               <img

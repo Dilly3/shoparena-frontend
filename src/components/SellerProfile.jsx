@@ -1,8 +1,10 @@
-import Navbar from "./Navbar";
+import SellerTopBar from "./SellerTopBar";
+import SellerContainer from "./SellerContainer";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../axios";
 import React from "react"
+import "./sellerProfile.css";
 
 export default function SellerProfile({ handleClick }) {
   //  const { user } = useContext(AuthContext);
@@ -32,8 +34,9 @@ export default function SellerProfile({ handleClick }) {
   } else {
     return (
       <>
-        <Navbar />
-        <div className=" row main-body"> 
+         <SellerTopBar/>
+         <SellerContainer/>
+        <div className="profile row main-body"> 
          
           <div className="mb-3"></div>
           <div className="col-md-4 mb-3">
