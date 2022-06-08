@@ -875,6 +875,7 @@ a:hover, a:focus {
     overflow-x: hidden;
     z-index: 2;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 
 }
 
@@ -4435,13 +4436,32 @@ a.cke_button_off:hover, .cke_hc a.cke_button_off:focus, .cke_hc a.cke_button_off
 @media (max-width: 992px){
     .loginpage {
         padding: 0 15px;
+        
     }
+    
 }
 
 
 @media (max-width: 767px){
     .loginpage {
         padding: 0 30px;
+        
+    }
+    .cards{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tables{
+        grid-template-columns: 1fr;
+    }
+    .page-sidebar{
+        width: 80px;
+        border: 1px solid red;
+    }
+    .wraplist .title {
+        display: none;
+    }
+    .wraplist .arrow {
+        display: none;
     }
 }
 
