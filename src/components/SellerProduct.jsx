@@ -6,6 +6,7 @@ export default function SellerProduct() {
   const [checkSold, setCheckSold] = useState(0);
   const [remainingProduct, setRemainingProduct] = useState(0);
   const [findSeller, setSeller] = useState("");
+  const [products, setSellerProducts] = useState([])
 
   {
     /*Get total product count*/
@@ -15,7 +16,7 @@ export default function SellerProduct() {
       const resp = await axios.get("/seller/total/product/sold");
       console.log(checkSold);
       console.log(resp.data.data);
-      setCheckSold(resp.data.data.Product_sold);
+      setCheckSold(resp.data.Message);
     } catch (error) {
       setCheckSold(0);
       console.log(error);
@@ -36,7 +37,7 @@ export default function SellerProduct() {
       const resp = await axios.get("/seller/remaining/product/count", config);
       console.log(resp.data.data);
       console.log(remainingProduct);
-      setRemainingProduct(resp.data.data.new_quantity);
+      setRemainingProduct(resp.data);
     } catch (error) {
       setRemainingProduct(0);
       console.log(error);
@@ -62,10 +63,31 @@ export default function SellerProduct() {
     }
   };
 
+  const getOrders = async () => {
+    const config = {
+        header: { 
+        "Authorization": `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json"
+        }
+      }
+
+    try {
+      const resp = await axios.get("/seller/allproducts", config)
+      
+      console.log(resp.data.SellerProducts)
+      setSellerProducts(resp.data.SellerProducts)
+      
+    } catch (error){
+        setSellerProducts('')
+      console.log(error.resp)
+    }
+  }
+
   useEffect(() => {
     getSellerSoldProduct();
     findTheSeller();
     getRemainingProductCount();
+    getOrders()
     // }
   }, []);
 
@@ -120,18 +142,11 @@ export default function SellerProduct() {
                 </Link>
               </li>
               <li className>
-                <a href="javascript:;">
+              <Link to="/seller/createproducts">
                   <i className="fa fa-plus" />
                   <span className="title"> Add Products</span>
                   <span className="arrow " />
-                </a>
-              </li>
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-pencil-square-o" />
-                  <span className="title"> Edit Products</span>
-                  <span className="arrow " />
-                </a>
+              </Link>
               </li>
 
               <li className>
@@ -191,7 +206,7 @@ export default function SellerProduct() {
                     <div className="card">
                       <div className="card-content">
                         <div className="number">
-                          {remainingProduct.Total_Product}
+                        { products.length }
                         </div>
                         <div className="card-name">Total Quantity</div>
                       </div>
@@ -201,16 +216,15 @@ export default function SellerProduct() {
                     </div>
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">{checkSold}</div>
-                        <div className="card-name">Quantity Sold</div>
-                      </div>
+                      <div className="number"></div><p>{ checkSold } yet</p></div>
+                        
                       <div className="icon-box">
                         <i className="fas fa-shopping-cart" />
                       </div>
                     </div>
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">{remainingProduct}</div>
+                        <div className="number">{ remainingProduct.Total_Remaining }</div>
                         <div className="card-name">Quantity Remaining</div>
                       </div>
                       <div className="icon-box">
@@ -219,8 +233,8 @@ export default function SellerProduct() {
                     </div>
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">N4500</div>
-                        <div className="card-name">Income</div>
+                        <div className="number">{remainingProduct.Total_Sold}</div>
+                        <div className="card-name">Total Sold Count</div>
                       </div>
                       <div className="icon-box">
                         <i className="fas fa-money-bill" />

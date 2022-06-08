@@ -7,6 +7,8 @@ export default function SellerContainer() {
   const [checkSold, setCheckSold] = useState(0)
   const [remainingProduct, setRemainingProduct] = useState(0)
   const [findSeller, setSeller] = useState('')
+  const [products, setSellerProducts] = useState([])
+
 
 
   {/*Get total product count*/}
@@ -58,11 +60,33 @@ export default function SellerContainer() {
         console.log(error.response)
       }
   }
+  {/*seller product*/}
+
+  const getOrders = async () => {
+    const config = {
+        header: { 
+        "Authorization": `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json"
+        }
+      }
+
+    try {
+      const resp = await axios.get("/seller/allproducts", config)
+      
+      console.log(resp.data.SellerProducts)
+      setSellerProducts(resp.data.SellerProducts)
+      
+    } catch (error){
+        setSellerProducts('')
+      console.log(error.resp)
+    }
+  }
 
   useEffect(()=>{
       getSellerSoldProduct()
       findTheSeller()
       getRemainingProductCount()
+      getOrders() 
     // }
   }, [])
  
@@ -121,6 +145,7 @@ export default function SellerContainer() {
             <span className="title" >Products</span>
             {/* <i className="fa fa-cubes" />
             <span className="title">Products</span> */}
+            <i className="fa fa-cubes" />
             <span className="arrow " />
         </Link>
            </li>
@@ -137,16 +162,7 @@ export default function SellerContainer() {
             <span className="title"> Reset Password</span>
             <span className="arrow " />
           </Link>
-           </li> 
-          <li className> 
-          <a href="javascript:;">
-            <i className="fa fa-pencil-square-o" />
-            {/* <i className="fa fa-file" /> */}
-            <span className="title"> Edit Products</span>
-            <span className="arrow " />
-          </a>
-           </li>
-       
+           </li>    
           
         <li className> 
           <Link to="/seller/dashboard/orders">
@@ -159,14 +175,6 @@ export default function SellerContainer() {
               <a className href="eco-orders.html">All Orders</a>
             </li>
           </ul>
-        </li>
-    
-        <li className> 
-          <a href="javascript:;">
-            <i className="fa fa-sitemap" />
-            <span className="title">Product Categories</span>
-            <span className="arrow " />
-          </a>
         </li>
 
         <li className> 
@@ -216,7 +224,7 @@ export default function SellerContainer() {
           <div className="cards">
   <div className="card">
     <div className="card-content">
-      <div className="number">{ remainingProduct.new_quantity }</div>
+      <div className="number">{ products.length }</div>
       <div className="card-name">Total Product Count</div>
     </div>
     <div className="icon-box">
@@ -225,7 +233,7 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{ checkSold.Product_sold }</div><p>{ checkSold } yet</p>
+      <div className="number"></div><p>{ checkSold } yet</p>
     </div>
     <div className="icon-box">
       <i className="fas fa-shopping-cart" />
@@ -234,7 +242,7 @@ export default function SellerContainer() {
   <div className="card">
     <div className="card-content">
       <div className="number">{ remainingProduct.Total_Remaining }</div>
-      <div className="card-name">Remaining Product Count </div>
+      <div className="card-name">Remaining Product Count</div>
     </div>
     <div className="icon-box">
       <i className="fas fa-briefcase-medical" />

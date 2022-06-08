@@ -10,7 +10,7 @@
     position: fixed;
     width: 300px;
     height: 100%;
-    background: #ffc107;
+    background: #fcb700;
     overflow-x: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 2;
@@ -112,7 +112,7 @@
     grid-gap: 20px;
   }
   .cards-bdb .card-bdb {
-    background: #ffc107;
+    background: #fcb700;
     padding: 20px;
     display: flex;
     align-items: center;
@@ -172,7 +172,7 @@
   }
   .btn-bdb {
     padding: 5px 10px;
-    background: #ffc107;
+    background: #fcb700;
     color: #fff;
     text-decoration: none;
     text-align: center;
