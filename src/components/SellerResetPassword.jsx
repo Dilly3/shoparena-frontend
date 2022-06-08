@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "../axios";
 
-const ResetPassword = () => {
+const SellerResetPassword = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const ResetPassword = () => {
       };
       console.log(localStorage.token);
       const response = await axios.put(
-        "/buyer/updatepassword",
+        "/seller/updatepassword",
         {
           old_password: oldPassword,
           new_password: newPassword,
@@ -40,8 +40,7 @@ const ResetPassword = () => {
       const data = await response;
       localStorage.removeItem("token");
       console.log(data);
-      // const token = response.data.data.access_token
-      // localStorage.setItem("token", token)
+
       navigate("/");
     } catch (error) {
       console.log(error.response);
@@ -104,11 +103,11 @@ const ResetPassword = () => {
   }
   return (
     <main>
-      <section class="breadcrumb__area box-plr-75">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-xxl-12">
-              <div class="breadcrumb__wrapper">
+      <section className="breadcrumb__area box-plr-75">
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xxl-12">
+              <div className="breadcrumb__wrapper">
                 <nav aria-label="breadcrumb"></nav>
               </div>
             </div>
@@ -170,4 +169,4 @@ const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default SellerResetPassword;

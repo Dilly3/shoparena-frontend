@@ -59,10 +59,10 @@ useEffect(()=>{
         </Link>
       </li>
       <li>
-        <a href="#">
-          <i className="fas fa-puzzle-piece" />
+        <Link to="/resetpassword">
+          <i className="fas fa-user" />
           <div className="title-bdb">Change password</div>
-        </a>
+        </Link>
       </li>
       <li>
         <a href="#">
