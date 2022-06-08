@@ -32,7 +32,9 @@ export default function SellerOrdersComponent() {
         }
       }
 
-
+      useEffect(()=>{
+        getOrders()
+    }, [])
 
 
 
@@ -44,7 +46,7 @@ export default function SellerOrdersComponent() {
     <div className="heading">
       <h2>Order Overview</h2>
       {/* <a href="#" className="btn">View All</a> */}
-      <p className="btn"> You have {orders.length} Orders</p>
+      <p className="btn"> You have {(orders || []).length}Orders</p>
       
     </div>
     <table className="table-head">

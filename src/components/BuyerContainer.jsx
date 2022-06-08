@@ -1,9 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 
 
 export default function BuyerContainer() {
+
+const navigate = useNavigate()
+  useEffect(() => {
+    if (!localStorage.token) {
+        navigate("/buyer/login")
+    }}, [localStorage.token])
 
     const [buyerDetails, setBuyerDetails] = useState("")
 
