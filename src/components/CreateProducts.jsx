@@ -78,7 +78,9 @@ console.log(files)
   console.log(values)
   return (
     <>
-  <div className="col-xl-12 col-lg-12 col-12 col-md-12">
+      <SellerTopBar/>
+      <SellerContainer/>
+  <div className="create col-xl-12 col-lg-12 col-12 col-md-12">
   <section className="box ">
     <header className="panel_header">
       <h2 className="title float-left">Basic Info</h2>
@@ -134,7 +136,7 @@ console.log(files)
               </div>
             </div>
             <div className="form-group">
-              <label className="form-label" htmlFor="field-1">Image</label>
+              <label className="form-label" htmlFor="field-1">Enter a minimum of 5 Images</label>
               <span className="desc" />
               <div className="controls">
                 <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
@@ -162,3 +164,4 @@ console.log(files)
     </>
   )
 }
+
