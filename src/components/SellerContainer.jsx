@@ -104,23 +104,23 @@ export default function SellerContainer() {
       </div>
       {/* USER INFO - END */}
       <ul className="wraplist">	
-        <li className="open"> 
-        <Link to="/seller/dashboard">
+        <li className=""> 
+        {/* <Link to="/seller/dashboard">
             <i className="fa fa-dashboard" />
              <span className="title">Dashboard</span>
-             <span className="arrow " />
+             <span className="arrow " /> */}
 
             <i className="fa fa-grid" />
             <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
-          </Link>
+          {/* </Link> */}
           </Link>
         </li>
         <li className> 
         <Link to="/seller/products">       
             <i className="fas fa-archive" />
             <span className="title" >Products</span>
-            <i className="fa fa-cubes" />
-            <span className="title">Products</span>
+            {/* <i className="fa fa-cubes" />
+            <span className="title">Products</span> */}
             <span className="arrow " />
         </Link>
            </li>
@@ -141,7 +141,7 @@ export default function SellerContainer() {
           <li className> 
           <a href="javascript:;">
             <i className="fa fa-pencil-square-o" />
-            <i className="fa fa-file" />
+            {/* <i className="fa fa-file" /> */}
             <span className="title"> Edit Products</span>
             <span className="arrow " />
           </a>
