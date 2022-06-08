@@ -7,6 +7,8 @@ export default function SellerContainer() {
   const [checkSold, setCheckSold] = useState(0)
   const [remainingProduct, setRemainingProduct] = useState(0)
   const [findSeller, setSeller] = useState('')
+  const [products, setSellerProducts] = useState([])
+
 
 
   {/*Get total product count*/}
@@ -58,11 +60,33 @@ export default function SellerContainer() {
         console.log(error.response)
       }
   }
+  {/*seller product*/}
+
+  const getOrders = async () => {
+    const config = {
+        header: { 
+        "Authorization": `Bearer ${localStorage.token}`,
+        "Content-Type": "application/json"
+        }
+      }
+
+    try {
+      const resp = await axios.get("/seller/allproducts", config)
+      
+      console.log(resp.data.SellerProducts)
+      setSellerProducts(resp.data.SellerProducts)
+      
+    } catch (error){
+        setSellerProducts('')
+      console.log(error.resp)
+    }
+  }
 
   useEffect(()=>{
       getSellerSoldProduct()
       findTheSeller()
       getRemainingProductCount()
+      getOrders() 
     // }
   }, [])
  
@@ -132,6 +156,13 @@ export default function SellerContainer() {
           </Link>
            </li>
            <li className> 
+          <Link to="/seller/resetpassword">
+            <i className="fa fa-cubes" />
+            <span className="title"> Reset Password</span>
+            <span className="arrow " />
+          </Link>
+           </li> 
+          <li className> 
           <a href="javascript:;">
             <i className="fa fa-pencil-square-o" />
             {/* <i className="fa fa-file" /> */}
@@ -209,7 +240,7 @@ export default function SellerContainer() {
           <div className="cards">
   <div className="card">
     <div className="card-content">
-      <div className="number">{ remainingProduct.new_quantity }</div>
+      <div className="number">{ products.length }</div>
       <div className="card-name">Total Product Count</div>
     </div>
     <div className="icon-box">
@@ -218,7 +249,7 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{ checkSold.Product_sold }</div><p>{ checkSold } yet</p>
+      <div className="number"></div><p>{ checkSold } yet</p>
     </div>
     <div className="icon-box">
       <i className="fas fa-shopping-cart" />
@@ -227,7 +258,7 @@ export default function SellerContainer() {
   <div className="card">
     <div className="card-content">
       <div className="number">{ remainingProduct.Total_Remaining }</div>
-      <div className="card-name">Remaining Product Count </div>
+      <div className="card-name">Remaining Product Count</div>
     </div>
     <div className="icon-box">
       <i className="fas fa-briefcase-medical" />
