@@ -3,6 +3,7 @@ import {useEffect, useState} from "react"
 import instance from '../axios'
 import {useAppContext} from "../context/ContextUse"
 import axios from 'axios'; 
+import "./buyerOrders.css";
 
 
 
@@ -191,12 +192,12 @@ const clearAlert = ()=>{
             </div>
           </div>
         </div>        
-        <div className="row">
-          <div className="col-xl-12">
-            <div className="tab-content" id="flast-sell-tabContent">
-              <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab">
+        <div className="row" style={{alignItems:"center"}}>
+          <div className="col-xl-12" style={{margin: "auto"}}>
+            <div className="tab-content" id="flast-sell-tabContent" style={{margin: "auto"}}>
+              <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab" style={{margin: "auto"}}>
                 <div className="row">
-                  <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container">
+                  <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container" style={{margin: "auto"}}>
 
 {/* render the function starts here */}
 
@@ -206,11 +207,11 @@ const clearAlert = ()=>{
                   return(
                   <> 
 
-                    <div className="product__item-wrapper mb-20">
-                      <div className="product__item white-bg">
-                        <div className="product__thumb p-relative">
+                    <div className="product__item-wrapper mb-20" style={{margin: "auto"}}>
+                      <div className="product__item white-bg" style={{margin: "auto"}}>
+                        <div className="product__thumb p-relative" style={{margin: "auto"}}>
                           <a href="product-details.html" className="w-img">
-                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" className="homeimg"/> : null}
                             
                             {/* {product.images.length > 0 ?<img className="second-img" src={product.images[1].url} alt="product" /> : null} */}
                             
