@@ -16,6 +16,14 @@ export default function Createproducts() {
     quantity: 0
   }
   const [values, setValues] = useState(initialState)
+  const [success, setSuccess] = useState(false);
+  {
+    if (success) {
+      setTimeout(() => {
+        setSuccess(false);
+      }, 7000);
+    }
+  }
 
   const submit = async() => {
     try{
@@ -49,7 +57,7 @@ export default function Createproducts() {
         },
     });
       console.log(response)
-
+      setSuccess(true)
 
       
     }
@@ -101,7 +109,11 @@ console.log(files)
                 <input type="text" name="title" value= {values.title}  onChange={handleChange} className="form-control" id="field-1" />
               </div>
             </div>
-            
+            {success && (
+                  <div class="alert toggle3" role="alert">
+                    {"product added successfully"}
+                  </div>
+                )}
             <div className="form-group">
               <label className="form-label" htmlFor="field-1">Category</label>
               <span className="desc" />
@@ -136,7 +148,7 @@ console.log(files)
               </div>
             </div>
             <div className="form-group">
-              <label className="form-label" htmlFor="field-1">Enter a minimum of 5 Images</label>
+              <label className="form-label" htmlFor="field-1">Upload Images</label>
               <span className="desc" />
               <div className="controls">
                 <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
