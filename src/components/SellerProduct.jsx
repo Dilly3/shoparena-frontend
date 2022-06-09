@@ -2,19 +2,28 @@ import React, { useState, useEffect, useNavigate } from "react";
 import { Link } from "react-router-dom";
 import axios from "../axios";
 
+
 export default function SellerProduct() {
   const [checkSold, setCheckSold] = useState(0);
   const [remainingProduct, setRemainingProduct] = useState(0);
   const [findSeller, setSeller] = useState("");
   const [products, setSellerProducts] = useState([])
-  const [total , setTotal] = useState(0)
+  const [total , setTotal] = useState()
 
+  useEffect(() => {
+    getSellerSoldProduct();
+    findTheSeller();
+    getRemainingProductCount();
+    getOrders()
+    // }
+  }, []);
   {
     /*Get total product count*/
   }
   const getSellerSoldProduct = async () => {
     try {
       const resp = await axios.get("/seller/total/product/sold");
+      
       console.log(checkSold);
       console.log(resp.data.data);
       setCheckSold(resp.data.Message);
@@ -36,6 +45,8 @@ export default function SellerProduct() {
     };
     try {
       const resp = await axios.get("/seller/remaining/product/count", config);
+      
+    
       console.log(resp.data.data);
       console.log(remainingProduct);
       setRemainingProduct(resp.data);
@@ -57,10 +68,12 @@ export default function SellerProduct() {
     };
     try {
       const resp = await axios.get("/getsellerprofile", config);
-      console.log(resp.data.data);
+      
+     
+      //console.log(resp.data.data);
       setSeller(resp.data.data);
     } catch (error) {
-      console.log(error.response);
+      //console.log(error.response);
     }
   };
 
@@ -74,14 +87,17 @@ export default function SellerProduct() {
 
     try {
       const resp = await axios.get("/seller/allproducts", config)
-      
+      let sum = 0 
       console.log(resp.data.SellerProducts)
       setSellerProducts(resp.data.SellerProducts)
-      let sum = 0;
-  for (let i = 0; i < products.length; i++){
+      
+      
+      for (let i = 0; i < products.length; i++){
     sum += parseInt(products[i].quantity)
-  }
-  setTotal(sum)
+  
+        }
+        
+        setTotal(sum)
 
       
     } catch (error){
@@ -89,14 +105,14 @@ export default function SellerProduct() {
       console.log(error.resp)
     }
   }
+ 
+  
+  
+      
+    
+  
 
-  useEffect(() => {
-    getSellerSoldProduct();
-    findTheSeller();
-    getRemainingProductCount();
-    getOrders()
-    // }
-  }, []);
+ 
 
   
 
@@ -132,14 +148,17 @@ export default function SellerProduct() {
             {/* USER INFO - END */}
             <ul className="wraplist">
               <li className="open">
-                
+               
                 <Link to="/seller/dashboard">
                   <li className>
+                    
                     <i className="fa fa-dashboard" />
                     <span className="title">Dashboard</span>
                     <span className="arrow " />
                   </li>
                 </Link>
+               
+               
               </li>
               <li className="">
                 <Link to="/seller/products">
@@ -227,7 +246,14 @@ export default function SellerProduct() {
                     </div>
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">{ total }</div>
+                        <div className="number">{ function(){
+                          let sum = 0
+                          for (let i = 0; i < products.length; i++){
+                            sum += parseInt(products[i].quantity)
+                          
+                                }
+                                return sum
+                        }() }</div>
                         <div className="card-name">Total Items Remaining</div>
                       </div>
                       <div className="icon-box">
