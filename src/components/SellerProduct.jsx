@@ -245,11 +245,9 @@ export default function SellerProduct() {
                       </div>
                     </div>
 
-
-                    
                     <div className="card">
                       <div className="card-content">
-                        
+
                         <div className="number">{ function(){
                           let sum = 0
                           for (let i = 0; i < products.length; i++){
