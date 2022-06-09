@@ -103,37 +103,21 @@ export default function SellerContainer() {
     <div className="page-sidebar-wrapper" id="main-menu-wrapper"> 
       {/* USER INFO - START */}
       <div className="profile-info row">
-        <div className="profile-image col-lg-4 col-md-4 col-4">
-          <a href="ui-profile.html">
-          <img
-                    width="150"
-                    height="150"
-                    src={findSeller.image ? findSeller.image : defaultImgUrl}
-                    alt={findSeller.first_name}
-                    className="rounded-circle"
-                  />
-            {/* <img src={findSeller.image} className="img-fluid rounded-circle" /> */}
-          </a>
+
+        <div className="profile-details col-lg-8 col-md-8 col-8" style={{marginLeft:"20px"}}>
+        <Link to="/seller/profile">
+          <h3 style={{ fontSize:"22px", float:"right", color:"#fff"}}>{ findSeller.last_name } {findSeller.first_name}</h3>
+          </Link>
+          <p className="profile-title" style={{marginLeft:"5px", fontSize:"16px"}}>Store Manager </p>
         </div>
-        <div className="profile-details col-lg-8 col-md-8 col-8">
-        <Link to="/seller/profile"></Link>
-          <h3>
-            <a href="ui-profile.html">{ findSeller.last_name } {findSeller.first_name}</a>
-            {/* Available statuses: online, idle, busy, away and offline */}
-            <span className="profile-status online" />
-          </h3>
-          <p className="profile-title">Store Manager 
-          </p>
-        </div>
+
       </div>
       {/* USER INFO - END */}
       <ul className="wraplist">	
         <li className=""> 
 
             <i className="fa fa-grid" />
-            <Link to="/seller/dashboard"> <span className="title">Dashboard</span>
-    
-          </Link>
+           
         </li>
         <li className> 
         <Link to="/seller/products">       
@@ -141,22 +125,22 @@ export default function SellerContainer() {
             <span className="title" >Products</span>
             {/* <i className="fa fa-cubes" />
             <span className="title">Products</span> */}
-            <i className="fa fa-cubes" />
-            <span className="arrow " />
+            
+            
         </Link>
            </li>
            <li className> 
           <Link to="/seller/createproducts">
             <i className="fa fa-plus" />
             <span className="title"> Add Products</span>
-            <span className="arrow " />
+            
           </Link>
            </li>
            <li className> 
           <Link to="/seller/resetpassword">
             <i className="fa fa-cubes" />
             <span className="title"> Reset Password</span>
-            <span className="arrow " />
+           
           </Link>
            </li>    
           
@@ -164,7 +148,7 @@ export default function SellerContainer() {
           <Link to="/seller/dashboard/orders">
             <i className="fa fa-shopping-cart" />
             <span className="title">Orders</span>
-            <span className="arrow " />
+            
           </Link>
           <ul className="sub-menu">
             <li>
@@ -177,7 +161,7 @@ export default function SellerContainer() {
           <Link to="/seller/profile">
             <i className="fa fa-user" />
             <span className="title">Profile</span>
-            <span className="arrow " />
+            
           </Link>
           {/* <ul className="sub-menu">
             <li>
@@ -189,19 +173,7 @@ export default function SellerContainer() {
       </ul>
     </div>
     {/* MAIN MENU - END */}
-    <div className="project-info">
-      <div className="block1">
-        <div className="graph">
-          <span className="sidebar_orders">...</span>
-        </div>
-      </div>
-      <div className="block2">
-
-        <div className="graph">
-          <span className="sidebar_visitors">...</span>
-        </div>
-      </div>
-    </div>
+   
   </div>
   {/*  SIDEBAR - END */}
   {/* START CONTENT */}
@@ -210,7 +182,7 @@ export default function SellerContainer() {
       <div className="col-xl-12 col-lg-12 col-md-12 col-12">
         <div className="page-title">
           <div className="float-left">
-            <h1 className="title">SELLER DASHBOARD</h1>                          </div>
+            <h1 className="title" style={{marginLeft:"20px", color:"#000"}}>SELLER DASHBOARD</h1>                          </div>
         </div>
       </div>
       <div className="clearfix" />
@@ -220,7 +192,7 @@ export default function SellerContainer() {
           <div className="cards">
   <div className="card">
     <div className="card-content">
-      <div className="number">{ products.length }</div>
+      <div className="number" style={{textAlign:"center"}}>{ products.length }</div>
       <div className="card-name">Total Product Count</div>
     </div>
     <div className="icon-box">
@@ -229,7 +201,7 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number"></div><p>{ checkSold } yet</p>
+      <div className="number"></div><p style={{textAlign:"center"}}>{ checkSold } yet</p>
     </div>
     <div className="icon-box">
       <i className="fas fa-shopping-cart" />
@@ -237,16 +209,16 @@ export default function SellerContainer() {
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{ remainingProduct.Total_Remaining }</div>
+      <div className="number" style={{textAlign:"center"}}>{ remainingProduct.Total_Remaining }</div>
       <div className="card-name">Remaining Product Count</div>
     </div>
     <div className="icon-box">
-      <i className="fas fa-briefcase-medical" />
+    <i className="fas fa-shopping-basket" />
     </div>
   </div>
   <div className="card">
     <div className="card-content">
-      <div className="number">{remainingProduct.Total_Sold}</div>
+      <div className="number" style={{textAlign:"center"}}>{remainingProduct.Total_Sold}</div>
       <div className="card-name">Total Sold Count</div>
     </div>
     <div className="icon-box">

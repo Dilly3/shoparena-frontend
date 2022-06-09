@@ -244,6 +244,9 @@ export default function SellerProduct() {
                         <i className="fas fa-shopping-cart" />
                       </div>
                     </div>
+
+
+                    
                     <div className="card">
                       <div className="card-content">
                         <div className="number">{ function(){

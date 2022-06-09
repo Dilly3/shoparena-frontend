@@ -92,12 +92,10 @@ export default function ShopProducts() {
 
   return (
     <>
-      <SellerProduct />
-      <SellerTopBar />
       <section id="main-content" className=" ">
         <div className="dashboard-table">
           <div className="heading">
-            <h2>Product Overview</h2>
+            <h2>Oreva Overview</h2>
             {isDeleted && (
               <div class="alert toggle3" role="alert">
                 {"delete successful"}
