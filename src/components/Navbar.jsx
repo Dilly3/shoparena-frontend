@@ -102,7 +102,7 @@ setInput({...input, [e.target.name]:e.target.value})
                       <ul>
                         <li>
                           {localStorage.token ? (
-                           <><Link to="/buyer/dashboard">{user && capitalizeFirstLetter(user.first_name)} Account</Link></>
+                           <><Link to="/buyer/dashboard/orders">{user && capitalizeFirstLetter(user.first_name)} Account</Link></>
                           ) : (
                             <Link to="/buyer/login">Buyer Sign In</Link>
                           )}
