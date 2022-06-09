@@ -163,14 +163,6 @@ export default function SellerProduct() {
                   </li>
                 </ul>
               </li>
-
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-sitemap" />
-                  <span className="title">Product Categories</span>
-                  <span className="arrow " />
-                </a>
-              </li>
             </ul>
           </div>
           {/* MAIN MENU - END */}

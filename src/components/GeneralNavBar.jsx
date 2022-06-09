@@ -85,9 +85,11 @@ export default function GeneralNavBar(){
                       <ul>
                       
                       <li>
-                          {localStorage.token ? (
-                              <h6>Hello,{user && capitalizeFirstLetter(user.first_name)}</h6>
-                          ) :  <Link to="/buyer/login">Buyer Sign In</Link>}
+                      {localStorage.token ? (
+                           <><Link to="/buyer/dashboard/orders">{user && capitalizeFirstLetter(user.first_name)} Account</Link></>
+                          ) : (
+                            <Link to="/buyer/login">Buyer Sign In</Link>
+                          )}
                           
                         </li>
                      
@@ -116,7 +118,7 @@ export default function GeneralNavBar(){
                           <img
                             src="../assets/img/logo/oja.png"
                             alt="logo"
-                          /> <h4 className="slogan">OJA! Your One Stop For Everything AFRICAN</h4>
+                          /> <h4 className="slogan">OJA! Your One Stop For Everything...</h4>
                         </Link> 
                       </span>
                 </div>

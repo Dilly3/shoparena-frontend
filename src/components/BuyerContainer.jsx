@@ -33,6 +33,7 @@ useEffect(()=>{
     getIndividualBuyer()
 }, [])
 
+
   return (
     <>
     
@@ -40,14 +41,16 @@ useEffect(()=>{
   <div className="sidebar-bdb">
     <ul>
       <li>
+      <Link to="/">
         <a href="#">
           <i className="fas fa-clinic-medical" />
-          <div className="title-bdb">Oja</div>
+          <div className="title-bdb">Home</div>
         </a>
+        </Link>
       </li>
       <p className='buyer-name'>{ buyerDetails.first_name } { buyerDetails.last_name }</p>
       <li>
-        {/* <Link to="/buyer/dashboard"> */}
+      
         <Link to="/buyer/dashboard/orders">
           <i className="fas fa-th-large" />
           <div className="title-bdb">Dashboard</div>
@@ -59,32 +62,30 @@ useEffect(()=>{
           <div className="title-bdb">Profile</div>
         </Link>
       </li>
-      <li>
-        <Link to="/buyer/dashboard/orders">
-          <i className="fas fa-archive" />
-          <div className="title-bdb">Orders</div>
-        </Link>
-      </li>
+    
       <li>
         <Link to="/resetpassword">
           <i className="fas fa-user" />
           <div className="title-bdb">Change password</div>
         </Link>
       </li>
+      
       <li>
-        <a href="#">
+        
+      <Link to="/ViewCart">
           <i className="fas fa-hand-holding-usd" />
-          <div className="title-bdb">Payments</div>
-        </a>
+          <div className="title-bdb">Cart</div>
+          </Link>
+        
       </li>
     </ul>
   </div>
   <div className="main-bdb">
     <div className="top-bar-bdb">
       
-      <i className="fas fa-bell" />
+      {/* <i className="fas fa-bell" /> */}
       <div className="user-bdb">
-        <img src="./images/cv__29__generated.jpg" alt />
+        {/* <img src="./images/cv__29__generated.jpg" alt /> */}
       </div>
     </div>
     {/* <div className="left-right cards-bdb">
