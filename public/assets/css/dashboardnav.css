@@ -82,8 +82,10 @@ ul {
     color: rgba(222, 69, 69, 0.724);
     box-shadow: 6px 6px 2px 1px rgba(223, 59, 59, 0.69);
     background-color: transparent;
+    z-index: 2;
     }
     .toggle3{
+        z-index: 2;
         width: 12rem;
         position: fixed;
         top: 22rem;
@@ -96,7 +98,7 @@ ul {
       font-family: Georgia, 'Times New Roman', Times, serif;
       font-style: italic;
         color: rgba(35, 112, 44, 0.897);
-        box-shadow: 6px 6px 2px 1px rgba(59, 223, 70, 0.524);
+        box-shadow: 6px 6px 2px 1px rgba(33, 119, 39, 0.524);
         background-color: transparent;
         }
      #header-mid{
