@@ -2,18 +2,28 @@ import React, { useState, useEffect, useNavigate } from "react";
 import { Link } from "react-router-dom";
 import axios from "../axios";
 
+
 export default function SellerProduct() {
   const [checkSold, setCheckSold] = useState(0);
   const [remainingProduct, setRemainingProduct] = useState(0);
   const [findSeller, setSeller] = useState("");
   const [products, setSellerProducts] = useState([])
+  const [total , setTotal] = useState()
 
+  useEffect(() => {
+    getSellerSoldProduct();
+    findTheSeller();
+    getRemainingProductCount();
+    getOrders()
+    // }
+  }, []);
   {
     /*Get total product count*/
   }
   const getSellerSoldProduct = async () => {
     try {
       const resp = await axios.get("/seller/total/product/sold");
+      
       console.log(checkSold);
       console.log(resp.data.data);
       setCheckSold(resp.data.Message);
@@ -35,6 +45,8 @@ export default function SellerProduct() {
     };
     try {
       const resp = await axios.get("/seller/remaining/product/count", config);
+      
+    
       console.log(resp.data.data);
       console.log(remainingProduct);
       setRemainingProduct(resp.data);
@@ -56,10 +68,12 @@ export default function SellerProduct() {
     };
     try {
       const resp = await axios.get("/getsellerprofile", config);
-      console.log(resp.data.data);
+      
+     
+      //console.log(resp.data.data);
       setSeller(resp.data.data);
     } catch (error) {
-      console.log(error.response);
+      //console.log(error.response);
     }
   };
 
@@ -73,23 +87,34 @@ export default function SellerProduct() {
 
     try {
       const resp = await axios.get("/seller/allproducts", config)
-      
+      let sum = 0 
       console.log(resp.data.SellerProducts)
       setSellerProducts(resp.data.SellerProducts)
+      
+      
+      for (let i = 0; i < products.length; i++){
+    sum += parseInt(products[i].quantity)
+  
+        }
+        
+        setTotal(sum)
+
       
     } catch (error){
         setSellerProducts('')
       console.log(error.resp)
     }
   }
+ 
+  
+  
+      
+    
+  
 
-  useEffect(() => {
-    getSellerSoldProduct();
-    findTheSeller();
-    getRemainingProductCount();
-    getOrders()
-    // }
-  }, []);
+ 
+
+  
 
   return (
     <>
@@ -123,14 +148,17 @@ export default function SellerProduct() {
             {/* USER INFO - END */}
             <ul className="wraplist">
               <li className="open">
-                
+               
                 <Link to="/seller/dashboard">
                   <li className>
+                    
                     <i className="fa fa-dashboard" />
                     <span className="title">Dashboard</span>
                     <span className="arrow " />
                   </li>
                 </Link>
+               
+               
               </li>
               <li className="">
                 <Link to="/seller/products">
@@ -142,18 +170,11 @@ export default function SellerProduct() {
                 </Link>
               </li>
               <li className>
-                <a href="javascript:;">
+              <Link to="/seller/createproducts">
                   <i className="fa fa-plus" />
                   <span className="title"> Add Products</span>
                   <span className="arrow " />
-                </a>
-              </li>
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-pencil-square-o" />
-                  <span className="title"> Edit Products</span>
-                  <span className="arrow " />
-                </a>
+              </Link>
               </li>
 
               <li className>
@@ -169,14 +190,6 @@ export default function SellerProduct() {
                     </a>
                   </li>
                 </ul>
-              </li>
-
-              <li className>
-                <a href="javascript:;">
-                  <i className="fa fa-sitemap" />
-                  <span className="title">Product Categories</span>
-                  <span className="arrow " />
-                </a>
               </li>
             </ul>
           </div>
@@ -212,10 +225,12 @@ export default function SellerProduct() {
                   <div className="cards">
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">
+                      
+                        <div className="number"  >
                         { products.length }
                         </div>
-                        <div className="card-name">Total Quantity</div>
+                        <div className="card-name" >Products</div>
+                        
                       </div>
                       <div className="icon-box">
                         <i className="fas fa-shopping-basket" />
@@ -229,10 +244,20 @@ export default function SellerProduct() {
                         <i className="fas fa-shopping-cart" />
                       </div>
                     </div>
+
+
+                    
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">{ remainingProduct.Total_Remaining }</div>
-                        <div className="card-name">Quantity Remaining</div>
+                        <div className="number">{ function(){
+                          let sum = 0
+                          for (let i = 0; i < products.length; i++){
+                            sum += parseInt(products[i].quantity)
+                          
+                                }
+                                return sum
+                        }() }</div>
+                        <div className="card-name">Total Items Remaining</div>
                       </div>
                       <div className="icon-box">
                         <i className="fas fa-briefcase-medical" />

@@ -1,15 +1,16 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import GeneralNavBar from '../components/GeneralNavBar'
 import ResetPasswordComponent from '../components/ResetPassword'
 import Footer from "../components/Footer"
+import BuyerContainer from '../components/BuyerContainer'
 
 const ResetPassword = () => {
    
   return (
         <div>
-          <Navbar />
+        <GeneralNavBar />
           <ResetPasswordComponent />
-          <Footer />
+      
           
         </div>
   )

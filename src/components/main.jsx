@@ -3,6 +3,7 @@ import {useEffect, useState} from "react"
 import instance from '../axios'
 import {useAppContext} from "../context/ContextUse"
 import axios from 'axios'; 
+import "./buyerOrders.css";
 
 
 
@@ -106,7 +107,7 @@ const handleModal = (product)=>{
 const clearAlert = ()=>{
   setTimeout(()=>{
     setAlert({...alert, visible: false})
-  }, 900)
+  }, 4000)
 }
 
     return(
@@ -191,12 +192,12 @@ const clearAlert = ()=>{
             </div>
           </div>
         </div>        
-        <div className="row">
-          <div className="col-xl-12">
-            <div className="tab-content" id="flast-sell-tabContent">
-              <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab">
+        <div className="row" style={{alignItems:"center"}}>
+          <div className="col-xl-12" style={{margin: "auto"}}>
+            <div className="tab-content" id="flast-sell-tabContent" style={{margin: "auto"}}>
+              <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab" style={{margin: "auto"}}>
                 <div className="row">
-                  <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container">
+                  <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container" style={{margin: "auto"}}>
 
 {/* render the function starts here */}
 
@@ -206,11 +207,11 @@ const clearAlert = ()=>{
                   return(
                   <> 
 
-                    <div className="product__item-wrapper mb-20">
-                      <div className="product__item white-bg">
-                        <div className="product__thumb p-relative">
+                    <div className="product__item-wrapper mb-20" style={{margin: "auto"}}>
+                      <div className="product__item white-bg" style={{margin: "auto"}}>
+                        <div className="product__thumb p-relative" style={{margin: "auto"}}>
                           <a href="product-details.html" className="w-img">
-                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                            {product.images.length > 0 ? <img src={product.images[0].url} alt="product" className="homeimg"/> : null}
                             
                             {/* {product.images.length > 0 ?<img className="second-img" src={product.images[1].url} alt="product" /> : null} */}
                             
@@ -297,49 +298,57 @@ const clearAlert = ()=>{
                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                   <div className="product__modal-box">
                     <div className="tab-content" id="modalTabContent">
-                      <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
+                     { product.images.length > 1 && <div className="tab-pane fade show active" id="nav1" role="tabpanel" aria-labelledby="nav1-tab">
                         <div className="product__modal-img w-img">
                          
-                          {product.images.length > 0 ? <img src={product.images[1].url} alt="product" /> : null}
+                          {product.images.length > 1 ? <img src={product.images[1].url} alt="product" /> : null}
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
+                  }
+                     { product.images.length > 2 && <div className="tab-pane fade" id="nav2" role="tabpanel" aria-labelledby="nav2-tab">
                         <div className="product__modal-img w-img">
-                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                        {product.images.length > 2 ? <img src={product.images[2].url} alt="product" /> : null}
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
+                  }
+                       { product.images.length > 3 && <div className="tab-pane fade" id="nav3" role="tabpanel" aria-labelledby="nav3-tab">
                         <div className="product__modal-img w-img">
-                        {product.images.length > 0 ? <img src={product.images[3].url} alt="product" /> : null}
+                        {product.images.length > 3 ? <img src={product.images[3].url} alt="product" /> : null}
                         </div>
                       </div>
-                      <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
+                  }
+                     { product.images.length > 4 && <div className="tab-pane fade" id="nav4" role="tabpanel" aria-labelledby="nav4-tab">
                         <div className="product__modal-img w-img">
-                        {product.images.length > 0 ? <img src={product.images[4].url} alt="product" /> : null}
+                        {product.images.length > 4 ? <img src={product.images[4].url} alt="product" /> : null}
                         </div>
                       </div>
+                  }
                     </div>
                     <ul className="nav nav-tabs modnav" id="modalTab" role="tablist">
-                      <li className="nav-item" role="presentation">
+                     {product.images.length > 1 && <li className="nav-item" role="presentation">
                         <button className="nav-link active" id="nav1-tab" data-bs-toggle="tab" data-bs-target="#nav1" type="button" role="tab" aria-controls="nav1" aria-selected="true">
-                        {product.images.length > 0 ? <img src={product.images[1].url} alt="product" /> : null}
+                        {product.images.length > 1 ? <img src={product.images[1].url} alt="product" /> : null}
                         </button>
                       </li>
-                      <li className="nav-item" role="presentation">
+                  }
+                      { product.images.length > 2 && <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav2-tab" data-bs-toggle="tab" data-bs-target="#nav2" type="button" role="tab" aria-controls="nav2" aria-selected="false">
-                        {product.images.length > 0 ? <img src={product.images[0].url} alt="product" /> : null}
+                        {product.images.length > 2 ? <img src={product.images[2].url} alt="product" /> : null}
                         </button>
                       </li>
-                      <li className="nav-item" role="presentation">
+                  }
+                      {product.images.length > 3 && <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav3-tab" data-bs-toggle="tab" data-bs-target="#nav3" type="button" role="tab" aria-controls="nav3" aria-selected="false">
-                        {product.images.length > 0 ? <img src={product.images[3].url} alt="product" /> : null}
+                        {product.images.length > 3 ? <img src={product.images[3].url} alt="product" /> : null}
                         </button>
-                      </li>
-                      <li className="nav-item" role="presentation">
+                      </li> }
+                      { product.images.length > 4 && <li className="nav-item" role="presentation">
                         <button className="nav-link" id="nav4-tab" data-bs-toggle="tab" data-bs-target="#nav4" type="button" role="tab" aria-controls="nav4" aria-selected="false">
-                        {product.images.length > 0 ? <img src={product.images[4].url} alt="product" /> : null}
+                        {product.images.length > 4 ? <img src={product.images[4].url} alt="product" /> : null}
                         </button>
                       </li>
+                  }
+                   
                     </ul>
                   </div>
                 </div>
