@@ -69,8 +69,8 @@ export default  function UpdateBuyerProfile() {
       });
   };
   const defaultImgUrl =
-    //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-    "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+    //"https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
   useEffect(() => {
     getBuyerInfo()
     // Update the document title using the browser API
@@ -133,7 +133,7 @@ console.log(field)
                   id="picture"
                   type="file"
                   name="profile_picture"
-                  onChange={changeHandler}
+                  onChange={handleEdit}
                 />
                 {/* <div className="mt-5 text-center">
                  <button className="btn btn-primary " type="submit">
