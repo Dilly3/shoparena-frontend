@@ -130,7 +130,7 @@ export default function Login() {
                   </div>
                 )}
                             <form method="POST" onSubmit={onSubmit}>
-                                <label for="name">Email Address <span>**</span></label>
+                                <label for="name">Email Address <span>*</span></label>
                                 <input 
                                 id="email" 
                                 type="email" 
@@ -139,7 +139,7 @@ export default function Login() {
                                 value={login.email}
                                 onChange={handleChange}
                                 />
-                                <label for="pass">Password <span>**</span></label>
+                                <label for="pass">Password <span>*</span></label>
                                 <input 
                                 id="pass" 
                                 name="password" 

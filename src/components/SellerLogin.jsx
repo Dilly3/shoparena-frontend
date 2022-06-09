@@ -221,7 +221,7 @@ export default function SellerLoginComponent() {
                 )}
                 <form method="POST" onSubmit={onSubmit}>
                   <label for="name">
-                    Email Address <span>**</span>
+                    Email Address <span>*</span>
                   </label>
                   <input
                     id="email"
@@ -232,7 +232,7 @@ export default function SellerLoginComponent() {
                     onChange={handleChange}
                   />
                   <label for="pass">
-                    Password <span>**</span>
+                    Password <span>*</span>
                   </label>
                   <input
                     id="pass"

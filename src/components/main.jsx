@@ -74,11 +74,12 @@ const handleChange = (e)=>{
         price,
         image,
         title,
+        seller_id,
       }  = product
       try {
 
 
-        const response = await axios.post("https://oja-ecommerce.herokuapp.com/api/v1/addtocart", {ID, price, image, title, quantity: Number(input.quantity)}, {
+        const response = await axios.post("https://oja-ecommerce.herokuapp.com/api/v1/addtocart", {ID, price, image, title, seller_id, quantity: Number(input.quantity)}, {
           headers: {
             'Authorization': `Bearer ${token}` 
           }})
