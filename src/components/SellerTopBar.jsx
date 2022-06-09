@@ -103,7 +103,7 @@ useEffect(() => {
   {/* <div className="logo-area" style={{fontSize:'40px', marginTop:'10px', fontWeight:'700px', color:'ffc107'}}>Oja
   </div> */}
   	<header class="header">
-		<h1 class="logo"><Link to="/" style={{fontSize:"25px", fontWeight:"bold"}}>BACK TO OJA</Link></h1>
+		<h1 class="logo" style={{fontSize:"25px", fontWeight:"bold"}}>OJA</h1>
       <ul class="main-nav">
           <li><span>Hello,{user && capitalizeFirstLetter(user.first_name)}</span></li>
           <button onClick={LogOut}> <span>Logout</span></button>
