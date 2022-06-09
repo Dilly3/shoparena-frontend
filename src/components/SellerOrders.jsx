@@ -21,7 +21,7 @@ export default function SellerOrdersComponent() {
           }
    
         try {
-          const resp = await axios.get("/sellerorders/", config)
+          const resp = await axios.get("/sellerorders", config)
           
           console.log(resp.data)
           setOrders(resp.data.Seller_Order)
@@ -46,7 +46,7 @@ export default function SellerOrdersComponent() {
     <div className="heading">
       <h2>Order Overview</h2>
       {/* <a href="#" className="btn">View All</a> */}
-      <p className="btn"> You have {(orders || []).length}Orders</p>
+      <p className="btn"> You have {(orders || []).length} Orders</p>
       
     </div>
     <table className="table-head">
