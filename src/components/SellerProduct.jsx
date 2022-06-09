@@ -7,6 +7,7 @@ export default function SellerProduct() {
   const [remainingProduct, setRemainingProduct] = useState(0);
   const [findSeller, setSeller] = useState("");
   const [products, setSellerProducts] = useState([])
+  const [total , setTotal] = useState(0)
 
   {
     /*Get total product count*/
@@ -76,6 +77,12 @@ export default function SellerProduct() {
       
       console.log(resp.data.SellerProducts)
       setSellerProducts(resp.data.SellerProducts)
+      let sum = 0;
+  for (let i = 0; i < products.length; i++){
+    sum += parseInt(products[i].quantity)
+  }
+  setTotal(sum)
+
       
     } catch (error){
         setSellerProducts('')
@@ -90,6 +97,8 @@ export default function SellerProduct() {
     getOrders()
     // }
   }, []);
+
+  
 
   return (
     <>
@@ -205,10 +214,12 @@ export default function SellerProduct() {
                   <div className="cards">
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">
+                      
+                        <div className="number"  >
                         { products.length }
                         </div>
-                        <div className="card-name">Total Quantity</div>
+                        <div className="card-name" >Products</div>
+                        
                       </div>
                       <div className="icon-box">
                         <i className="fas fa-shopping-basket" />
@@ -224,8 +235,8 @@ export default function SellerProduct() {
                     </div>
                     <div className="card">
                       <div className="card-content">
-                        <div className="number">{ remainingProduct.Total_Remaining }</div>
-                        <div className="card-name">Quantity Remaining</div>
+                        <div className="number">{ total }</div>
+                        <div className="card-name">Total Items Remaining</div>
                       </div>
                       <div className="icon-box">
                         <i className="fas fa-briefcase-medical" />
