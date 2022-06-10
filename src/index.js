@@ -18,7 +18,7 @@ import Profile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
 import ProductId from "./components/ProductId";
-import Seller from "./components/getAllSellers";
+import Seller from "./pages/AllSellers";
 import NotFound from "./pages/pageNotFound";
 import Home from "./pages/Home";
 import SellerOrdersComponent from "./pages/SellerOrders";
