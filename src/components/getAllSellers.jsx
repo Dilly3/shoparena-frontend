@@ -85,7 +85,6 @@ const GetAllSellers = ({ id, Rating, Product, Order }) => {
                           <SocialShare social_id={seller.ID} />
                         </div>
                       </div>
-                      <h3 className="quantity">{seller.rating}</h3>
                     </section>
                   </div>
                 </div>

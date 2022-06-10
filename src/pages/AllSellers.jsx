@@ -1,5 +1,5 @@
 import React from "react";
-import GetAllSellers from "../components/GetAllSellers";
+import GetAllSellers from "../components/getAllSellers";
 import Footer from "../components/Footer";
 import GeneralNavBar from "../components/GeneralNavBar";
 
