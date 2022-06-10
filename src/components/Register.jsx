@@ -143,7 +143,7 @@ const handleSubmit =(e)=> {
                                 
                                 <form method="POST" onSubmit={handleSubmit}>
 
-                                <label for="first_name">First name <span>**</span></label>
+                                <label for="first_name">First name <span>*</span></label>
                                     <input id="first_name" 
                                     type="text" 
                                     placeholder="Enter First name" 
@@ -152,7 +152,7 @@ const handleSubmit =(e)=> {
                                     onChange={handleChange}/>
 
 
-                                    <label for="last_name">Last name <span>**</span></label>
+                                    <label for="last_name">Last name <span>*</span></label>
                                     <input id="last_name" 
                                     type="text" 
                                     placeholder="Enter Last name" 
@@ -162,7 +162,7 @@ const handleSubmit =(e)=> {
 
 
 
-                                    <label for="username">Username <span>**</span></label>
+                                    <label for="username">Username <span>*</span></label>
                                     <input id="username" 
                                     type="text"
                                      placeholder="Enter Username"                               
@@ -171,7 +171,7 @@ const handleSubmit =(e)=> {
                                     onChange={handleChange}/>
 
 
-                                    <label for="email-id">Email Address <span>**</span></label>
+                                    <label for="email-id">Email Address <span>*</span></label>
                                     <input 
                                     id="email-id"
                                     type="email" 
@@ -180,7 +180,7 @@ const handleSubmit =(e)=> {
                                     value={signup.email}
                                     onChange={handleChange}/>
 
-                                    <label for="phone_number">Phone Number <span>**</span></label>
+                                    <label for="phone_number">Phone Number <span>*</span></label>
                                     <input 
                                     id="phone_number"
                                     type="text" 
@@ -190,7 +190,7 @@ const handleSubmit =(e)=> {
                                     onChange={handleChange}/>
 
 
-                                    <label for="pass">Password <span>**</span></label>
+                                    <label for="pass">Password <span>*</span></label>
                                     <input 
                                     id="pass" 
                                     name="password" 

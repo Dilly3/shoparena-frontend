@@ -103,7 +103,7 @@ useEffect(() => {
   {/* <div className="logo-area" style={{fontSize:'40px', marginTop:'10px', fontWeight:'700px', color:'ffc107'}}>Oja
   </div> */}
   	<header class="header">
-		<h1 class="logo"><a href="#">Welcome to Oja</a></h1>
+		<h1 class="logo" style={{fontSize:"25px", fontWeight:"bold"}}>OJA</h1>
       <ul class="main-nav">
           <li><span>Hello,{user && capitalizeFirstLetter(user.first_name)}</span></li>
           <button onClick={LogOut}> <span>Logout</span></button>
@@ -112,11 +112,7 @@ useEffect(() => {
   <div className="quick-area">
     <div className="float-left">
       <ul className="info-menu left-links list-inline list-unstyled">
-        <li className="sidebar-toggle-wrap list-inline-item">
-          <a href="#" data-toggle="sidebar" className="sidebar_toggle">
-            <i className="fa fa-bars" />
-          </a>
-        </li>
+        
         <li className="message-toggle-wrapper list-inline-item">
           <a href="#" data-toggle="dropdown" className="toggle">
             <i className="fa fa-envelope" />

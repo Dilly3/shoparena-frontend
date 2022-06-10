@@ -141,7 +141,7 @@ export default function SellerRegisterComponent() {
                                     
                                     <form method="POST" onSubmit={handleSubmit}>
     
-                                    <label for="first_name">First name <span>**</span></label>
+                                    <label for="first_name">First name <span>*</span></label>
                                         <input id="first_name" 
                                         type="text" 
                                         placeholder="Enter First name" 
@@ -150,7 +150,7 @@ export default function SellerRegisterComponent() {
                                         onChange={handleChange}/>
     
     
-                                        <label for="last_name">Last name <span>**</span></label>
+                                        <label for="last_name">Last name <span>*</span></label>
                                         <input id="last_name" 
                                         type="text" 
                                         placeholder="Enter Last name" 
@@ -160,7 +160,7 @@ export default function SellerRegisterComponent() {
     
     
     
-                                        <label for="username">Username <span>**</span></label>
+                                        <label for="username">Username <span>*</span></label>
                                         <input id="username" 
                                         type="text"
                                          placeholder="Enter Username"                               
@@ -169,7 +169,7 @@ export default function SellerRegisterComponent() {
                                         onChange={handleChange}/>
     
     
-                                        <label for="email-id">Email Address <span>**</span></label>
+                                        <label for="email-id">Email Address <span>*</span></label>
                                         <input 
                                         id="email-id"
                                         type="email" 
@@ -178,7 +178,7 @@ export default function SellerRegisterComponent() {
                                         value={signup.email}
                                         onChange={handleChange}/>
     
-                                        <label for="phone_number">Phone Number <span>**</span></label>
+                                        <label for="phone_number">Phone Number <span>*</span></label>
                                         <input 
                                         id="phone_number"
                                         type="text" 
@@ -188,7 +188,7 @@ export default function SellerRegisterComponent() {
                                         onChange={handleChange}/>
     
     
-                                        <label for="pass">Password <span>**</span></label>
+                                        <label for="pass">Password <span>*</span></label>
                                         <input 
                                         id="pass" 
                                         name="password" 

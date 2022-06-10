@@ -207,7 +207,7 @@ useEffect(()=>{
                 </div>
             </div>   
             <div className='seller-01'>      
-            <p className='shop-details name'><b>{ shop.first_name } { shop.last_name }</b></p>
+            <h3 className='shop-details-name'><b>{ shop.first_name } { shop.last_name }</b></h3>
             <div className='hold-details'>
             <p className='shop-details'><i className="fas fa-envelope-open-text"></i> { shop.email }</p>
             <p className='shop-details'><i class="fas fa-mobile-alt"></i> { shop.phone_number}</p>
@@ -253,20 +253,13 @@ useEffect(()=>{
              {/*seller card end*/}
             <div className='right-side'>
                 
-            <div className='seller-profile'>
-            <h3 className='store-keeper'><b>{ shop.first_name } { shop.last_name }'s Store </b></h3>
-            <div className='sec-one'>
-            <img src='/assets/images/cartoon dlv 2.webp' className='sec-one' alt />
-           
-            </div>
-            </div>
-<hr/>
-            <div className='seller-product'>
+  
+            {/* <div className='product-card'> */}
 
-            {/*seller product card start*/}
+            <>
             <SellerProductCard/>
-            {/*seller product card end*/}
-            </div>
+            </>
+            {/* </div> */}
 
             </div>
 

@@ -244,8 +244,10 @@ export default function SellerProduct() {
                         <i className="fas fa-shopping-cart" />
                       </div>
                     </div>
+
                     <div className="card">
                       <div className="card-content">
+
                         <div className="number">{ function(){
                           let sum = 0
                           for (let i = 0; i < products.length; i++){
@@ -254,6 +256,7 @@ export default function SellerProduct() {
                                 }
                                 return sum
                         }() }</div>
+
                         <div className="card-name">Total Items Remaining</div>
                       </div>
                       <div className="icon-box">

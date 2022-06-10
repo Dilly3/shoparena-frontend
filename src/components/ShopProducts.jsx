@@ -92,8 +92,6 @@ export default function ShopProducts() {
 
   return (
     <>
-      <SellerProduct />
-      <SellerTopBar />
       <section id="main-content" className=" ">
         <div className="dashboard-table">
           <div className="heading">
