@@ -51,10 +51,11 @@ export default function BuyerOrdersComponent() {
             </div>
             <table className="table-head-bdb">
               <thead>
-                <tr><td>Name</td>
+                <tr><td>Seller</td>
+                  <td>Category</td>
                   <td>Product</td>
                   <td>Price</td>
-                  <td>Action</td>
+                  <td>Quantity</td>
                 </tr>
                 </thead>
               <tbody>
