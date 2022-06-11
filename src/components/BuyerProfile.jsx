@@ -29,7 +29,21 @@ export default function Profile({ handleClick }) {
     //"https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
 
   if (user === null) {
-    return <div>Loading...</div>;
+    return(
+    <div className="lds-spinner">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>)
   } else {
     return (
       <>

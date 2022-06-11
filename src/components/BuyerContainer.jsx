@@ -65,7 +65,7 @@ useEffect(()=>{
     
       <li>
         <Link to="/resetpassword">
-          <i className="fas fa-user" />
+          <i className="fas fa-key" />
           <div className="title-bdb">Change password</div>
         </Link>
       </li>

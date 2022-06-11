@@ -8,6 +8,7 @@ import "./sellerProfile.css";
 //import context from "react-bootstrap/esm/AccordionContext";
 
 export default  function UpdateSellerProfile() {
+    //console.log("i am here")
   const { user, getUser } = useAppContext();
 //   const [field, setField] = useState(user);
   const [field, setField] = useState({
@@ -18,7 +19,7 @@ export default  function UpdateSellerProfile() {
     phone_number: ""
   });
  // const [currentUser, setCurrentUser] = useState(null)
-  const [selectedFile, setSelectedFile] = useState();
+  const [selectedFile, setSelectedFile] = useState({image: ""});
   const [imgUrl, setImgUrl] = useState("")
   
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ export default  function UpdateSellerProfile() {
   const getSellerInfo = async () => {
     try {
       const resp = await axios("getsellerprofile")
-      console.log(resp.data)
       setField(resp.data.data)
     } catch (error) {
       console.log(error.data)
@@ -40,17 +40,18 @@ export default  function UpdateSellerProfile() {
     });
   }
 
-  const changeHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setImgUrl(URL.createObjectURL(event.target.files[0]))
-    handleSubmission(event,event.target.files[0])
+  const changeHandler = (e) => {
+    console.log(e.target.files[0])
+    setSelectedFile({[e.target.name]: e.target.files[0] });
+    setImgUrl(URL.createObjectURL(e.target.files[0]))
+    // handleSubmission(event,event.target.files[0])
   };
 
-  const handleSubmission = (e,prop) => {
+  const handleSubmission = (e) => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append("profile_picture", prop);
+    formData.append("profile_picture", selectedFile.image);
     const config = {
       headers: {
         Authorization: "Bearer "+localStorage.getItem("token"),
@@ -63,26 +64,27 @@ export default  function UpdateSellerProfile() {
       .then((result) => {
         getUser();
         navigate("/seller/profile");
-        console.log("Success:", result);
       })
       .catch((error) => {
         console.error("Error:", error.response.data);
       });
   };
   const defaultImgUrl =
-    //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-    "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+    //"https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
   useEffect(() => {
     getSellerInfo()
-    // Update the document title using the browser API
-    if (user && user.image) {
+  
+  }, []);
+  useEffect(() => {   
+     // Update the document title using the browser API
+     console.log(user)
+    if (!user.image) {
       setImgUrl(defaultImgUrl)
     }else{
       setImgUrl(user.image)
     }
-    
-    // eslint-disable-next-line
-  }, []);
+  }, [user])
   const post = (user) => {
     const config = {
       headers: {
@@ -93,6 +95,7 @@ export default  function UpdateSellerProfile() {
     axios
       .put("updatesellerprofile", user, config)
       .then(function (response) {
+        // console.log(field);
         // getUser();
         navigate("/seller/profile");
         // setField(user);
@@ -111,12 +114,12 @@ console.log(field)
   
   return (
     <div className="">
-         <SellerTopBar/>
-         <SellerContainer/>
-      <div className="bg-white m-2">
-        <div className="profile row p-3">
-          <div className="col-md-3 border-right mb-1">
-            <div className="d-flex flex-column align-items-center text-center p-3 py-5">
+    <SellerTopBar/>
+    <SellerContainer/>
+ <div className="bg-white m-2">
+   <div className="profile row p-3">
+     <div className="col-md-3 border-right mb-1">
+       <div className="d-flex flex-column align-items-center text-center p-3 py-5">
               <img
                 width="150"
                 height="150"
@@ -126,21 +129,22 @@ console.log(field)
               />
               <form
                 className="row align-items-center text-center"
-                // onSubmit={handleSubmission}
+                onSubmit={handleSubmission}
               >
                 <label htmlFor="picture" style={{cursor: "pointer"}}>Upload Image</label>
                 <input
                   style={{ display: "none" }}
                   id="picture"
                   type="file"
-                  name="profile_picture"
+                  name="image"
+                  // value={selectedFile.image}
                   onChange={changeHandler}
                 />
-                {/* <div className="mt-5 text-center">
+                <div className="mt-5 text-center">
                  <button className="btn btn-primary " type="submit">
                     Save Profile Pic
                   </button>
-                  </div> */}
+                  </div>
               </form>
               <span className="font-weight-bold">
              {/* {field.first_name} {field.last_name} */}
