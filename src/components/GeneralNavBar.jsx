@@ -115,7 +115,9 @@ export default function GeneralNavBar(){
                       <span className="logo">
                         <Link to="/">
                           <img
-                            src="../assets/img/logo/ojalogo2.png"
+
+                            src="/assets/img/logo/new_oja_logo.png"
+
                             alt="logo"
                           /> <h4 className="slogan">OJA! Your One Stop Destination For Everything...</h4>
                         </Link> 
