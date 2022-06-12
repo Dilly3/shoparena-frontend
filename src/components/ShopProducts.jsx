@@ -102,7 +102,7 @@ export default function ShopProducts() {
               </div>
             )}
             {/* <a href="#" className="btn">View All</a> */}
-            <p className="btn"> You have {products.length} Products</p>
+            <p className="btn"> You have {(products || []).length} Products</p>
           </div>
           <table className="table-head">
             <thead>
