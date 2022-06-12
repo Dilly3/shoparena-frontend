@@ -2220,7 +2220,7 @@ p {
   position: relative;
   padding: 15px 10px;
   padding-bottom: 30px;
-  /* width: 250px; */
+  width: 250px;
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;
