@@ -77,7 +77,6 @@ export default function GeneralNavBar(){
                 <div className="row align-items-center">
                   <div className="col-xl-6 col-lg-6 col-md-5 d-none d-md-block">
                     <div className="header__welcome">
-                      <span>Welcome to OJA</span>
                     </div>
                   </div>
                   <div className="col-xl-6 col-lg-6 col-md-7">
@@ -116,9 +115,11 @@ export default function GeneralNavBar(){
                       <span className="logo">
                         <Link to="/">
                           <img
+
                             src="/assets/img/logo/new_oja_logo.png"
+
                             alt="logo"
-                          /> <h4 className="slogan">OJA! Your One Stop For Everything...</h4>
+                          /> <h4 className="slogan">OJA! Your One Stop Destination For Everything...</h4>
                         </Link> 
                       </span>
                 </div>

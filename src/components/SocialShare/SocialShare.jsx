@@ -37,28 +37,61 @@ export default function SocialShare({social_id}) {
 
   return (
     <>
-    <Container >
+      <Container>
         <Segment className="share-btn-container">
-            <FacebookShareButton title='Share this store with friends' url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`} quote={"Checkout my Store on Oja!"} hashtag="#oja">
-                <FacebookIcon logoFillColor="white" round={true}></FacebookIcon>
-            </FacebookShareButton>
+          <FacebookShareButton
+            title="Share this store with friends"
+            url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`}
+            quote={"Checkout my Store on Oja!"}
+            hashtag="#oja"
+          >
+            <FacebookIcon
+              logoFillColor="white"
+              round={true}
+              width={50}
+            ></FacebookIcon>
+          </FacebookShareButton>
 
-            <WhatsappShareButton title='Share this store with friends' url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`} quote={"Checkout my Store on Oja!"} hashtag="#oja">
-                <WhatsappIcon logoFillColor="white" round={true}>
-                </WhatsappIcon>
-            </WhatsappShareButton>
+          <WhatsappShareButton
+            title="Share this store with friends"
+            url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`}
+            quote={"Checkout my Store on Oja!"}
+            hashtag="#oja"
+          >
+            <WhatsappIcon
+              logoFillColor="white"
+              round={true}
+              width={50}
+            ></WhatsappIcon>
+          </WhatsappShareButton>
 
-            <LinkedinShareButton title='Share this store with friends' url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`} quote={"Checkout my Store on Oja!"} hashtag="#oja">
-                <LinkedinIcon logoFillColor='white' round={true}>
-                </LinkedinIcon>
-            </LinkedinShareButton>
+          <LinkedinShareButton
+            title="Share this store with friends"
+            url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`}
+            quote={"Checkout my Store on Oja!"}
+            hashtag="#oja"
+          >
+            <LinkedinIcon
+              logoFillColor="white"
+              round={true}
+              width={50}
+            ></LinkedinIcon>
+          </LinkedinShareButton>
 
-            <TwitterShareButton  title='Sharing this store with friends' url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`} quote={"Checkout my Store on Oja!"} hashtag="#oja">
-                <TwitterIcon logoFillColor='white' round={true}>
-                </TwitterIcon>
-            </TwitterShareButton>
+          <TwitterShareButton
+            title="Sharing this store with friends"
+            url={`https://shoparena-frontend-phi.vercel.app/seller/shop/${social_id}`}
+            quote={"Checkout my Store on Oja!"}
+            hashtag="#oja"
+          >
+            <TwitterIcon
+              logoFillColor="white"
+              round={true}
+              width={50}
+            ></TwitterIcon>
+          </TwitterShareButton>
         </Segment>
-    </Container>
+      </Container>
     </>
-  )
+  );
 }

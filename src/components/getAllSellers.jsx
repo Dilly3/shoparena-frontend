@@ -1,16 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import SocialShare from "./SocialShare/SocialShare";
+import "./GetAllSellers.css";
+import { AiFillShop } from "react-icons/ai";
 
 const token = localStorage.getItem("token");
 
-const Seller = ({ id, Rating, Product, Order }) => {
+const GetAllSellers = ({ id, Rating, Product, Order }) => {
   const [sellers, updateSellers] = useState(null);
-  
 
   async function fetchSellers() {
-    // const { ID, price, image, title } = product;
     try {
       const response = await axios.get(
         `https://oja-ecommerce.herokuapp.com/api/v1/sellers`,
@@ -34,7 +34,11 @@ const Seller = ({ id, Rating, Product, Order }) => {
 
   return (
     <>
-      <div className="sellersNav"> NAV </div>
+      <div className="sellersNav">
+        <p>
+          <span className="sellerz">SELLER</span> INFORMATION
+        </p>
+      </div>
       <div className="grid">
         {sellers ? (
           sellers.map((seller) => {
@@ -50,55 +54,37 @@ const Seller = ({ id, Rating, Product, Order }) => {
                         {seller.first_name} {seller.last_name}
                       </h2>
                       <br />
-                      {seller.email}
+                      <p className="contentbody">
+                        {seller.email}
+                        <br />
+                        <br />
+                        {seller.username}
+                        <br />
+                        {seller.address}
+                        <br />
+                        {seller.phone_number}
+                        <br />
+                        {seller.status}
+                        <br />
+                        {seller.token}
+                        <br />
+                        {seller.product}
+                        <br />
+                        {seller.orders}
+                      </p>
                       <br />
-                      <br />
-                      {seller.username}
-                      <br />
-                      {seller.address}
-                      <br />
-                      {seller.phone_number}
                       <br />
                       {/*view and share seller shop link start*/}
-                      <Link to={`/seller/shop/${seller.ID}`}><p>View Shore</p></Link>
-                    
-                      <div> 
-                        <SocialShare social_id={seller.ID}/>
+                      <div className="links">
+                        <Link to={`/seller/shop/${seller.ID}`}>
+                          <p className="store">
+                            View Store <AiFillShop />
+                          </p>
+                        </Link>
+                        <div>
+                          <SocialShare social_id={seller.ID} />
+                        </div>
                       </div>
-                      {/* <a href={`/seller/shop/${seller.ID}`} className="facebook-btn">
-                          <i className="fab fa-facebook"></i>
-                      </a>
-                      <a href={`/seller/shop/${seller.ID}`} className="twitter-btn">
-                          <i className="fab fa-twitter"></i>
-                      </a>
-                      <a href={`/seller/shop/${seller.ID}`} className="linkedin-btn ">
-                          <i className="fab fa-linkedin"></i>
-                      </a>
-                      <a href={`/seller/shop/${seller.ID}`} className="whatsapp-btn">
-                          <i className="fab fa-whatsapp"></i>
-                      </a>  */}
-                      
-                      
-                     
-
-
-                     
-
-                     
-                      {/*social share links end*/}
-                      
-
-                      {/*view and share seller shop link end*/}
-                      <br />
-                      {seller.status}
-                      <br />
-                      {seller.token}
-                      <br />
-                      {seller.product}
-                      <br />
-                      {seller.orders}
-                      <br />
-                      {seller.rating}
                     </section>
                   </div>
                 </div>
@@ -106,10 +92,10 @@ const Seller = ({ id, Rating, Product, Order }) => {
             );
           })
         ) : (
-          <p>Fetching sellers...</p>
+          <p className="fetch">Fetching Sellers...</p>
         )}
       </div>
     </>
   );
 };
-export default Seller;
+export default GetAllSellers;

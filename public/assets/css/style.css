@@ -6098,11 +6098,12 @@ bottom: 25px;
 /* share link css start*/
  
 .share-btn-container{
-  background: #fff;
+  background: rgb(199, 181, 155);
   display: flex ;
   flex-direction: row ;
-  width: 17rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+  width: 12rem;
+  margin-left: 55px;
+
 }
 
 .payment{
