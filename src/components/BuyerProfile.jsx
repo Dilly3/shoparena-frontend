@@ -56,7 +56,7 @@ export default function Profile({ handleClick }) {
           <div className="col-md-4 mb-3">
             <div className="card">
               <div className="card-body">
-                <div className="d-flex flex-column align-items-center text-center">
+                <div className="buyer-img d-flex flex-column align-items-center text-center">
                   <img
                     width="150"
                     height="150"

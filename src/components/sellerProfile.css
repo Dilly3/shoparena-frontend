@@ -25,12 +25,59 @@
     margin-left: 40%;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1600px) {
     .buyerProfile{
         position: absolute;
+        width: 75%!important;
+        top: 11%;
+        left: 23.5%;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    .buyerProfile{
+        position: absolute;
+        width: 75%!important;
+        top: 10%;
+        left: 25%;
+    }
+}
+
+@media only screen and (max-width: 1230px) {
+    .buyerProfile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 1090px) {
+    .buyer-name{
+        display: none;
+    }
+    .buyerProfile{
+        display: flex;
+        flex-direction: column;
+        margin-left: -27%;
+        width: 110%!important;
+    }
+}
+
+@media only screen and (max-width: 765px) {
+    .buyerProfile{
+        display: flex;
+        flex-direction: column;
+        margin-left: -16%;
+        width: 90%!important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .buyerProfile{
+        display: flex;
+        flex-direction: column;
+        margin-left: -10%;
         width: 80%!important;
-        top: 25%;
-        left: 8%;
     }
 }
 
