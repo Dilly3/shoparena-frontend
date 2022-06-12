@@ -46,7 +46,7 @@ export default function Profile({ handleClick }) {
                   <img
                     width="150"
                     height="150"
-                    src={user.image ? user.image : defaultImgUrl}
+                    src={user.image ? user.image : "/assets/img/no-pic-ava.jpeg"}
                     alt={user.first_name}
                     className="rounded-circle"
                   />

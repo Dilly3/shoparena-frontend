@@ -237,7 +237,7 @@ export default function SellerEditProduct() {
                         </div>
                       </div>
 
-                      <div className="form-group">
+                      {/* <div className="form-group">
                         <label className="form-label" htmlFor="field-4">
                           Rating
                         </label>
@@ -257,7 +257,7 @@ export default function SellerEditProduct() {
                             }
                           />
                         </div>
-                      </div>
+                      </div> */}
                       <div className="form-group">
                         <label className="form-label" htmlFor="field-5">
                           Quantity
@@ -281,7 +281,7 @@ export default function SellerEditProduct() {
                         </div>
                       </div>
 
-                      <div className="form-group">
+                      {/* <div className="form-group">
                         <label className="form-label" htmlFor="field-1">
                           Image
                         </label>
@@ -297,7 +297,7 @@ export default function SellerEditProduct() {
                             onChange={uploadImage}
                           />
                         </div>
-                      </div>
+                      </div> */}
 
                       <div className="form-group">
                         <label className="form-label" htmlFor="field-2">

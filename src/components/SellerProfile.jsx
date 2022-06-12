@@ -27,7 +27,7 @@ export default function SellerProfile({ handleClick }) {
   
   const defaultImgUrl =
    // "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-   "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+   "/assets/img/no-pic-ava.jpeg";
 
   if (user === null) {
     return <div>Loading...</div>;
@@ -46,7 +46,7 @@ export default function SellerProfile({ handleClick }) {
                   <img
                     width="150"
                     height="150"
-                    src={user.image ? user.image : defaultImgUrl}
+                    src={user.image ? user.image : "/assets/img/no-pic-ava.jpeg"}
                     alt={user.first_name}
                     className="rounded-circle"
                   />

@@ -1902,7 +1902,7 @@ p {
 
 /* yellow header css start */
 .yellow-header {
-  background: #fcb700;
+  background: white;
 }
 .yellow-header .header__info {
   border-color: #d69c00;
@@ -2220,7 +2220,7 @@ p {
   position: relative;
   padding: 15px 10px;
   padding-bottom: 30px;
-  width: 250px;
+  /* width: 250px; */
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;
@@ -6103,6 +6103,12 @@ bottom: 25px;
   flex-direction: row ;
   width: 17rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.payment{
+  margin-top: 200px;
+  margin-bottom: 150px;
+  margin-left: 500px;
 }
 
 

@@ -71,7 +71,7 @@ export default  function UpdateSellerProfile() {
   };
   const defaultImgUrl =
     //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-    "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    "/assets/img/no-pic-ava.jpeg";
   useEffect(() => {
     getSellerInfo()
     // Update the document title using the browser API
