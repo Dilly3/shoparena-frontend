@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 import { Link ,useNavigate} from 'react-router-dom'
+import './sellerProfile.css';
 
 
 export default function BuyerContainer() {
@@ -65,7 +66,7 @@ useEffect(()=>{
     
       <li>
         <Link to="/resetpassword">
-          <i className="fas fa-user" />
+          <i className="fas fa-key" />
           <div className="title-bdb">Change password</div>
         </Link>
       </li>

@@ -3,7 +3,7 @@ import axios from 'axios';
 const instance = axios.create({
 // .. where we make our configurations
      baseURL: 'https://oja-ecommerce.herokuapp.com/api/v1'
-    //baseURL: 'http://localhost:8080/api/v1'
+    //baseURL: 'http://localhost:9094/api/v1'
 });
 
 // Where you would set stuff like your 'Authorization' header, etc ...
