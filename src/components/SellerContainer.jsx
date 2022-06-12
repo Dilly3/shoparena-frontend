@@ -192,7 +192,7 @@ export default function SellerContainer() {
           <div className="cards">
   <div className="card">
     <div className="card-content">
-      <div className="number" style={{textAlign:"center"}}>{ products.length }</div>
+      <div className="number" style={{textAlign:"center"}}>{ (products || 0).length }</div>
       <div className="card-name">Total Product Count</div>
     </div>
     <div className="icon-box">
