@@ -34,6 +34,15 @@ const GetAllSellers = ({ id, Rating, Product, Order }) => {
 
   return (
     <>
+    {/* PRELOADER */}
+
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div id="object"></div>
+            </div>
+        </div>
+    </div >
       <div className="sellersNav">
         <p>
           <span className="sellerz">SELLER</span> INFORMATION
