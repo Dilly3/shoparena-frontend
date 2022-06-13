@@ -37,7 +37,15 @@ useEffect(()=>{
 
   return (
     <>
-    
+    {/* PRELOADER */}
+
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div id="object"></div>
+            </div>
+        </div>
+    </div >
     <div className="container-bdb">
   <div className="sidebar-bdb">
     <ul>
