@@ -280,17 +280,17 @@ const clearAlert = ()=>{
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/banner-1.jpeg" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/coolGadget.jpeg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/banner-2.jpeg" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/earpod.jpeg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/banner-3.jpeg" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/coolstuff.jpeg" alt=""/></a>
                             </div>
                         </div>
                         
