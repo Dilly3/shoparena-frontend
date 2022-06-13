@@ -22,7 +22,7 @@ export default function SuccessfulPayment(){
   <main>
    <div className='payment'>
    <h3>Thank you for your Patronage</h3>
-    <h4>{cartAmount} NGN Successfully paid for {quantity} Items</h4><br></br>
+    <h4>Successfully Paid</h4><br></br>
     <Link to="/">
     <h4>Continue Shopping</h4> 
     </Link>  
