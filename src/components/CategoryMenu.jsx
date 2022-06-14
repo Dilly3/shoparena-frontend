@@ -1,12 +1,17 @@
 import React from 'react'
+import {Carousel}  from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function CartegoryMenu() {
   return (
-    <>
+    
+    <div className="catergory_carousel">
+
+    {/* CATERGORY SIDERBAR */}
     <div className="col-xl-2 custom-col-2 d-none d-xl-block">
   <div className="cat__menu-wrapper">
     <div className="cat-toggle">
-      <button type="button" className="cat-toggle-btn"><i className="fas fa-bars" /> Shop by department</button>
+      <button type="button" className="cat-toggle-btn">{/*<i className="fas fa-bars" />*/} Shop by department</button>
       <div className="cat__menu">
         <nav id="mobile-menu">
           <ul>
@@ -70,7 +75,35 @@ export default function CartegoryMenu() {
   </div>
 </div>
 
+
+{/* CAROUSEL */}
+
+<div >
+        <Carousel
+        autoPlay
+        infiniteLoop
+        showStatus={false}
+        showIndicators={false}
+        showThumbs={false}
+        interval={2000}
+        >
+
+        <div className="bannerdiv">
+            <img loading='lazy' src="assets/img/slider-01.jpeg" alt="LV bag" />
+        </div>
+        <div className="bannerdiv">
+            <img loading='lazy' src="assets/img/slider-02.jpeg" alt="Laptop" />
+        </div>
+        <div className="bannerdiv">
+            <img loading='lazy' src="assets/img/slider-03.jpeg" alt="Iphones" />
+        </div>
+
+        </Carousel>
+        
+        </div>
+
+</div>
       
-    </>
+    
   )
 }

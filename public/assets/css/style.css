@@ -6119,6 +6119,14 @@ bottom: 25px;
   z-index: 1;
 }
 
+/* CAROUSEL */
+
+.catergory_carousel {
+  display: flex;
+}
+.bannerdiv {
+  height: 505px;
+}
 
 
 
