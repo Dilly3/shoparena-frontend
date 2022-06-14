@@ -291,17 +291,17 @@ const clearAlert = ()=>{
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/specialdeals.png" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/coolGadget.jpeg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/phones.png" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/earpod.jpeg" alt=""/></a>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6">
                             <div class="banner__item mb-30 w-img">
-                                <a href="product-details.html"><img src="assets/img/specialdeals.png" alt=""/></a>
+                                <a href="product-details.html"><img src="assets/img/coolstuff.jpeg" alt=""/></a>
                             </div>
                         </div>
                         
@@ -401,6 +401,122 @@ const clearAlert = ()=>{
     </section>
     {/* Baby Products stops */}
     
+      {/* Food Product*/}
+      <section className="flash__sell pt-25 pb-40 grey-bg-2">
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-12">
+            <div className="section__head d-md-flex justify-content-between mb-40">
+              <div className="section__title">
+                <h3>Top Consumable<span>Products</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>        
+        <div className="row" style={{alignItems:"center"}}>
+          <div className="col-xl-12" style={{margin: "auto"}}>
+            <div className="tab-content" id="flast-sell-tabContent" style={{margin: "auto"}}>
+              <div className="tab-pane fade show active" id="computer" role="tabpanel" aria-labelledby="computer-tab" style={{margin: "auto"}}>
+                <div className="row">
+                  <div className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container" style={{margin: "auto"}}>
+
+{/* render the function starts here */}
+
+                  {
+                  (products.length > 0 )? products.map(
+                  product => {
+                  if (product.category_id === 6){
+                    return(
+                      <> 
+    
+                        <div className="product__item-wrapper mb-20" style={{margin: "auto"}}>
+                          <div className="product__item white-bg" style={{margin: "auto"}}>
+                            <div className="product__thumb p-relative" style={{margin: "auto"}}>
+                              <a href="product-details.html" className="w-img">
+                                {product.images.length > 0 ? <img src={product.images[0].url} alt="product" className="homeimg"/> : 
+                                <img src="assets/img/shop/product/product-24.jpg" alt="NO IMAGE" className="homeimg"/> }
+                                
+                              </a>
+                              <div className="product__action p-absolute">
+                                <ul>
+                                  <li   onClick = {()=>handleModal(product)}><a href="#" title="Quick View" data-bs-toggle="modal" data-bs-target="#productModalId"><i className="fa fa-bars" /></a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div className="product__content text-center">
+                              <h6 className="product-name">
+                                {product.title}
+                              </h6>
+                              {/* <div className="rating">
+                                <ul>
+                                  <li><a href="#"><i className="far fa-star" /></a></li>
+                                  <li><a href="#"><i className="far fa-star" /></a></li>
+                                  <li><a href="#"><i className="far fa-star" /></a></li>
+                                  <li><a href="#"><i className="far fa-star" /></a></li>
+                                  <li><a href="#"><i className="far fa-star" /></a></li>
+                                </ul>
+                              </div> */}
+                              <span className="new">{product.price} NGN</span>
+                            </div>
+                            {token && <div className="product__add-btn">
+                              <button type="button" onClick = {()=>addToCartFunc(product)}>Add to Cart</button>
+                            </div>}
+                         
+                          </div>
+    
+                         
+                        </div>
+                        
+                        
+                      </>
+                      )
+
+                  }
+                  
+                  
+                  }
+                  ): <p> Loading...</p>
+                  }
+          
+ {/* Render the function stops here */}
+
+                  </div> 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {/* Food Products stops */}
+    
+     {/* banner area start  */}
+     <section class="banner__area pb-10 grey-bg-2">
+                <div class="container">
+                <Link to= "/allproducts">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/wine.jpeg" alt=""/></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/ice cream.jpeg" alt=""/></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/snacks.jpg" alt=""/></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </Link>
+                </div>
+            </section>
+            {/* banner area end  */}
+
     {/* back to top btn area start */}
     <section className="back-btn-top">
       <div className="container-fluid p-0">
