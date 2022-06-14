@@ -478,7 +478,33 @@ const clearAlert = ()=>{
       </div>
     </section>
     {/* Food Products stops */}
-
+    
+     {/* banner area start  */}
+     <section class="banner__area pb-10 grey-bg-2">
+                <div class="container">
+                <Link to= "/allproducts">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/wine.jpeg" alt=""/></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/ice cream.jpeg" alt=""/></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6">
+                            <div class="banner__item mb-30 w-img">
+                                <a href="product-details.html"><img src="assets/img/snacks.jpg" alt=""/></a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    </Link>
+                </div>
+            </section>
+            {/* banner area end  */}
 
     {/* back to top btn area start */}
     <section className="back-btn-top">
