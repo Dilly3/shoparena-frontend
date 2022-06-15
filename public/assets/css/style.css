@@ -2218,6 +2218,8 @@ p {
 }
 .product__item {
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+border-radius: 5px;
   padding: 15px 10px;
   padding-bottom: 30px;
   width: 250px;
@@ -2363,14 +2365,20 @@ p {
   background: #d01418;
   border-color: #d01418;
 }
-.product__content h6 {
-  padding-top: 15px;
-  font-size: 24px;
+
+/* PRODUCT CARD CSS */
+
+.product-name {
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(40, 40, 40);
+  font-size: 17px;
+  white-space: no-wrap;
   font-weight: 600;
-  color: #000;
-  line-height: 18px;
-  margin-bottom: 2px;
+  line-height: 14px;
+  margin-top: 13px;
 }
+
+
 .product__content h6:hover a {
   text-decoration: underline;
 }
@@ -2378,7 +2386,7 @@ p {
   font-size: 18px;
   font-weight: 500;
   color: #222;
-  padding: 0 7px;
+  padding-top: 8px;
   display: inline-block;
 }
 .product__content span.new {
@@ -6127,6 +6135,10 @@ bottom: 25px;
 .bannerdiv {
   height: 505px;
 }
+
+
+
+
 
 
 

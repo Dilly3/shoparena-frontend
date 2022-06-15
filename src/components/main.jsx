@@ -190,7 +190,7 @@ export default function Main() {
                   <div className="section__head d-md-flex justify-content-between mb-40">
                     <div className="section__title">
                       <h3>
-                        Top Flash<span>Deals</span>
+                        Top Flash<span> Deals</span>
                       </h3>
                     </div>
                   </div>
@@ -270,21 +270,12 @@ export default function Main() {
                                           </ul>
                                         </div>
                                       </div>
-                                      <div className="product__content text-center">
-                                        <h6 className="product-name">
+                                      <div className="product__content ">
+                                        <div className="product-name">
                                           {product.title}
-                                        </h6>
-                                        {/* <div className="rating">
-                                <ul>
-                                  <li><a href="#"><i className="far fa-star" /></a></li>
-                                  <li><a href="#"><i className="far fa-star" /></a></li>
-                                  <li><a href="#"><i className="far fa-star" /></a></li>
-                                  <li><a href="#"><i className="far fa-star" /></a></li>
-                                  <li><a href="#"><i className="far fa-star" /></a></li>
-                                </ul>
-                              </div> */}
+                                        </div>
                                         <span className="new">
-                                          {product.price} NGN
+                                        ₦{product.price}
                                         </span>
                                       </div>
                                       {token && (
@@ -359,7 +350,7 @@ export default function Main() {
                   <div className="section__head d-md-flex justify-content-between mb-40">
                     <div className="section__title">
                       <h3>
-                        Top Baby<span>Products</span>
+                        Top Baby<span> Products</span>
                       </h3>
                     </div>
                   </div>
@@ -440,10 +431,10 @@ export default function Main() {
                                             </ul>
                                           </div>
                                         </div>
-                                        <div className="product__content text-center">
-                                          <h6 className="product-name">
+                                        <div className="product__content">
+                                          <div className="product-name">
                                             {product.title}
-                                          </h6>
+                                          </div>
                                           {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -454,7 +445,7 @@ export default function Main() {
                                 </ul>
                               </div> */}
                                           <span className="new">
-                                            {product.price} NGN
+                                          ₦{product.price}
                                           </span>
                                         </div>
                                         {token && (
@@ -498,7 +489,7 @@ export default function Main() {
                   <div className="section__head d-md-flex justify-content-between mb-40">
                     <div className="section__title">
                       <h3>
-                        Top Consumable<span>Products</span>
+                        Top Consumable<span> Products</span>
                       </h3>
                     </div>
                   </div>
@@ -579,10 +570,10 @@ export default function Main() {
                                             </ul>
                                           </div>
                                         </div>
-                                        <div className="product__content text-center">
-                                          <h6 className="product-name">
+                                        <div className="product__content">
+                                          <div className="product-name">
                                             {product.title}
-                                          </h6>
+                                          </div>
                                           {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -593,7 +584,7 @@ export default function Main() {
                                 </ul>
                               </div> */}
                                           <span className="new">
-                                            {product.price} NGN
+                                          ₦{product.price}
                                           </span>
                                         </div>
                                         {token && (
@@ -914,7 +905,7 @@ export default function Main() {
                                     <span>{product.quantity} In Stock</span>
                                   </div>
                                   <div className="product__price">
-                                    <span>{product.price} NGN</span>
+                                    <span>₦{product.price}</span>
                                   </div>
                                   <div className="product__modal-form mb-30"></div>
                                 </div>
