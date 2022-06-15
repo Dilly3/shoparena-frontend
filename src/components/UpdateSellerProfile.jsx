@@ -70,17 +70,16 @@ export default  function UpdateSellerProfile() {
       });
   };
   const defaultImgUrl =
-
-    //"https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-    "/assets/img/no-pic-ava.jpeg";
+    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+    //"/assets/img/no-pic-ava.jpeg";
 
   useEffect(() => {
     getSellerInfo()
-  
   }, []);
+
   useEffect(() => {   
      // Update the document title using the browser API
-     console.log(user)
+   
     if (!user.image) {
       setImgUrl(defaultImgUrl)
     }else{
@@ -143,8 +142,10 @@ console.log(field)
                   onChange={changeHandler}
                 />
                 <div className="mt-5 text-center">
-                 <button className="btn btn-primary " type="submit">
-                    Save Profile Pic
+                 <button 
+                 style={{ background: `#fcb700`, border: "none" }}
+                 className="btn btn-dark " type="submit">
+                    save profile pic
                   </button>
                   </div>
               </form>
@@ -239,7 +240,9 @@ console.log(field)
                 </div>
                 <div className="row mt-3"></div>
                 <div className="mt-5 text-center">
-                  <button className="btn btn-primary " type="submit">
+                  <button 
+                  style={{ background: `#fcb700`, border: "none" }}
+                  className="btn btn-dark " type="submit">
                     Save Profile
                   </button>
                 </div>

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "../axios";
 import "./sellerProfile.css";
 
-export default function Profile({ handleClick }) {
+export default function BuyerProfile({ handleClick }) {
   //  const { user } = useContext(AuthContext);
   const [user, setUser] = useState(null);
 
@@ -151,7 +151,7 @@ export default function Profile({ handleClick }) {
                     <Link to="/update/buyer/profile">
                       <button
                         style={{ background: `#fcb700`, border: "none" }}
-                        className="btn btn-primary"
+                        className="btn btn-dark"
                         onClick={handleClick}
                         type="button"
                       >

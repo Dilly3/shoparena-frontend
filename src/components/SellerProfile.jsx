@@ -26,11 +26,25 @@ export default function SellerProfile({ handleClick }) {
 
   
   const defaultImgUrl =
-   // "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-   "/assets/img/no-pic-ava.jpeg";
+    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+   //"/assets/img/no-pic-ava.jpeg";
 
   if (user === null) {
-    return <div>Loading...</div>;
+    return(
+    <div className="lds-spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>)
   } else {
     return (
       <>
@@ -135,7 +149,7 @@ export default function SellerProfile({ handleClick }) {
                     <Link to="/update/seller/profile">
                       <button
                         style={{ background: `#fcb700`, border: "none" }}
-                        className="btn btn-primary"
+                        className="btn btn-dark"
                         onClick={handleClick}
                         type="button"
                       >
