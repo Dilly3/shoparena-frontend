@@ -58,7 +58,7 @@ export default function BuyerOrdersComponent() {
                     <td>Category</td>
                     <td>Product</td>
                     <td>Price</td>
-                    <td>Quantity</td>
+                    {/* <td>Quantity</td> */}
                   </tr>
                 </thead>
                 <tbody>
@@ -71,7 +71,7 @@ export default function BuyerOrdersComponent() {
                         <td>{order.CategoryName} </td>
                         <td>{order.Title}</td>
                         <td>{order.Price}</td>
-                        <td>{order.Quantity}</td>
+                        {/* <td>{order.Quantity}</td> */}
                       </tr>
                     ))}
                 </tbody>

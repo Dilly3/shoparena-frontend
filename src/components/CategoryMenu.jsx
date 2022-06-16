@@ -17,7 +17,7 @@ export default function CartegoryMenu() {
         <nav id="mobile-menu">
           <ul>
             <li>
-              <a href="product.html">All Categories <i className="far fa-angle-down" /></a>
+            <Link to="/allproducts">All Categories <i className="far fa-angle-down" /></Link>
               <ul className="mega-menu">
                 <li><Link to="/allproducts">Shop</Link>
                   <ul className="mega-item">

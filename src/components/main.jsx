@@ -220,10 +220,10 @@ export default function Main() {
                                 className="product__thumb p-relative"
                                 style={{ margin: "auto" }}
                               >
-                                <a
+                                {/* <a
                                   href="product-details.html"
                                   className="w-img"
-                                >
+                                > */}
                                   {product.images.length > 0 ? (
                                     <img
                                       src={product.images[0].url}
@@ -237,7 +237,7 @@ export default function Main() {
                                       className="homeimg"
                                     />
                                   )}
-                                </a>
+                                {/* </a> */}
                                 <div className="product__action p-absolute">
                                   <ul>
                                     <li onClick={() => handleModal(product)}>
@@ -352,10 +352,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -369,7 +369,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -462,10 +462,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -479,7 +479,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -572,10 +572,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -589,7 +589,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -683,10 +683,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -700,7 +700,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -793,10 +793,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -810,7 +810,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -935,10 +935,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -952,7 +952,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -1045,10 +1045,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -1062,7 +1062,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -1155,10 +1155,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -1172,7 +1172,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
@@ -1265,10 +1265,10 @@ export default function Main() {
                                   className="product__thumb p-relative"
                                   style={{ margin: "auto" }}
                                 >
-                                  <a
+                                  {/* <a
                                     href="product-details.html"
                                     className="w-img"
-                                  >
+                                  > */}
                                     {product.images.length > 0 ? (
                                       <img
                                         src={product.images[0].url}
@@ -1282,7 +1282,7 @@ export default function Main() {
                                         className="homeimg"
                                       />
                                     )}
-                                  </a>
+                                  {/* </a> */}
                                   <div className="product__action p-absolute">
                                     <ul>
                                       <li onClick={() => handleModal(product)}>
