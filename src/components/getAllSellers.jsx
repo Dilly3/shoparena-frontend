@@ -1,13 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import SocialShare from "./SocialShare/SocialShare";
+import {useNavigate} from "react-router-dom"
 import "./GetAllSellers.css";
 import { AiFillShop } from "react-icons/ai";
 
 const token = localStorage.getItem("token");
 
+
+
 const GetAllSellers = ({ id, Rating, Product, Order }) => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!token) {
+      navigate("/")
+    }
+    
+  }, [token])
+
+ 
   const [sellers, updateSellers] = useState(null);
 
   async function fetchSellers() {
@@ -31,6 +43,7 @@ const GetAllSellers = ({ id, Rating, Product, Order }) => {
   useEffect(() => {
     fetchSellers();
   }, []);
+ 
 
   return (
     <>
