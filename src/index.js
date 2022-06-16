@@ -14,7 +14,7 @@ import Buyerforgotpassword from "./components/Buyerforgotpassword";
 import Buyerupdatepassword from "./components/Buyerupdatepassword";
 import SellerDashboard from "./pages/SellerDashboard";
 import ViewCart from "./pages/ViewCart";
-import Profile from "./components/BuyerProfile";
+import BuyerProfile from "./components/BuyerProfile";
 import SellerProfile from "./components/SellerProfile";
 import UpdateBuyerProfile from "./components/UpdateBuyerProfile";
 import ProductId from "./components/ProductId";
@@ -58,7 +58,7 @@ root.render(
           <Route exact path="/buyer/reset/:token" element={<Buyerupdatepassword />}></Route>
           <Route exact path="/seller/dashboard" element={<SellerDashboard />}></Route>
           <Route exact path="/seller/dashboard/orders" element={<SellerOrdersComponent/>}></Route>
-          <Route exact path="/buyer/profile" element={<Profile />}></Route>
+          <Route exact path="/buyer/profile" element={<BuyerProfile />}></Route>
           <Route exact path="/seller/profile" element={<SellerProfile />} ></Route>
           <Route exact path="/update/buyer/profile" element={<UpdateBuyerProfile />}></Route>
           <Route exact path="/deleteproduct/:id" element={<ListOfSellerProducts />}></Route>
