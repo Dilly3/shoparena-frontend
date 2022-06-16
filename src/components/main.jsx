@@ -34,6 +34,10 @@ export default function Main() {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
+  const formatAmount = (number) => {
+    return number.toLocaleString()
+  }
+
   let data;
   async function searchProduct() {
     try {
@@ -253,7 +257,7 @@ export default function Main() {
                                 <div className="product-name">
                                   {product.title}
                                 </div>
-                                <span className="new">₦{product.price}</span>
+                                <span className="new">₦{formatAmount(product.price)}</span>
                               </div>
                               {token && (
                                 <div className="product__add-btn">
@@ -394,7 +398,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -504,7 +508,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -614,7 +618,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -725,7 +729,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -835,7 +839,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -977,7 +981,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -1087,7 +1091,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -1197,7 +1201,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -1307,7 +1311,7 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
+                                  <span className="new">₦{formatAmount(product.price)}</span>
                                 </div>
                                 {token && (
                                   <div className="product__add-btn">
@@ -1589,7 +1593,7 @@ export default function Main() {
                                     <span>{product.quantity} In Stock</span>
                                   </div>
                                   <div className="product__price">
-                                    <span>₦{product.price}</span>
+                                    <span>₦{formatAmount(product.price)}</span>
                                   </div>
                                   <div className="product__modal-form mb-30"></div>
                                 </div>
