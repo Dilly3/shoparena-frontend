@@ -30,6 +30,7 @@ export default function BuyerProfile({ handleClick }) {
 
   if (user === null) {
     return(
+    // <h1>Loading...</h1>
     <div className="lds-spinner">
                     <div></div>
                     <div></div>
@@ -43,7 +44,8 @@ export default function BuyerProfile({ handleClick }) {
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>)
+                </div>
+                )
   } else {
     return (
       <>
