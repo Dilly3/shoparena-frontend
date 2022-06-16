@@ -5,6 +5,7 @@ import {useAppContext} from "../context/ContextUse"
 import axios from 'axios'; 
 import "./buyerOrders.css";
 import "./cart-mini-1.jpg"
+import {Link} from "react-router-dom";
 
 
 
@@ -25,6 +26,7 @@ export default function Main(){
   sort, addToCart} = useAppContext()
 
 
+
 const [input, setInput ] = useState(initialState)
 
     const [products, setProducts] = useState([])
@@ -32,14 +34,17 @@ const [input, setInput ] = useState(initialState)
     const [alert, setAlert] = useState(alertInitialState)
 
     useEffect(()=>{
-    
+
       searchProduct()
     }, [category,
       lowerPrice,
       upperPrice,
       sort])
 
+
 const token = localStorage.getItem("token")
+
+
 
 const handleChange = (e)=>{
  
@@ -371,6 +376,16 @@ const clearAlert = ()=>{
                     </div>
                     <div className="product__price">
                       <span>{product.price} NGN</span>
+                    </div>
+                    {/*<div className="product__price">*/}
+                    {/*  <span>{product.price} NGN</span>*/}
+                    {/*</div>*/}
+                    <div className="product__price">
+                      <button type="button" className="btn btn-warning">
+                        <Link to={`/chat/${product.ID}`} className="gray-btn">
+                          Chat with Seller
+                        </Link>
+                      </button>
                     </div>
                     <div className="product__modal-form mb-30">
                     </div>

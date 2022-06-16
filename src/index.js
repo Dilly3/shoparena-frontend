@@ -32,6 +32,9 @@ import SellerResetPassword from "./pages/SellerResetPassword";
 import SellerUpdateProduct from "./pages/SellerUpdateProduct";
 import BuyerOrdersComponent from "./pages/BuyerOrders";
 import ListOfSellerProducts from "./pages/ListOfSellerProducts";
+import Chat from "./pages/Chat/Chat";
+import PrivateRoute from "./PrivateRoute";
+import GetProductByIdPage from "./pages/GetProductByIdPage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -72,6 +75,8 @@ root.render(
           <Route exact path="/seller/update/product/:id" element={<SellerUpdateProduct/>}></Route>
           <Route exact path="/buyer/dashboard/orders" element={<BuyerOrdersComponent/>}></Route>
           <Route exact path="/seller/products" element={<ListOfSellerProducts/>}></Route>
+          <Route path="chat/:id" element={<Chat />}/>
+          <Route exact path="/product/:id" element={<GetProductByIdPage/>}></Route>
           
         </Routes>
       </Router>

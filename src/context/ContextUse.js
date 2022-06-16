@@ -39,7 +39,7 @@ const userData = {
   last_name: "",
   phone_number: ""
   }
-const context = createContext();
+export const context = createContext(null);
 
 const ContextUse = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -102,6 +102,7 @@ console.log(cart.quantity)
   const getUser = async ()=>{
     try {
      const response = await instance.get('/getbuyerprofile')
+      console.log(response)
             setUser({...user,...response.data.data})
           } catch (error) {
   console.log(error.response, "this is an error")
@@ -118,6 +119,7 @@ console.log(cart.quantity)
     // console.log(cart);
   // ViewCart()
   }
+  console.log(user)
   
   return (
     <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem}}>
