@@ -17,15 +17,12 @@ const initialState = {
   
 
 export default function Navbar(){
-
- 
   
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
   const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
    const navigate = useNavigate()
-  
  
    const LogOut = async () => {
     // console.log(localStorage.token)
@@ -88,13 +85,6 @@ setInput({...input, [e.target.name]:e.target.value})
     }
     
   }, [])
-  useEffect(() => {
-    if (!user) {
-      localStorage.clear()
-      navigate("/")
-    }
-    
-  }, [user])
     return (
       <>
         <header className="yellow-header">
