@@ -18,13 +18,12 @@ export default function SellerProfile({ handleClick }) {
     } catch (error) {
       console.log(error.data)
     }
-  }
+  };
 
   useEffect(() => {
     getSellerInfo()
-  }, [])
+  }, []);
 
-  
   const defaultImgUrl =
     "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
    //"/assets/img/no-pic-ava.jpeg";
@@ -71,35 +70,8 @@ export default function SellerProfile({ handleClick }) {
                     </h4>
                     <p className="text-muted font-size-sm">{user.address}</p>
                   </div>
-                  {/* {!isBuyer && (
-                    <Link
-                      className="btn btn-primary"
-                      style={{ background: `#2076d2` }}
-                      to="/bookmark"
-                    >
-                      Starred Products
-                    </Link>
-                  )} */}
                 </div>
                 <div className="d-flex justify-content-around">
-                  {/* {isBuyer && (
-                    <Link
-                      to="/apartment"
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                    >
-                      Create
-                    </Link>
-                  )}
-                  {isBuyer && (
-                    <Link
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                      to="/profile/apartments"
-                    >
-                      My Orders
-                    </Link>
-                  )} */}
                 </div>
               </div>
             </div>

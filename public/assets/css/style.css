@@ -1917,7 +1917,7 @@ p {
   color: #222;
 }
 .yellow-header .header__action ul li a:hover {
-  color: #ffffff;
+  color: #d69c00;
 }
 .yellow-header .header__action ul li::after {
   background: #d69c00;

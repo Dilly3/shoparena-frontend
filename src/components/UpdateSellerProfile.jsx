@@ -8,7 +8,6 @@ import "./sellerProfile.css";
 //import context from "react-bootstrap/esm/AccordionContext";
 
 export default  function UpdateSellerProfile() {
-    //console.log("i am here")
   const { user, getUser } = useAppContext();
 //   const [field, setField] = useState(user);
   const [field, setField] = useState({
