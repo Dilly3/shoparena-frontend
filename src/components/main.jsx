@@ -43,7 +43,7 @@ export default function Main() {
       }
       const response = await instance.get(url);
       console.log(response.data);
-
+    
       setProducts(response.data);
     } catch (error) {
       if (error.response.status === 500) {
@@ -196,85 +196,114 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.slice(0, 5).map((product) => {
-                      return (
-                        <>
-                          <div
-                            className="product__item-wrapper mb-20"
-                            style={{ margin: "auto" }}
-                          >
-                            <div
-                              className="product__item white-bg"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__thumb p-relative"
-                                style={{ margin: "auto" }}
-                              >
-                                <a
-                                  href="product-details.html"
-                                  className="w-img"
-                                >
-                                  {product.images.length > 0 ? (
-                                    <img
-                                      src={product.images[0].url}
-                                      alt="product"
-                                      className="homeimg"
-                                    />
-                                  ) : (
-                                    <img
-                                      src="assets/img/shop/product/product-24.jpg"
-                                      alt="NO IMAGE"
-                                      className="homeimg"
-                                    />
-                                  )}
-                                </a>
-                                <div className="product__action p-absolute">
-                                  <ul>
-                                    <li onClick={() => handleModal(product)}>
-                                      <a
-                                        href="#"
-                                        title="Quick View"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#productModalId"
-                                      >
-                                        <i className="fa fa-bars" />
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                              <div className="product__content ">
-                                <div className="product-name">
-                                  {product.title}
-                                </div>
-                                <span className="new">₦{product.price}</span>
-                              </div>
-                              {token && (
-                                <div className="product__add-btn">
-                                  <button
-                                    type="button"
-                                    onClick={() => addToCartFunc(product)}
+                          {products.length > 0 ? (
+                            products.slice(0, 5).map((product) => {
+                              return (
+                                <>
+                                  <div
+                                    className="product__item-wrapper mb-20"
+                                    style={{ margin: "auto" }}
                                   >
-                                    Add to Cart
-                                  </button>
-                                </div>
-                              )}
-                            </div>
-                          </div>
-                        </>
-                      );
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                    <div
+                                      className="product__item white-bg"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__thumb p-relative"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <a
+                                          href="product-details.html"
+                                          className="w-img"
+                                        >
+                                          {product.images.length > 0 ? (
+                                            <img
+                                              src={product.images[0].url}
+                                              alt="product"
+                                              className="homeimg"
+                                            />
+                                          ) : (
+                                            <img
+                                              src="assets/img/shop/product/product-24.jpg"
+                                              alt="NO IMAGE"
+                                              className="homeimg"
+                                            />
+                                          )}
+                                        </a>
+                                        <div className="product__action p-absolute">
+                                          <ul>
+                                            <li
+                                              onClick={() =>
+                                                handleModal(product)
+                                              }
+                                            >
+                                              <a
+                                                href="#"
+                                                title="Quick View"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#productModalId"
+                                              >
+                                                <i className="fa fa-bars" />
+                                              </a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                      <div className="product__content ">
+                                        <div className="product-name">
+                                          {product.title}
+                                        </div>
+                                        <span className="new">
+                                        ₦{product.price}
+                                        </span>
+                                      </div>
+                                      {token && (
+                                        <div className="product__add-btn">
+                                          <button
+                                            type="button"
+                                            onClick={() =>
+                                              addToCartFunc(product)
+                                            }
+                                          >
+                                            Add to Cart
+                                          </button>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                </>
+                              );
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -327,65 +356,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id == 8) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id == 8) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -394,29 +444,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -437,65 +495,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id == 2) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id == 2) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -504,29 +583,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -547,65 +634,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id == 1) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id == 1) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -614,29 +722,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -657,66 +773,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
-
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 4) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 4) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -725,29 +861,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -768,65 +912,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 6) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 6) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -835,29 +1000,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -910,65 +1083,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 7) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 7) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -977,29 +1171,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1020,65 +1222,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 3) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 3) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -1087,29 +1310,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1130,65 +1361,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 5) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 5) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -1197,29 +1449,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1240,65 +1500,86 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <div className="tab-content" id="flast-sell-tabContent">
-                <div className="product-row">
-                  {/* render the function starts here */}
+              <div className="row" style={{ alignItems: "center" }}>
+                <div className="col-xl-12" style={{ margin: "auto" }}>
+                  <div
+                    className="tab-content"
+                    id="flast-sell-tabContent"
+                    style={{ margin: "auto" }}
+                  >
+                    <div
+                      className="tab-pane fade show active"
+                      id="computer"
+                      role="tabpanel"
+                      aria-labelledby="computer-tab"
+                      style={{ margin: "auto" }}
+                    >
+                      <div className="row">
+                        <div
+                          className="col-xxl-2 col-xl-2 col-lg-3 col-md-6 col-sm-6 products__container"
+                          style={{ margin: "auto" }}
+                        >
+                          {/* render the function starts here */}
 
-                  {products.length > 0 ? (
-                    products.map((product) => {
-                      if (product.category_id === 9) {
-                        return (
-                          <>
-                            <div
-                              className="product__item-wrapper mb-20"
-                              style={{ margin: "auto" }}
-                            >
-                              <div
-                                className="product__item white-bg"
-                                style={{ margin: "auto" }}
-                              >
-                                <div
-                                  className="product__thumb p-relative"
-                                  style={{ margin: "auto" }}
-                                >
-                                  <a
-                                    href="product-details.html"
-                                    className="w-img"
-                                  >
-                                    {product.images.length > 0 ? (
-                                      <img
-                                        src={product.images[0].url}
-                                        alt="product"
-                                        className="homeimg"
-                                      />
-                                    ) : (
-                                      <img
-                                        src="assets/img/shop/product/product-24.jpg"
-                                        alt="NO IMAGE"
-                                        className="homeimg"
-                                      />
-                                    )}
-                                  </a>
-                                  <div className="product__action p-absolute">
-                                    <ul>
-                                      <li onClick={() => handleModal(product)}>
-                                        <a
-                                          href="#"
-                                          title="Quick View"
-                                          data-bs-toggle="modal"
-                                          data-bs-target="#productModalId"
+                          {products.length > 0 ? (
+                            products.map((product) => {
+                              if (product.category_id === 9) {
+                                return (
+                                  <>
+                                    <div
+                                      className="product__item-wrapper mb-20"
+                                      style={{ margin: "auto" }}
+                                    >
+                                      <div
+                                        className="product__item white-bg"
+                                        style={{ margin: "auto" }}
+                                      >
+                                        <div
+                                          className="product__thumb p-relative"
+                                          style={{ margin: "auto" }}
                                         >
-                                          <i className="fa fa-bars" />
-                                        </a>
-                                      </li>
-                                    </ul>
-                                  </div>
-                                </div>
-                                <div className="product__content">
-                                  <div className="product-name">
-                                    {product.title}
-                                  </div>
-                                  {/* <div className="rating">
+                                          <a
+                                            href="product-details.html"
+                                            className="w-img"
+                                          >
+                                            {product.images.length > 0 ? (
+                                              <img
+                                                src={product.images[0].url}
+                                                alt="product"
+                                                className="homeimg"
+                                              />
+                                            ) : (
+                                              <img
+                                                src="assets/img/shop/product/product-24.jpg"
+                                                alt="NO IMAGE"
+                                                className="homeimg"
+                                              />
+                                            )}
+                                          </a>
+                                          <div className="product__action p-absolute">
+                                            <ul>
+                                              <li
+                                                onClick={() =>
+                                                  handleModal(product)
+                                                }
+                                              >
+                                                <a
+                                                  href="#"
+                                                  title="Quick View"
+                                                  data-bs-toggle="modal"
+                                                  data-bs-target="#productModalId"
+                                                >
+                                                  <i className="fa fa-bars" />
+                                                </a>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div className="product__content">
+                                          <div className="product-name">
+                                            {product.title}
+                                          </div>
+                                          {/* <div className="rating">
                                 <ul>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                   <li><a href="#"><i className="far fa-star" /></a></li>
@@ -1307,29 +1588,37 @@ export default function Main() {
                                   <li><a href="#"><i className="far fa-star" /></a></li>
                                 </ul>
                               </div> */}
-                                  <span className="new">₦{product.price}</span>
-                                </div>
-                                {token && (
-                                  <div className="product__add-btn">
-                                    <button
-                                      type="button"
-                                      onClick={() => addToCartFunc(product)}
-                                    >
-                                      Add to Cart
-                                    </button>
-                                  </div>
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })
-                  ) : (
-                    <p> Loading...</p>
-                  )}
+                                          <span className="new">
+                                          ₦{product.price}
+                                          </span>
+                                        </div>
+                                        {token && (
+                                          <div className="product__add-btn">
+                                            <button
+                                              type="button"
+                                              onClick={() =>
+                                                addToCartFunc(product)
+                                              }
+                                            >
+                                              Add to Cart
+                                            </button>
+                                          </div>
+                                        )}
+                                      </div>
+                                    </div>
+                                  </>
+                                );
+                              }
+                            })
+                          ) : (
+                            <p> Loading...</p>
+                          )}
 
-                  {/* Render the function stops here */}
+                          {/* Render the function stops here */}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
