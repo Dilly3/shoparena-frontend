@@ -1,6 +1,7 @@
 import React from 'react'
 import {Carousel}  from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CartegoryMenu() {
   return (
@@ -18,7 +19,7 @@ export default function CartegoryMenu() {
             <li>
               <a href="product.html">All Categories <i className="far fa-angle-down" /></a>
               <ul className="mega-menu">
-                <li><a href="product.html">Shop</a>
+                <li><Link to="/allproducts">Shop</Link>
                   <ul className="mega-item">
                     <li><>Fashion</></li>
                     <li><>Electronics</></li>
@@ -39,35 +40,22 @@ export default function CartegoryMenu() {
               </ul>
             </li>
             <li>
-              <a href="product.html">Seller Products
+              <a href="#baby">Baby Products
                 <span className="cat-label">hot!</span>
               </a>
             </li>
             <li>
-              <a href="product.html">Top 10 Offers
+              <a href="#computer">Computing
                 <span className="cat-label green">new!</span>
               </a>
             </li>
-            <li>
-              <a href="product.html">New Arrivals <i className="far fa-angle-down" /></a>
-              <ul className="submenu">
-                <li><a href="product.html">Home Appliances</a></li>
-                <li><a href="product.html">Technology</a>
-                  <ul className="submenu">
-                    <li><a href="product.html">Storage Devices</a></li>
-                    <li><a href="product.html">Monitors</a></li>
-                    <li><a href="product.html">Laptops</a></li>
-                  </ul>
-                </li>
-                <li><a href="product.html">Office Equipments</a></li>
-              </ul>
-            </li>
-            <li><a href="product.html">Phones &amp; Tablets</a></li>
-            <li><a href="product.html">Electronics &amp; Digital</a></li>
-            <li className="d-laptop-none"><a href="product.html">Fashion &amp; Clothings</a></li>
-            <li className="d-laptop-none"><a href="product.html">Jewelry &amp; Watches</a></li>
-            <li><a href="product.html">Health &amp; Beauty</a></li>
-            <li><a href="product.html">TV &amp; Audio</a></li>
+            <li><a href="#electronics">Electronics</a></li>
+            <li><a href="#fashion">Fashion</a></li>
+            <li className="d-laptop-none"><a href="#food">Food &amp; Drinks</a></li>
+            <li><a href="#health">Health &amp; Beauty</a></li>
+            <li><a href="#phones">Phones &amp; Tablets</a></li>
+            <li><a href="#sports">Sports</a></li>
+            <li><a href="#others">Others</a></li>
           </ul>
         </nav>
       </div>
