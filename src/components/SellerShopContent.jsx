@@ -118,67 +118,73 @@ useEffect(()=>{
   <main>
     
     {/* features area start */}
-    <section id= "top" className="features__area grey-bg-2 pt-40 pb-20 pl-10 pr-10">
-      <div className="container">
-        <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
-          <div className="col">
-            <div className="features__item d-flex white-bg">
-              <div className="features__icon mr-15">
-                <i className="fal fa-rocket-launch" />
-              </div>
-              <div className="features__content">
-                <h6>Free Shipping</h6>
-                <p>Free Shipping On All Order</p>
+    <section
+            id="top"
+            className="features__area grey-bg-2 pt-40 pb-20 pl-10 pr-10"
+          >
+            {alert.visible && (
+              <div className="addtoCart-Alert"> {alert.msg}</div>
+            )}
+            <div className="container">
+              <div className="row row-cols-xxl-5 row-cols-xl-5 row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 gx-0">
+                <div className="col">
+                  <div className="features__item d-flex white-bg">
+                    <div className="features__icon mr-15">
+                      <i className="fal fa-rocket-launch" />
+                    </div>
+                    <div className="features__content">
+                      <h6>Free Shipping</h6>
+                      <p>Free Shipping On All Order</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="features__item d-flex white-bg">
+                    <div className="features__icon mr-15">
+                      <i className="fal fa-sync" />
+                    </div>
+                    <div className="features__content">
+                      <h6>Money Guarantee</h6>
+                      <p>Upto 30 Days</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="features__item d-flex white-bg">
+                    <div className="features__icon mr-15">
+                      <i className="fal fa-user-headset" />
+                    </div>
+                    <div className="features__content">
+                      <h6>Online Support 24/7</h6>
+                      <p>Technical Support Stand By</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="features__item d-flex white-bg">
+                    <div className="features__icon mr-15">
+                      <i className="fal fa-thumbs-up" />
+                    </div>
+                    <div className="features__content">
+                      <h6>Secure Payment</h6>
+                      <p>All Payment Method</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col">
+                  <div className="features__item d-flex white-bg">
+                    <div className="features__icon mr-15">
+                      <i className="fal fa-badge-dollar" />
+                    </div>
+                    <div className="features__content">
+                      <h6>Member Discount</h6>
+                      <p>Upto 40% Discount</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col">
-            <div className="features__item d-flex white-bg">
-              <div className="features__icon mr-15">
-                <i className="fal fa-sync" />
-              </div>
-              <div className="features__content">
-                <h6>Money Guarantee</h6>
-                <p>30 Day Money Back Guarantee</p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="features__item d-flex white-bg">
-              <div className="features__icon mr-15">
-                <i className="fal fa-user-headset" />
-              </div>
-              <div className="features__content">
-                <h6>Online Support 24/7</h6>
-                <p>Technical Support Stand By</p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="features__item d-flex white-bg">
-              <div className="features__icon mr-15">
-                <i className="fal fa-thumbs-up" />
-              </div>
-              <div className="features__content">
-                <h6>Secure Payment</h6>
-                <p>All Payment Method are accepted</p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="features__item features__item-last d-flex white-bg">
-              <div className="features__icon mr-15">
-                <i className="fal fa-badge-dollar" />
-              </div>
-              <div className="features__content">
-                <h6>Member Discount</h6>
-                <p>Upto 40% Discount All Products</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </section>
     {/* features area end */}
   
  {/* Flash seller shop area start */}
@@ -201,9 +207,9 @@ useEffect(()=>{
             <div className='Seller-shop-container'>
                 {/*seller card start*/}
             <div className='left-side'>
-            <div className='boarder'>
-            <div className='avatar-seller'>
-                    <img src={  shop.image } className='avatar-seller' alt/>
+            <div >
+            <div >
+                    
                 </div>
             </div>   
             <div className='seller-01'>      
@@ -257,7 +263,7 @@ useEffect(()=>{
             {/* <div className='product-card'> */}
 
             <>
-            <SellerProductCard/>
+            <SellerProductCard shopid={shop.ID} ></SellerProductCard>
             </>
             {/* </div> */}
 

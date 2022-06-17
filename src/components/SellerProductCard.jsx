@@ -2,13 +2,13 @@ import React from 'react'
 import {useEffect, useState} from "react"
 import axios from '../axios'; 
 
-export default function SellerProductCard() {
+export default function SellerProductCard(props) {
     const [sellerShop, setSellerShop] = useState([])
 
     {/*SELLER PROFILE AND SHOP CONSUME START */}
     const getIndividualSellerShop = async () =>{
         try {
-          const resp = await axios.get("/seller/shop/1")
+          const resp = await axios.get(`/seller/shop/${props.shopid}`)
           console.log(resp)
           setSellerShop(resp.data.Seller_Shop)
           
@@ -27,19 +27,20 @@ useEffect(()=>{
   return (
     <>
     <div className='container-2'>
-     { sellerShop.length > 0 ? sellerShop[0].product.map((product) => ( 
+     { sellerShop.length > 0 ? sellerShop[0].product.map((product) =>  (
     
- 
+
 
   <div className="product-card">
       <h1>{ product.title }</h1>
-      <p>{product.description}</p>
-      <img className="product-pic" src={product.images} alt="img" />
+      <p className='shortp'>{product.description}</p>
+      {/* <img className="product-pic" src= {product.images} alt="img" /> */}
       <div className="product-info">
         <div className="product-price">N{product.price}</div>
-        <a href="#" className="product-button">Buy Now</a>
+        {/* <a href="#" className="product-button">Buy Now</a> */}
       </div>
     </div>
+ 
   
        )) : <p>loading</p>} 
 </div>
