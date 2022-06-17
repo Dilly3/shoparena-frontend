@@ -6,7 +6,7 @@ import {context} from "../../context/ContextUse"
 import Pusher from "pusher-js";
 import ChatList from "./ChatList";
 import ChatBox from "./ChatBox";
-import GeneralNavBar from "../components/GeneralNavBar"
+import Navbar from "../../components/Navbar";
 
 class Chat extends Component {
   static contextType = context;
@@ -123,7 +123,7 @@ class Chat extends Component {
     if (this.state.error !== "")
       return (
         <>
-          <GeneralNavBar />
+          <Navbar />
           <div className="App mt-5" style={{ margin: "50px", padding: "15px" }}>
             <div className="alert alert-danger">{this.state.error}</div>
           </div>
