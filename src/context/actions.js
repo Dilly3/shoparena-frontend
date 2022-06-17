@@ -1,4 +1,4 @@
-
+export const GET_CHAT_ID = "GET_CHAT_ID"
 export const ADD_TO_CART = "ADD_TO_CART"
 export const GET_SELLERS_BEGIN = "GET_SELLERS_BEGIN";
 export const GET_SELLERS_SUCCESS = "GET_SELLERS_SUCCESS";
