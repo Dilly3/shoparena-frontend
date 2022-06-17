@@ -18,19 +18,32 @@ export default function SellerProfile({ handleClick }) {
     } catch (error) {
       console.log(error.data)
     }
-  }
+  };
 
   useEffect(() => {
     getSellerInfo()
-  }, [])
+  }, []);
 
-  
   const defaultImgUrl =
-   // "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
-   "https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
+    "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
+   //"/assets/img/no-pic-ava.jpeg";
 
   if (user === null) {
-    return <div>Loading...</div>;
+    return(
+    <div className="lds-spinner">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>)
   } else {
     return (
       <>
@@ -46,7 +59,7 @@ export default function SellerProfile({ handleClick }) {
                   <img
                     width="150"
                     height="150"
-                    src={user.image ? user.image : defaultImgUrl}
+                    src={user.image ? user.image : "/assets/img/no-pic-ava.jpeg"}
                     alt={user.first_name}
                     className="rounded-circle"
                   />
@@ -57,35 +70,8 @@ export default function SellerProfile({ handleClick }) {
                     </h4>
                     <p className="text-muted font-size-sm">{user.address}</p>
                   </div>
-                  {/* {!isBuyer && (
-                    <Link
-                      className="btn btn-primary"
-                      style={{ background: `#2076d2` }}
-                      to="/bookmark"
-                    >
-                      Starred Products
-                    </Link>
-                  )} */}
                 </div>
                 <div className="d-flex justify-content-around">
-                  {/* {isBuyer && (
-                    <Link
-                      to="/apartment"
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                    >
-                      Create
-                    </Link>
-                  )}
-                  {isBuyer && (
-                    <Link
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                      to="/profile/apartments"
-                    >
-                      My Orders
-                    </Link>
-                  )} */}
                 </div>
               </div>
             </div>
@@ -135,7 +121,7 @@ export default function SellerProfile({ handleClick }) {
                     <Link to="/update/seller/profile">
                       <button
                         style={{ background: `#fcb700`, border: "none" }}
-                        className="btn btn-primary"
+                        className="btn btn-dark"
                         onClick={handleClick}
                         type="button"
                       >

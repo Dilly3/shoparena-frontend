@@ -1,15 +1,13 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import Main from "../components/main";
+import AllProducts from "../components/AllProducts";
 import Footer from "../components/Footer";
-import CategoryMenu from "../components/CategoryMenu";
 
-export default function Home() {
+export default function AllProd() {
   return (
     <>
       <Navbar/>
-      <CategoryMenu />
-       <Main/>
+       <AllProducts />
        <Footer/>
     </>
   );

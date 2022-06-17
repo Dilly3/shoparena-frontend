@@ -1902,7 +1902,7 @@ p {
 
 /* yellow header css start */
 .yellow-header {
-  background: #fcb700;
+  background: white;
 }
 .yellow-header .header__info {
   border-color: #d69c00;
@@ -1917,7 +1917,7 @@ p {
   color: #222;
 }
 .yellow-header .header__action ul li a:hover {
-  color: #ffffff;
+  color: #d69c00;
 }
 .yellow-header .header__action ul li::after {
   background: #d69c00;
@@ -2218,6 +2218,8 @@ p {
 }
 .product__item {
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+border-radius: 5px;
   padding: 15px 10px;
   padding-bottom: 30px;
   width: 250px;
@@ -2363,14 +2365,20 @@ p {
   background: #d01418;
   border-color: #d01418;
 }
-.product__content h6 {
-  padding-top: 15px;
-  font-size: 24px;
+
+/* PRODUCT CARD CSS */
+
+.product-name {
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(40, 40, 40);
+  font-size: 17px;
+  white-space: no-wrap;
   font-weight: 600;
-  color: #000;
-  line-height: 18px;
-  margin-bottom: 2px;
+  line-height: 14px;
+  margin-top: 13px;
 }
+
+
 .product__content h6:hover a {
   text-decoration: underline;
 }
@@ -2378,7 +2386,7 @@ p {
   font-size: 18px;
   font-weight: 500;
   color: #222;
-  padding: 0 7px;
+  padding-top: 8px;
   display: inline-block;
 }
 .product__content span.new {
@@ -6105,6 +6113,79 @@ bottom: 25px;
   margin-left: 55px;
 
 }
+
+.payment{
+  margin-top: 200px;
+  margin-bottom: 150px;
+  margin-left: 500px;
+}
+
+.fix-nav{
+  /* margin-top: ; */
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+
+/* CAROUSEL */
+
+.catergory_carousel {
+  display: flex;
+}
+.bannerdiv {
+  height: 505px;
+}
+
+/* PRODUCT ROWS (TOP) */
+.product-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 20px;
+  width: 100%;
+}
+
+@media(max-width:1200px)  {
+  .product-row{
+    grid-template-columns: repeat(3, 1fr);
+}
+#flast-sell-tabContent{
+  width: 100%;
+}
+}
+@media(max-width:990px){
+
+}
+
+@media(max-width:860px) {
+  .product-row{
+      grid-template-columns: repeat(2, 1fr);
+  }
+  .product__item {
+    padding: 9px 5px;
+  padding-bottom: 10px;
+  width: 150px;
+  }
+  .w-img{
+    height: 150px;
+  }
+  .product-name {
+    white-space: no-wrap;
+    font-weight: 600;
+    line-height: 10px;
+    font-size: 13px;
+  }
+  
+
+}
+@media(max-width:500px)  {
+  .product-row{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+}
+
+
 
 
 

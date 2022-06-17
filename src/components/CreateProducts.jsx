@@ -151,7 +151,7 @@ console.log(files)
               <label className="form-label" htmlFor="field-1">Upload Images</label>
               <span className="desc" />
               <div className="controls">
-                <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} />
+                <input type="file" name="images" multiple values={values.images} className="form-control" id="field-5" onChange={uploadImage} required />
               </div>
             </div>
 

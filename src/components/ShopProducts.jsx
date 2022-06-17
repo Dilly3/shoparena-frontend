@@ -109,7 +109,7 @@ export default function ShopProducts() {
               <tr>
                 <td>Number#</td>
                 <td>Product</td>
-                <td>Category</td>
+                {/* <td>Category</td> */}
                 <td>Price</td>
                 <td>Quantity</td>
                 <td>Actions</td>
@@ -122,14 +122,14 @@ export default function ShopProducts() {
                     {/* <td>{product.Fname} {product.Lname}</td> */}
                     <td>{index + 1}</td>
                     <td>{product.title} </td>
-                    <td>{product.Category.name}</td>
+                    {/* <td>{product.Category.name}</td> */}
                     <td>{product.price}</td>
                     <td>{product.quantity}</td>
                     <td>
-                      <i
+                      {/* <i
                         //  onClick={pass the function}
                         class="far fa-eye"
-                      ></i>
+                      ></i> */}
                       <i class="far fa-edit" onClick={()=>handleEdit(product.ID)}></i>
                       <button onClick={HandleDel(product.ID)}>
                         <i
