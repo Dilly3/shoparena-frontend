@@ -88,13 +88,7 @@ setInput({...input, [e.target.name]:e.target.value})
     }
     
   }, [])
-  useEffect(() => {
-    if (!user) {
-      localStorage.clear()
-      navigate("/")
-    }
-    
-  }, [user])
+ 
     return (
       <>
         <header className="yellow-header">

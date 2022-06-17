@@ -58,6 +58,7 @@ export default function Createproducts() {
     });
       console.log(response)
       setSuccess(true)
+      window.scrollTo(0,0)
 
       
     }
@@ -69,6 +70,7 @@ export default function Createproducts() {
     e.preventDefault();
     
     submit()
+    
     setValues(initialState)
 }
 const uploadImage = (e) => {

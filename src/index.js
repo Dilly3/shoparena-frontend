@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import Login from "./pages/Login";
 import SellerLogin from "./pages/SellerLogin";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ContextUse from "./context/ContextUse";
 import RegisterComponent from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
@@ -38,10 +38,13 @@ import AllProd from "./pages/AllProd";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+ 
   <React.StrictMode>
-    <ContextUse>
-      <Router>
+    <ContextUse >
+    
+      <Router >
         <Routes>
+        
           <Route exact path="/" element={<App />}></Route>
           <Route exact path="/viewcart" element={<ViewCart />}></Route>
           <Route exact path="/buyer/login" element={<Login />}></Route>
@@ -78,9 +81,12 @@ root.render(
           <Route exact path="/buyer/payment/successful" element={<Successful />}></Route>
           <Route exact path="/buyer/payment/unsuccessful" element={<Unsuccessful />}></Route>
           <Route exact path="/allproducts" element={<AllProd/>}></Route>
-          
+         
         </Routes>
       </Router>
+      
     </ContextUse>
+    
   </React.StrictMode>
+ 
 );
