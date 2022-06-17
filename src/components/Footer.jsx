@@ -83,7 +83,7 @@ export default function Footer() {
                 </div>
               </div>
             </div> */}
-            <div className="footer__copyright pb-35 black-bg ">
+            <div className="footer__copyright pb-35 black-bg " id="footer">
               <div className="container">
                 <div className="footer__copyright-inner pt-30">
                   <div className="row align-items-center">
@@ -92,7 +92,7 @@ export default function Footer() {
                        
                         <div className="header__hotline align-items-center d-none d-sm-flex d-lg-none d-xl-flex">
                         <p>
-                          Copyright © <a href="index.html">Decagon</a> All
+                          Copyright © <a href="#">Decagon</a> All
                           Rights Reserved. <a href="#">Golang Squad 10</a>
                         </p> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; 
                 

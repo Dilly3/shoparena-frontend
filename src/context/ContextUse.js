@@ -6,7 +6,7 @@ import React, {
   useState,
 useCallback} from "react";
 import { reducer } from "./reducer";
-import { DATA_FROM_SEARCH  } from "./actions";
+import { DATA_FROM_SEARCH, GET_CHAT_ID  } from "./actions";
 import axios from "axios";
 import instance from "../axios"
 
@@ -18,8 +18,7 @@ const initialState = {
   lowerPrice: "",
   upperPrice: "",
   sort: "",
-  
-
+  chatId: null
 };
 
 // const userData = {
@@ -39,7 +38,7 @@ const userData = {
   last_name: "",
   phone_number: ""
   }
-const context = createContext();
+export const context = createContext(null);
 
 const ContextUse = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -57,6 +56,9 @@ const ContextUse = ({ children }) => {
     dispatch({ type: DATA_FROM_SEARCH, payload: { ...data } });
   };
 
+  const setCartId = (id) => {
+    dispatch({type: GET_CHAT_ID, payload: id})
+  }
   const addToCart = () => {
     ViewCart()
   };
@@ -102,6 +104,7 @@ console.log(cart.quantity)
   const getUser = async ()=>{
     try {
      const response = await instance.get('/getbuyerprofile')
+      console.log(response)
             setUser({...user,...response.data.data})
           } catch (error) {
   console.log(error.response, "this is an error")
@@ -118,9 +121,10 @@ console.log(cart.quantity)
     // console.log(cart);
   // ViewCart()
   }
+  console.log(user)
   
   return (
-    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem}}>
+    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem, setCartId}}>
       {children}
     </context.Provider>
   );

@@ -17,15 +17,12 @@ const initialState = {
   
 
 export default function Navbar(){
-
- 
   
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1); 
   }
   const [localStore , setLocalStore] = useState(localStorage.getItem("access_token"))
    const navigate = useNavigate()
-  
  
    const LogOut = async () => {
     // console.log(localStorage.token)
@@ -242,17 +239,17 @@ setInput({...input, [e.target.name]:e.target.value})
                       <div className="main-menu main-menu-2 d-none d-md-block">
                         <nav>
                           <ul>
-                            <li>
+                            {/* <li>
                               <a href="about.html">about us</a>
-                            </li>
+                            </li> */}
                             <li>
-                              <a href="contact.html">contact</a>
+                              <a href="#footer">contact</a>
                             </li>
-                            <li>
+                            {/* <li>
                               <Link to="/sellers">
                                 <a href="#">sellers</a>
                               </Link>
-                            </li>
+                            </li> */}
                             {/* <li>
                               <a href="about.html">
                                 pages <i className="far fa-angle-down" />

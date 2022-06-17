@@ -106,9 +106,9 @@ export default function SellerContainer() {
 
         <div className="profile-details col-lg-8 col-md-8 col-8" style={{marginLeft:"20px"}}>
         <Link to="/seller/profile">
-          <h3 style={{ fontSize:"22px", float:"right", color:"#fff"}}>{ findSeller.last_name } {findSeller.first_name}</h3>
+          <h3 style={{ fontSize:"22px", float:"right", color:"#fff"}}>{ findSeller.first_name } {findSeller.last_name}</h3>
           </Link>
-          <p className="profile-title" style={{marginLeft:"5px", fontSize:"16px"}}>Store Manager </p>
+          <p className="profile-title" style={{marginLeft:"16px", fontSize:"16px"}}>Store Manager </p>
         </div>
 
       </div>
@@ -149,6 +149,11 @@ export default function SellerContainer() {
             <i className="fa fa-shopping-cart" />
             <span className="title">Orders</span>
             
+          </Link>
+          <Link to="/chat/1">
+            <i className="fa fa-shopping-cart" />
+            <span className="title">Check Messages</span>
+
           </Link>
           <ul className="sub-menu">
             <li>

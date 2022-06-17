@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "../axios";
 import "./sellerProfile.css";
 
-export default function Profile({ handleClick }) {
+export default function BuyerProfile({ handleClick }) {
   //  const { user } = useContext(AuthContext);
   const [user, setUser] = useState(null);
 
@@ -23,13 +23,13 @@ export default function Profile({ handleClick }) {
     getBuyerInfo();
   }, []);
 
-  console.log(user);
   const defaultImgUrl =
     "https://www.kindpng.com/picc/m/52-526237_avatar-profile-hd-png-download.png";
     //"https://i.ibb.co/5jwDfyF/Photo-on-24-11-2021-at-20-45.jpg";
 
   if (user === null) {
     return(
+    // <h1>Loading...</h1>
     <div className="lds-spinner">
                     <div></div>
                     <div></div>
@@ -43,7 +43,8 @@ export default function Profile({ handleClick }) {
                     <div></div>
                     <div></div>
                     <div></div>
-                </div>)
+                </div>
+                )
   } else {
     return (
       <>
@@ -71,35 +72,8 @@ export default function Profile({ handleClick }) {
                     </h4>
                     <p className="text-muted font-size-sm">{user.address}</p>
                   </div>
-                  {/* {!isBuyer && (
-                    <Link
-                      className="btn btn-primary"
-                      style={{ background: `#2076d2` }}
-                      to="/bookmark"
-                    >
-                      Starred Products
-                    </Link>
-                  )} */}
                 </div>
                 <div className="d-flex justify-content-around">
-                  {/* {isBuyer && (
-                    <Link
-                      to="/apartment"
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                    >
-                      Create
-                    </Link>
-                  )}
-                  {isBuyer && (
-                    <Link
-                      style={{ background: `#2076d2` }}
-                      className="btn btn-primary"
-                      to="/profile/apartments"
-                    >
-                      My Orders
-                    </Link>
-                  )} */}
                 </div>
               </div>
             </div>
@@ -151,7 +125,7 @@ export default function Profile({ handleClick }) {
                     <Link to="/update/buyer/profile">
                       <button
                         style={{ background: `#fcb700`, border: "none" }}
-                        className="btn btn-primary"
+                        className="btn btn-dark"
                         onClick={handleClick}
                         type="button"
                       >

@@ -107,10 +107,10 @@ export default function ViewCart(props){
                     <div className="product__item-wrapper mb-20">
                       <div className="product__item white-bg">
                         <div className="product__thumb p-relative">
-                          <a href="product-details.html" className="w-img">
+                          {/* <a href="product-details.html" className="w-img"> */}
                           {product.Images.length > 0 ? <img src={product.Images[0].url} alt="product" className="homeimg"/> : <img src="assets/img/shop/product/product-8.jpg" alt="NO IMAGE" className="homeimg"/> }
                             {/* <img src="assets/img/shop/product/product-8.jpg" alt="product" /> */}
-                          </a>
+                          {/* </a> */}
                         </div>
                         <div className="product__content text-center">
                           <h6 className="product-name">
