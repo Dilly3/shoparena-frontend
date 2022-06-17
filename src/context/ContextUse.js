@@ -6,7 +6,7 @@ import React, {
   useState,
 useCallback} from "react";
 import { reducer } from "./reducer";
-import { DATA_FROM_SEARCH  } from "./actions";
+import { DATA_FROM_SEARCH, GET_CHAT_ID  } from "./actions";
 import axios from "axios";
 import instance from "../axios"
 
@@ -18,8 +18,7 @@ const initialState = {
   lowerPrice: "",
   upperPrice: "",
   sort: "",
-  
-
+  chatId: null
 };
 
 // const userData = {
@@ -57,6 +56,9 @@ const ContextUse = ({ children }) => {
     dispatch({ type: DATA_FROM_SEARCH, payload: { ...data } });
   };
 
+  const setCartId = (id) => {
+    dispatch({type: GET_CHAT_ID, payload: id})
+  }
   const addToCart = () => {
     ViewCart()
   };
@@ -122,7 +124,7 @@ console.log(cart.quantity)
   console.log(user)
   
   return (
-    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem}}>
+    <context.Provider value={{ ...state, ...cart, handleSearch, addToCart, user, getUser, filterCart, setCart, ViewCart, setDeletedITem, deletedItem, setCartId}}>
       {children}
     </context.Provider>
   );

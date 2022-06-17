@@ -6,18 +6,25 @@ import {
   import {
     GET_PRODUCTID_BEGIN,
     GET_PRODUCTID_SUCCESS,
-    GET_PRODUCTID_ERROR,
+  GET_PRODUCTID_ERROR,
+    GET_CHAT_ID
   } from "./actions";
 
 
 
 export const reducer = (state, action) => {
+
   switch (action.type) {
     case DATA_FROM_SEARCH:
       return {
         ...state,
         ...action.payload,
       };
+    case GET_CHAT_ID:
+      return {
+        ...state, 
+       chatId: action.payload
+      }
     //   case FILTER_QUANTITY :
     //     return {
     //       ...state,
@@ -52,6 +59,8 @@ export const reducer = (state, action) => {
       featured_products,
     };
   }
+
+
   if (action.type === GET_SELLERS_ERROR) {
     return { ...state, sellers_loading: false, sellers_error: true };
   }

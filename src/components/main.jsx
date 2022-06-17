@@ -16,7 +16,14 @@ const alertInitialState = {
 };
 
 export default function Main() {
-  const { category, lowerPrice, upperPrice, sort, addToCart } = useAppContext();
+  const {
+    category,
+    lowerPrice,
+    upperPrice,
+    sort,
+    addToCart,
+    setCartId,
+  } = useAppContext();
 
   const [input, setInput] = useState(initialState);
 
@@ -1359,249 +1366,263 @@ export default function Main() {
               {products.length > 0 ? (
                   modalProduct.map((product) => {
                     return (
-                        <>
+                      <>
+                        <div
+                          className="modal fade"
+                          id="productModalId"
+                          tabIndex={-1}
+                          role="dialog"
+                          aria-hidden="true"
+                        >
                           <div
-                              className="modal fade"
-                              id="productModalId"
-                              tabIndex={-1}
-                              role="dialog"
-                              aria-hidden="true"
+                            className="modal-dialog modal-dialog-centered product__modal"
+                            role="document"
                           >
-                            <div
-                                className="modal-dialog modal-dialog-centered product__modal"
-                                role="document"
-                            >
-                              <div className="modal-content">
-                                <div className="product__modal-wrapper p-relative">
-                                  <div className="product__modal-close p-absolute">
-                                    <button data-bs-dismiss="modal">
-                                      <i className="fal fa-times" />
-                                    </button>
-                                  </div>
-                                  <div className="product__modal-inner">
-                                    <div className="row">
-                                      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div className="product__modal-box">
+                            <div className="modal-content">
+                              <div className="product__modal-wrapper p-relative">
+                                <div className="product__modal-close p-absolute">
+                                  <button data-bs-dismiss="modal">
+                                    <i className="fal fa-times" />
+                                  </button>
+                                </div>
+                                <div className="product__modal-inner">
+                                  <div className="row">
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                      <div className="product__modal-box">
+                                        <div
+                                          className="tab-content"
+                                          id="modalTabContent"
+                                        >
                                           <div
-                                              className="tab-content"
-                                              id="modalTabContent"
+                                            className="tab-pane fade show active"
+                                            id="nav1"
+                                            role="tabpanel"
+                                            aria-labelledby="nav1-tab"
                                           >
-                                            <div
-                                                className="tab-pane fade show active"
-                                                id="nav1"
-                                                role="tabpanel"
-                                                aria-labelledby="nav1-tab"
+                                            <div className="product__modal-img w-img">
+                                              {product.images.length > 1 ? (
+                                                <img
+                                                  src={product.images[1].url}
+                                                  alt="product"
+                                                />
+                                              ) : (
+                                                <img
+                                                  src="assets/img/shop/product/quick-view/quick-view-4.jpg"
+                                                  alt="NO IMAGE"
+                                                  className="homeimg"
+                                                />
+                                              )}
+                                            </div>
+                                          </div>
+
+                                          <div
+                                            className="tab-pane fade"
+                                            id="nav2"
+                                            role="tabpanel"
+                                            aria-labelledby="nav2-tab"
+                                          >
+                                            <div className="product__modal-img w-img">
+                                              {product.images.length > 2 ? (
+                                                <img
+                                                  src={product.images[2].url}
+                                                  alt="product"
+                                                />
+                                              ) : (
+                                                <img
+                                                  src="assets/img/shop/product/quick-view/quick-view-4.jpg"
+                                                  alt="NO IMAGE"
+                                                  className="homeimg"
+                                                />
+                                              )}
+                                            </div>
+                                          </div>
+
+                                          <div
+                                            className="tab-pane fade"
+                                            id="nav3"
+                                            role="tabpanel"
+                                            aria-labelledby="nav3-tab"
+                                          >
+                                            <div className="product__modal-img w-img">
+                                              {product.images.length > 3 ? (
+                                                <img
+                                                  src={product.images[3].url}
+                                                  alt="product"
+                                                />
+                                              ) : (
+                                                <img
+                                                  src="assets/img/shop/product/quick-view/quick-view-4.jpg"
+                                                  alt="NO IMAGE"
+                                                  className="homeimg"
+                                                />
+                                              )}
+                                            </div>
+                                          </div>
+
+                                          <div
+                                            className="tab-pane fade"
+                                            id="nav4"
+                                            role="tabpanel"
+                                            aria-labelledby="nav4-tab"
+                                          >
+                                            <div className="product__modal-img w-img">
+                                              {product.images.length > 4 ? (
+                                                <img
+                                                  src={product.images[4].url}
+                                                  alt="product"
+                                                />
+                                              ) : (
+                                                <img
+                                                  src="assets/img/shop/product/quick-view/quick-view-4.jpg"
+                                                  alt="NO IMAGE"
+                                                  className="homeimg"
+                                                />
+                                              )}
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <ul
+                                          className="nav nav-tabs modnav"
+                                          id="modalTab"
+                                          role="tablist"
+                                        >
+                                          {product.images.length > 1 && (
+                                            <li
+                                              className="nav-item"
+                                              role="presentation"
                                             >
-                                              <div className="product__modal-img w-img">
+                                              <button
+                                                className="nav-link active"
+                                                id="nav1-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#nav1"
+                                                type="button"
+                                                role="tab"
+                                                aria-controls="nav1"
+                                                aria-selected="true"
+                                              >
                                                 {product.images.length > 1 ? (
-                                                    <img
-                                                        src={product.images[1].url}
-                                                        alt="product"
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src="assets/img/shop/product/quick-view/quick-view-4.jpg"
-                                                        alt="NO IMAGE"
-                                                        className="homeimg"
-                                                    />
-                                                )}
-                                              </div>
-                                            </div>
-
-                                            <div
-                                                className="tab-pane fade"
-                                                id="nav2"
-                                                role="tabpanel"
-                                                aria-labelledby="nav2-tab"
+                                                  <img
+                                                    src={product.images[1].url}
+                                                    alt="product"
+                                                  />
+                                                ) : null}
+                                              </button>
+                                            </li>
+                                          )}
+                                          {product.images.length > 2 && (
+                                            <li
+                                              className="nav-item"
+                                              role="presentation"
                                             >
-                                              <div className="product__modal-img w-img">
+                                              <button
+                                                className="nav-link"
+                                                id="nav2-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#nav2"
+                                                type="button"
+                                                role="tab"
+                                                aria-controls="nav2"
+                                                aria-selected="false"
+                                              >
                                                 {product.images.length > 2 ? (
-                                                    <img
-                                                        src={product.images[2].url}
-                                                        alt="product"
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src="assets/img/shop/product/quick-view/quick-view-4.jpg"
-                                                        alt="NO IMAGE"
-                                                        className="homeimg"
-                                                    />
-                                                )}
-                                              </div>
-                                            </div>
-
-                                            <div
-                                                className="tab-pane fade"
-                                                id="nav3"
-                                                role="tabpanel"
-                                                aria-labelledby="nav3-tab"
+                                                  <img
+                                                    src={product.images[2].url}
+                                                    alt="product"
+                                                  />
+                                                ) : null}
+                                              </button>
+                                            </li>
+                                          )}
+                                          {product.images.length > 3 && (
+                                            <li
+                                              className="nav-item"
+                                              role="presentation"
                                             >
-                                              <div className="product__modal-img w-img">
+                                              <button
+                                                className="nav-link"
+                                                id="nav3-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#nav3"
+                                                type="button"
+                                                role="tab"
+                                                aria-controls="nav3"
+                                                aria-selected="false"
+                                              >
                                                 {product.images.length > 3 ? (
-                                                    <img
-                                                        src={product.images[3].url}
-                                                        alt="product"
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src="assets/img/shop/product/quick-view/quick-view-4.jpg"
-                                                        alt="NO IMAGE"
-                                                        className="homeimg"
-                                                    />
-                                                )}
-                                              </div>
-                                            </div>
-
-                                            <div
-                                                className="tab-pane fade"
-                                                id="nav4"
-                                                role="tabpanel"
-                                                aria-labelledby="nav4-tab"
+                                                  <img
+                                                    src={product.images[3].url}
+                                                    alt="product"
+                                                  />
+                                                ) : null}
+                                              </button>
+                                            </li>
+                                          )}
+                                          {product.images.length > 4 && (
+                                            <li
+                                              className="nav-item"
+                                              role="presentation"
                                             >
-                                              <div className="product__modal-img w-img">
+                                              <button
+                                                className="nav-link"
+                                                id="nav4-tab"
+                                                data-bs-toggle="tab"
+                                                data-bs-target="#nav4"
+                                                type="button"
+                                                role="tab"
+                                                aria-controls="nav4"
+                                                aria-selected="false"
+                                              >
                                                 {product.images.length > 4 ? (
-                                                    <img
-                                                        src={product.images[4].url}
-                                                        alt="product"
-                                                    />
-                                                ) : (
-                                                    <img
-                                                        src="assets/img/shop/product/quick-view/quick-view-4.jpg"
-                                                        alt="NO IMAGE"
-                                                        className="homeimg"
-                                                    />
-                                                )}
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <ul
-                                              className="nav nav-tabs modnav"
-                                              id="modalTab"
-                                              role="tablist"
-                                          >
-                                            {product.images.length > 1 && (
-                                                <li
-                                                    className="nav-item"
-                                                    role="presentation"
-                                                >
-                                                  <button
-                                                      className="nav-link active"
-                                                      id="nav1-tab"
-                                                      data-bs-toggle="tab"
-                                                      data-bs-target="#nav1"
-                                                      type="button"
-                                                      role="tab"
-                                                      aria-controls="nav1"
-                                                      aria-selected="true"
-                                                  >
-                                                    {product.images.length > 1 ? (
-                                                        <img
-                                                            src={product.images[1].url}
-                                                            alt="product"
-                                                        />
-                                                    ) : null}
-                                                  </button>
-                                                </li>
-                                            )}
-                                            {product.images.length > 2 && (
-                                                <li
-                                                    className="nav-item"
-                                                    role="presentation"
-                                                >
-                                                  <button
-                                                      className="nav-link"
-                                                      id="nav2-tab"
-                                                      data-bs-toggle="tab"
-                                                      data-bs-target="#nav2"
-                                                      type="button"
-                                                      role="tab"
-                                                      aria-controls="nav2"
-                                                      aria-selected="false"
-                                                  >
-                                                    {product.images.length > 2 ? (
-                                                        <img
-                                                            src={product.images[2].url}
-                                                            alt="product"
-                                                        />
-                                                    ) : null}
-                                                  </button>
-                                                </li>
-                                            )}
-                                            {product.images.length > 3 && (
-                                                <li
-                                                    className="nav-item"
-                                                    role="presentation"
-                                                >
-                                                  <button
-                                                      className="nav-link"
-                                                      id="nav3-tab"
-                                                      data-bs-toggle="tab"
-                                                      data-bs-target="#nav3"
-                                                      type="button"
-                                                      role="tab"
-                                                      aria-controls="nav3"
-                                                      aria-selected="false"
-                                                  >
-                                                    {product.images.length > 3 ? (
-                                                        <img
-                                                            src={product.images[3].url}
-                                                            alt="product"
-                                                        />
-                                                    ) : null}
-                                                  </button>
-                                                </li>
-                                            )}
-                                            {product.images.length > 4 && (
-                                                <li
-                                                    className="nav-item"
-                                                    role="presentation"
-                                                >
-                                                  <button
-                                                      className="nav-link"
-                                                      id="nav4-tab"
-                                                      data-bs-toggle="tab"
-                                                      data-bs-target="#nav4"
-                                                      type="button"
-                                                      role="tab"
-                                                      aria-controls="nav4"
-                                                      aria-selected="false"
-                                                  >
-                                                    {product.images.length > 4 ? (
-                                                        <img
-                                                            src={product.images[4].url}
-                                                            alt="product"
-                                                        />
-                                                    ) : null}
-                                                  </button>
-                                                </li>
-                                            )}
-                                          </ul>
-                                        </div>
+                                                  <img
+                                                    src={product.images[4].url}
+                                                    alt="product"
+                                                  />
+                                                ) : null}
+                                              </button>
+                                            </li>
+                                          )}
+                                        </ul>
                                       </div>
+                                    </div>
 
-                                      <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                        <div className="product__modal-content">
-                                          <h4>{product.title}</h4>
-                                          <div className="product__modal-des mb-40">
-                                            <p>
-                                              <b>Product Details:</b>{" "}
-                                              {product.description}{" "}
-                                            </p>
-                                          </div>
-                                          <div className="product__stock">
-                                            <span>Availability :</span>
-                                            <span>{product.quantity} In Stock</span>
-                                          </div>
-                                          <div className="product__price">
-                                            <span>₦{formatAmount(product.price)}</span>
-                                          </div>
-                                          <button type="button" className="btn btn-warning">
-                                            <Link to={`/chat/${product.ID}`} className="gray-btn">
-                                              Chat with Seller
-                                            </Link>
-                                          </button>
-                                          <div className="product__modal-form mb-30"></div>
+                                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                      <div className="product__modal-content">
+                                        <h4>{product.title}</h4>
+                                        <div className="product__modal-des mb-40">
+                                          <p>
+                                            <b>Product Details:</b>{" "}
+                                            {product.description}{" "}
+                                          </p>
                                         </div>
+                                        <div className="product__stock">
+                                          <span>Availability :</span>
+                                          <span>
+                                            {product.quantity} In Stock
+                                          </span>
+                                        </div>
+                                        <div className="product__price">
+                                          <span>
+                                            ₦{formatAmount(product.price)}
+                                          </span>
+                                        </div>
+                                        <button
+                                          type="button"
+                                          className="btn btn-warning"
+                                          onclick={() => setCartId(product.ID)}
+                                        >
+                                          <a
+                                            href={`/chat/${product.ID}`}
+                                            className="gray-btn"
+                                          >
+                                            {" "}
+                                            Chat with Seller
+                                          </a>
+                                          {/* <Link to={} >
+                                             
+                                            </Link> */}
+                                        </button>
+                                        <div className="product__modal-form mb-30"></div>
                                       </div>
                                     </div>
                                   </div>
@@ -1609,7 +1630,8 @@ export default function Main() {
                               </div>
                             </div>
                           </div>
-                        </>
+                        </div>
+                      </>
                     );
                   })
               ) : (
