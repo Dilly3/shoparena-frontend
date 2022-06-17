@@ -150,6 +150,11 @@ export default function SellerContainer() {
             <span className="title">Orders</span>
             
           </Link>
+          <Link to="/chat/1">
+            <i className="fa fa-shopping-cart" />
+            <span className="title">Check Messages</span>
+
+          </Link>
           <ul className="sub-menu">
             <li>
               <a className href="eco-orders.html">All Orders</a>
